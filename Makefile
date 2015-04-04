@@ -17,7 +17,6 @@ PDFFLAGS = -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress \
 	ps2pdf $(PDFFLAGS) $<
 
 all:	book.tex
-	pdflatex book
 	makeindex book
 	pdflatex book
 	mv book.pdf thinkpython.pdf
@@ -39,7 +38,7 @@ hevea:	book.tex header.html footer.html
 	cp up.png next.png back.png html
 	mv index.html thinkpython.css thinkpython*.html thinkpython*.png *motif.gif html
 
-DEST = /home/downey/public_html/greent/thinkpython/italian
+DEST = /home/downey/public_html/greent/thinkpython
 
 epub:
 	cd html; ebook-convert index.html thinkpython.epub
