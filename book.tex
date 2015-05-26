@@ -36,7 +36,7 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{2.0.15}
+\newcommand{\theversion}{2.0.15 - Rev. 1}
 \newcommand{\thedate}{Marzo 2015}
 
 % these styles get translated in CSS for the HTML version
@@ -796,6 +796,7 @@ $3 + = 3 \mbox{\$} 6$ è che \( \$ \) non è un simbolo valido in matematica
 Il secondo aspetto riguarda la struttura di un'espressione, cioè il modo in cui i simboli sono disposti. L'espressione
 $3 + = 3$ è strutturalmente non valida perché, anche se $+$ e $=$ sono dei simboli validi, non è possibile che uno segua immediatamente l'altro. Allo stesso modo, il pedice numerico nelle formule chimiche deve essere scritto dopo il simbolo dell'elemento chimico, e non prima.
 
+\vspace{0.2in}
 \begin{exercise}
 
 Scrivete una frase ben strutturata nella vostra lingua, contenente dei simboli non validi. Poi scrivete un'altra frase con tutti simboli validi ma con una struttura non valida.
@@ -805,7 +806,7 @@ Scrivete una frase ben strutturata nella vostra lingua, contenente dei simboli n
 Quando leggete una frase in italiano o un'espressione in un linguaggio formale, dovete analizzare quale sia la struttura della frase (in un linguaggio naturale, questa operazione viene effettuata subconsciamente). Questo processo di analisi è chiamato {\bf parsing}.
 \index{parsing}
 
-Per esempio, quando sentite la frase ``Mangiare la foglia'' comprendete che ``la foglia'' è l'oggetto e ``mangiare'' è il predicato verbale.  Una volta   analizzata la frase, potete coglierne il significato (ovvero la semantica della frase). Partendo dal presupposto che sappiate cosa sia una ``foglia'' e cosa significhi ``mangiare'', riuscirete a comprendere il significato generale della frase.
+Per esempio, quando sentite la frase ``Mangiare la foglia'', comprendete che ``la foglia'' è l'oggetto e ``mangiare'' è il predicato verbale.  Una volta   analizzata la frase, potete coglierne il significato (ovvero la semantica della frase). Partendo dal presupposto che sappiate cosa sia una ``foglia'' e cosa significhi ``mangiare'', riuscirete a comprendere il significato generale della frase.
 
 Anche se i linguaggi formali e quelli naturali condividono molte    caratteristiche (simboli, struttura, sintassi e semantica), ci sono delle   significative differenze:
 \index{ambiguità}
@@ -844,7 +845,7 @@ Ecco alcuni suggerimenti per la lettura dei programmi e degli altri linguaggi fo
 \index{Ciao, Mondo!}
 
 Per tradizione, il primo programma scritto in un nuovo linguaggio è
-chiamato ``Ciao, Mondo!'' perché tutto ciò che fa è scrivere le parole ``Ciao, Mondo!'' a video, e nient'altro. In Python questo programma si scrive così:
+chiamato ``Ciao, Mondo!'', perché tutto ciò che fa è scrivere a video le parole ``Ciao, Mondo!'', e niente di più. In Python questo programma si scrive così:
 
 \begin{verbatim}
 print 'Ciao, Mondo!'
@@ -1140,7 +1141,7 @@ Se inserite un intero con uno zero iniziale, potreste ottenere un errore inattes
 
 \begin{verbatim}
 >>> codicepostale = 02492
-                    ^
+                        ^
 SyntaxError: invalid token
 \end{verbatim}
 
@@ -1377,7 +1378,7 @@ Questo utilizzo di {\tt +} e {\tt *} è coerente per analogia con l'addizione e 
 
 Man mano che il programma cresce di dimensioni e diventa più complesso, diventa anche sempre più difficile da leggere. I linguaggi formali sono ricchi di significato, e può risultare difficile capire a prima vista cosa fa un pezzo di codice o perché è stato scritto in un certo modo.
 
-Per questa ragione, è buona abitudine aggiungere delle note ai vostri   programmi, per spiegare in linguaggio naturale cosa sta facendo il programma nelle sue varie parti. Queste note sono chiamate {\bf commenti}, e sono marcate dal simbolo \verb"#":
+Per questa ragione, è buona abitudine aggiungere delle note ai vostri   programmi, per spiegare in linguaggio naturale cosa sta facendo il programma nelle sue varie parti. Queste note sono chiamate {\bf commenti}, e sono demarcate dal simbolo \verb"#":
 
 \begin{verbatim}
 # calcola la percentuale di ora trascorsa
@@ -1481,7 +1482,7 @@ float}), e le stringhe (tipo {\tt str}).
 \item[variabile:]  Un nome che fa riferimento ad un valore.
 \index{variabile}
 
-\item[istruzione:]  Parte di codice che rappresenta un comando o un'azione.    Finora abbiamo visto istruzioni di assegnazione e istruzioni di .
+\item[istruzione:]  Parte di codice che rappresenta un comando o un'azione.    Finora abbiamo visto istruzioni di assegnazione e istruzioni di stampa.
 \index{istruzione}
 
 \item[assegnazione:]  Istruzione che assegna un valore ad una variabile.
@@ -1513,7 +1514,7 @@ float}), e le stringhe (tipo {\tt str}).
 \index{regole di precedenza}
 \index{precedenza}
 
-\item[concatenare:]  Unione di due stringhe tramite l'accodamento della seconda alla prima.
+\item[concatenare:]  Unire due stringhe tramite l'accodamento della seconda alla prima.
 \index{concatenamento}
 
 \item[commento:]  Informazione inserita in un programma riguardante il significato di una sua parte; non ha alcun effetto sull'esecuzione del programma
@@ -1563,7 +1564,7 @@ Fate un po' di pratica con l'interprete Python usandolo come calcolatrice:
 \begin{enumerate}
 
 \item Il volume di una sfera di raggio $r$ è $\frac{4}{3} \pi r^3$.
-  Che volume ha una sfera di raggio 5? Suggerimento: 392,5 è sbagliato!
+  Che volume ha una sfera di raggio 5? Suggerimento: 392,7 è sbagliato!
 
 \item Il prezzo di copertina di un libro è \verb"€" 24,95, ma una libreria ottiene il
   40\% di sconto. I costi di spedizione sono \verb"€" 3 per la prima copia e 75 centesimi per ogni copia aggiuntiva. Qual è il costo totale di 60 copie?
@@ -1759,8 +1760,8 @@ Ecco un esempio:
 
 \begin{verbatim}
 def stampa_brani():
-    print "All'ombra dell'ultimo sole"
-    print "s'era assopito un pescatore."
+    print "Terror di tutta la foresta egli e',"
+    print "Con l'ascia in mano si sente un re."
 \end{verbatim}
 %
 {\tt def} è una parola chiave riservata che indica la definizione di una nuova funzione. Il nome della funzione è \verb"stampa_brani".  Le regole per i nomi delle funzioni sono le stesse dei nomi delle variabili: lettere, numeri e alcuni segni di interpunzione sono permessi, ma il primo carattere non può essere un numero. Non si possono usare parole riservate, e bisogna evitare di avere una funzione e una variabile con lo stesso nome.
@@ -1785,8 +1786,8 @@ Se scrivete una funzione in modalità interattiva, l'interprete mette tre puntin
 
 \begin{verbatim}
 >>> def stampa_brani():
-...     print "All'ombra dell'ultimo sole"
-...     print "s'era assopito un pescatore."
+...     print "Terror di tutta la foresta egli e',"
+...     print "Con l'ascia in mano si sente un re."
 ...
 \end{verbatim}
 %
@@ -1808,8 +1809,8 @@ La sintassi per chiamare la nuova funzione è la stessa che abbiamo visto per le
 
 \begin{verbatim}
 >>> stampa_brani()
-All'ombra dell'ultimo sole
-s'era assopito un pescatore.
+Terror di tutta la foresta egli e',
+Con l'ascia in mano si sente un re.
 \end{verbatim}
 %
 Una volta definita una funzione, si può utilizzarla all'interno di un'altra funzione. Per esempio, per ripetere due volte il brano precedente possiamo scrivere una funzione \verb"ripeti_brani":
@@ -1824,10 +1825,10 @@ E quindi chiamare \verb"ripeti_brani":
 
 \begin{verbatim}
 >>> ripeti_brani()
-All'ombra dell'ultimo sole
-s'era assopito un pescatore.
-All'ombra dell'ultimo sole
-s'era assopito un pescatore.
+Terror di tutta la foresta egli e',
+Con l'ascia in mano si sente un re.
+Terror di tutta la foresta egli e',
+Con l'ascia in mano si sente un re.
 \end{verbatim}
 %
 Ma a dire il vero, la canzone non fa così!
@@ -1840,8 +1841,8 @@ Raggruppando assieme i frammenti di codice del Paragrafo precedente il programma
 
 \begin{verbatim}
 def stampa_brani():
-    print "All'ombra dell'ultimo sole"
-    print "s'era assopito un pescatore."
+    print "Terror di tutta la foresta egli e',"
+    print "Con l'ascia in mano si sente un re."
 
 def ripeti_brani):
     stampa_brani()
@@ -2288,7 +2289,7 @@ fai2volte(stampa_spam)
 
 \begin{enumerate}
 
-\item Scrivete questo esempio in uno script e provatelo
+\item Scrivete questo esempio in uno script e provatelo.
 
 \item Modificate \verb"fai2volte" in modo che accetti due argomenti, un oggetto funzione e un valore, e che chiami la funzione due volte passando il valore come argomento.
 
@@ -2298,7 +2299,7 @@ fai2volte(stampa_spam)
 \item Usate la versione modificata di \verb"fai2volte" per chiamare
 \verb"stampa_2volte" per due volte, passando \verb"'spam'" come argomento.
 
-\item Definite una nuova funzione di nome \verb"fai_quattro" che richieda un oggetto funzione e un valore e chiami la funzione per 4 volte, passando il valore come parametro. Dovrebbero esserci solo due istruzioni nel corpo di questa funzione, non quattro.
+\item Definite una nuova funzione di nome \verb"fai_quattro" che richieda un oggetto funzione e un valore e chiami la funzione per 4 volte, passando il valore come argomento. Dovrebbero esserci solo due istruzioni nel corpo di questa funzione, non quattro.
 
 \end{enumerate}
 
@@ -2337,7 +2338,7 @@ Suggerimento: per stampare più di un valore per riga, usate print con una seque
 print '+', '-'
 \end{verbatim}
 %
-Se la sequenza termina con una virgola, Python lascia in sospeso la riga, e il valore successivo stampato compare sulla stessa riga.
+Se la sequenza termina con una virgola, Python lascia in sospeso la riga, e il successivo valore stampato compare sulla stessa riga.
 
 \begin{verbatim}
 print '+', 
@@ -2346,7 +2347,7 @@ print '-'
 %
 L'output di questa istruzione è \verb"'+ -'".
 
-Un'istruzione {\tt print} a sé stante, termina la riga e va a capo
+Un'istruzione {\tt print} a sé stante, termina la riga e va a capo.
 
 \item Scrivete una funzione che disegni una griglia simile, con quattro righe e quattro colonne.
 
@@ -2537,7 +2538,7 @@ Altro suggerimento: se {\tt bob} è troppo lento potete accelerarlo cambiando {\
 
 \section{Incapsulamento}
 
-Il primo esercizio chiede di inserire il codice per disegnare un quadrato in una definizione di funzione, passando la tartaruga come parametro. Ecco una soluzione:
+Il primo esercizio chiede di inserire il codice per disegnare un quadrato in una definizione di funzione, passando la tartaruga come argomento. Ecco una soluzione:
 
 \begin{verbatim}
 def quadrato(t):
@@ -2571,7 +2572,7 @@ Ecco una soluzione:
 \begin{verbatim}
 def quadrato(t, lunghezza):
     for i in range(4):
-        fd(t, length)
+        fd(t, lunghezza)
         lt(t)
 
 quadrato(bob, 100)
@@ -2599,8 +2600,8 @@ Questo codice disegna un ettagono regolare con lati di lunghezza 70. Quando in u
 poligono(bob, n=7, lunghezza=70)
 \end{verbatim}
 %
-Questi sono detti {\bf argomenti per nome} perché includono il nome del parametro a cui vengono passati, quale ``parola chiave'' (da non confondere con le parole chiave riservate come {\tt while} e {\tt def}).
-\index{argomento!per nome}
+Questi sono detti {\bf argomenti con nome} perché includono il nome del parametro a cui vengono passati, quale ``parola chiave'' (da non confondere con le parole chiave riservate come {\tt while} e {\tt def}).
+\index{argomento!con nome}
 
 Questa sintassi rende il programma più leggibile. È anche un appunto di come funzionano argomenti e parametri: quando chiamate una funzione, gli argomenti vengono assegnati a quei parametri.
 
@@ -2723,7 +2724,7 @@ Una {\bf tecnica di sviluppo} è una procedura di scrittura dei programmi. Quell
 
 \end{enumerate}
 
-Questa procedura ha alcuni inconvenienti---vedremo più avanti alcune alternative---ma può essere di aiuto se in principio non sapete bene come dividere il vostro programma in funzioni. È un approccio che vi permette di progettare man mano che andate avanti.
+Questa procedura ha alcuni inconvenienti---vedremo più avanti alcune alternative---ma può essere di aiuto se in principio non sapete bene come suddividere il vostro programma in funzioni. È un approccio che vi permette di progettare man mano che andate avanti.
 
 
 \section{Stringa di documentazione}
@@ -2889,7 +2890,7 @@ Soluzione: \url{http://thinkpython.com/code/letters.py}, richiede anche
 \vspace{0.2in}
 \begin{exercise}
 
-Documentatevi sulle spirali sul sito \url{http://it.wikipedia.org/wiki/Spirale}; quindi scrivete un programma che disegna una spirale di Archimede (o di qualche altro tipo).  Soluzione: \url{http://thinkpython.com/code/spiral.py}.
+Documentatevi sulle spirali sul sito \url{http://it.wikipedia.org/wiki/Spirale}; quindi scrivete un programma che disegni una spirale di Archimede (o di qualche altro tipo).  Soluzione: \url{http://thinkpython.com/code/spiral.py}.
 \index{spirale}
 \index{spirale di Archimede} 
 
@@ -2904,7 +2905,7 @@ Documentatevi sulle spirali sul sito \url{http://it.wikipedia.org/wiki/Spirale};
 
 L'{\bf operatore modulo} si applica a due numeri interi e
    fornisce il resto della divisione del primo operando per il
-   secondo. In Python l'operatore modulo è rappresentato dal segno
+   secondo. In Python, l'operatore modulo è rappresentato dal segno
    percentuale (\verb"%").  La sintassi è la stessa degli altri operatori
    matematici:
 
@@ -2919,7 +2920,7 @@ L'{\bf operatore modulo} si applica a due numeri interi e
 %
 Pertanto 7 diviso 3 fa 2, con il resto di 1.
 
-L'operatore modulo può rivelarsi sorprendentemente utile. Per esempio permette di controllare se un numero è divisibile per un altro---se
+L'operatore modulo può rivelarsi sorprendentemente utile. Per esempio, permette di controllare se un numero è divisibile per un altro---se
 {\tt x \% y} è zero, significa che {\tt x} è divisibile per {\tt y}.
 \index{divisibilità}
 
@@ -3380,8 +3381,8 @@ Supponiamo di voler calcolare un rapporto segnale/rumore in decibel. La formula 
 import math
 potenza_segnale = 9
 potenza_rumore = 10
-ratio = potenza_segnale / potenza_rumore
-decibel = 10 * math.log10(ratio)
+rapporto = potenza_segnale / potenza_rumore
+decibel = 10 * math.log10(rapporto)
 print decibel
 \end{verbatim}
 %
@@ -3392,11 +3393,11 @@ Ma se lo eseguite in Python 2, compare un messaggio di errore.
 \begin{verbatim}
 Traceback (most recent call last):
   File "snr.py", line 5, in ?
-    decibel = 10 * math.log10(ratio)
+    decibel = 10 * math.log10(rapporto)
 ValueError: math domain error
 \end{verbatim}
 %
-Il messaggio punta alla riga 5, ma lì non c'è niente di sbagliato. Per trovare il vero errore, può essere utile stampare il valore di {\tt ratio}, che risulta essere 0. Il problema è nella riga 4, perché la divisione di due interi dà una divisione intera. La soluzione è rappresentare i valori del segnale e del rumore in numeri decimali a virgola mobile (9.0 e 10.0).
+Il messaggio punta alla riga 5, ma lì non c'è niente di sbagliato. Per trovare il vero errore, può essere utile stampare il valore di {\tt rapporto}, che risulta essere 0. Il problema è nella riga 4, perché la divisione di due interi dà una divisione intera. La soluzione è rappresentare i valori del segnale e del rumore in numeri decimali a virgola mobile (9.0 e 10.0).
 \index{divisione!intera}
 
 In genere, i messaggi di errore dicono dove è emerso il problema, ma spesso la causa è altrove.
@@ -4248,7 +4249,7 @@ Soluzione: \url{http://thinkpython.com/code/ackermann.py}.
 Un palindromo è una parola che si legge nello stesso modo sia da sinistra verso destra che viceversa, come ``ottetto'' e ``radar''. In termini ricorsivi, una parola è un palindromo se la prima e l'ultima lettera sono uguali e ciò che resta in mezzo è un palindromo.
 \index{palindromo}
 
-Quelle che seguono sono funzioni che prendono una stringa come parametro e restituiscono rispettivamente la prima lettera, l'ultima lettera, e quelle in mezzo:
+Quelle che seguono sono funzioni che hanno una stringa come parametro e restituiscono rispettivamente la prima lettera, l'ultima lettera, e quelle in mezzo:
 
 \begin{verbatim}
 def prima(parola):
@@ -4298,7 +4299,7 @@ Un modo per trovare il MCD di due numeri si basa sull'osservazione che, se $r$ �
 b) = mcd(b, r)$.  Come caso base, possiamo usare $mcd(a, 0) = a$.
 
 Scrivete una funzione di nome
-\verb"mcd" che prenda come parametri {\tt a} e {\tt b}
+\verb"mcd" che abbia come parametri {\tt a} e {\tt b}
 e restituisca il loro massimo comun divisore.
 
 Fonte: Questo esercizio è basato su un esempio in {\em Structure and Interpretation of Computer Programs} di Abelson e Sussman.
@@ -4328,14 +4329,14 @@ L'output di questo programma è {\tt 5 7}, perché la prima volta che {\tt bruce
 La Figura~\ref{fig.assign2} illustra il diagramma di stato per questa {\bf assegnazione multipla}. 
 \index{diagramma!di stato}
 
-Nel caso di assegnazioni multiple è particolarmente importante distinguere tra operazioni di assegnazione e controlli di uguaglianza.
+Nel caso di assegnazioni multiple, è particolarmente importante distinguere tra operazioni di assegnazione e controlli di uguaglianza.
 Dato che Python usa ({\tt =}) per le assegnazioni, potreste interpretare l'istruzione {\tt a = b} come un'espressione di uguaglianza, ma non lo è!
 \index{uguaglianza e assegnazione}
 
 In primo luogo l'equivalenza è simmetrica, cioè vale in entrambi i sensi, mentre l'assegnazione non lo è: in matematica se $a=7$ allora è anche $7=a$. Ma in Python l'istruzione {\tt a = 7} è valida mentre {\tt 7 = a} non lo è.
 
 Inoltre, in matematica un'uguaglianza è o vera o falsa, e rimane tale: se ora $a=b$ allora $a$ sarà sempre uguale a $b$.
-In Python un'assegnazione può rendere due variabili temporaneamente uguali, ma non è affatto detto che l'uguaglianza permanga:
+In Python, un'assegnazione può rendere due variabili temporaneamente uguali, ma non è affatto detto che l'uguaglianza permanga:
 
 \begin{verbatim}
 a = 5
@@ -5019,7 +5020,7 @@ Questo schema di calcolo---attraversare una sequenza e ritornare quando trova qu
 \vspace{0.2in}
 \begin{exercise}
 
-Modificate la funzione {\tt trova} in modo che accetti un terzo parametro che rappresenta la posizione da cui si deve cominciare la ricerca all'interno della stringa {\tt parola}.
+Modificate la funzione {\tt trova} in modo che richieda un terzo parametro, che rappresenta la posizione da cui si deve cominciare la ricerca all'interno della stringa {\tt parola}.
 
 \end{exercise}
 
@@ -5126,7 +5127,7 @@ In quest'ultimo caso la ricerca fallisce, perché {\tt b} non è compreso nell'i
 \index{count, metodo}
 \index{metodo!count}
 
-Esiste un metodo delle stringhe {\tt count} che è simile alla funzione dell'esercizio precedente. Leggete la documentazione del metodo e scrivete un'invocazione che conta il numero di {\tt a} in \verb"'banana'".
+Esiste un metodo delle stringhe di nome {\tt count} che è simile alla funzione dell'esercizio precedente. Leggete la documentazione del metodo e scrivete un'invocazione che conti il numero di {\tt a} in \verb"'banana'".
 \end{exercise}
 
 \vspace{0.2in}
@@ -5136,7 +5137,7 @@ Esiste un metodo delle stringhe {\tt count} che è simile alla funzione dell'ese
 
 Leggete la documentazione dei metodi delle stringhe sul sito
 \url{http://docs.python.org/2/library/stdtypes.html#string-methods}.
-Fate alcuni esperimenti con qualche metodo per assicurarvi di avere capito come funzionano. {\tt strip} e {\tt replace} sono particolarmente utili.
+Fate degli esperimenti con alcuni metodi per assicurarvi di avere capito come funzionano. {\tt strip} e {\tt replace} sono particolarmente utili.
 
 La documentazione utilizza una sintassi che può risultare poco chiara. Per esempio, in \verb"find(sub[, start[, end]])", le parentesi quadre indicano dei parametri opzionali (non vanno digitate). Quindi {\tt sub} è obbligatorio, ma
 {\tt start} è opzionale, e se indicate {\tt start}, allora {\tt end} è a sua volta opzionale.
@@ -5492,7 +5493,7 @@ La parola successiva è ``aah'', che è perfettamente valida per cui non fate qu
 >>> riga = fin.readline()
 >>> parola = riga.strip()
 >>> print parola
-aah
+aahed
 \end{verbatim}
 %
 Potete anche usare un oggetto file all'interno di un ciclo {\tt for}.
@@ -6369,10 +6370,10 @@ La funzione {\tt list} separa una stringa in singole lettere. Se invece volete s
 \index{metodo!split}
 
 \begin{verbatim}
->>> s = 'bramare per i fiordi'
+>>> s = 'profonda nostalgia dei fiordi'
 >>> t = s.split()
 >>> print t
-['bramare', 'per', 'i', 'fiordi']
+['profonda', 'nostalgia', 'dei', 'fiordi']
 \end{verbatim}
 %
 Un argomento opzionale chiamato {\bf delimitatore} specifica quale carattere va considerato come separatore delle parole. L'esempio che segue usa il trattino come separatore:
@@ -6392,14 +6393,14 @@ Un argomento opzionale chiamato {\bf delimitatore} specifica quale carattere va 
 \index{concatenamento}
 
 \begin{verbatim}
->>> t = ['bramare', 'per', 'i', 'fiordi']
+>>> t = ['profonda', 'nostalgia', 'dei', 'fiordi']
 >>> delimita = ' '
 >>> delimita.join(t)
-'bramare per i fiordi'
+'profonda nostalgia dei fiordi'
 \end{verbatim}
 %
 In questo caso il delimitatore è uno spazio, quindi
-{\tt join} aggiunge uno spazio tra le parole. Per concatenare delle stringhe senza spazi, basta usare la stringa vuota \verb"''", come delimitatore.
+{\tt join} aggiunge uno spazio tra le parole. Per concatenare delle stringhe senza spazi, basta usare come delimitatore la stringa vuota \verb"''".
 \index{stringa!vuota}
 
 
@@ -6532,7 +6533,7 @@ Non fa quasi mai differenza se {\tt a} e {\tt b} facciano riferimento alla stres
 \index{riferimento}
 \index{parametro}
 
-Quando passate una lista a una funzione, questa riceve un riferimento alla lista. Se la funzione modifica un parametro della lista, il chiamante vede la modifica. Per esempio \verb"decapita" rimuove il primo elemento di una lista:
+Quando passate una lista a una funzione, questa riceve un riferimento alla lista. Se la funzione modifica una lista, suo parametro, il chiamante vede la modifica. Per esempio, \verb"decapita" rimuove il primo elemento di una lista:
 
 \begin{verbatim}
 def decapita(t):
@@ -6580,7 +6581,7 @@ None
 [1, 2, 3, 4]
 \end{verbatim}
 
-Questa differenza è importante quando scrivete delle funzioni che devono modificare delle liste. Per esempio questa funzione
+Questa differenza è importante quando scrivete delle funzioni che devono modificare delle liste. Per esempio, questa funzione
 {\em non} cancella il primo elemento della lista:
 
 \begin{verbatim}
@@ -6846,14 +6847,14 @@ Una coppia di parole è ``bifronte'' se l'una si legge nel verso opposto dell'al
 \begin{exercise}
 \index{incastro, parola}
 
-Due parole si ``incastrano'' se, prendendo alternativamente delle lettere da una e dall'altra, si forma una nuova parola. Per esempio, le parole inglesi ``shoe'' and ``cold'' incastrandosi formano ``schooled.''
+Due parole si ``incastrano'' se, prendendo le loro lettere alternativamente  dall'una e dall'altra, si forma una nuova parola. Per esempio, le parole inglesi ``shoe'' and ``cold'' incastrandosi formano ``schooled''.
 
 
 \begin{enumerate}
 
 \item Scrivete un programma che trovi tutte le coppie di parole che possono incastrarsi. Suggerimento: non elaborate tutte le coppie!
 
-\item Riuscite a trovare delle parole tali che, unendole e prendendo una lettera ogni tre a partire dalla prima, seconda o terza lettera, si formi una nuova parola?
+\item Riuscite a trovare dei gruppi di tre parole che possono incastrarsi tra loro? Cioè, tre parole da cui, prendendo le lettere una ad una alternativamente, nell'ordine, si formi una nuova parola? (Es. ``ace'', ``bus'' e ``as'' danno ``abacuses'')
 
 \end{enumerate}
 
@@ -7221,7 +7222,7 @@ Ecco un esempio:
 \end{figure}
 
 La Figura~\ref{fig.dict1} è un diagramma di stato che mostra {\tt isto} e {\tt inverso}.
-Un dizionario viene rappresentato come un riquadro con la scritta {\tt dict} sopra e le coppie chiave-valore all'interno. Di solito, se i valori sono interi, float o stringhe, li raffiguro dentro il riquadro, lascio invece all'esterno le liste per mantenere il diagramma semplice.
+Un dizionario viene rappresentato come un riquadro con la scritta {\tt dict} sopra e le coppie chiave-valore all'interno. Di solito, se i valori sono interi, float o stringhe, li raffiguro dentro il riquadro, lascio invece all'esterno le liste per mantenere semplice il diagramma.
 \index{diagramma!di stato}
 
 Le liste possono essere valori nel dizionario, come mostra questo esempio, ma non possono essere chiavi. Ecco cosa succede se ci provate:
@@ -7247,7 +7248,7 @@ Un {\bf hash} è una funzione che prende un valore (di qualsiasi tipo) e restitu
 
 Questo sistema funziona se le chiavi sono immutabili; ma se sono mutabili, come le liste, succedono disastri. Per esempio, nel creare una coppia chiave-valore, Python fa l'hash della chiave e la immagazzina nello spazio corrispondente. Se modificate la chiave e quindi viene nuovamente calcolato l'hash, si collocherebbe in un altro spazio. In quel caso potreste avere due voci della stessa chiave, oppure non riuscire a trovare una chiave. In ogni caso il dizionario non funzionerà correttamente.
 
-Ecco perché le chiavi devono essere idonee all'hash, e quelle mutabili come le liste non lo sono. Il modo più semplice per aggirare questo limite è usare le tuple, che vedremo nel prossimo capitolo.
+Ecco perché le chiavi devono essere idonee all'hashing, e quelle mutabili come le liste non lo sono. Il modo più semplice per aggirare questo limite è usare le tuple, che vedremo nel prossimo capitolo.
 
 Dato che i dizionari sono mutabili, non possono essere usati come chiavi ma {\em possono} essere usati come valori.
 
@@ -7409,7 +7410,7 @@ def esempio():
     noto[2] = 1
 \end{verbatim}
 %
-Pertanto, potete aggiungere, rimuovere e sostituire elementi di una lista o dizionario globali, ma se dovete riassegnare la variabile, dovete dichiararla:
+Pertanto, potete aggiungere, rimuovere e sostituire elementi di una lista o dizionario globali, ma se dovete riassegnare la variabile, occorre dichiararla:
 
 \begin{verbatim}
 def esempio():
@@ -7583,8 +7584,7 @@ Scrivete un programma che legga un elenco di parole e trovi tutte le coppie di p
 \index{Car Talk}
 \index{Puzzler}
 
-Ecco un altro quesito tratto da {\em Car
-Talk} (\url{http://www.cartalk.com/content/puzzlers}):
+Ecco un altro quesito tratto da {\em Car Talk} (\url{http://www.cartalk.com/content/puzzlers}):
 
 \begin{quote}
 ``Questo ci è stato mandato da un amico di nome Dan O'Leary. Si è recentemente imbattuto in una parola inglese di una sillaba e cinque lettere che ha questa singolare proprietà: se togliete la prima lettera, le lettere restanti formano un omofono della prima parola, cioè un'altra parola che pronunciata suona allo stesso modo. Se poi rimettete la prima lettera e togliete la seconda, ottenete ancora un altro omofono della parola di origine. Qual è questa parola?''
@@ -8707,7 +8707,7 @@ Alcune parole sono nomi propri e possessivi. Altre come ``rencontre'' sono desue
 \index{tipo!set}
 
 Python ha una struttura di dati chiamata {\tt set}, o insieme, che fornisce molte operazioni comuni sugli insiemi. Leggetene la documentazione sul sito  
-\url{http://docs.python.org/2/library/stdtypes.html#types-set} e scrivete un programma che usa la sottrazione di insiemi per trovare le parole del libro che non sono nell'elenco. Soluzione:
+\url{http://docs.python.org/2/library/stdtypes.html#types-set} e scrivete un programma che usi la sottrazione di insiemi per trovare le parole del libro che non sono nell'elenco. Soluzione:
 \url{http://thinkpython.com/code/analyze_book2.py}.
 
 \end{exercise}
@@ -8737,7 +8737,7 @@ copie della stringa {\tt parola}.  Il metodo {\tt extend}
 \label{randhist}
 \index{algoritmo}
 
-Questo algoritmo funziona ma non è molto efficiente; ogni volta che estraete una parola, ricostruisce la lista, che è grande come il libro originale. Un ovvio miglioramento è di costruire la lista una sola volta e poi fare estrazioni multiple, ma la lista è ancora grande.
+Questo algoritmo funziona, ma non è molto efficiente: ogni volta che estraete una parola, ricostruisce la lista, che è grande come il libro originale. Un ovvio miglioramento è di costruire la lista una sola volta e poi fare estrazioni multiple, ma la lista è ancora grande.
 
 Un'alternativa è:
 
@@ -9017,14 +9017,14 @@ Se il file esiste già, l'apertura in modalità scrittura lo ripulisce dai vecch
 Il metodo {\tt write} inserisce i dati nel file.
 
 \begin{verbatim}
->>> riga1 = "Nel mezzo del cammin di nostra vita\n"
+>>> riga1 = "E questa qui e' l'acacia,\n"
 >>> fout.write(riga1)
 \end{verbatim}
 %
 Come sempre, l'oggetto file tiene traccia di dove si trova, e se invocate ancora il metodo {\tt write} aggiunge i dati in coda al file.
 
 \begin{verbatim}
->>> riga2 = "mi ritrovai per una selva oscura\n"
+>>> riga2 = "l'emblema della nostra terra.\n"
 >>> fout.write(riga2)
 \end{verbatim}
 %
@@ -9255,9 +9255,9 @@ e {\tt os.path.isfile}, ma ci vorrebbe molto tempo e molto codice per controllar
 
 \begin{verbatim}
 try:    
-    fin = open('bad_file')
-    for line in fin:
-        print line
+    fin = open('file_corrotto')
+    for riga in fin:
+        print riga
     fin.close()
 except:
     print 'Qualcosa non funziona.'
@@ -9415,7 +9415,7 @@ Ad esempio, il comando Unix {\tt ls -l} di norma mostra il contenuto della carte
 >>> fp = os.popen(cmd)
 \end{verbatim}
 %
-L'argomento è una stringa che contiene un comando shell. Il valore di ritorno è un oggetto che si comporta proprio come un file aperto. Potete leggere l'output del processo {\tt ls} una riga per volta con {\tt readline} oppure ottenere tutto in una volta con {\tt read}:
+L'argomento è una stringa che contiene un comando shell. Il valore di ritorno è un oggetto che si comporta proprio come un file aperto. Potete leggere l'output del processo {\tt ls} una riga per volta con {\tt readline}, oppure ottenere tutto in una volta con {\tt read}:
 \index{readline, metodo}
 \index{metodo!readline}
 \index{read, metodo}
@@ -9462,11 +9462,11 @@ None
 \label{checksum}
 \index{MP3}
 
-In una grande raccolta di file MP3 possono esserci più copie della stessa canzone, messe in cartelle diverse o con nomi di file differenti. Scopo di questo esercizio è di cercare i duplicati.
+In una grande raccolta di file MP3 possono esserci più copie della stessa canzone, messe in cartelle diverse o con nomi di file differenti. Scopo di questo esercizio è di ricercare i duplicati.
 
 \begin{enumerate}
 
-\item Scrivete un programma che cerchi in una cartella e ricorsivamente nelle sue sottocartelle, e restituisca un elenco dei percorsi completi di tutti i file con una stessa estensione (come {\tt .mp3}).
+\item Scrivete un programma che cerchi in una cartella e, ricorsivamente, nelle sue sottocartelle, e restituisca un elenco dei percorsi completi di tutti i file con una stessa estensione (come {\tt .mp3}).
 Suggerimento: {\tt os.path} contiene alcune funzioni utili per trattare nomi di file e percorsi.
 \index{duplicato}
 \index{md5, algoritmo}
@@ -9576,7 +9576,7 @@ Quando leggete e scrivete file, è possibile incontrare dei problemi con gli spa
 \index{funzione!repr}
 \index{stringa!rappresentazione}
 
-La funzione predefinita {\tt repr} può essere utile. Riceve come argomento qualsiasi oggetto e restituisce una rappresentazione dell'oggetto in forma di stringa. Per le stringhe, essa rappresenta gli spaziatori con delle sequenze con barra inversa:
+La funzione predefinita {\tt repr} può essere utile: riceve come argomento qualsiasi oggetto e restituisce una rappresentazione dell'oggetto in forma di stringa. Per le stringhe, essa rappresenta gli spaziatori con delle sequenze con barra inversa:
 
 \begin{verbatim}
 >>> print repr(s)
@@ -9588,7 +9588,7 @@ Questa funzione può quindi aiutare nel debug.
 Un altro problema in cui potreste imbattervi è che sistemi diversi usano caratteri diversi per indicare la fine della riga. Alcuni usano il carattere di ritorno a capo, rappresentato da \verb"\n".  Altri usano quello di ritorno carrello, rappresentato da \verb"\r".  Alcuni usano entrambi. Se spostate i file da un sistema all'altro, queste incongruenze possono causare errori.
 \index{fine riga, carattere}
 
-Comunque, esistono per ogni sistema delle applicazioni che convertono da un formato a un altro. Potete trovarne (e leggere altro sull'argomento) sul sito \url{http://it.wikipedia.org/wiki/Ritorno_a_capo}.  Oppure, naturalmente, potete scriverne uno voi.
+Comunque, esistono per ogni sistema delle applicazioni che convertono da un formato a un altro. Potete trovarne (e leggere altro sull'argomento) sul sito \url{http://it.wikipedia.org/wiki/Ritorno_a_capo}.  Oppure, naturalmente, potete scriverne una voi.
 
 
 \section{Glossario}
@@ -10343,7 +10343,7 @@ def somma_tempo(t1, t2):
     return somma
 \end{verbatim}
 %
-La funzione crea un nuovo oggetto {\tt Tempo}  ne inizializza gli attributi, e restituisce un riferimento al nuovo oggetto. Questa è detta {\bf funzione pura},  perché non modifica alcuno degli oggetti che le vengono passati come argomento e, oltre a restituire un valore, non ha effetti visibili come visualizzare valori o chiedere input all'utente.
+La funzione crea un nuovo oggetto {\tt Tempo}, ne inizializza gli attributi, e restituisce un riferimento al nuovo oggetto. Questa è detta {\bf funzione pura},  perché non modifica alcuno degli oggetti che le vengono passati come argomento e, oltre a restituire un valore, non ha effetti visibili come visualizzare valori o chiedere input all'utente.
 \index{funzione!pura}
 
 Per provare questa funzione, creiamo due oggetti Tempo: {\tt inizio}
@@ -10358,7 +10358,7 @@ che contiene l'ora di inizio di un film, come {\em I Monty Python e il Sacro Gra
 >>> inizio.minuto = 45
 >>> inizio.secondo =  0
 
->>> durata = Time()
+>>> durata = Tempo()
 >>> durata.ora = 1
 >>> durata.minuto = 35
 >>> durata.secondo = 0
@@ -10375,7 +10375,7 @@ Ecco allora una versione migliorata della funzione:
 
 \begin{verbatim}
 def somma_tempo(t1, t2):
-    somma = Time()
+    somma = Tempo()
     somma.ora = t1.ora + t2.ora
     somma.minuto = t1.minuto + t2.minuto
     somma.secondo = t1.secondo + t2.secondo
@@ -10668,7 +10668,7 @@ Non è facile definire la programmazione orientata agli oggetti, tuttavia abbiam
 Per esempio, la classe {\tt Tempo} definita nel Capitolo~\ref{time}
 corrisponde al modo in cui le persone pensano alle ore del giorno, e le funzioni che abbiamo definite corrispondono al tipo di operazioni che le persone fanno con il tempo. Allo stesso modo, le classi {\tt Punto} e {\tt Rettangolo} corrispondono ai rispettivi concetti matematici.
 
-Finora non abbiamo tratto vantaggio dalle capacità di supporto della   programmazione orientata agli oggetti fornite da Python. A dire il vero, queste funzionalità non sono indispensabili; piuttosto, forniscono una sintassi alternativa per fare le cose che abbiamo già fatto. Ma in molti casi questa alternativa è più concisa e si adatta in modo più accurato alla struttura del programma.
+Finora, non abbiamo tratto vantaggio dalle capacità di supporto della   programmazione orientata agli oggetti fornite da Python. A dire il vero, queste funzionalità non sono indispensabili; piuttosto, forniscono una sintassi alternativa per fare le cose che abbiamo già fatto. Ma in molti casi questa alternativa è più concisa e si adatta in modo più accurato alla struttura del programma.
 
 Ad esempio, nel programma {\tt Time} non c'è una chiara connessione tra la definizione della classe e le definizioni di funzione che seguono. A un esame più attento, è però evidente che tutte queste funzioni ricevono almeno un oggetto {\tt Tempo} come argomento.
 \index{metodo}
@@ -11337,7 +11337,7 @@ In questo capitolo illustrerò delle classi che rappresentano carte da gioco, ma
 \index{carte da gioco, francesi}
 \index{poker}
 
-Se non conoscete bene le carte da gioco, potete consultare il sito \url{http://it.wikipedia.org/wiki/Carte_da_gioco}.
+Se non conoscete bene le carte da gioco francesi, potete consultare il sito \url{http://it.wikipedia.org/wiki/Carte_da_gioco}.
 
 
 \section{Oggetti Carta}
@@ -11432,7 +11432,7 @@ Questo termine li distingue da variabili come {\tt seme} e {\tt
   valore}, che sono chiamati {\bf attributi di istanza} perché sono associati ad una specifica istanza.
 \index{dot notation}
 
-Ad entrambi i tipi si accede usando la notazione a punto. per esempio in \verb"__str__", {\tt self} è un oggetto carta e {\tt self.valore} è il suo valore.  Allo stesso modo, {\tt Carta} è un oggetto classe, e \verb"Carta.nomi_valori" è una lista di stringhe associata alla classe.
+Ad entrambi i tipi si accede usando la notazione a punto. Per esempio in \verb"__str__", {\tt self} è un oggetto carta e {\tt self.valore} è il suo valore.  Allo stesso modo, {\tt Carta} è un oggetto classe, e \verb"Carta.nomi_valori" è una lista di stringhe associata alla classe.
 
 Ogni carta ha i suoi propri {\tt seme} e {\tt valore}, ma esiste una sola copia di \verb"nomi_semi" e \verb"nomi_valori".
 
