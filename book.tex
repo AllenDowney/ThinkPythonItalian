@@ -36,8 +36,8 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{2.0.15 - Rev. 1}
-\newcommand{\thedate}{Marzo 2015}
+\newcommand{\theversion}{2.0.16}
+\newcommand{\thedate}{}
 
 % these styles get translated in CSS for the HTML version
 \newstyle{a:link}{color:black;}
@@ -185,6 +185,8 @@ Il codice sorgente \LaTeX\ di questo libro è disponibile all'indirizzo
 \url{http://www.thinkpython.com}.
 
 \vspace{0.2in}
+Titolo originale: {\em Think Python: How to Think Like a Computer Scientist}
+
 Traduzione di Andrea Zanella (andreazanella@tiscali.it).
 
 
@@ -718,7 +720,7 @@ Ci sono tre tipi di errori nei quali si incorre durante la programmazione: gli e
 \index{errore!di sintassi}
 \index{errore!messaggio di}
 
-Python può eseguire un programma solo se il programma è sintatticamente corretto, altrimenti l'elaborazione fallisce e l'interprete restituisce un messaggio d'errore. La {\bf sintassi} si riferisce alla struttura di un programma e alle regole che la governano. Ad esempio, le parentesi devono essere sempre presenti a coppie corrispondenti, così{\tt (1 + 2)} è corretto, ma {\tt 8)} è un {\bf errore di sintassi}.
+Python può eseguire un programma solo se il programma è sintatticamente corretto, altrimenti l'elaborazione fallisce e l'interprete restituisce un messaggio d'errore. La {\bf sintassi} si riferisce alla struttura di un programma e alle regole che la governano. Ad esempio, le parentesi devono essere sempre presenti a coppie corrispondenti, così {\tt (1 + 2)} è corretto, ma {\tt 8)} è un {\bf errore di sintassi}.
 \index{sintassi} 
 \index{parentesi!corrispondenza}
 \index{cummings, e. e.}
@@ -851,8 +853,7 @@ chiamato ``Ciao, Mondo!'', perché tutto ciò che fa è scrivere a video le paro
 print 'Ciao, Mondo!'
 \end{verbatim}
 %
-Questo è un esempio di {\bf istruzione print}, che a dispetto del nome non stampa
-nulla su carta, limitandosi invece a visualizzare un valore scrivendolo sullo schermo. In questo caso ciò che viene ``stampato'' sono le parole:
+Questo è un esempio di {\bf istruzione di stampa}, che a dispetto del nome non stampa nulla su carta, limitandosi invece a visualizzare un valore scrivendolo sullo schermo. In questo caso ciò che viene ``stampato'' sono le parole:
 
 \begin{verbatim}
 Ciao, Mondo!
@@ -862,6 +863,8 @@ Gli apici nell'istruzione segnano l'inizio e la fine del valore da stampare e no
 \index{apici}
 \index{print, istruzione}
 \index{istruzione!print}
+\index{stampa, istruzione di}
+\index{istruzione!di stampa}
 
 Nell'ultima versione di Python, Python 3, la sintassi è leggermente cambiata:
 
@@ -982,9 +985,9 @@ Imparare a dare la caccia agli errori può essere noioso, ma è un'abilità prez
 \item[parsing:]  Esame e analisi della struttura sintattica di un programma.
 \index{parsing}
 
-\item[istruzione print:]  Istruzione che ordina all'interprete Python di visualizzare un valore sullo schermo.
-\index{print, istruzione}
-\index{istruzione!print}
+\item[istruzione di stampa:]  Istruzione che ordina all'interprete Python di visualizzare un valore sullo schermo.
+\index{stampa, istruzione di}
+\index{istruzione!di stampa}
 
 
 \end{description}
@@ -1019,7 +1022,7 @@ Avviate l'interprete di Python e utilizzatelo come calcolatrice. La sintassi di 
 
 Se correte una gara di 10 chilometri in 43 minuti e 30 secondi, qual è il vostro tempo medio sul miglio? E la vostra velocità media in miglia all'ora? (Suggerimento: un miglio equivale a 1,61 km)
 \index{calcolatrice}
-\index{passo di corsa}
+\index{cadenza di gara}
 
 \end{exercise}
 
@@ -1133,32 +1136,6 @@ Il tipo di una variabile è il tipo del valore a cui essa fa riferimento.
 >>> type(pi)
 <type 'float'>
 \end{verbatim}
-
-\vspace{0.2in}
-\begin{exercise}
-
-Se inserite un intero con uno zero iniziale, potreste ottenere un errore inatteso:
-
-\begin{verbatim}
->>> codicepostale = 02492
-                        ^
-SyntaxError: invalid token
-\end{verbatim}
-
-Altri numeri sembrano funzionare, ma i risultati sono bizzarri:
-
-\begin{verbatim}
->>> codicepostale = 02132
->>> codicepostale
-1114
-\end{verbatim}
-
-Riuscite a capire cosa sta succedendo? Suggerimento: provate con i valori
- {\tt 01}, {\tt 010}, {\tt 0100} e {\tt 01000}.
-\index{ottale}
-
-\end{exercise}
-
 
 
 \section{Nomi delle variabili e parole chiave riservate}
@@ -1318,7 +1295,7 @@ x = 5
 x + 1
 \end{verbatim}
 %
-Ora scrivete le stesse istruzioni in uno script ed eseguitelo. Qual è il risultato? Modificate lo script trasformando ciascuna espressione in un'istruzione print, ed eseguitelo nuovamente.
+Ora scrivete le stesse istruzioni in uno script ed eseguitelo. Qual è il risultato? Modificate lo script trasformando ciascuna espressione in un'istruzione di stampa, ed eseguitelo nuovamente.
 \end{exercise}
 
 
@@ -4896,8 +4873,8 @@ Modificate il programma per correggere questo errore.
 
 \section{Slicing}
 \label{slice}
-\index{slice, operatore}
-\index{operatore!slice}
+\index{slicing, operatore di}
+\index{operatore!di slicing}
 \index{indice!slicing}
 \index{stringa!slicing}
 \index{slicing!stringa}
@@ -5365,8 +5342,8 @@ Partendo da questo diagramma, sviluppate il programma su carta cambiando i valor
 
 \begin{exercise}
 \index{step, ampiezza}
-\index{slice, operatore}
-\index{operatore!slice}
+\index{slicing, operatore di}
+\index{operatore!di slicing}
 
 Nello slicing, si può specificare un terzo indice che stabilisce lo {\em step} o ``passo'', cioè il numero di elementi da saltare tra un carattere estratto e il successivo. Uno step di 2 significa estrarre un carattere ogni 2 (uno sì, uno no), 3 significa uno ogni 3 (uno sì, due no), ecc.
 
@@ -5591,7 +5568,7 @@ Scrivete una funzione di nome \verb"alfabetica" che restituisca
 \index{ricerca!schema di}
 \index{schema!di ricerca}
 
-Tutti gli esercizi del paragrafo precedente hanno qualcosa in comune; possono essere risolti con lo schema di ricerca che abbiamo visto nel Paragrafo~\ref{find}.  L'esempio più semplice è:
+Tutti gli esercizi del paragrafo precedente hanno qualcosa in comune: possono essere risolti con lo schema di ricerca che abbiamo visto nel Paragrafo~\ref{find}.  L'esempio più semplice è:
 
 \begin{verbatim}
 def niente_e(parola):
@@ -6048,8 +6025,8 @@ Il primo esempio ripete {\tt [0]} per quattro volte. Il secondo ripete la lista 
 
 
 \section{Slicing delle liste}
-\index{slice, operatore}
-\index{operatore!slice}
+\index{slicing, operatore di}
+\index{operatore!di slicing}
 \index{indice!slicing}
 \index{lista!slicing}
 \index{slicing!lista}
@@ -6590,8 +6567,8 @@ def non_decapita(t):
 \end{verbatim}
 
 L'operatore di slicing crea una nuova lista e l'assegnazione fa in modo che {\tt t} si riferisca ad essa, ma nulla di tutto ciò ha effetti sulla lista passata come argomento.
-\index{slice, operatore}
-\index{operatore!slice}
+\index{slicing, operatore di}
+\index{operatore!di slicing}
 
 Un'alternativa valida è scrivere una funzione che crea e restituisce una nuova lista. Per esempio, {\tt ritaglia} restituisce tutti gli elementi di una lista tranne il primo:
 
@@ -7250,7 +7227,7 @@ Questo sistema funziona se le chiavi sono immutabili; ma se sono mutabili, come 
 
 Ecco perché le chiavi devono essere idonee all'hashing, e quelle mutabili come le liste non lo sono. Il modo più semplice per aggirare questo limite è usare le tuple, che vedremo nel prossimo capitolo.
 
-Dato che i dizionari sono mutabili, non possono essere usati come chiavi ma {\em possono} essere usati come valori.
+Dato che le liste e i dizionari sono mutabili, non possono essere usati come chiavi ma {\em possono} essere usati come valori.
 
 \vspace{0.2in}
 \begin{exercise}
@@ -7687,8 +7664,8 @@ La maggior parte degli operatori delle liste funzionano anche con le tuple. L'op
 \end{verbatim}
 %
 E l'operatore slice seleziona una serie di elementi consecutivi:
-\index{slice, operatore}
-\index{operatore!slice}
+\index{slicing, operatore di}
+\index{operatore!di slicing}
 \index{tupla!slicing}
 \index{slicing!tupla}
 
