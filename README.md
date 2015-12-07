@@ -1,11 +1,11 @@
 # ThinkPythonItalian
-LaTeX source for the Italian translation of Think Python.
+Sorgenti LaTeX della traduzione italiana di Think Python.
 
-[Download the PDF version of this translation.](https://github.com/AllenDowney/ThinkPythonItalian/blob/master/thinkpython_italian.pdf)
+[Download della versione PDF della traduzione.](https://github.com/AllenDowney/ThinkPythonItalian/blob/master/thinkpython_italian.pdf)
 
-Translation by Andrea Zanella.
+Traduzione di Andrea Zanella.
 
-Original English version by Allen B. Downey, available from [thinkpython.com](http://thinkpython.com)
+La versione originale in inglese di Allen B. Downey si trova sul sito [thinkpython2.com](http://thinkpython2.com)
 
 
 
