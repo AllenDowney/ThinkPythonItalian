@@ -36,7 +36,7 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{Seconda Edizione, Versione 2.2.15}
+\newcommand{\theversion}{Seconda Edizione, Versione 2.2.16}
 \newcommand{\thedate}{}
 
 % these styles get translated in CSS for the HTML version
@@ -544,10 +544,6 @@ e alcune altre correzioni. E sa come si scrive Jane Austen.
 
 \item Russell Coleman mi ha aiutato con la geometria.
 
-\item Wei Huang ha evidenziato alcuni errori tipografici.
-
-\item Karen Barber ha trovato il più vecchio errore di battitura del libro.
-
 \item Nam Nguyen ha trovato un errore di battitura e ha osservato che avevo usato uno schema di Decoratore senza farne menzione.
 
 \item St\'{e}phane Morin ha inviato alcune correzioni e suggerimenti.
@@ -562,15 +558,9 @@ e alcune altre correzioni. E sa come si scrive Jane Austen.
 
 \item Giovanni Escobar Sosa ha inviato un lungo elenco di correzioni e suggerimenti.
 
-\item Alix Etienne ha sistemato uno degli URL.
-
-\item Kuang He ha trovato un errore di battitura.
-
 \item Daniel Neilson ha corretto un errore nell'ordine delle operazioni.
 
 \item Will McGinnis ha evidenziato che {\tt polilinea} era definita in modo diverso in due punti.
-
-\item Swarup Sahoo ha notato un punto e virgola mancante.
 
 \item Frank Hecker ha osservato un esercizio non ben spiegato e alcuni collegamenti non funzionanti.
 
@@ -586,24 +576,12 @@ e alcune altre correzioni. E sa come si scrive Jane Austen.
 
 \item Martin Nordsletten ha trovato un bug nella soluzione di un esercizio.
 
-\item Lars O.D. Christensen ha trovato un riferimento non funzionante.
-
-\item Victor Simeone ha trovato un errore di battitura.
-
 \item Sven Hoexter ha osservato che una variabile di nome {\tt input}
 oscura una funzione predefinita.
 
-\item Viet Le ha trovato un errore di battitura.
-
 \item Stephen Gregory ha evidenziato il problema di {\tt cmp} in Python 3.
 
-\item Matthew Shultz mi ha segnalato un collegamento non funzionante.
-
-\item Lokesh Kumar Makani mi ha segnalato alcuni collegamenti non funzionanti e dei cambiamenti nei messaggi di errore.
-
 \item Ishwar Bhat ha corretto la mia formulazione dell'ultimo teorema di Fermat.
-
-\item Brian McGhie ha suggerito un chiarimento.
 
 \item Andrea Zanella ha tradotto il libro in italiano e, strada facendo, ha inviato alcune correzioni.
 
@@ -614,6 +592,11 @@ oscura una funzione predefinita.
 \item Xavier Van Aubel ha prodotto alcune utili correzioni alla seconda edizione.
 
 % ENDCONTRIB
+
+Hanno inoltre segnalato errori di stampa o indicato correzioni:
+Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz, Viet
+Le, Victor Simeone, Lars O.D. Christensen, Swarup Sahoo, Alix Etienne,
+Kuang He, Wei Huang, e Karen Barber.
 
 \end{itemize}
 
@@ -1718,7 +1701,7 @@ Ma a dire il vero, la canzone non fa così!
 \section{Definizioni e loro utilizzo}
 \index{funzione!definizione di}
 
-Raggruppando assieme i frammenti di codice del Paragrafo precedente il programma diventa:
+Raggruppando assieme i frammenti di codice del Paragrafo precedente, il programma diventa:
 
 \begin{verbatim}
 def stampa_brani():
@@ -1956,7 +1939,7 @@ Il valore {\tt None} non è la stessa cosa della stringa \verb"'None'".
 È un valore speciale che appartiene ad un tipo tutto suo:
 
 \begin{verbatim}
->>> print(type(None))
+>>> type(None)
 <class 'NoneType'>
 \end{verbatim}
 %
@@ -2374,7 +2357,7 @@ Ma allora perché non chiamare {\tt bob} il parametro? Il motivo è che {\tt t}
 può essere qualunque tartaruga, non solo {\tt bob}, e in questa maniera è possibile anche creare una seconda tartaruga e passarla come parametro a {\tt quadrato}:
 
 \begin{verbatim}
-alice = Turtle()
+alice = turtle.Turtle()
 quadrato(alice)
 \end{verbatim}
 %
@@ -2451,7 +2434,7 @@ La prima riga calcola la circonferenza di un cerchio di raggio
 Un limite di questa soluzione è che {\tt n} è costante, il che comporta che per cerchi molto grandi i segmenti sono troppo lunghi, e per cerchi piccoli perdiamo tempo a disegnare minuscoli segmenti. Una soluzione sarebbe di generalizzare la funzione tramite un parametro {\tt n}, dando all'utente (chiunque chiami la funzione {\tt cerchio}) più controllo, ma rendendo così l'interfaccia meno chiara.
 \index{interfaccia}
 
-L'{\bf interfaccia} è un riassunto di come è usata la funzione: quali sono i parametri? Che cosa fa la funzione? Qual è il valore restituito? Un'interfaccia è considerata ``pulita'' se permette al chiamante di fare ciò che deve senza avere a che fare con dettagli non necessari.
+L'{\bf interfaccia} è un riassunto di come è usata la funzione: quali sono i parametri? Che cosa fa la funzione? Qual è il valore restituito? Un'interfaccia è considerata ``pulita'' se permette al chiamante di fare ciò che deve, senza avere a che fare con dettagli non necessari.
 
 In questo esempio, {\tt r} appartiene all'interfaccia perché specifica il cerchio da disegnare. {\tt n} è meno pertinente perché riguarda i dettagli di {\em come} il cerchio viene reso.
 
@@ -3131,7 +3114,7 @@ Python comprende una funzione predefinita chiamata \verb"input" che sospende il 
 >>> testo = input()
 Cosa stai aspettando?
 >>> testo
-Cosa stai aspettando?
+'Cosa stai aspettando?'
 \end{verbatim}
 %
 Prima di chiamare la funzione, è buona norma stampare un messaggio che informa l'utente di ciò che deve inserire. Questo messaggio è chiamato prompt, e può essere passato come argomento a \verb"input" :
@@ -3142,7 +3125,7 @@ Prima di chiamare la funzione, è buona norma stampare un messaggio che informa 
 Come...ti chiami?
 Artu', Re dei Bretoni!
 >>> nome
-Artu', Re dei Bretoni!
+'Artu', Re dei Bretoni!'
 \end{verbatim}
 %
 La sequenza \verb"\n" alla fine del prompt rappresenta un {\bf ritorno a capo},
@@ -3164,7 +3147,7 @@ Qual è la velocità in volo di una rondine?
 Ma se la stringa inserita contiene qualcosa di diverso da dei numeri, si verifica un errore:
 
 \begin{verbatim}
->>> velocita = raw_input(prompt)
+>>> velocita = input(prompt)
 Qual è la velocità in volo di una rondine?
 Cosa intendi, una rondine europea o africana?
 >>> int(velocita)
@@ -3384,7 +3367,7 @@ Gli esercizi seguenti utilizzano il modulo turtle, descritto nel Capitolo~\ref{t
 \vspace{0.2in}
 \begin{exercise}
 
-Leggete la seguente funzione e cercate di capire cosa fa. Quindi eseguitela (vedere gli esempi nel Capitolo~\ref{turtlechap}).
+Leggete la seguente funzione e cercate di capire cosa fa (vedere gli esempi nel Capitolo~\ref{turtlechap}). Quindi eseguitela per controllare se avevate indovinato.
 
 \begin{verbatim}
 def disegna(t, lunghezza, n):
@@ -3882,7 +3865,7 @@ Dopo il {\tt fattoriale}, l'esempio più noto di funzione matematica definita ri
 Che tradotta in Python è:
 
 \begin{verbatim}
-def fibonacci (n):
+def fibonacci(n):
     if n == 0:
         return 0
     elif  n == 1:
@@ -3925,7 +3908,7 @@ Possiamo usare la funzione predefinita {\tt isinstance} per verificare il tipo d
 \index{funzione!isinstance}
 
 \begin{verbatim}
-def fattoriale (n):
+def fattoriale(n):
     if not isinstance(n, int):
         print("Il fattoriale è definito solo per numeri interi.")
         return None
@@ -3941,10 +3924,10 @@ def fattoriale (n):
 Il primo caso base gestisce i numeri non interi; il secondo, gli interi negativi. In entrambi i casi, il programma mostra un messaggio di errore e restituisce il valore {\tt None} per indicare che qualcosa non ha funzionato:
 
 \begin{verbatim}
->>> fattoriale('alfredo')
+>>> print(fattoriale('alfredo'))
 Il fattoriale è definito solo per numeri interi.
 None
->>> fattoriale(-2)
+>>> print(fattoriale(-2))
 Il fattoriale non è definito per interi negativi.
 None
 \end{verbatim}
@@ -5670,7 +5653,7 @@ Soluzione: \url{http://thinkpython2.com/code/cartalk3.py}.
 
 \chapter{Liste}
 
-Questo capitolo illustra uno dei più utili tipi predefiniti di Python, le liste. Imparerete anche altri dettagli sugli oggetti, e vedrete cosa succede in presenza uno stesso oggetto con più nomi.
+Questo capitolo illustra uno dei più utili tipi predefiniti di Python, le liste. Imparerete anche altri dettagli sugli oggetti, e vedrete cosa succede in presenza di uno stesso oggetto con più nomi.
 
 \section{Una lista è una sequenza}
 \label{sequence}
@@ -6462,6 +6445,8 @@ Se volete usare un metodo come {\tt sort} che modifica l'argomento, ma anche man
 
 In questo esempio, si può anche usare la funzione predefinita {\tt sorted},
 che restituisce una nuova lista ordinata e lascia intatta quella di origine.
+\index{sorted!funzione}
+\index{funzione!sorted}
 
 \begin{verbatim}
 >>> t2 = sorted(t)
@@ -6717,7 +6702,7 @@ Un {\bf dizionario} è simile ad una lista, ma è più generico. Infatti, mentre
 Un dizionario contiene una raccolta di indici, chiamati {\bf chiavi}, e una raccolta di valori. Ciascuna chiave è associata ad un unico valore. L'associazione tra una chiave e un valore è detta {\bf coppia chiave-valore} o anche {\bf elemento}.
 \index{elemento}
 
-In linguaggio matematico, un dizionario rappresenta una relazione di corrispendenza, o {\bf mappatura}, da una chiave a un valore, e si può dire pertanto che ogni chiave ``mappa in'' un valore.
+In linguaggio matematico, un dizionario rappresenta una relazione di corrispondenza, o {\bf mappatura}, da una chiave a un valore, e si può dire pertanto che ogni chiave ``mappa in'' un valore.
 
 Come esempio, costruiamo un dizionario che trasforma le parole dall'inglese all'italiano, quindi chiavi e valori saranno tutte delle stringhe.
 
@@ -7284,7 +7269,7 @@ Ancora, il tempo che impiegate a scrivere del codice temporaneo può essere ripa
 \item[lookup:] Operazione su un dizionario che trova il valore corrispondente a una data chiave.
 \index{lookup}
 
-\item[lookup inverso:] Operazione su un dizionario che trova una o più chiavi alle quali è associato una dato valore.
+\item[lookup inverso:] Operazione su un dizionario che trova una o più chiavi alle quali è associato un dato valore.
 \index{lookup inverso}
 
 \item[singleton:] Lista (o altra sequenza) con un singolo elemento.
@@ -7294,7 +7279,7 @@ Ancora, il tempo che impiegate a scrivere del codice temporaneo può essere ripa
 \index{chiamata, grafico di}
 \index{diagramma!grafico di chiamata}
 
-\item[memoizzazione:] Conservare una valore calcolato per evitarne il successivo ricalcolo.
+\item[memoizzazione:] Conservare un valore calcolato per evitarne il successivo ricalcolo.
 \index{memoizzazione}
 
 \item[variabile globale:]  Variabile definita al di fuori di una funzione, alla quale ogni funzione può accedere.
@@ -7307,7 +7292,7 @@ Ancora, il tempo che impiegate a scrivere del codice temporaneo può essere ripa
 \item[controllo o flag:] Variabile booleana usata per indicare se una condizione è soddisfatta.
 \index{flag}
 
-\item[dichiarazione:] Istruzione come {\tt global} che comunica all'interprete un'informazione su una variabile.
+\item[dichiarazione:] Istruzione come {\tt global}, che comunica all'interprete un'informazione su una variabile.
 \index{dichiarazione}
 
 \end{description}
@@ -8067,7 +8052,7 @@ Soluzione: \url{http://thinkpython2.com/code/anagram_sets.py}.
 \begin{exercise}
 \index{metatesi}
 
-Si ha una metatesi quando una parola si può ottenere scambiando due lettere di un'altra parola, per esempio, ``conversa'' e ``conserva''.  Scrivete un programma che trova tutte le coppie con metatesi nel dizionario. Suggerimento: non provate tutte le possibili coppie di parole e non provate tutti i possibili scambi. Soluzione: \url{http://thinkpython2.com/code/metathesis.py}.
+Si ha una metatesi quando una parola si può ottenere scambiando due lettere di un'altra parola, per esempio, ``conversa'' e ``conserva''.  Scrivete un programma che trovi tutte le coppie con metatesi nel dizionario. Suggerimento: non provate tutte le possibili coppie di parole e non provate tutti i possibili scambi. Soluzione: \url{http://thinkpython2.com/code/metathesis.py}.
 Fonte: Esercizio suggerito da un esempio nel sito \url{http://puzzlers.org}.
 
 \end{exercise}
@@ -8186,7 +8171,7 @@ Modificate il programma precedente in modo che acquisisca un elenco di parole (v
 \index{deterministico}
 \index{pseudocasuale}
 
-A parità di dati di partenza, la maggior parte dei programmi fanno la stessa cosa ogni volta che vengono eseguiti, e per questo motivo sono detti  deterministici. Di solito il determinismo è una buona cosa, in quanto dagli stessi dati in ingresso è logico aspettarsi sempre lo stesso risultato. Per alcune applicazioni, invece, serve che l'esecuzione sia imprevedibile: i videogiochi sono un esempio lampante, ma ce ne sono tanti altri.
+A parità di dati di partenza, i programmi, per la maggior parte, fanno la stessa cosa ogni volta che vengono eseguiti, e per questo motivo sono detti  deterministici. Di solito il determinismo è una buona cosa, in quanto dagli stessi dati in ingresso è logico aspettarsi sempre lo stesso risultato. Per alcune applicazioni, invece, serve che l'esecuzione sia imprevedibile: i videogiochi sono un esempio lampante, ma ce ne sono tanti altri.
 
 Creare un programma realmente non-deterministico è una cosa piuttosto difficile, ma ci sono dei sistemi per renderlo almeno apparentemente non-deterministico. Uno di questi è utilizzare degli algoritmi che generano dei numeri {\bf pseudocasuali}. Questi numeri non sono veri numeri casuali, dato che sono generati da un elaboratore deterministico, ma a prima vista è praticamente impossibile distinguerli da numeri casuali.
 \index{random, modulo}
@@ -9073,7 +9058,7 @@ Un limite di {\tt dbm} è che le chiavi e i valori devono essere delle stringhe,
 \index{pickle, modulo}
 \index{modulo!pickle}
 
-Il modulo {\tt pickle} può essere di aiuto. Trasforma quasi ogni tipo di oggetto in una stringa adatta per essere inserita in un database, e quindi ritrasforma la stringa in oggetto.
+Il modulo {\tt pickle} può essere di aiuto: trasforma quasi ogni tipo di oggetto in una stringa, adatta per essere inserita in un database, e quindi ritrasforma la stringa in oggetto.
 
 {\tt pickle.dumps} accetta un oggetto come parametro e ne restituisce una serializzazione, ovvero un rappresentazione sotto forma di una stringa ({\tt dumps} è l'abbreviazione di ``dump string'', scarica stringa):
 
@@ -9104,7 +9089,7 @@ True
 False
 \end{verbatim}
 %
-In altre parole, fare una serializzazione con pickle e poi l'operazione inversa, ha lo stesso effetto di copiare l'oggetto.
+In altre parole, fare una serializzazione con {\tt pickle} e poi l'operazione inversa, ha lo stesso effetto di copiare l'oggetto.
 
 Potete usare {\tt pickle} per archiviare in un database tutto ciò che non è una stringa. In effetti, questa combinazione è tanto frequente da essere stata incapsulata in un modulo chiamato {\tt shelve}.  
 \index{shelve, modulo}
@@ -12588,7 +12573,7 @@ Per prima cosa, staccatevi dal computer per qualche minuto. I computer emettono 
 
 Se accusate qualcuno di questi sintomi, alzatevi e andate a fare una passeggiata. Quando vi siete calmati, ripensate al programma. Cosa sta facendo? Quali sono le possibili cause del suo comportamento? Quand'era l'ultima volta che avete avuto un programma funzionante, e cosa avete fatto dopo?
 
-A volte per trovare un bug è richiesto solo del tempo. Io trovo spesso bug mentre non sono al computer e distraggo la mente. Tra i posti migliori per trovare bug: in treno, sotto la doccia, a letto appena prima di addormentarsi.
+A volte per trovare un bug è richiesto solo del tempo. Io trovo spesso bug mentre non sono al computer e distraggo la mente. Tra i posti migliori per trovare bug: in treno; sotto la doccia; a letto appena prima di addormentarsi.
 
 
 \subsection{No, ho davvero bisogno di aiuto.}
