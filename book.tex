@@ -36,7 +36,7 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{Seconda Edizione, Versione 2.2.16}
+\newcommand{\theversion}{Seconda Edizione, Versione 2.2.18}
 \newcommand{\thedate}{}
 
 % these styles get translated in CSS for the HTML version
@@ -596,7 +596,7 @@ oscura una funzione predefinita.
 Hanno inoltre segnalato errori di stampa o indicato correzioni:
 Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz, Viet
 Le, Victor Simeone, Lars O.D. Christensen, Swarup Sahoo, Alix Etienne,
-Kuang He, Wei Huang, e Karen Barber.
+Kuang He, Wei Huang, Karen Barber, e Eric Ransom.
 
 \end{itemize}
 
@@ -1611,7 +1611,7 @@ SyntaxError: can't assign to operator
 
 \section{Aggiungere nuove funzioni}
 
-Finora abbiamo soltanto usato solo funzioni predefinite o ``built-in'', che sono parte integrante di Python, ma è anche possibile crearne di nuove.
+Finora abbiamo usato solo funzioni predefinite o ``built-in'', che sono parte integrante di Python, ma è anche possibile crearne di nuove.
 Una {\bf definizione di funzione} specifica il nome di una nuova funzione e la sequenza di istruzioni che viene eseguita quando la funzione viene chiamata.
 \index{funzione}
 \index{funzione!definizione di}
@@ -1658,6 +1658,7 @@ Per concludere la funzione, dovete inserire una riga vuota.
 
 La definizione di una funzione crea un {\bf oggetto funzione} che è di tipo \verb"function":
 \index{tipo!function}
+\index{oggetto!funzione}
 
 \begin{verbatim}
 >>> print(stampa_brani)
@@ -1666,8 +1667,6 @@ La definizione di una funzione crea un {\bf oggetto funzione} che è di tipo \ve
 <class 'function'>
 \end{verbatim}
 %
-Il valore di \verb"stampa_brani" è un {\bf oggetto funzione}, che è di tipo \verb"'function'".
-\index{oggetto!funzione}
 
 La sintassi per chiamare la nuova funzione è la stessa che abbiamo visto per le funzioni predefinite:
 
@@ -1715,6 +1714,7 @@ def ripeti_brani):
 ripeti_brani()
 \end{verbatim}
 %
+
 Questo programma contiene due definizioni di funzione: \verb"stampa_brani" e
 \verb"ripeti_brani".  Le definizioni di funzione sono eseguite come le altre istruzioni, ma il loro effetto è solo quello di creare una nuova funzione. Le istruzioni all'interno di una definizione non vengono eseguite fino a quando la funzione non viene chiamata, e la definizione di per sé non genera alcun risultato.
 
@@ -2456,8 +2456,7 @@ Ora il numero di segmenti è un numero intero vicino a {\tt circonferenza/3}, e 
 \index{refactoring}
 
 Nello scrivere {\tt cerchio}, ho potuto riusare {\tt poligono}
-perché un poligono con molti lati è una buona approssimazione di un cerchio. Ma la funzione {\tt arco} non è così collaborativa; non possiamo usare {\tt poligono}
-o {\tt cerchio} per disegnare un arco.
+perché un poligono con molti lati è una buona approssimazione di un cerchio. Ma la funzione {\tt arco} non è così collaborativa: non possiamo usare {\tt poligono} o {\tt cerchio} per disegnare un arco.
 
 Un'alternativa è partire da una copia di {\tt poligono} e trasformarla in {\tt arco}. Il risultato può essere qualcosa del genere:
 
@@ -3503,7 +3502,7 @@ Questa funzione ha un difetto, in quanto se {\tt x} è uguale a 0, nessuna delle
 \index{valore speciale!None}
 
 \begin{verbatim}
->>> valore_assoluto(0)
+>>> print(valore_assoluto(0))
 None
 \end{verbatim}
 %
@@ -4118,8 +4117,8 @@ Soluzione: \url{http://thinkpython2.com/code/palindrome_soln.py}.
 \vspace{0.2in}
 \begin{exercise}
 
-Un numero, $a$, è una potenza di $b$ se è divisibile per $b$
-e $a/b$ è una potenza di $b$.  Scrivete una funzione di nome
+Un numero, {\tt a}, è una potenza di {\tt b} se è divisibile per {\tt b}
+e {\tt a/b} è a sua volta una potenza di {\tt b}.  Scrivete una funzione di nome
 \verb"potenza" che prenda come parametri {\tt a} e {\tt b}
 e che restituisca {\tt True} se {\tt a} è una potenza di {\tt b}.
 Nota: dovete pensare bene al caso base.
@@ -4687,7 +4686,7 @@ while indice < len(frutto):
     indice = indice + 1
 \end{verbatim}
 %
-Questo ciclo attraversa tutta la stringa e ne mostra una lettera alla volta,    una per riga. La condizione del ciclo è {\tt indice < len(frutto)}, pertanto   quando {\tt indice} è uguale alla lunghezza della stringa la condizione diventa falsa, il corpo del ciclo non viene più eseguito ed il ciclo termina. L'ultimo carattere cui si accede è quello con indice {\tt len(frutto)-1}, che è l'ultimo carattere della stringa.
+Questo ciclo attraversa tutta la stringa e ne mostra una lettera alla volta,    una per riga. La condizione del ciclo è {\tt indice < len(frutto)}, pertanto   quando {\tt indice} è uguale alla lunghezza della stringa la condizione diventa falsa, il corpo del ciclo non viene più eseguito ed il ciclo termina. L'ultimo carattere a cui si accede è quello con indice {\tt len(frutto)-1}, che è l'ultimo carattere della stringa.
 
 Come esercizio, scrivete una funzione che riceva una stringa come argomento e ne stampi i singoli caratteri, uno per riga, partendo dall'ultimo a ritroso.
 
@@ -5885,7 +5884,7 @@ Se omettete il primo indice, lo slicing comincia dall'inizio, mentre se manca il
 Dato che le liste sono mutabili, spesso è utile farne una copia prima di eseguire operazioni che le modificano.
 \index{mutabilità}
 
-Un'operatore di slicing sul lato sinistro di un'assegnazione, permette di aggiornare più elementi.
+Un operatore di slicing sul lato sinistro di un'assegnazione, permette di aggiornare più elementi.
 \index{slicing!aggiornamento}
 \index{aggiornamento!slicing}
 
@@ -6307,7 +6306,9 @@ Il parametro {\tt t} e la variabile {\tt lettere} sono due alias dello stesso og
 
 Dato che la lista è condivisa da due frame, la disegno in mezzo.
 
-È importante distinguere tra operazioni che modificano le liste e operazioni che creano nuove liste. Per esempio il metodo {\tt append} modifica una lista, ma l'operatore {\tt +} ne crea una nuova:
+È importante distinguere tra operazioni che modificano le liste e operazioni che creano nuove liste. Per esempio il metodo {\tt append} modifica una lista, ma l'operatore {\tt +} ne crea una nuova.
+
+Ecco un esempio che usa {\tt append}:
 \index{append, metodo}
 \index{metodo!append}
 \index{lista!concatenamento}
@@ -6322,7 +6323,9 @@ Dato che la lista è condivisa da due frame, la disegno in mezzo.
 None
 \end{verbatim}
 %
-{\tt append} modifica la lista e restituisce {\tt None}.
+Il valore di ritorno di {\tt append} è {\tt None}.
+
+Un esempio di utilizzo dell'operatore {\tt +}:
 %
 \begin{verbatim}
 >>> t3 = t1 + [4]
@@ -6330,10 +6333,9 @@ None
 [1, 2, 3]
 >>> t3
 [1, 2, 3, 4]
->>> t1
 \end{verbatim}
 %
-L'operatore {\tt +} crea una nuova lista e lascia immutata la lista di origine.
+Il risultato è una nuova lista, e la lista di origine resta immutata.
 
 Questa differenza è importante quando scrivete delle funzioni che devono modificare delle liste. Per esempio, questa funzione
 {\em non} cancella il primo elemento della lista:
