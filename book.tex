@@ -7,8 +7,7 @@
 
 %\documentclass[10pt,b5paper]{book}
 \documentclass[10pt]{book}
-\usepackage[width=5.5in,height=8.5in,
-  hmarginratio=3:2,vmarginratio=1:1]{geometry}
+\usepackage[width=5.5in,height=8.5in,hmarginratio=3:2,vmarginratio=1:1]{geometry}
 
 % for some of these packages, you might have to install
 % texlive-latex-extra (in Ubuntu)
@@ -36,7 +35,7 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{Seconda Edizione, Versione 2.2.18}
+\newcommand{\theversion}{Seconda Edizione, Versione 2.2.20}
 \newcommand{\thedate}{}
 
 % these styles get translated in CSS for the HTML version
@@ -591,12 +590,12 @@ oscura una funzione predefinita.
 
 \item Xavier Van Aubel ha prodotto alcune utili correzioni alla seconda edizione.
 
+\item William Murray ha corretto la definizione di divisione intera.
+
 % ENDCONTRIB
 
 Hanno inoltre segnalato errori di stampa o indicato correzioni:
-Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz, Viet
-Le, Victor Simeone, Lars O.D. Christensen, Swarup Sahoo, Alix Etienne,
-Kuang He, Wei Huang, Karen Barber, e Eric Ransom.
+Czeslaw Czapla, Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz, Viet Le, Victor Simeone, Lars O.D. Christensen, Swarup Sahoo, Alix Etienne, Kuang He, Wei Huang, Karen Barber, e Eric Ransom.
 
 \end{itemize}
 
@@ -1865,6 +1864,7 @@ Ogni funzione è rappresentata da un {\bf frame}, un riquadro con il nome della 
 I frame sono disposti in una pila che indica quale funzione ne ha chiamata un'altra e così via. Nell'esempio, \verb"stampa2volte" è stata chiamata da \verb"cat2volte", e \verb"cat2volte" è stata a sua volta chiamata da 
 \verb"__main__", che è un nome speciale per il frame principale. Quando si crea una variabile che è esterna ad ogni funzione, essa appartiene a 
 \verb"__main__".
+\index{main}
 
 Ogni parametro fa riferimento allo stesso valore del suo argomento corrispondente. Così, {\tt parte1} ha lo stesso valore di
 {\tt riga1}, {\tt parte2} ha lo stesso valore di {\tt riga2},
@@ -1892,11 +1892,11 @@ Questo elenco di funzioni è detto {\bf traceback}. Il traceback vi dice in qual
 L'ordine delle funzioni nel traceback è lo stesso di quello dei frame nel diagramma di stack. La funzione attualmente in esecuzione si trova in fondo all'elenco.
 
 
-\section{Funzioni produttive e funzioni vuote}
+\section{Funzioni ``produttive'' e funzioni ``vuote''}
 \index{funzione!produttiva}
 \index{funzione!vuota} 
 
-Alcune delle funzioni che abbiamo usato, tipo le funzioni matematiche, restituiscono dei risultati; in mancanza di definizioni migliori, personalmente le chiamo {\bf funzioni produttive}.  Altre funzioni, come \verb"stampa2volte", eseguono un'azione ma non restituiscono alcun valore. Le chiameremo {\bf funzioni vuote}.
+Alcune delle funzioni che abbiamo usato, tipo le funzioni matematiche, restituiscono dei risultati; in mancanza di definizioni migliori, personalmente le chiamo {\bf funzioni ``produttive''}.  Altre funzioni, come \verb"stampa2volte", eseguono un'azione ma non restituiscono alcun valore. Le chiameremo {\bf funzioni ``vuote''}.
 
 Quando chiamate una funzione produttiva, quasi sempre è per fare qualcosa di utile con il suo risultato, tipo assegnarlo a una variabile o usarlo come parte di un'espressione.
 
@@ -1968,7 +1968,7 @@ Potrebbe non esservi ancora ben chiaro perché valga la pena di suddividere il p
 \label{editor}
 \index{debug}
 
-Una delle più importanti abilità che acquisirete è la capacità di effettuare il debug (o ``rimozione degli errori''). Sebbene questa possa essere un'operazione noiosa, è anche una delle parti più intellettualmente vivaci, stimolanti ed interessanti della programmazione.
+Una delle più importanti abilità che acquisirete è quella di effettuare il debug (o ``rimozione degli errori''). Sebbene questa possa essere un'operazione noiosa, è anche una delle parti più intellettualmente vivaci, stimolanti ed interessanti della programmazione.
 \index{debug!sperimentale}
 
 In un certo senso, il debug può essere paragonato al lavoro investigativo. Siete messi di fronte a degli indizi e dovete ricostruire i processi e gli eventi che hanno portato ai risultati che avete ottenuto.
@@ -2017,10 +2017,10 @@ Linux, per fare un esempio, è un sistema operativo che contiene milioni di righ
 \item[valore di ritorno:]  Il risultato di una funzione. Se una chiamata di funzione viene usata come espressione, il valore di ritorno è il valore dell'espressione.
 \index{valore di ritorno}
 
-\item[funzione produttiva:] Una funzione che restituisce un valore.
+\item[funzione ``produttiva'':] Una funzione che restituisce un valore.
 \index{funzione!produttiva}
 
-\item[funzione vuota:] Una funzione che restituisce sempre {\tt None}.
+\item[funzione ``vuota'':] Una funzione che restituisce sempre {\tt None}.
 \index{funzione!vuota}
 
 \item[{\tt None}:]  Valore speciale restituito dalle funzioni vuote.
@@ -2054,7 +2054,7 @@ Linux, per fare un esempio, è un sistema operativo che contiene milioni di righ
 \index{funzione!frame di}
 \index{frame}
 
-\item[traceback:]  Elenco delle funzioni in corso di esecuzione, stampato quando si verifica un errore.
+\item[traceback:]  Elenco delle funzioni in corso di esecuzione, visualizzato quando si verifica un errore.
 \index{traceback}
 
 
@@ -2443,12 +2443,14 @@ Piuttosto di ingombrare l'interfaccia di parametri, è meglio scegliere un valor
 \begin{verbatim}
 def cerchio(t, r):
     circonferenza = 2 * math.pi * r
-    n = int(circonferenza / 3) + 1
+    n = int(circonferenza / 3) + 3
     lunghezza = circonferenza / n
     poligono(t, n, lunghezza)
 \end{verbatim}
 %
 Ora il numero di segmenti è un numero intero vicino a {\tt circonferenza/3}, e la lunghezza dei segmenti è circa 3, che è abbastanza piccolo da dare un cerchio di bell'aspetto, ma abbastanza grande da essere efficiente e appropriato per qualsiasi dimensione del cerchio.
+
+Aggiungere 3 a {\tt n} garantisce che il poligono abbia come minimo 3 lati.
 
 
 \section{Refactoring}
@@ -3001,6 +3003,7 @@ La funzione {\tt contoallarovescia} che aveva dato {\tt n=2} ritorna.
 La funzione {\tt contoallarovescia} che aveva dato {\tt n=3} ritorna.
 
 E infine ritorniamo in \verb"__main__". Il risultato finale è questo:
+\index{main}
 
 \begin{verbatim}
 3
@@ -3224,7 +3227,7 @@ Prendetevi la briga di leggere attentamente i messaggi di errore, ma non date pe
 
 \begin{description}
 
-\item[divisione intera:] Operatore, avente simbolo {\tt //}, che divide due numeri e arrotonda il risultato all'intero inferiore.
+\item[divisione intera:] Operatore, avente simbolo {\tt //}, che divide due numeri e arrotonda il risultato all'intero inferiore (ovvero, verso l'infinito negativo).
 \index{divisione!intera}
   
 \item[operatore modulo:]  Operatore matematico, denotato con il segno di percentuale ({\tt \%}), che restituisce il resto della divisione tra due operandi
@@ -3483,7 +3486,7 @@ def valore_assoluto(x):
 Dato che queste istruzioni {\tt return} si trovano in rami diversi di una
 condizione alternativa, solo una di esse verrà effettivamente eseguita.
 
-Non appena viene eseguita un'istruzione {\tt return}, la funzione termina senza eseguire ulteriori istruzioni. Il codice che viene a trovarsi dopo l'istruzione {\tt return} o in ogni altro punto che non può essere raggiunto dal flusso di esecuzione, è denominato {\bf codice morto}.
+Non appena viene eseguita un'istruzione {\tt return}, la funzione termina senza eseguire ulteriori istruzioni. Il codice che viene a trovarsi dopo l'istruzione {\tt return} o in ogni altro punto che non può essere raggiunto dal flusso di esecuzione, è detto {\bf codice morto}.
 \index{codice morto}
 
 In una funzione produttiva è bene assicurarsi che ogni possibile flusso di esecuzione del programma porti ad un'uscita dalla funzione con un'istruzione
@@ -3596,7 +3599,7 @@ def distanza(x1, y1, x2, y2):
 %
 Se tutto funziona, avete finito. Altrimenti, potete stampare per verifica il valore di {\tt risultato} prima dell'istruzione {\tt return}.
 
-La versione definitiva della funzione non mostra nulla quando viene eseguita; restituisce solo un valore. Le istruzioni di stampa che avevamo inserito erano utili per il debug, ma una volta verificato che tutto funziona vanno rimosse. Pezzi di codice temporanei come questi sono detti {\bf impalcature}, perché sono di aiuto nella fase di costruzione del programma ma non fanno parte del prodotto finale. 
+La versione definitiva della funzione non mostra nulla quando viene eseguita; restituisce solo un valore. Le istruzioni di stampa che avevamo inserito erano utili per il debug, ma una volta verificato che tutto funziona vanno rimosse. Pezzi di codice temporaneo come questi sono detti {\bf ``impalcature''}, perché sono di aiuto nella fase di costruzione del programma ma non fanno parte del prodotto finale. 
 \index{impalcatura}
 
 Soprattutto agli inizi, non si dovrebbe mai aggiungere più di qualche riga
@@ -6896,8 +6899,8 @@ t 1
 o 1
 \end{verbatim}
 %
-Di nuovo, le chiavi sono alla rinfusa. Per attraversare disponendo
-in ordine le chiavi, si può utilizzare la funzione predefinita {\tt sorted}:
+Di nuovo, le chiavi sono alla rinfusa. Per attraversare le chiavi disponendole
+in ordine, si può utilizzare la funzione predefinita {\tt sorted}:
 \index{sorted, funzione}
 \index{funzione!sorted}
 
@@ -6923,7 +6926,7 @@ t 1
 
 Dato un dizionario {\tt d} e una chiave {\tt k}, è facile trovare il valore corrispondente alla chiave: {\tt v = d[k]}.  Questa operazione è chiamata {\bf lookup}.
 
-Ma se volete trovare la chiave {\tt k} conoscendo il valore {\tt v}?
+Ma se invece volete trovare la chiave {\tt k} conoscendo il valore {\tt v}?
 Avete due problemi: primo, ci possono essere più chiavi che corrispondono al valore {\tt v}.  A seconda dell'applicazione, potete riuscire a trovarne uno, oppure può essere necessario ricavare una lista che li contenga tutti. Secondo, non c'è una sintassi semplice per fare un {\bf lookup inverso}; dovete impostare una ricerca.
 
 Ecco una funzione che richiede un valore e restituisce la prima chiave a cui corrisponde quel valore:
@@ -7114,6 +7117,7 @@ Nell'esempio precedente, {\tt memo} viene creato esternamente alla funzione, per
 Le variabili di \verb"__main__" sono dette anche {\bf globali}
 perché ad esse possono accedere tutte le funzioni. A differenza delle variabili locali, che sono distrutte una volta terminata l'esecuzione della loro funzione, quelle globali persistono tra una chiamata di funzione e l'altra.
 \index{flag}
+\index{main}
 
 Di frequente le variabili globali vengono usate come controlli o {\bf flag}; vale a dire, variabili booleane che indicano quando una certa condizione è soddisfatta (True). Per esempio, alcuni programmi usano un flag di nome {\tt verbose} per controllare che livello di dettaglio dare ad un output:
 
@@ -7224,7 +7228,7 @@ Una causa frequente di errori in esecuzione è un valore che non è del tipo giu
 
 Un altro tipo di controllo confronta i risultati di due calcoli per vedere se collimano. Questo è chiamato ``controllo di coerenza''.
 
-\item[Stampare gli output in bella copia:] Una buona presentazione dei risultati di debug rende più facile trovare un errore. Abbiamo visto un esempio nel Paragrafo~\ref{factdebug}.  Il modulo {\tt pprint} contiene la funzione {\tt pprint} che mostra i tipi predefiniti in un formato più leggibile (pprint infatti sta per ``pretty print'').
+\item[Stampare gli output in bella copia:] Una buona presentazione dei risultati di debug rende più facile trovare un errore. Abbiamo visto un esempio nel Paragrafo~\ref{factdebug}.  Uno strumento utile è il modulo {\tt pprint}: esso contiene la funzione {\tt pprint} che mostra i tipi predefiniti in un formato più leggibile (pprint infatti sta per ``pretty print'').
 \index{bella copia}
 \index{pprint, modulo}
 \index{modulo!pprint}
@@ -7393,7 +7397,7 @@ Scrivete un programma che elenchi tutte le parole che risolvono il quesito. Solu
 \chapter{Tuple}
 \label{tuplechap}
 
-Questo capitolo illustra un altro tipo di dati predefinito, le tuple, per poi mostrare come liste, tuple e dizionari possono lavorare insieme. Viene inoltre presentata una utile caratteristica per le liste di argomenti a lunghezza variabile: gli operatori di raccolta ed esplosione.
+Questo capitolo illustra un altro tipo di dati predefinito, le tuple, per poi mostrare come liste, tuple e dizionari possono lavorare insieme. Viene inoltre presentata una utile caratteristica per le liste di argomenti a lunghezza variabile: gli operatori di raccolta e spacchettamento.
 
 \section{Le tuple sono immutabili}
 \index{tupla}
@@ -7630,10 +7634,10 @@ Il parametro di raccolta può avere qualunque nome, ma per convenzione si usa {\
 (1, 2.0, '3')
 \end{verbatim}
 %
-Il contrario della raccolta è l'{\bf esplosione}.  Se avete una sequenza di valori e volete passarla a una funzione come argomenti multipli, usate ancora
+Il contrario della raccolta è lo {\bf spacchettamento}.  Se avete una sequenza di valori e volete passarla a una funzione come argomenti multipli, usate ancora
  l'operatore {\tt *}. Per esempio, {\tt divmod} richiede esattamente due argomenti; passare una tupla non funziona:
-\index{esplosione}
-\index{argomento!esplosione}
+\index{spacchettamento}
+\index{argomento!spacchettamento}
 \index{TypeError}
 \index{eccezione!TypeError}
 
@@ -7643,7 +7647,7 @@ Il contrario della raccolta è l'{\bf esplosione}.  Se avete una sequenza di val
 TypeError: divmod expected 2 arguments, got 1
 \end{verbatim}
 %
-Ma se esplodete la tupla, funziona:
+Ma se spacchettate la tupla, funziona:
 
 \begin{verbatim}
 >>> divmod(*t)
@@ -7982,8 +7986,8 @@ Se fate fatica a tenere sotto controllo le vostre strutture di dati,
 \item[raccolta:] L'operazione di assemblare una tupla di argomenti a lunghezza variabile.
 \index{raccolta}
 
-\item[esplosione:] L'operazione di trattare una sequenza come una lista di argomenti.
-\index{esplosione}
+\item[spacchettamento:] L'operazione di trattare una sequenza come una lista di argomenti.
+\index{spacchettamento}
 
 \item[oggetto zip:] Il risultato della chiamata della funzione predefinita {\tt zip}; un oggetto che itera attraverso una sequenza di tuple.
 \index{zip, oggetto}
@@ -9216,6 +9220,8 @@ if __name__ == '__main__':
 %
 \verb"__name__" è una variabile predefinita che viene impostata all'avvio del programma. Se questo viene avviato come script,
 \verb"__name__" ha il valore \verb"'__main__'"; in quel caso, il codice viene eseguito. Altrimenti, se viene importato come modulo, il codice di prova viene saltato.
+\index{name, variabile predefinita}
+\index{main}
 
 Come esercizio, scrivete questo esempio in un file di nome {\tt wc.py} ed eseguitelo come script. Poi avviate l'interprete e scrivete
 {\tt import wc}.  Che valore ha \verb"__name__"
@@ -10094,7 +10100,7 @@ Sicuramente, la conversione numerica da base 60 a base 10 e viceversa è più as
 
 Ma avendo l'intuizione di trattare i tempi come numeri in base 60, e    investendo il tempo necessario per scrivere le funzioni di conversione (\verb"tempo_in_int" e \verb"int_in_tempo"), abbiamo ottenuto un programma molto più corto, facile da leggere e correggere, e più affidabile.
 
-Risulta anche più semplice aggiungere nuove caratteristiche, in un secondo tempo. Ad esempio, immaginate di dover sottrarre due Tempi per determinare l'intervallo trascorso. L'approccio iniziale avrebbe reso necessaria l'implementazione di  una sottrazione con il prestito. Invece, con le funzioni di conversione, è molto più facile e rapido avere un programma corretto.
+Risulta anche più semplice aggiungere nuove caratteristiche, in un secondo tempo. Ad esempio, immaginate di dover sottrarre due Tempi per determinare l'intervallo trascorso. L'approccio iniziale avrebbe reso necessaria l'implementazione di una sottrazione con il prestito. Invece, con le funzioni di conversione, è molto più facile e rapido avere un programma corretto.
 \index{sottrazione!con prestito}
 \index{generalizzazione}
 
@@ -12118,8 +12124,8 @@ Si può chiamare il parametro di raccolta come si vuole, ma per prassi si usa
 (1, 2.0) {'terzo': '3'}
 \end{verbatim}
 %
-Se disponete di un dizionario di nomi e valori, potete usare l'operatore di esplosione, {\tt **} , per chiamare una funzione:
-\index{esplosione}
+Se disponete di un dizionario di nomi e valori, potete usare l'operatore di spacchettamento, {\tt **} , per chiamare una funzione:
+\index{spacchettamento}
 
 \begin{verbatim}
 >>> d = dict(x=1, y=2)
@@ -12127,7 +12133,7 @@ Se disponete di un dizionario di nomi e valori, potete usare l'operatore di espl
 Punto(x=1, y=2)
 \end{verbatim}
 %
-Senza l'operatore di esplosione, la funzione interpreterebbe {\tt d} come un singolo argomento posizionale, assegnandolo a {\tt x} e lamentando l'assenza di qualcosa da assegnare a {\tt y}:
+Senza l'operatore di spacchettamento, la funzione interpreterebbe {\tt d} come un singolo argomento posizionale, assegnandolo a {\tt x} e lamentando l'assenza di qualcosa da assegnare a {\tt y}:
 
 \begin{verbatim}
 >>> d = dict(x=1, y=2)
