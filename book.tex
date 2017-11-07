@@ -35,7 +35,7 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{Seconda Edizione, Versione 2.2.20}
+\newcommand{\theversion}{Seconda Edizione, Versione 2.2.21}
 \newcommand{\thedate}{}
 
 % these styles get translated in CSS for the HTML version
@@ -590,7 +590,9 @@ oscura una funzione predefinita.
 
 \item Xavier Van Aubel ha prodotto alcune utili correzioni alla seconda edizione.
 
-\item William Murray ha corretto la definizione di divisione intera.
+\item William Murray ha puntualizzato la mia definizione di divisione intera.
+
+\item Per Starb{\"a}ck mi ha aggiornato sui ritorni a capo universali in Python 3.
 
 % ENDCONTRIB
 
@@ -1079,7 +1081,7 @@ Generalmente, i programmatori scelgono dei nomi significativi per le loro variab
 I nomi delle variabili possono essere lunghi a piacere e possono contenere sia lettere che numeri, ma non possono iniziare con un numero. È possibile usare anche le lettere maiuscole, ma per i nomi di variabile è convenzione utilizzare solo lettere minuscole. Ricordate comunque che, per l'interprete, maiuscole e minuscole sono diverse, pertanto \verb"spam", \verb"Spam" e \verb"SPAM" sono variabili diverse.
 
 Il trattino basso o {\em underscore}, \verb"_", può far parte di un nome: è usato spesso in nomi di variabile composti da più parole (per esempio 
-\verb"il_mio_nome" o \verb"monty_python".)
+\verb"il_mio_nome" o \verb"monty_python").
 \index{underscore, carattere}
 
 Se assegnate un nome non valido alla variabile, otterrete un errore di sintassi:
@@ -1706,7 +1708,7 @@ def stampa_brani():
     print("Terror di tutta la foresta egli è,")
     print("Con l'ascia in mano si sente un re.")
 
-def ripeti_brani):
+def ripeti_brani():
     stampa_brani()
     stampa_brani()
 
@@ -2712,7 +2714,7 @@ L'operatore di {\bf divisione intera}, \verb"//", divide due numeri e arrotonda 
 1.75
 \end{verbatim}
 
-Ma di solito non si esprimono le ore con un numero decimale. La divisione intera dà invece come risultato il numero di ore e tralascia la frazione di ora:
+Ma di solito non si esprimono le ore con un numero decimale. La divisione intera dà invece come risultato il numero di ore, arrotondando per difetto:
 
 \begin{verbatim}
 >>> minuti = 105
@@ -3176,7 +3178,7 @@ Quando si verifica un errore di sintassi o di runtime, il messaggio d'errore  co
 
 \end{itemize}
 
-Gli errori di sintassi di solito sono facili da trovare, con qualche eccezione. Gli spaziatori possono essere insidiosi, perché spazi e tabulazioni non sono visibili e siamo abituati a non tenerne conto.
+Gli errori di sintassi di solito sono facili da trovare, con qualche eccezione. Gli spaziatori possono essere insidiosi, perché spazi e tabulazioni non sono visibili e non siamo abituati a tenerne conto.
 \index{spaziatore}
 
 \begin{verbatim}
@@ -5265,6 +5267,7 @@ Su Internet, talvolta, vengono codificate in ROT13 (un cifrario di Cesare con ro
 
 
 \chapter{Esercitazione: Giochi con le parole}
+\label{wordplay}
 
 Questo capitolo contiene la seconda esercitazione, in cui dovrete risolvere dei quesiti che consistono nel ricercare parole che hanno delle particolari proprietà. Ad esempio, cercherete i più lunghi palindromi della lingua inglese e le parole le cui lettere sono disposte in ordine alfabetico. Illustrerò anche un'altra tecnica di sviluppo: la riduzione ad un problema già risolto.
 
@@ -5294,19 +5297,19 @@ L'oggetto file comprende alcuni metodi di lettura, come {\tt readline}, che legg
 
 \begin{verbatim}
 >>> fin.readline()
-'aa\r\n'
+'aa\n'
 \end{verbatim}
 %
-La prima parola di questa speciale lista è ``aa'', che è un tipo di lava vulcanica. La sequenza \verb"\r\n" rappresenta due caratteri spaziatori, un ritorno di carrello e un a capo, che separano questa parola dalla successiva.
+La prima parola di questa speciale lista è ``aa'', che è un tipo di lava vulcanica. La sequenza \verb"\n" rappresenta il carattere di ritorno a capo che separa questa parola dalla successiva.
 
 L'oggetto file tiene traccia del punto in cui si trova all'interno del file, così quando chiamate nuovamente {\tt readline}, ottenete la parola successiva:
 
 \begin{verbatim}
 >>> fin.readline()
-'aah\r\n'
+'aah\n'
 \end{verbatim}
 %
-La parola successiva è ``aah'', che è perfettamente valida per cui non fate quella faccia! Oppure, se gli spaziatori vi danno fastidio, potete sbarazzarvene con il metodo delle stringhe {\tt strip}:
+La parola successiva è ``aah'', che è perfettamente valida per cui non fate quella faccia! Oppure, se il carattere di ritorno a capo vi dà fastidio, potete sbarazzarvene con il metodo delle stringhe {\tt strip}:
 \index{strip, metodo}
 \index{metodo!strip}
 
@@ -9066,7 +9069,7 @@ Un limite di {\tt dbm} è che le chiavi e i valori devono essere delle stringhe,
 
 Il modulo {\tt pickle} può essere di aiuto: trasforma quasi ogni tipo di oggetto in una stringa, adatta per essere inserita in un database, e quindi ritrasforma la stringa in oggetto.
 
-{\tt pickle.dumps} accetta un oggetto come parametro e ne restituisce una serializzazione, ovvero un rappresentazione sotto forma di una stringa ({\tt dumps} è l'abbreviazione di ``dump string'', scarica stringa):
+{\tt pickle.dumps} accetta un oggetto come parametro e ne restituisce una serializzazione, ovvero una rappresentazione sotto forma di una stringa ({\tt dumps} è l'abbreviazione di ``dump string'', scarica stringa):
 
 \begin{verbatim}
 >>> import pickle
