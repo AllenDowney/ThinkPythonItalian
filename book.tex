@@ -35,7 +35,7 @@
 \title{Pensare in Python}
 \author{Allen B. Downey}
 \newcommand{\thetitle}{Pensare in Python: Come pensare da Informatico}
-\newcommand{\theversion}{Seconda Edizione, Versione 2.2.21}
+\newcommand{\theversion}{Seconda Edizione, Versione 2.2.23}
 \newcommand{\thedate}{}
 
 % these styles get translated in CSS for the HTML version
@@ -222,7 +222,7 @@ Traduzione di Andrea Zanella (andreazanella@tiscali.it).
 
 \section*{La strana storia di questo libro}
 
-Nel gennaio 1999 mi stavo preparando a tenere un corso introduttivo di programmazione in Java. Lo insegnavo per la terza volta, ma la cosa stava diventando per me frustrante. Il tasso di insuccesso nel corso era troppo elevato, e anche per gli studenti che venivano promossi, il livello globale di apprendimento era troppo basso.
+Nel gennaio 1999 mi stavo preparando a tenere un corso introduttivo di programmazione in Java. Lo avevo tenuto già tre volte, ma ne stavo diventando sempre più insoddisfatto. Il tasso di insuccesso nel corso era troppo elevato, e anche per gli studenti che venivano promossi, il livello globale di apprendimento era troppo basso.
 
 Uno dei problemi che avevo individuato erano i libri. Troppo grandi, con troppi dettagli non necessari su Java e privi di una guida di alto livello su come programmare. E tutti soffrivano dell' ``effetto botola'': cominciavano in modo semplice, procedevano gradualmente e poi, verso il Capitolo 5, mancava il pavimento sotto i piedi. Gli studenti si trovavano con troppo nuovo materiale e troppo velocemente, e io passavo il resto del semestre a raccogliere i cocci.
 
@@ -1441,8 +1441,7 @@ Fate un po' di pratica con l'interprete Python usandolo come calcolatrice:
 \item Il volume di una sfera di raggio $r$ è $\frac{4}{3} \pi r^3$.
   Che volume ha una sfera di raggio 5?
 
-\item Il prezzo di copertina di un libro è \verb"€" 24,95, ma una libreria ottiene il
-  40\% di sconto. I costi di spedizione sono \verb"€" 3 per la prima copia e 75 centesimi per ogni copia aggiuntiva. Qual è il costo totale di 60 copie?
+\item Il prezzo di copertina di un libro è \verb"€" 24,95, ma una libreria ottiene il 40\% di sconto. I costi di spedizione sono \verb"€" 3 per la prima copia e 75 centesimi per ogni copia aggiuntiva. Qual è il costo totale di 60 copie?
 
 \item Se uscite di casa alle 6:52 di mattina e correte 1 miglio a ritmo blando (8:15 al miglio), poi 3 miglia a ritmo moderato (7:12 al miglio), quindi 1 altro miglio a ritmo blando, a che ora tornate a casa per colazione?
 \index{cadenza di corsa}
@@ -1695,7 +1694,7 @@ Terror di tutta la foresta egli è,
 Con l'ascia in mano si sente un re.
 \end{verbatim}
 %
-Ma a dire il vero, la canzone non fa così!
+Ma a dire il vero, la canzone del taglialegna non fa così!
 
 
 \section{Definizioni e loro utilizzo}
@@ -2602,7 +2601,7 @@ Se le precondizioni sono soddisfatte e le postcondizioni no, l'errore sta nella 
 \item[interfaccia:] Una descrizione di come si usa una funzione, incluso il nome, la descrizione degli argomenti e il valore di ritorno.
 \index{interfaccia}
 
-\item[refactoring:] Il procedimento di modifica di un programma funzionante per miliorare le interfacce delle funzioni e altre qualità del codice.
+\item[refactoring:] Il procedimento di modifica di un programma funzionante per migliorare le interfacce delle funzioni e altre qualità del codice.
 \index{refactoring}
 
 \item[tecnica di sviluppo:] Procedura di scrittura dei programmi.
@@ -6659,7 +6658,7 @@ Partite nel mezzo e controllate se la parola che cercate viene prima o dopo la p
 
 Ad ogni passaggio, dimezzate lo spazio di ricerca. Se l'elenco ha 113.809 parole, ci vorranno circa 17 passaggi per trovare la parola o concludere che non c'è.
 
-Scrivete una funzione di nome {\tt bisezione} che richieda una lista ordinata e un valore da ricercare, e restituisca l'indice di quel valore, se fa parte della lista, oppure {\tt None} se non esiste.
+Scrivete una funzione di nome {\tt bisezione} che richieda una lista ordinata e un valore da ricercare, e restituisca {\tt True} se la parola fa parte della lista, o {\tt False} se non è presente.
 \index{bisect, modulo}
 \index{modulo!bisect}
 
@@ -8061,7 +8060,7 @@ Soluzione: \url{http://thinkpython2.com/code/anagram_sets.py}.
 \begin{exercise}
 \index{metatesi}
 
-Si ha una metatesi quando una parola si può ottenere scambiando due lettere di un'altra parola, per esempio, ``conversa'' e ``conserva''.  Scrivete un programma che trovi tutte le coppie con metatesi nel dizionario. Suggerimento: non provate tutte le possibili coppie di parole e non provate tutti i possibili scambi. Soluzione: \url{http://thinkpython2.com/code/metathesis.py}.
+Si ha una metatesi quando una parola si può ottenere scambiando due lettere di un'altra parola, per esempio: ``conversa'' e ``conserva''.  Scrivete un programma che trovi tutte le coppie con metatesi nel dizionario. Suggerimento: non provate tutte le possibili coppie di parole e non provate tutti i possibili scambi. Soluzione: \url{http://thinkpython2.com/code/metathesis.py}.
 Fonte: Esercizio suggerito da un esempio nel sito \url{http://puzzlers.org}.
 
 \end{exercise}
@@ -8108,7 +8107,7 @@ Soluzione: \url{http://thinkpython2.com/code/reducible.py}.
 
 \chapter{Esercitazione: Scelta della struttura di dati}
 
-Giunti a questo punto, avete conosciuto le principali strutture di dati di Python, e visto alcuni algoritmi che le utilizzano. Se vi interessa saperne di più sugli algoritmi, potrebbe essere un buon momento per leggere l'Appendice~\ref{algorithms}.
+Giunti a questo punto, avete conosciuto le principali strutture di dati di Python, e avete visto alcuni algoritmi che le utilizzano. Se vi interessa saperne di più sugli algoritmi, potrebbe essere un buon momento per leggere l'Appendice~\ref{algorithms}.
 Non è però necessario per proseguire la lettura: fatelo quando vi pare opportuno.
 
 L'esercitazione di questo capitolo vi aiutèrà ad impratichirvi nella scelta e nell'uso delle strutture di dati.
@@ -10647,7 +10646,7 @@ Come esercizio, scrivete un metodo {\tt add} per i Punti che possa funzionare si
 
 \begin{itemize}
 
-\item Se il secondo operando è un Punto, il metodo deve restituire un nuovo Punto la cui coordinata $x$ sia la somma delle coordinate $x$ cdegli operandi, e lo stesso per le coordinate $y$.
+\item Se il secondo operando è un Punto, il metodo deve restituire un nuovo Punto la cui coordinata $x$ sia la somma delle coordinate $x$ degli operandi, e lo stesso per le coordinate $y$.
 
 \item Se il secondo operando è una tupla, il metodo deve aggiungere il primo elemento della tupla alla coordinata $x$ e il secondo elemento alla coordinata $y$, e restituire un nuovo Punto con le coordinate risultanti.
 
@@ -11575,8 +11574,7 @@ Ora vorrei tornare a recuperare alcune chicche che avevo tralasciato. Python è 
 
 \section{Espressioni condizionali}
 
-Abbiamo visto nel Paragrafo~\ref{conditional.execution}.
-le istruzioni condizionali, che vengono usate di frequente per scegliere uno tra due valori alternativi, per esempio:
+Abbiamo visto nel Paragrafo~\ref{conditional.execution} le istruzioni condizionali, che vengono usate di frequente per scegliere uno tra due valori alternativi, per esempio:
 \index{condizionale, espressione}
 \index{espressione!condizionale}
 
@@ -11736,7 +11734,7 @@ StopIteration.  Si può anche usare un ciclo {\tt for} per iterare attraverso i 
 16
 \end{verbatim}
 %
-L'oggetto generatore mantiene traccia del punto in cui si trova all'interno della sequenza, quindi il ciclo {\tt for} riprende da dove {\tt next} era rimasto. Una volta che il generatore è esaurito, continua sollevando delle {\tt StopException}:
+L'oggetto generatore mantiene traccia del punto in cui si trova all'interno della sequenza, quindi il ciclo {\tt for} riprende da dove {\tt next} era rimasto. Una volta che il generatore è esaurito, continua sollevando delle {\tt StopIteration}:
 
 \begin{verbatim}
 >>> next(g)
