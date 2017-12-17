@@ -186,7 +186,7 @@ Il codice sorgente \LaTeX\ di questo libro è disponibile all'indirizzo
 \vspace{0.2in}
 Titolo originale: {\em Think Python: How to Think Like a Computer Scientist}.
 
-Traduzione di Andrea Zanella (andreazanella@tiscali.it).
+Traduzione di Andrea Zanella.
 
 
 \vspace{0.2in}
@@ -618,41 +618,41 @@ Czeslaw Czapla, Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz
 
 \chapter{Lo scopo del programma}
 
-Lo scopo di questo libro è insegnarvi a pensare da informatici. Questo modo di pensare combina alcune delle migliori caratteristiche della matematica, dell'ingegneria e delle scienze naturali. Come i matematici, gli informatici usano linguaggi formali per esprimere concetti (nella fattispecie, elaborazioni). Come gli ingegneri, progettano cose, assemblano singoli componenti in sistemi e valutano costi e benefici tra le varie alternative. Come gli scienziati, osservano il comportamento di sistemi complessi, formulano ipotesi e verificano previsioni.
+Lo scopo di questo libro è di insegnarvi a pensare da informatici. Si tratta di un modo di pensare che riassume in sé alcuni validi aspetti della matematica, dell'ingegneria e delle scienze naturali. Come i matematici, gli informatici si avvalgono di linguaggi formali per esprimere dei concetti (più precisamente, dei calcoli). Come gli ingegneri, gli informatici progettano svariate cose, compongono singole parti in sistemi e valutano costi e benefici tra varie alternative. Come i naturalisti, gli informatici osservano come si comportano dei sistemi complessi, formulano delle ipotesi e verificano le loro previsioni.
 \index{risoluzione di problemi}
 
-La più importante capacità di un informatico è quella di risolvere problemi. Risolvere problemi significa riuscire a schematizzarli, pensare creativamente alle possibili soluzioni ed esprimerle in modo chiaro ed accurato. Ne deriva che imparare a programmare è un'eccellente opportunità di mettere in pratica l'abilità di risolvere problemi. Ecco perché questo capitolo è chiamato ``Lo scopo del programma''.
+La risoluzione di problemi è la principale qualità di un informatico: risolvere problemi comporta la capacità di formularli, di pensare in maniera creativa alle possibili soluzioni, e di esprimere una soluzione in modo chiaro ed accurato. Imparare a programmare è quindi un ottimo modo di mettere alla prova la propria bravura nel risolvere problemi. Ecco perché questo capitolo è chiamato ``Lo scopo del programma''.
 
-Da un lato, vi verrà insegnato a programmare, che già di per sé è un'utile   capacità. Dall'altro, userete la programmazione come un mezzo per raggiungere   uno scopo. Man mano che procederemo, quello scopo vi diverrà più chiaro.
+Da un lato, imparerete a programmare, che è già di per sé molto utile. Da un altro, userete la programmazione come un mezzo per raggiungere uno scopo. Man mano che procederemo, quello scopo vi diventerà più chiaro.
 
 
 \section{Che cos'è un programma?}
 
-Un {\bf programma} è una sequenza di istruzioni che spiegano come effettuare una elaborazione. L'elaborazione può essere sia di tipo matematico, come la soluzione di un sistema di equazioni o il calcolo delle radici di un polinomio, sia di tipo simbolico, come la ricerca e sostituzione di un testo in un documento, o ancora operazioni grafiche come elaborare un'immagine o riprodurre un filmato.
+Un {\bf programma} consiste in una serie di istruzioni che spiegano come effettuare un calcolo. Quest'ultimo può essere sia di tipo matematico, come la soluzione di un sistema di equazioni o la ricerca delle radici di un polinomio, sia di tipo simbolico, come la ricerca e la sostituzione di una parola in un documento, o ancora operazioni grafiche come l'elaborazione di un'immagine o la riproduzione di un filmato.
 \index{programma}
 
-I dettagli sono diversi per ciascun linguaggio di programmazione, ma un piccolo gruppo di istruzioni è praticamente comune a tutti i linguaggi:
+I dettagli operativi variano a seconda del linguaggio di programmazione che si usa, ma quasi tutti i linguaggi condividono un piccolo insieme di istruzioni fondamentali:
 
 \begin{description}
 
-\item[input:] ricezione di dati da tastiera, da un file, dalla rete o da un altro dispositivo.
+\item[input:] Ricevimento di dati dalla tastiera, da un file, dalla rete o da un altro dispositivo.
 
-\item[output:] scrittura di dati sullo schermo, salvataggio su un file o trasmissione verso la rete, ecc.
+\item[output:] Invio di dati allo schermo, loro salvataggio su un file, o trasmissione verso la rete, ecc.
 
-\item[matematiche:] esecuzione di semplici operazioni matematiche, quali        l'addizione e la moltiplicazione.
+\item[matematiche:] Esecuzione di operazioni matematiche fondamentali, come l'addizione e la moltiplicazione.
 
-\item[condizionali:] controllo di certe condizioni ed esecuzione della       sequenza di istruzioni appropriata.
+\item[condizionali:] Controllo di determinate condizioni ed esecuzione del blocco di istruzioni appropriato.
 
-\item[ripetizione:] ripetizione di un'azione, di solito con qualche      variazione.
+\item[ripetizioni:] Esecuzione ripetuta di una certa azione, di solito con qualche variazione.
 
 \end{description}
 
-Che ci crediate o no, questo è più o meno tutto ciò che serve. Tutti i   programmi che avete usato, non importa quanto complessi, sono fatti di istruzioni che assomigliano a queste. Possiamo affermare che la programmazione non è altro che la suddivisione di un compito grande e complesso in una serie di sotto-compiti via via più piccoli, finché non risultano sufficientemente semplici da essere eseguiti da una di queste istruzioni fondamentali.
+Che ci crediate o no, questo è più o meno tutto ciò che serve. Qualunque programma abbiate usato, non importa quanto complesso, è fatto di istruzioni simili a queste. Potete pensare alla programmazione come ad un procedimento di suddivisione di un compito grande e complesso in una serie di compiti sempre più piccoli, fino a quando non risultano abbastanza semplici da essere eseguiti da una di queste istruzioni.
 \index{algoritmo}
 
 \section{Avviare Python}
 
-Un possibile scoglio nell'iniziare ad usare Python è quello di doverlo installare, con il software correlato, nel vostro computer. Se siete già pratici del vostro sistema operativo, e soprattutto se ve la cavate con l'interfaccia a riga di comando, non avrete nessun problema ad installare Python. Ma per i meno esperti, può risultare faticoso dover imparare contemporaneamente l'amministrazione del sistema e la programmazione.
+Un possibile scoglio nell'iniziare ad usare Python, il linguaggio di programmazione che adotteremo, è quello di doverlo installare, con il software correlato, nel vostro computer. Se siete già pratici del vostro sistema operativo, e soprattutto se ve la cavate con l'interfaccia a riga di comando, non avrete nessun problema ad installare Python. Ma per i meno esperti, può risultare faticoso dover imparare contemporaneamente l'amministrazione del sistema e la programmazione.
 \index{avviare Python}
 \index{Python!avvio}
 
@@ -694,20 +694,19 @@ Ora siete pronti per iniziare. D'ora in poi, darò per scontato che sappiate com
 \label{hello}
 \index{Ciao, Mondo!}
 
-Per tradizione, il primo programma scritto in un nuovo linguaggio è
-chiamato ``Ciao, Mondo!'', perché tutto ciò che fa è scrivere a video le parole ``Ciao, Mondo!'', e niente di più. In Python questo programma si scrive così:
+Per consuetudine, il primo programma che si scrive quando si affronta un nuovo linguaggio si chiama ``Ciao, Mondo!'', perché non fa altro che mostrare a video le parole ``Ciao, Mondo!'', e niente di più. In Python questo programma si scrive semplicemente così:
 
 \begin{verbatim}
 print('Ciao, Mondo!')
 \end{verbatim}
 %
-Questo è un esempio di {\bf istruzione di stampa}, che a dispetto del nome non stampa nulla su carta, limitandosi invece a visualizzare un valore scrivendolo sullo schermo. In questo caso ciò che viene ``stampato'' sono le parole:
+Questo è un esempio di {\bf istruzione di stampa}, che a dispetto del nome non stampa nulla su carta: visualizza solo un risultato sullo schermo. In questo caso il risultato sono le parole:
 
 \begin{verbatim}
 Ciao, Mondo!
 \end{verbatim}
 %
-Gli apici nell'istruzione segnano l'inizio e la fine del valore da stampare e non appaiono nel risultato.
+Gli apici nell'istruzione segnalano l'inizio e la fine del testo che deve essere visualizzato, e non fanno parte del risultato finale.
 \index{apici}
 \index{stampa, istruzione di}
 \index{istruzione!di stampa}
@@ -728,10 +727,10 @@ La differenza sarà presto chiarita meglio, ma questo ci basta per cominciare.
 \index{operatore!aritmetico}
 \index{aritmetico!operatore}
 
-Dopo ``Ciao, Mondo!'', passiamo all'aritmetica. Python dispone di
+Dopo il classico ``Ciao, Mondo!'', passiamo all'aritmetica. Python dispone di
 {\bf operatori}, che sono simboli speciali che rappresentano i calcoli fondamentali, come l'addizione e la moltiplicazione.
 
-Gli operatori {\tt +}, {\tt -}, e {\tt *} eseguono nell'ordine addizione, sottrazione e moltiplicazione, come negli esempi seguenti:
+Gli operatori {\tt +}, {\tt -}, e {\tt *} eseguono nell'ordine addizione, sottrazione e moltiplicazione, come illustrato negli esempi seguenti:
 
 \begin{verbatim}
 >>> 40 + 2
@@ -775,16 +774,16 @@ Non tratteremo gli operatori bitwise in questo libro, ma se volete approfondire 
 \index{tipo}
 \index{stringa}
 
-Un {\bf valore} è l'elemento fondamentale con cui un programma lavora, come lo è una lettera dell'alfabeto nella scrittura o un numero in matematica. I valori che abbiamo visto finora sono
+Un {\bf valore} è uno degli elementi di base che un programma è in grado di elaborare, come ad esempio una lettera oppure un numero. Tra i valori che abbiamo visto finora: 
 {\tt 2}, {\tt 42.0}, e \verb"'Ciao, Mondo!'".
 
 Questi valori appartengono a {\bf tipi} diversi:
-{\tt 2} è un numero {\bf intero}, {\tt 42.0} è un numero decimale, detto anche ``a virgola mobile'' o {\bf floating-point}, e \verb"'Ciao, Mondo!'" è una {\bf stringa}, in quanto contiene una serie di caratteri racchiusi tra due apici.
+{\tt 2} è un numero {\bf intero}, {\tt 42.0} è un numero decimale, detto anche ``a virgola mobile'' o {\bf floating-point}, e \verb"'Ciao, Mondo!'" è una {\bf stringa}, in quanto costituita da una sequenza di singoli caratteri collegati (dal verbo inglese \verb"to string", che ha anche il significato di ``legare insieme'').
 \index{intero}
 \index{floating-point}
 \index{stringa}
 
-Se non sapete a quale tipo appartenga un dato valore, l'interprete ve lo può dire:
+Per sapere a quale tipo appartiene un dato valore, basta chiederlo all'interprete:
 
 \begin{verbatim}
 >>> type(2)
@@ -799,8 +798,8 @@ Se non sapete a quale tipo appartenga un dato valore, l'interprete ve lo può di
 Nei responsi, la parola ``class'' (classe) viene usata nel senso di categoria; un tipo è una categoria di valori.
 \index{classe}
 
-Ovviamente le stringhe sono di tipo {\tt str}, gli interi di
-tipo {\tt int}, i numeri con il punto decimale di tipo {\tt float}.
+Alle stringhe corrisponde il tipo {\tt str}, agli interi il
+tipo {\tt int}, ai numeri con parte decimale il tipo {\tt float}.
 \index{tipo}
 \index{string, tipo}
 \index{tipo!str}
@@ -809,8 +808,8 @@ tipo {\tt int}, i numeri con il punto decimale di tipo {\tt float}.
 \index{float, tipo}
 \index{tipo!float}
 
-Cosa dire di valori come \verb"'2'" e \verb"'42.0'"?
-Sembrano a prima vista dei numeri, ma notate che sono racchiusi tra apici e questo sicuramente significa qualcosa. 
+Di che tipo sono valori come \verb"'2'" e \verb"'42.0'"?
+Sembrerebbero a prima vista dei numeri, ma notate che sono racchiusi tra apici come le stringhe. 
 \index{apici}
 
 \begin{verbatim}
@@ -820,16 +819,16 @@ Sembrano a prima vista dei numeri, ma notate che sono racchiusi tra apici e ques
 <class 'str'>
 \end{verbatim}
 %
-Infatti non sono numeri, ma stringhe.
+E infatti si tratta di stringhe.
 
-Quando scrivete numeri grandi, potrebbe venirvi l'idea di usare delle virgole per delimitare i gruppi di tre cifre, come in {\tt 1,000,000}. [Python utilizza la notazione anglosassone, per cui i separatori delle migliaia sono le virgole, mentre il punto è usato per separare le cifre decimali, NdT]. Questo non è un numero {\em intero} valido in Python, ma è comunque un qualcosa di consentito:
+Quando scrivete numeri grandi, potrebbe venirvi in mente di usare delle virgole per delimitare i gruppi di tre cifre, come in {\tt 1,000,000}. [Python utilizza la notazione anglosassone, per cui i separatori delle migliaia sono le virgole, mentre il punto è usato per separare le cifre decimali, NdT]. Questo non è un numero {\em intero} valido in Python, ma è comunque un qualcosa di consentito:
 
 \begin{verbatim}
 >>> 1,000,000
 (1, 0, 0)
 \end{verbatim}
 %
-Anche se non è quello che ci aspettavamo! Python in questo caso interpreta 1,000,000 come una sequenza di tre interi separati da virgole. Approfondiremo meglio questo tipo di sequenza più avanti.
+Ma non è affatto quello che ci aspettavamo! Python in questo caso interpreta 1,000,000 come una sequenza di tre interi separati da virgole. Approfondiremo meglio questo tipo di sequenza più avanti.
 \index{sequenza}
 
 
@@ -837,30 +836,26 @@ Anche se non è quello che ci aspettavamo! Python in questo caso interpreta 1,00
 \index{linguaggio!formale}
 \index{linguaggio!naturale}
 
-I {\bf linguaggi naturali} sono le lingue parlate, tipo l'inglese, l'italiano, lo spagnolo. Non sono stati ``progettati'' da qualcuno e, anche se è stato imposto un certo ordine nel loro sviluppo, si sono evoluti naturalmente.
+I {\bf linguaggi naturali} sono le lingue parlate, come l'inglese, il francese, l'italiano. Non sono opera di qualcuno, benché le persone cerchino di imporre loro un ordine razionale, e si sono evoluti naturalmente.
 
-I {\bf linguaggi formali} sono linguaggi progettati per specifiche   applicazioni. Per fare qualche esempio, la notazione matematica è un linguaggio formale particolarmente indicato ad esprimere relazioni tra numeri e simboli; i chimici usano un linguaggio formale per rappresentare la struttura delle molecole; e, cosa più importante dal nostro punto di vista, 
+I {\bf linguaggi formali} sono linguaggi appositamente creati per specifiche applicazioni. Ad esempio, la notazione usata dai matematici è un linguaggio formale particolarmente indicato per esprimere le relazioni tra numeri e simboli; i chimici utilizzano un linguaggio formale per descrivere la struttura chimica delle molecole; e, soprattutto, 
 
 \begin{quote}
-{\bf I linguaggi di programmazione sono linguaggi formali che sono
-   stati progettati per esprimere delle elaborazioni.}
+{\bf I linguaggi di programmazione sono linguaggi formali progettati per esprimere dei calcoli.}
 \end{quote}
 
-I linguaggi formali tendono ad avere regole rigide per quanto riguarda la {\bf sintassi} che governa ciò che devono esprimere. Per esempio,
-$3 + 3 = 6$ è una espressione matematica sintatticamente corretta, mentre
+I linguaggi formali hanno delle rigide regole sintattiche che governano la struttura di ciò che devono esprimere. Per esempio,
+$3 + 3 = 6$ è un'espressione matematica dalla sintassi corretta, ma
 $3 += 3 \$ 6$ non lo è.
-$H_2O$ è un simbolo chimico sintatticamente corretto, contrariamente a $_2Zz$ .
+In chimica, $H_2O$ è sintatticamente corretto, a differenza di $_2Zz$ .
 
 Le regole sintattiche hanno due aspetti, che riguardano i {\bf simboli} e la
-{\bf struttura}. I simboli (in inglese {\em token}) sono gli elementi di base del linguaggio, quali possono essere le parole in letteratura, i numeri in matematica e gli elementi chimici in chimica. Uno dei problemi con 
-$3 += 3 \$ 6$ è che \( \$ \) non è un simbolo valido in matematica
-(almeno per quanto mi risulta). Allo stesso modo, $_2Zz$ non è valido perché nessun elemento chimico è identificato dal simbolo $Zz$.
+{\bf struttura}. I simboli (in inglese {\em token}) sono gli elementi di base del linguaggio, come le parole, i numeri, gli elementi chimici. Un problema dell'espressione $3 += 3 \$ 6$ è che \( \$ \) non è un simbolo valido in matematica (almeno per quanto mi risulta). Allo stesso modo, in chimica $_2Zz$ non è valido perché non esiste un elemento di simbolo $Zz$.
 \index{simbolo}
 \index{token}
 \index{struttura}
 
-Il secondo aspetto riguarda la struttura di un'espressione, cioè il modo in cui i simboli sono disposti. L'espressione
-$3 += 3$ è strutturalmente non valida perché, anche se $+$ e $=$ sono dei simboli validi, non è possibile che uno segua immediatamente l'altro. Allo stesso modo, il pedice numerico nelle formule chimiche deve essere scritto dopo il simbolo dell'elemento chimico, e non prima.
+Il secondo tipo di regola sintattica, la struttura, riguarda il modo in cui sono disposti i simboli. L'espressione $3 += 3$ non è strutturalmente valida perché, anche se $+$ e $=$ sono dei simboli validi, non è possibile che uno segua immediatamente l'altro. Allo stesso modo, il pedice numerico nelle formule chimiche deve essere scritto dopo il simbolo dell'elemento chimico, e non prima.
 
 Questa è un@ frase ben \$trutturata in italiano che conti\verb'&'ne simb*li non validi.\\
 Frase questa simboli validi tutti ha, ma struttura non valida con.
@@ -868,82 +863,82 @@ Frase questa simboli validi tutti ha, ma struttura non valida con.
 Quando leggete una frase in italiano o un'espressione in un linguaggio formale, dovete analizzare quale sia la struttura della frase (in un linguaggio naturale, questa operazione viene effettuata subconsciamente). Questo processo di analisi è chiamato {\bf parsing}.
 \index{parsing}
 
-Anche se i linguaggi formali e quelli naturali condividono molte    caratteristiche (simboli, struttura, sintassi e semantica), ci sono delle   significative differenze:
+Sebbene i linguaggi formali e quelli naturali abbiano molte caratteristiche in comune (simboli, struttura, sintassi e semantica), ci sono delle differenze:
 \index{ambiguità}
 \index{ridondanza}
 \index{letteralità}
 
 \begin{description}
 
-\item[ambiguità:] i linguaggi naturali ne sono pieni, ed il significato viene   ottenuto anche grazie ad altri indizi ricavati dal contesto. I linguaggi formali sono progettati per essere quasi o completamente privi di ambiguità, e ciò comporta che ciascuna dichiarazione ha un unico significato, indipendente dal contesto.
+\item[ambiguità:] I linguaggi naturali ne sono pieni, e le persone riescono a risolverla mediante indizi contestuali ed altre informazioni. I linguaggi formali sono invece progettati per essere quasi o completamente privi di ambiguità: ciascuna dichiarazione ha un unico significato, indipendente dal contesto.
 
-\item[ridondanza:] per evitare l'ambiguità e ridurre le incomprensioni, i linguaggi naturali impiegano molta ridondanza e sono spesso sovrabbondanti. I linguaggi formali sono meno ridondanti e più concisi.
+\item[ridondanza:] Per risolvere l'ambiguità e ridurre le incomprensioni, i linguaggi naturali impiegano molta ridondanza, ovvero sono spesso prolissi. I linguaggi formali sono meno ridondanti e più concisi.
 
-\item[letteralità:] i linguaggi naturali sono pieni di frasi idiomatiche e metafore. Se dico: ``Mangiare la foglia'', presumibilmente non c'è nessuna foglia e nessuno che la mangi (è un modo di dire di una persona che si rende conto di come stanno realmente le cose). I linguaggi formali invece esprimono esattamente ciò che dicono.
+\item[letteralità:] i linguaggi naturali sono pieni di frasi idiomatiche e metafore. Se dico: ``Mangiare la foglia'', presumibilmente non c'è nessuna foglia e nessuno che la mangi (è un modo di dire di una persona che si rende conto di come stanno realmente le cose). I linguaggi formali invece significano esattamente quello che dicono.
 
 \end{description}
 
-Poiché siamo tutti cresciuti parlando dei linguaggi naturali, spesso abbiamo difficoltà ad adattarci ai linguaggi formali. In un certo senso la differenza tra linguaggi naturali e formali è come quella esistente tra poesia e prosa, ma in misura decisamente più evidente:
+Dato che tutti noi siamo cresciuti parlando dei linguaggi naturali, possiamo trovare difficoltà ad adattarci ai linguaggi formali. La differenza tra linguaggi naturali e formali può essere paragonata a quella tra poesia e prosa, ma non solo:
 \index{poesia}
 \index{prosa}
 
 \begin{description}
 
-\item[Poesia:] le parole sono usate tanto per il loro suono che per il loro     significato, e la poesia nel suo complesso crea un effetto o una risposta emotiva. L'ambiguità è non solo frequente, ma spesso addirittura voluta.
+\item[Poesia:] Le parole sono usate sia per il loro suono che per il loro significato, e l'intero componimento poetico crea complessivamente un effetto o una risposta emotiva. L'ambiguità non solo è frequente, ma spesso voluta.
 
-\item[Prosa:] il significato letterale delle parole è più importante, con la    struttura che contribuisce a fornire maggior significato. La prosa può essere soggetta ad analisi più facilmente della poesia, ma può risultare ancora ambigua.
+\item[Prosa:] Il significato letterale delle parole assume più importanza, e la struttura contribuisce a generare un maggiore significato. La prosa è più assoggettabile all'analisi della poesia, ma spesso è ancora ambigua.
 
-\item[Programmi:] il significato di un programma per computer è non ambiguo e    assolutamente letterale, e può essere compreso nella sua totalità con l'analisi dei simboli e della struttura.
+\item[Programmi:] Il significato di un programma per computer è letterale e privo di ambiguità, e può essere completamente interpretato mediante l'analisi dei simboli e della struttura.
 
 \end{description}
 
-I linguaggi formali sono molto più ricchi di significato dei linguaggi naturali, per questo è necessario più tempo per leggerli e comprenderli. Inoltre, la struttura dei linguaggi formali è molto importante e di solito non è bene leggerli dall'alto in basso, da sinistra a destra, come avviene per un testo letterario: dovete invece imparare ad analizzare il programma nella vostra testa, identificandone i simboli ed interpretandone la struttura. Infine, i dettagli sono importanti: piccoli errori di ortografia e punteggiatura sono spesso trascurabili nei linguaggi naturali, ma fanno una enorme differenza in quelli formali.
+I linguaggi formali sono molto più densi di significato di quelli naturali, e per questo è necessario più tempo per leggerli. Inoltre, la struttura è importante, e non sempre è bene leggere dall'alto in basso e da sinistra a destra; i programmi vanno analizzati nella propria testa, identificando i simboli e comprendendo la struttura. Infine, i dettagli contano molto: piccoli errori di ortografia e punteggiatura che sono trascurabili nei linguaggi naturali, possono diventare gravi in quelli formali.
 
 \section{Debug}
 \index{debug}
 
-I programmatori inevitabilmente commettono errori. Per ragioni bizzarre, gli errori di programmazione sono chiamati {\bf bug}, ed il procedimento della loro ricerca e correzione è chiamato {\bf debug}.
+Inevitabilmente, i programmatori commettono errori. Per ragioni storiche curiose, gli errori di programmazione sono detti {\bf bug}, ed il procedimento della loro ricerca e correzione è chiamato {\bf debug}.
 \index{debug}
 \index{bug}
 
-La programmazione, e specialmente il debug, a volte fanno emergere emozioni forti. Se siete alle prese con un bug difficile, vi può capitare di sentirvi arrabbiati, scoraggiati o in difficoltà.
+La programmazione, e specialmente il debug, a volte fanno emergere emozioni forti. Se siete alle prese con un bug impegnativo, vi può capitare di sentirvi arrabbiati, scoraggiati o in difficoltà.
 
-Ci sono prove che le persone tendono naturalmente a rapportarsi con i computer come se fossero esseri umani. Se funzionano bene, li pensiamo come compagni di squadra, e quando sono ostinati o rudi, li trattiamo come trattiamo la gente rude o ostinata (Reeves and Nass, {\it The Media Equation: How People Treat Computers, Television, and New Media Like Real People and Places}).
+Ci sono studi secondo i quali le persone tendono naturalmente a rapportarsi con i computer come se fossero esseri umani. Se funzionano bene, li pensiamo come compagni di squadra, e quando sono ostinati o rudi, li trattiamo come trattiamo la gente rude o ostinata (Reeves and Nass, {\it The Media Equation: How People Treat Computers, Television, and New Media Like Real People and Places}).
 \index{debug!risposta emotiva}
 \index{emotività, nel debug}
 
-Prepararsi a reazioni simili può aiutarvi ad affrontarle. Un possibile approccio è quello di pensare al computer come ad un impiegato con alcuni punti di forza, come velocità e precisione, e particolari debolezze, come mancanza di empatia e incapacità di cogliere il quadro generale.
+Prepararsi a simili reazioni può aiutare ad affrontarle. Un possibile approccio è quello di pensare al computer come ad un impiegato con alcuni punti di forza, come velocità e precisione, e particolari debolezze, come mancanza di empatia e incapacità di cogliere il quadro generale.
 
 Il vostro compito è di essere un buon manager: trovare il modo di trarre vantaggio dai pregi e mitigare i difetti. E trovare il modo di usare le vostre emozioni per affrontare i problemi, senza lasciare che le vostre reazioni interferiscano con la vostra capacità di lavorare in modo efficace.
 
-Imparare a dare la caccia agli errori può essere noioso, ma è un'abilità preziosa, utile anche per tante altre attività oltre alla programmazione. Alla fine di ogni capitolo trovate un Paragrafo dedicato al debug, come questo, con le mie riflessioni in merito. Spero vi siano di aiuto!
+Imparare a dare la caccia agli errori può essere noioso, ma è un'abilità preziosa, utile anche per tante altre attività oltre alla programmazione. Alla fine di ogni capitolo troverete un paragrafo dedicato al debug, come questo, con le mie riflessioni in merito. Spero vi siano di aiuto!
 
 \section{Glossario}
 
 \begin{description}
 
-\item[soluzione di problemi:]  Il procedimento di formulare un problema, trovare una soluzione ed esprimerla.
+\item[soluzione di problemi:]  Procedura che consiste nel formulare un problema, trovare una soluzione ed esprimerla.
 \index{soluzione di problemi}
 
-\item[linguaggio di alto livello:]  Un linguaggio di programmazione come Python, progettato per essere facilmente leggibile e utilizzabile dagli uomini.
+\item[linguaggio di alto livello:]  Un linguaggio di programmazione come Python, progettato per essere facile da leggere e scrivere per le persone.
 \index{linguaggio!di alto livello}
 
-\item[linguaggio di basso livello:]  Un linguaggio di programmazione che è progettato per essere facilmente eseguibile da un computer; è chiamato anche    ``linguaggio macchina'' o ``linguaggio assembly''.
+\item[linguaggio di basso livello:]  Un linguaggio di programmazione progettato per essere facilmente eseguibile da un computer; è detto anche  ``linguaggio macchina'' o ``linguaggio assembly''.
 \index{linguaggio!di basso livello}
 
-\item[portabilità:]  Caratteristica di un programma di poter essere eseguito su computer di tipo diverso.
+\item[portabilità:]  Proprietà di un programma di poter essere eseguito su computer di tipo diverso.
 \index{portabilità}
 
 \item[interprete:]  Un programma che legge un altro programma e lo esegue.
 \index{interprete}
 
-\item[prompt:] Serie di caratteri mostrati dall'interprete per indicare che è pronto a ricevere input dall'utente.
+\item[prompt:] Sequenza di caratteri mostrati dall'interprete per indicare la disponibilità a ricevere input dall'utente.
 \index{prompt}
 
-\item[programma:] Serie di istruzioni che specificano come effettuare          un'elaborazione.
+\item[programma:] Serie di istruzioni che specifica come effettuare un calcolo.
 \index{programma}
 
-\item[istruzione di stampa:]  Istruzione che ordina all'interprete Python di visualizzare un valore sullo schermo.
+\item[istruzione di stampa:]  Istruzione per la quale l'interprete Python  visualizza un valore sullo schermo.
 \index{stampa, istruzione di}
 \index{istruzione!di stampa}
 
@@ -969,7 +964,7 @@ float}), e stringhe (tipo {\tt str}).
 \item[linguaggio naturale:]  Qualunque linguaggio parlato che si è evoluto spontaneamente nel tempo.
 \index{linguaggio!naturale}
 
-\item[linguaggio formale:]  Qualunque linguaggio progettato per scopi specifici, quali la rappresentazione di concetti matematici o di programmi per computer. Tutti i linguaggi di programmazione sono linguaggi formali.
+\item[linguaggio formale:]  Qualunque linguaggio creato per scopi particolari, come l'espressione di concetti matematici o di programmi per computer. Tutti i linguaggi di programmazione sono linguaggi formali.
 \index{linguaggio!formale}
 
 \item[simbolo o {\em token}:]  Uno degli elementi di base della struttura sintattica di un programma, analogo a una parola nei linguaggi naturali.
@@ -979,13 +974,13 @@ float}), e stringhe (tipo {\tt str}).
 \item[sintassi:] Le regole che governano la struttura di un programma.
 \index{sintassi}
 
-\item[parsing:] Esame e analisi della struttura sintattica di un programma.
+\item[parsing:] L'esame e l'analisi della struttura sintattica di un programma.
 \index{parsing}
 
 \item[bug:] Un errore in un programma.
 \index{bug}
 
-\item[debug:] L'operazione di ricerca e di rimozione degli errori di programmazione.
+\item[debug:] L'operazione di ricerca e correzione degli errori di programmazione.
 \index{debug}
 
 
@@ -1044,7 +1039,7 @@ Avviate l'interprete di Python e utilizzatelo come calcolatrice.
 
 \chapter{Variabili, espressioni ed istruzioni}
 
-Una delle caratteristiche più potenti in un linguaggio di programmazione è la capacità di lavorare con le {\bf variabili}. Una variabile è un nome che fa riferimento ad un valore.
+Una delle caratteristiche più potenti di un linguaggio di programmazione è la capacità di elaborare delle {\bf variabili}. Una variabile è un nome che fa riferimento ad un valore.
 \index{variabile}
 
 \section{Istruzioni di assegnazione}
@@ -1061,10 +1056,10 @@ Un'{\bf istruzione di assegnazione} serve a creare una nuova variabile, specific
 \end{verbatim}
 %
 Questo esempio effettua tre assegnazioni. La prima assegna una stringa
-ad una nuova variabile chiamata {\tt messaggio}; la seconda assegna il numero intero {\tt 17} alla variabile {\tt n}; la terza assegna il valore decimale approssimato di $\pi$ alla variabile {\tt pi}.
+ad una nuova variabile di nome {\tt messaggio}; la seconda assegna il numero intero {\tt 17} alla variabile {\tt n}; la terza assegna il valore decimale approssimato di $\pi$ alla variabile {\tt pi}.
 \index{diagramma!di stato}
 
-Un modo comune di rappresentare le variabili sulla carta è scriverne il nome con una freccia che punta al loro valore. Questo tipo di illustrazione è chiamato {\bf diagramma di stato} perché mostra lo stato in cui si trova la variabile. La Figura~\ref{fig.state2} illustra il risultato delle istruzioni di assegnazione dell'esempio precedente.
+Un modo frequente di raffigurare le variabili è quello di scriverne il nome e disegnare una freccia che punta al loro valore. Questa illustrazione è chiamata {\bf diagramma di stato} perché mostra lo stato in cui si trova la variabile. La Figura~\ref{fig.state2} contiene i risultati delle istruzioni di assegnazione dell'esempio precedente.
 
 \begin{figure}
 \centerline
@@ -1076,12 +1071,12 @@ Un modo comune di rappresentare le variabili sulla carta è scriverne il nome co
 \section{Nomi delle variabili}
 \index{variabile}
 
-Generalmente, i programmatori scelgono dei nomi significativi per le loro variabili, in modo da documentare a che cosa servono.
+Generalmente, i programmatori chiamano le variabili con dei nomi significativi, in modo da documentare a cosa servono.
 
-I nomi delle variabili possono essere lunghi a piacere e possono contenere sia lettere che numeri, ma non possono iniziare con un numero. È possibile usare anche le lettere maiuscole, ma per i nomi di variabile è convenzione utilizzare solo lettere minuscole. Ricordate comunque che, per l'interprete, maiuscole e minuscole sono diverse, pertanto \verb"spam", \verb"Spam" e \verb"SPAM" sono variabili diverse.
+I nomi possono essere lunghi a piacere e possono contenere sia lettere che numeri, ma non possono iniziare con un numero. È possibile usare anche le lettere maiuscole, ma per i nomi di variabile è convenzione utilizzare solo lettere minuscole. In ogni caso, tenete conto che, per l'interprete, maiuscole e minuscole sono diverse, pertanto \verb"spam", \verb"Spam" e \verb"SPAM" sono variabili diverse.
 
 Il trattino basso o {\em underscore}, \verb"_", può far parte di un nome: è usato spesso in nomi di variabile composti da più parole (per esempio 
-\verb"il_mio_nome" o \verb"monty_python").
+\verb"il_tuo_nome" o \verb"monty_python").
 \index{underscore, carattere}
 
 Se assegnate un nome non valido alla variabile, otterrete un errore di sintassi:
@@ -1098,7 +1093,7 @@ SyntaxError: invalid syntax
 {\tt 76tromboni} non è valido perché non inizia con una lettera.
 {\tt altro@} non è valido perché contiene un carattere non ammesso (la chiocciola {\tt @}). Ma cosa c'è di sbagliato in {\tt class}?
 
-Succede che {\tt class} è una delle {\bf parole chiave riservate} di Python. L'interprete utilizza queste parole per riconoscere la struttura del programma, pertanto non possono essere usate come nomi di variabili.
+Succede che {\tt class} è una delle {\bf parole chiave riservate} di Python. L'interprete utilizza queste parole per riconoscere la struttura del programma, pertanto non è consentito usarle come nomi di variabile.
 \index{parola chiave}
 
 Python 3 ha queste parole chiave:
@@ -1184,7 +1179,7 @@ print(miglia * 1.61)
 
 Questo comportamento inizialmente può confondere.
 
-Uno script di solito contiene una sequenza di istruzioni. Se ci sono più istruzioni, i risultati compaiono uno alla volta, man mano che le istruzioni vengono eseguite.
+Uno script di solito contiene una serie di istruzioni. Se ci sono più istruzioni, i risultati compaiono uno alla volta, man mano che le istruzioni vengono eseguite.
 
 Per esempio lo script:
 
@@ -1218,18 +1213,18 @@ Ora scrivete le stesse istruzioni in uno script ed avviatelo. Qual è il risulta
 \index{ordine delle operazioni}
 \index{PEMDAS}
 
-Quando un'espressione contiene più operatori, l'ordine in cui viene eseguito il calcolo dipende dal'{\bf ordine delle operazioni}. Python segue le stesse regole di precedenza usate in matematica. L'acronimo {\bf PEMDAS} è un modo utile per ricordare le regole:
+Quando un'espressione contiene più operatori, la successione con cui viene eseguito il calcolo dipende dall'{\bf ordine delle operazioni}. Per quelle matematiche, Python segue le stesse regole di precedenza comunemente usate in matematica. L'acronimo {\bf PEMDAS} è un modo utile per ricordare le regole:
 
 \begin{itemize}
 
-\item {\bf P}arentesi: hanno il più alto livello di precedenza e possono essere usate per far valutare l'espressione in qualsiasi ordine volete.    Dato che le espressioni tra parentesi sono valutate per prime, {\tt 2 * (3-1)} fa 4, e {\tt (1+1)**(5-2)} fa 8. Si possono usare le parentesi anche solo per rendere più leggibile un'espressione, come in {\tt (minuti * 100) / 60}; in questo caso non influiscono sul risultato.
+\item {\bf P}arentesi: hanno il livello di precedenza più elevato e possono essere usate per forzare la valutazione di un'espressione secondo qualsiasi ordine si desideri. Dato che le espressioni tra parentesi sono valutate per prime, {\tt 2 * (3-1)} fa 4, e {\tt (1+1)**(5-2)} fa 8. Si possono usare le parentesi anche solo per rendere più leggibile un'espressione, come in {\tt (minuti * 100) / 60}, e in questo caso non influiscono sul risultato.
 
 \item {\bf E}levamento a potenza: ha la priorità successiva, così
 {\tt 1 + 2**3} fa 9, e non 27, e {\tt 2 * 3**2} fa 18, e non 36.
 
 \item {\bf M}oltiplicazione e {\bf D}ivisione hanno priorità superiore ad {\bf A}ddizione e {\bf S}ottrazione. Per cui {\tt 2*3-1} fa 5, e non 4, e {\tt 6+4/2} fa 8, e non 5.
 
-\item Gli operatori con la stessa priorità sono valutati da sinistra verso destra (eccetto la potenza), così nell'espressione {\tt gradi / 2 * pi}, la divisione viene calcolata per prima e il risultato viene moltiplicato per {\tt pi}.  Per dividere per $2 \pi$, dovete usare le parentesi o scrivere {\tt gradi / 2 / pi}.
+\item Gli operatori con la stessa priorità vengono valutati da sinistra verso destra (eccetto la potenza), per cui nell'espressione {\tt gradi / 2 * pi}, la divisione viene calcolata per prima e il risultato viene moltiplicato per {\tt pi}.  Per dividere {\tt gradi} per $2 \pi$, dovete usare le parentesi o scrivere {\tt gradi / 2 / pi}.
 
 \end{itemize}
 
@@ -1239,7 +1234,7 @@ Personalmente, non mi sforzo molto di ricordare la precedenza degli operatori. S
 \index{stringa!operazioni}
 \index{operatore!stringa}
 
-In genere non potete effettuare operazioni matematiche sulle stringhe, anche se il loro contenuto sembra essere un numero, quindi gli esempi che seguono non sono validi.
+In linea generale non è possibile effettuare operazioni matematiche sulle stringhe, anche se la stringa sembra un numero; quindi gli esempi che seguono non sono validi.
 
 \begin{verbatim}
 '2'-'1'    'uova'/'facili'    'terzo'*'una magia'
@@ -1251,39 +1246,39 @@ L'operatore {\tt +} esegue il {\bf concatenamento}, cioè unisce le stringhe col
 \index{concatenamento}
 
 \begin{verbatim}
-primo = 'bagno'
-secondo = 'schiuma'
-primo + secondo
+>>> primo = 'bagno'
+>>> secondo = 'schiuma'
+>>> primo + secondo
+bagnoschiuma
 \end{verbatim}
 %
-Il risultato a video di questo programma è {\tt bagnoschiuma}.
 
 Anche l'operatore {\tt *} funziona sulle stringhe: ne esegue la ripetizione. Per esempio, \verb"'Spam'*3" dà \verb"'SpamSpamSpam'". Uno degli operandi deve essere una stringa, l'altro un numero intero.
 
-Questo utilizzo di {\tt +} e {\tt *} è coerente per analogia con l'addizione e la moltiplicazione in matematica. Così come {\tt 4*3} è equivalente a {\tt 4+4+4}, ci aspettiamo che \verb"'Spam'*3" sia lo stesso di
-\verb"'Spam'+'Spam'+'Spam'", ed effettivamente è così. D'altro canto, c'è un particolare sostanziale che rende diverse la somma e la moltiplicazione di numeri interi e di stringhe. Riuscite a pensare ad una proprietà che ha l'addizione ma che non vale per il concatenamento di stringhe?
+Questo utilizzo di {\tt +} e {\tt *} è coerente per analogia con l'addizione e la moltiplicazione. Dato che {\tt 4*3} è equivalente a {\tt 4+4+4}, ci possiamo aspettare che \verb"'Spam'*3" sia la stessa cosa di
+\verb"'Spam'+'Spam'+'Spam'", ed infatti è così. Tuttavia, concatenamento e ripetizione di stringhe differiscono da addizione e moltiplicazione di interi per un particolare importante. Riuscite a pensare ad una proprietà che ha l'addizione ma che non vale per il concatenamento di stringhe?
 \index{commutatività}
 
 
 \section{Commenti}
 \index{commento}
 
-Man mano che il programma cresce di dimensioni e diventa più complesso, diventa anche sempre più difficile da leggere. I linguaggi formali sono ricchi di significato, e può risultare difficile capire a prima vista cosa fa un pezzo di codice o perché è stato scritto in un certo modo.
+Al crescere delle sue dimensioni e della sua complessità, un programma diventa anche sempre più difficile da leggere. I linguaggi formali sono densi di significato, e spesso non è facile guardare un segmento di codice scritto da altri e capire immediatamente che cosa fa, o perché.
 
-Per questa ragione, è buona abitudine aggiungere delle note ai vostri   programmi, per spiegare in linguaggio naturale cosa sta facendo il programma nelle sue varie parti. Queste note sono chiamate {\bf commenti}, e sono demarcate dal simbolo \verb"#":
+Per questo motivo, è buona abitudine aggiungere ai vostri programmi delle annotazioni che spiegano in linguaggio naturale ciò che il programma sta facendo. Queste annotazioni si chiamano {\bf commenti}, contrassegnati dal simbolo \verb"#":
 
 \begin{verbatim}
 # calcola la percentuale di ora trascorsa
 percentuale = (minuti * 100) / 60
 \end{verbatim}
 %
-In questo caso il commento appare su una riga a sé stante. Potete anche inserire un commento alla fine di una riga:
+In questo caso, il commento si trova su una riga a sé stante, ma potete anche inserire un commento in coda a una riga:
 
 \begin{verbatim}
 percentuale = (minuti * 100) / 60     # percentuale di un'ora
 \end{verbatim}
 %
-Qualsiasi cosa scritta dopo il simbolo {\tt \#} e fino alla fine della riga, viene trascurata e non ha alcun effetto sull'esecuzione del programma. 
+Tutto ciò che viene scritto dopo il simbolo {\tt \#} e fino alla fine della riga, viene trascurato e non influisce in alcun modo sull'esecuzione del programma. 
 
 I commenti più utili sono quelli che documentano caratteristiche del codice di non immediata comprensione. È ragionevole supporre che chi legge il codice possa capire {\em cosa} esso faccia; è più utile spiegare {\em perché}.
 
@@ -1305,7 +1300,7 @@ Dei buoni nomi di variabile possono ridurre la necessità di commenti, ma nomi l
 \section{Debug}
 \index{debug}
 
-Ci sono tre tipi di errori nei quali si incorre durante la programmazione: gli errori di sintassi, gli errori in esecuzione e gli errori di semantica. È utile analizzarli singolarmente per facilitarne l'individuazione.
+In un programma si possono verificare tre tipi di errori: gli errori di sintassi, gli errori in esecuzione e gli errori di semantica. È utile analizzarli singolarmente per facilitarne l'individuazione.
 
 \subsection{Errori di sintassi}
 \index{sintassi!errore di}
@@ -1316,18 +1311,18 @@ Il termine {\bf sintassi} si riferisce alla struttura di un programma e alle reg
 \index{sintassi} 
 \index{parentesi!corrispondenza}
 
-Se c'è un singolo errore di sintassi da qualche parte nel programma, Python visualizzerà un messaggio d'errore e ne interromperà l'esecuzione, rendendo impossibile proseguire. Durante le prime settimane della vostra carriera di programmatori, probabilmente passerete molto tempo a cercare errori di sintassi. Via via che acquisirete esperienza, questi si faranno meno numerosi e vi risulterà sempre più facile rintracciarli.
+Se c'è anche un solo errore di sintassi in qualche parte del programma, non sarete in grado di eseguirlo: Python visualizzerà subito un messaggio d'errore e lo terminerà. Nelle prime settimane della vostra carriera di programmatori, dovrete probabilmente dedicare molto tempo a correggere errori di sintassi. Ma con l'esperienza, ne commetterete meno e li troverete più velocemente.
 
 \subsection{Errori in esecuzione}
 \label{runtime}
 
-Il secondo tipo di errore è l'{\bf errore in esecuzione} (o di {\em runtime}), così chiamato perché l'errore non appare finché il programma non viene eseguito. Questi errori sono anche chiamati {\bf eccezioni} perché indicano che è accaduto qualcosa di eccezionale (e di spiacevole) nel corso dell'esecuzione.
+Il secondo tipo di errore è l'{\bf errore in esecuzione} (o di {\em runtime}), così chiamato perché non compare fino a quando il programma non viene eseguito. Questi errori sono anche detti {\bf eccezioni} perché indicano che è accaduto qualcosa di eccezionale (e di spiacevole) durante l'esecuzione.
 \index{errore!in esecuzione}
 \index{errore!di runtime}
 \index{eccezione}
 \index{linguaggio!sicuro}
 
-Gli errori in esecuzione sono rari nei semplici programmi che vedrete nei primissimi capitoli, e potrebbe passare un po' di tempo prima di incontrarne uno.
+Gli errori di runtime sono molto rari nei programmi semplici, come quelli che vedrete nei primi capitoli di questo libro, e potrebbe passare un po' di tempo prima di incontrarne uno.
 
 
 \subsection{Errori di semantica}
@@ -1338,7 +1333,7 @@ Gli errori in esecuzione sono rari nei semplici programmi che vedrete nei primis
 
 Il terzo tipo di errore è l'{\bf errore di semantica} (o di logica), che è correlato al significato del programma. In presenza di un errore di semantica, il programma verrà eseguito senza che compaia alcun messaggio di errore, ma non farà la cosa giusta: farà qualcosa di diverso. Nello specifico, farà esattamente ciò che voi gli avete detto di fare, esprimendovi in modo sbagliato.
 
-L'identificazione degli errori di semantica può essere complicata perché richiede di lavorare a ritroso, partendo dai risultati dell'esecuzione e cercando di risalire a che cosa non sia andato per il verso giusto.
+Gli errori di semantica sono insidiosi e identificarli può essere complicato, perché occorre lavorare a ritroso, partendo dai risultati dell'esecuzione e cercando di risalire a che cosa non sia andato per il verso giusto.
 
 
 \section{Glossario}
@@ -1354,22 +1349,22 @@ L'identificazione degli errori di semantica può essere complicata perché richi
 \item[diagramma di stato:]  Rappresentazione grafica di una serie di variabili e dei valori ai quali esse si riferiscono.
 \index{diagramma!di stato}
 
-\item[parola chiave riservata:]  Parola chiave usata per analizzare il programma e che non può essere usata come nome di variabile o di funzione, come {\tt if}, {\tt  def}, e {\tt while}.
+\item[parola chiave riservata:]  Parola chiave destinata esclusivamente all'analisi del programma e che non può essere usata come nome di variabile o di funzione, come {\tt if}, {\tt  def}, e {\tt while}.
 \index{parola chiave}
 
-\item[operando:]  Uno dei valori sui quali agisce un operatore.
+\item[operando:]  Uno dei valori sui quali si applica un operatore.
 \index{operando}
 
 \item[espressione:]  Combinazione di variabili, operatori e valori che rappresentano un unico valore risultante.
 \index{espressione}
 
-\item[valutare:]  Semplificare un'espressione eseguendo una serie di operazioni per produrre un singolo valore.
+\item[valutare:]  Semplificare un'espressione eseguendo una serie di operazioni che producono un unico valore.
 \index{valutazione}
 
-\item[istruzione:]  Parte di codice che rappresenta un comando o un'azione.    Finora abbiamo visto istruzioni di assegnazione e istruzioni di stampa.
+\item[istruzione:]  Porzione di codice che rappresenta un comando o un'azione, come le istruzioni di assegnazione e di stampa che abbiamo visto finora.
 \index{istruzione}
 
-\item[eseguire:]  Dare effetto a un'istruzione e fare ciò che dice.
+\item[eseguire:]  Dare efficacia a un'istruzione e fare ciò che dice.
 \index{esecuzione}
 
 \item[modalità interattiva:] Un modo di usare l'interprete Python, scrivendo del codice al prompt.
@@ -1378,20 +1373,19 @@ L'identificazione degli errori di semantica può essere complicata perché richi
 \item[modalità script:] Un modo di usare l'interprete Python, leggendo del codice da uno script ed eseguendolo.
 \index{modalità script}
 
-\item[script:] Un programma memorizzato in un file.
+\item[script:] Un programma scritto e memorizzato in un file di testo.
 \index{script}
 
-\item[ordine delle operazioni:]  Insieme di regole che determinano l'ordine dei calcoli di espressioni complesse in cui sono presenti più operandi ed operatori.
+\item[ordine delle operazioni:]  Regole che stabiliscono l'ordine in cui vengono valutate le espressioni che contengono più operandi ed operatori.
 \index{ordine delle operazioni}
 
-\item[concatenare:]  Unire due stringhe tramite l'accodamento della seconda alla prima.
+\item[concatenare:]  Unire due stringhe accodando la seconda alla prima.
 \index{concatenamento}
 
-\item[commento:]  Informazione inserita in un programma riguardante il significato di una sua parte; non ha alcun effetto sull'esecuzione del programma
-ma serve solo per facilitarne la comprensione.
+\item[commento:]  Annotazione in un programma, rivolta ad altri programmatori (o a chi legge il codice sorgente), che non ha effetti sull'esecuzione del programma.
 \index{commento}
 
-\item[errore di sintassi:]  Errore in un programma che ne rende impossibile l'analisi (il programma non può quindi essere interpretato o compilato).
+\item[errore di sintassi:]  Errore in un programma che ne rende impossibile l'analisi (il programma non è interpretabile).
 \index{sintassi!errore di}
 
 \item[eccezione:]  Errore (detto anche di {\em runtime}) che si verifica mentre il programma è in esecuzione.
@@ -1400,7 +1394,7 @@ ma serve solo per facilitarne la comprensione.
 \item[semantica:]  Il significato logico di un programma.
 \index{semantica}
 
-\item[errore di semantica:]   Errore nel programma tale per cui esso produce risultati diversi da quelli che il programmatore si aspettava.
+\item[errore di semantica:]   Errore nel programma tale da produrre risultati diversi da quelli che il programmatore si aspettava.
 \index{semantica!errore di}
 
 \end{description}
@@ -1453,7 +1447,7 @@ Fate un po' di pratica con l'interprete Python usandolo come calcolatrice:
 \chapter{Funzioni}
 \label{funcchap}
 
-Nell'ambito della programmazione, una {\bf funzione} è una serie di istruzioni che esegue un calcolo, alla quale viene assegnato un nome.  Per definire una funzione, dovete specificarne il nome e scrivere la sequenza di istruzioni. In un secondo tempo, potete ``chiamare'' la funzione mediante il nome che le avete assegnato. 
+Nell'ambito della programmazione, una {\bf funzione} è una serie di istruzioni che esegue un calcolo, alla quale viene assegnato un nome.  Per definire una funzione, dovete specificarne il nome e scrivere la serie di istruzioni. In un secondo tempo, potete ``chiamare'' la funzione mediante il nome che le avete assegnato. 
 \index{funzione}
 
 \section{Chiamate di funzione}
@@ -1474,7 +1468,7 @@ Si usa dire che una funzione ``prende'' o ``riceve'' un argomento e, una volta e
 \index{argomento}
 \index{valore di ritorno}
 
-Python fornisce una raccolta di funzioni che convertono i valori da un tipo all'altro. La funzione {\tt int} prende un dato valore e lo converte, se possibile, in intero. Se la conversione è impossibile compare un messaggio d'errore:
+Python contiene una raccolta di funzioni per convertire i valori da un tipo a un altro. La funzione {\tt int} prende un dato valore e lo converte, se possibile, in un numero intero. Se la conversione è impossibile, Python comunica che si è verificato un errore:
 \index{conversione!di tipo}
 \index{int, funzione}
 \index{funzione!int}
@@ -1521,11 +1515,11 @@ Infine, {\tt str} converte l'argomento in una stringa:
 \section{Funzioni matematiche}
 \index{funzioni matematiche}
 
-Python è provvisto di un modulo matematico che contiene le più comuni operazioni matematiche. Un {\bf modulo} è un file che contiene una raccolta di funzioni correlate.
+Python è provvisto di un modulo matematico che comprende buona parte delle funzioni matematiche d'uso frequente. Un {\bf modulo} è un file che contiene una raccolta di funzioni correlate.
 \index{modulo}
 \index{oggetto!modulo}
 
-Prima di poter usare le funzioni contenute in un modulo, dobbiamo dire all'interprete di caricare il modulo in memoria con un'{\bf istruzione di importazione}:
+Prima di poter usare le funzioni contenute in un modulo, lo dobbiamo importare con un'{\bf istruzione di importazione}:
 
 \begin{verbatim}
 >>> import math
@@ -1538,7 +1532,7 @@ Questa istruzione crea un {\bf oggetto modulo} chiamato math. Se visualizzate l'
 <module 'math' (built-in)>
 \end{verbatim}
 %
-L'oggetto modulo contiene le funzioni e le variabili definite all'interno del modulo stesso. Per chiamare una funzione inclusa in un modulo, dobbiamo specificare, nell'ordine, il nome del modulo che la contiene e il nome della funzione, separati da un punto. Questo formato è chiamato {\bf notazione a punto} o {\em dot notation}.
+L'oggetto modulo contiene le funzioni e le variabili definite all'interno del modulo stesso. Per accedere a una funzione del modulo, dovete specificare, nell'ordine, il nome del modulo e il nome della funzione, separati da un punto. Questo formato è chiamato {\bf notazione a punto} o {\em dot notation}.
 \index{dot notation}
 \index{notazione a punto}
 
@@ -1583,9 +1577,9 @@ Se ricordate la trigonometria, potete verificare il risultato precedente confron
 \section{Composizione}
 \index{composizione}
 
-Finora, abbiamo considerato gli elementi di un programma - variabili, espressioni e istruzioni - separatamente, senza parlare di come utilizzarli insieme.
+Finora, abbiamo considerato gli elementi di un programma - variabili, espressioni e istruzioni - separatamente, senza discutere di come utilizzarli insieme.
 
-Una delle caratteristiche più utili dei linguaggi di programmazione è la loro capacità di prendere dei piccoli mattoni e {\bf comporli} tra loro. Per esempio, l'argomento di una funzione può essere un qualunque tipo di espressione, incluse operazioni aritmetiche:
+Una delle caratteristiche più utili dei linguaggi di programmazione è la loro capacità di prendere dei piccoli mattoni e {\bf comporli} tra loro. Per esempio, l'argomento di una funzione può essere un qualunque tipo di espressione, operazioni aritmetiche incluse:
 
 \begin{verbatim}
 x = math.sin(gradi / 360.0 * 2 * math.pi)
@@ -1597,7 +1591,7 @@ E anche chiamate di funzione:
 x = math.exp(math.log(x+1))
 \end{verbatim}
 %
-Potete mettere quasi ovunque un valore o un'espressione a piacere, con una eccezione: il lato sinistro di una istruzione di assegnazione deve essere un nome di una variabile. Ogni altra espressione darebbe un errore di sintassi (vedremo più avanti le eccezioni a questa regola).
+In linea generale, dovunque potete mettere un valore potete anche mettere un'espressione a piacere, con un'eccezione: il lato sinistro di un'istruzione di assegnazione deve essere un nome di variabile. Ogni altra espressione darebbe un errore di sintassi (vedremo più avanti le eccezioni a questa regola).
 
 \begin{verbatim}
 >>> minuti = ore * 60                 # giusto
@@ -1612,7 +1606,7 @@ SyntaxError: can't assign to operator
 \section{Aggiungere nuove funzioni}
 
 Finora abbiamo usato solo funzioni predefinite o ``built-in'', che sono parte integrante di Python, ma è anche possibile crearne di nuove.
-Una {\bf definizione di funzione} specifica il nome di una nuova funzione e la sequenza di istruzioni che viene eseguita quando la funzione viene chiamata.
+Una {\bf definizione di funzione} specifica il nome di una nuova funzione e la serie di istruzioni che viene eseguita quando la funzione viene chiamata.
 \index{funzione}
 \index{funzione!definizione di}
 \index{definizione!di funzione}
@@ -1621,7 +1615,7 @@ Ecco un esempio:
 
 \begin{verbatim}
 def stampa_brani():
-    print("Terror di tutta la foresta egli è,")
+    print('Terror di tutta la foresta egli è,')
     print("Con l'ascia in mano si sente un re.")
 \end{verbatim}
 %
@@ -1640,7 +1634,7 @@ Le parentesi vuote dopo il nome indicano che la funzione non accetta alcun argom
 La prima riga della definizione di funzione è chiamata {\bf intestazione};
 il resto è detto {\bf corpo}. L'intestazione deve terminare con i due punti, e il corpo deve essere obbligatoriamente indentato, cioè deve avere un rientro rispetto all'intestazione. Per convenzione, l'indentazione è sempre di quattro spazi. Il corpo può contenere un qualsiasi numero di istruzioni.
 
-Le stringhe nelle istruzioni di stampa sono racchiuse tra virgolette (\verb'" "'). Le virgolette e gli apici (\verb"' '") sono equivalenti; la maggioranza degli utenti usa gli apici, eccetto nei casi in cui nel testo da stampare sono contenuti degli apici (che possono essere usati anche come apostrofi o accenti). In questi casi, frequenti con l'italiano, bisogna usare le virgolette.
+Le stringhe nelle istruzioni di stampa sono racchiuse tra apici (\verb"' '") oppure virgolette (\verb'" "'). Virgolette e apici sono equivalenti; la maggioranza degli utenti usa gli apici, eccetto nei casi in cui nel testo da stampare sono contenuti degli apici (che possono essere usati anche come apostrofi o accenti). In questi casi, frequenti con l'italiano, bisogna usare le virgolette.
 
 Virgolette e apici devono essere alti e di tipo indifferenziato, quelli che trovate tra i simboli in alto sulla vostra tastiera.  Altre virgolette ``tipografiche'', come quelle in questa frase, non sono valide in Python.
 
@@ -1649,7 +1643,7 @@ Se scrivete una funzione in modalità interattiva, l'interprete mette tre puntin
 
 \begin{verbatim}
 >>> def stampa_brani():
-...     print("Terror di tutta la foresta egli è,")
+...     print('Terror di tutta la foresta egli è,')
 ...     print("Con l'ascia in mano si sente un re.")
 ...
 \end{verbatim}
@@ -1704,7 +1698,7 @@ Raggruppando assieme i frammenti di codice del Paragrafo precedente, il programm
 
 \begin{verbatim}
 def stampa_brani():
-    print("Terror di tutta la foresta egli è,")
+    print('Terror di tutta la foresta egli è,')
     print("Con l'ascia in mano si sente un re.")
 
 def ripeti_brani():
@@ -1729,19 +1723,19 @@ Ora riportate la chiamata della funzione al suo posto, e spostate la definizione
 \section{Flusso di esecuzione}
 \index{flusso di esecuzione}
 
-Per assicurarvi che una funzione sia definita prima del suo uso, dovete conoscere l'ordine in cui le istruzioni vengono eseguite, cioè il {\bf flusso di esecuzione} del programma.
+Per essere sicuri che una funzione sia stata definita prima di essere utilizzata, dovete conoscere l'ordine in cui le istruzioni vengono eseguite, che è chiamato {\bf flusso di esecuzione}.
 
-L'esecuzione inizia sempre dalla prima riga del programma e le istruzioni sono eseguite una alla volta dall'alto verso il basso.
+L'esecuzione inizia sempre dalla prima istruzione del programma; quindi, le istruzioni successive sono eseguite una alla volta, procedendo dall'alto verso il basso.
 
-Le definizioni di funzione non alterano il flusso di esecuzione del programma ma va ricordato che le istruzioni all'interno delle funzioni non vengono eseguite fino a quando la funzione non viene chiamata. 
+Le definizioni di funzione non cambiano il flusso di esecuzione del programma, ma ricordate che le istruzioni all'interno delle funzioni non vengono eseguite fino a quando la funzione non viene chiamata. 
 
-Una chiamata di funzione è una sorta di deviazione nel flusso di esecuzione: invece di proseguire con l'istruzione successiva, il flusso salta alla prima riga della funzione chiamata ed esegue tutte le sue istruzioni; alla fine della funzione il flusso riprende dal punto dov'era stato deviato.
+Quando viene chiamata una funzione, si genera una specie di deviazione nel flusso di esecuzione: anziché proseguire con l'istruzione successiva, il flusso salta nel corpo della funzione chiamata, ne esegue le istruzioni, e infine riprende il percorso dal punto che aveva lasciato.
 
-Sinora è tutto abbastanza semplice, ma dovete tenere conto che una funzione può chiamarne un'altra al suo interno. Nel bel mezzo di una funzione, il programma può dover eseguire le istruzioni situate in un'altra funzione. Ma mentre esegue la nuova funzione, il programma può doverne eseguire un'altra ancora!
+Parrebbe tutto abbastanza semplice, se non fosse che una funzione può chiamarne un'altra. Mentre si trova all'interno di una funzione, il programma può dover eseguire le istruzioni che si trovano in un'altra funzione. Poi, mentre esegue quella nuova funzione, il programma potrebbe andare ad eseguirne un'altra ancora!
 
-Fortunatamente, Python sa tener bene traccia di dove si trova, e ogni volta che una funzione viene completata il programma ritorna al punto che aveva lasciato. Giunto all'ultima istruzione, dopo averla eseguita, il programma termina.
+Fortunatamente, Python sa tener bene traccia di dove si trova: ogni volta che una funzione viene completata, il programma ritorna al punto della funzione chiamante che aveva lasciato. E una volta giunto alla fine, termina il suo lavoro.
 
-In conclusione, quando leggete un programma non limitatevi sempre a farlo dall'alto in basso. Spesso ha più senso cercare di seguire il flusso di esecuzione.
+Concludendo, nel leggere un programma non è sempre opportuno farlo dall'alto in basso. Spesso è più logico seguire il flusso di esecuzione.
 
 
 \section{Parametri e argomenti}
@@ -1764,7 +1758,7 @@ def stampa2volte(bruce):
 %
 Questa funzione assegna l'argomento ricevuto ad un parametro chiamato {\tt bruce}. Quando la funzione viene chiamata, stampa il valore del parametro (qualunque esso sia) due volte.
 
-Questa funzione lavora con qualunque valore che possa essere stampato.
+Questa funzione elabora qualunque valore che possa essere stampato.
 
 \begin{verbatim}
 >>> stampa2volte('Spam')
@@ -1820,7 +1814,7 @@ def cat2volte(parte1, parte2):
     stampa2volte(cat)
 \end{verbatim}
 %
-Questa funzione prende due argomenti, li concatena e poi ne stampa il risultato due volte. Ecco un esempio che la utilizza:
+Questa funzione prende due argomenti, li concatena e poi stampa il risultato per due volte. Ecco un esempio che la utilizza:
 \index{concatenamento}
 
 \begin{verbatim}
@@ -1840,7 +1834,7 @@ Quando \verb"cat2volte" termina, la variabile {\tt cat} viene distrutta. Se prov
 NameError: name 'cat' is not defined
 \end{verbatim}
 %
-Anche i parametri sono locali: al di fuori della funzione \verb"stampa2volte", non esiste alcuna cosa chiamata {\tt bruce}.
+Anche i parametri sono locali: esternamente alla funzione \verb"stampa2volte", non esiste nulla di nome {\tt bruce}.
 \index{parametri}
 
 
@@ -1850,9 +1844,9 @@ Anche i parametri sono locali: al di fuori della funzione \verb"stampa2volte", n
 \index{funzione!frame di}
 \index{frame}
 
-Per tenere traccia di quali variabili possono essere usate e dove, è talvolta utile disegnare un {\bf diagramma di stack}. Come i diagrammi di stato, i diagrammi di stack mostrano il valore di ciascuna variabile, ma in più indicano a quale funzione essa appartiene.
+Per tenere traccia di quali variabili possono essere usate e dove, a volte può risultare utile disegnare un {\bf diagramma di stack}. Come i diagrammi di stato, i diagrammi di stack mostrano il valore di ciascuna variabile, ma in più indicano a quale funzione essa appartiene.
 
-Ogni funzione è rappresentata da un {\bf frame}, un riquadro con il nome della funzione a fianco e la lista dei suoi parametri e delle sue variabili all'interno. Il diagramma di stack nel caso dell'esempio precedente, è illustrato in Figura~\ref{fig.stack}.
+Ciascuna funzione è rappresentata da un {\bf frame}, un riquadro che riporta a fianco il nome della funzione e all'interno un elenco dei suoi parametri e delle sue variabili. Nel caso dell'esempio precedente, il diagramma di stack è illustrato in Figura~\ref{fig.stack}.
 
 \begin{figure}
 \centerline
@@ -1897,7 +1891,7 @@ L'ordine delle funzioni nel traceback è lo stesso di quello dei frame nel diagr
 \index{funzione!produttiva}
 \index{funzione!vuota} 
 
-Alcune delle funzioni che abbiamo usato, tipo le funzioni matematiche, restituiscono dei risultati; in mancanza di definizioni migliori, personalmente le chiamo {\bf funzioni ``produttive''}.  Altre funzioni, come \verb"stampa2volte", eseguono un'azione ma non restituiscono alcun valore. Le chiameremo {\bf funzioni ``vuote''}.
+Alcune delle funzioni che abbiamo usato, come le funzioni matematiche, restituiscono dei risultati; in mancanza di definizioni migliori, personalmente le chiamo {\bf funzioni ``produttive''}.  Altre funzioni, come \verb"stampa2volte", eseguono un'azione ma non restituiscono alcun valore. Le chiameremo {\bf funzioni ``vuote''}.
 
 Quando chiamate una funzione produttiva, quasi sempre è per fare qualcosa di utile con il suo risultato, tipo assegnarlo a una variabile o usarlo come parte di un'espressione.
 
@@ -1947,7 +1941,7 @@ Il valore {\tt None} non è la stessa cosa della stringa \verb"'None'".
 Le funzioni che abbiamo scritto finora, sono tutte vuote. Cominceremo a scriverne di produttive tra alcuni capitoli.
 
 
-\section{Perché le funzioni?}
+\section{Perché usare le funzioni?}
 \index{funzione!motivi}
 
 Potrebbe non esservi ancora ben chiaro perché valga la pena di suddividere il programma in funzioni. Ecco alcuni motivi:
@@ -1969,26 +1963,26 @@ Potrebbe non esservi ancora ben chiaro perché valga la pena di suddividere il p
 \label{editor}
 \index{debug}
 
-Una delle più importanti abilità che acquisirete è quella di effettuare il debug (o ``rimozione degli errori''). Sebbene questa possa essere un'operazione noiosa, è anche una delle parti più intellettualmente vivaci, stimolanti ed interessanti della programmazione.
+Saper rintracciare e correggere gli errori è una essenziale qualità che dovete acquisire. Anche se a volte può essere demotivante, si tratta infatti di una delle parti più intellettualmente ricche, stimolanti ed interessanti della programmazione.
 \index{debug!sperimentale}
 
-In un certo senso, il debug può essere paragonato al lavoro investigativo. Siete messi di fronte a degli indizi e dovete ricostruire i processi e gli eventi che hanno portato ai risultati che avete ottenuto.
+Possiamo paragonare il debug al lavoro di un investigatore: avete a disposizione degli indizi e dovete ricostruire quali processi ed eventi hanno prodotto il risultato che osservate.
 
-Il debug è come una scienza sperimentale: dopo aver ipotizzato quello che può essere andato storto, modificate il programma e riprovate. Se l'ipotesi era corretta, allora avete saputo predire il risultato della modifica e vi siete avvicinati di un ulteriore passo verso un programma funzionante. Se l'ipotesi era sbagliata, dovete formularne un'altra. Come disse Sherlock Holmes: ``Quando hai eliminato l'impossibile, qualsiasi cosa rimanga, per quanto improbabile, deve essere la verità.''
+Il debug è anche simile ad una scienza sperimentale. Quando pensate di aver capito cosa può avere provocato un errore, modificate il programma di conseguenza e riprovate di nuovo. Se l'ipotesi era giusta, avete saputo prevedere il risultato della modifica e vi siete avvicinati di un passo ad un programma funzionante. Se l'ipotesi era sbagliata, ne dovete formulare un'altra. Come disse Sherlock Holmes: ``Una volta eliminato l'impossibile, qualsiasi cosa rimanga, per quanto improbabile, deve essere la verità.''
 (A. Conan Doyle, {\em Il segno dei quattro})
 \index{Holmes, Sherlock}
 \index{Doyle, Arthur Conan}
 
-Per alcuni, programmazione e debug sono la stessa cosa, intendendo con questo che la programmazione è un procedimento di graduale rimozione degli errori, fino a quando il programma non fa quello che vogliamo. L'idea è quella di partire da un programma funzionante, e fare via via piccole modifiche con rimozione degli errori.
+Per alcuni, la programmazione e la rimozione degli errori sono in fondo la stessa cosa: programmare è una procedura di graduale rimozione degli errori da un programma, fino a quando non funziona a dovere. L'idea di fondo è di iniziare con un programma funzionante e di fare ogni volta piccole modifiche, effettuandone man mano il debug.
 
-Linux, per fare un esempio, è un sistema operativo che contiene milioni di righe di codice, ma nacque come un semplice programma che Linus Torvalds usò per esplorare il chip Intel 80386. Secondo Larry Greenfields, ``Uno dei progetti iniziali di Linus era un programma che doveva scambiare una sequenza di AAAA in BBBB e viceversa. Questo in seguito diventò Linux''. ({\em The Linux Users' Guide} Beta Version 1).
+Linux, ad esempio, è un sistema operativo fatto da milioni di righe di codice, ma nacque come un semplice programma che Linus Torvalds usava per esplorare il chip Intel 80386. Secondo Larry Greenfields, ``Uno dei progetti iniziali di Linus era un programma che doveva visualizzare alternativamente una sequenza di AAAA e BBBB. Questo programma si è poi evoluto in Linux''. ({\em The Linux Users' Guide} Beta Version 1).
 \index{Linux}
 
 \section{Glossario}
 
 \begin{description}
 
-\item[funzione:] Una sequenza di istruzioni dotata di un nome che esegue una certa operazione utile. Le funzioni possono o meno ricevere argomenti e possono o meno produrre un risultato.
+\item[funzione:] Una serie di istruzioni dotata di un nome che esegue una certa operazione utile. Le funzioni possono o meno ricevere argomenti e possono o meno produrre un risultato.
 \index{funzione}
 
 \item[definizione di funzione:]  Istruzione che crea una nuova funzione, specificandone il nome, i parametri, e le istruzioni che contiene.
@@ -2000,13 +1994,13 @@ Linux, per fare un esempio, è un sistema operativo che contiene milioni di righ
 \item[intestazione:] La prima riga di una definizione di funzione.
 \index{intestazione}
 
-\item[corpo:] La sequenza di istruzioni all'interno di una definizione di funzione.
+\item[corpo:] La serie di istruzioni all'interno di una definizione di funzione.
 \index{corpo}
 
 \item[parametro:] Un nome usato all'interno di una funzione che fa riferimento al valore passato come argomento.
 \index{parametro}
 
-\item[chiamata di funzione:] Istruzione che esegue una funzione. Consiste nel nome della funzione seguito da un elenco di argomenti.
+\item[chiamata di funzione:] Istruzione che esegue una funzione. Consiste nel nome della funzione seguito da un elenco di argomenti tra parentesi.
 \index{funzione!chiamata di}
 
 \item[argomento:]  Un valore fornito (passato) a una funzione quando viene chiamata. Questo valore viene assegnato al corrispondente parametro nella funzione.
@@ -2182,7 +2176,7 @@ Questo capitolo vi propone un'esercitazione che dimostra una procedura per proge
 
 Viene illustrato il modulo grafico {\tt turtle} che vi permette di creare immagini utilizzando {\em turtle graphics}.  Si tratta di un modulo già compreso nella maggior parte delle installazioni di Python; tuttavia, se usate PythonAnywhere, non sarete in grado di visualizzare gli esempi basati su turtle (almeno non nel momento in cui scrivo).
 
-Se avete già installato Python sul vostro computer, gli esempi dovrebbero funzionare. Se non lo avete ancora installato, questo è il momento buono per farlo. Ho pubblicato delle istruzioni all'indirizzo \url{http://tinyurl.com/thinkpython2e}.
+Se avete già installato Python sul vostro computer, gli esempi dovrebbero funzionare. Se non lo avete ancora installato, questo è il momento buono per farlo. Potete trovare delle istruzioni all'indirizzo \url{http://tinyurl.com/thinkpython2e}.
 
 Il codice degli esempi di questo capitolo è scaricabile dal sito
 \url{http://thinkpython2.com/code/polygon.py}
@@ -2589,7 +2583,7 @@ Se le precondizioni sono soddisfatte e le postcondizioni no, l'errore sta nella 
 \item[ciclo:] Una porzione di programma che può essere eseguita ripetutamente.
 \index{ciclo}
 
-\item[incapsulamento:] Il procedimento di trasformare una sequenza di istruzioni in una funzione.
+\item[incapsulamento:] Il procedimento di trasformare una serie di istruzioni in una funzione.
 \index{incapsulamento}
 
 \item[generalizzazione:] Il procedimento di sostituire qualcosa di inutilmente specifico (come un numero) con qualcosa di più generale ed appropriato (come una variabile o un parametro).
@@ -2735,7 +2729,7 @@ Per ottenere il resto, potete sottrarre dai minuti l'equivalente delle ore:
 \index{modulo, operatore}
 \index{operatore!modulo}
 
-Un'alternativa è utilizzare l'{\bf operatore modulo}, \verb"%", che 
+Come alternativa si può utilizzare l'{\bf operatore modulo}, \verb"%", che 
 restituisce il resto dell'operazione di divisione tra due numeri interi.
 
 \begin{verbatim}
@@ -2745,11 +2739,11 @@ restituisce il resto dell'operazione di divisione tra due numeri interi.
 \end{verbatim}
 %
 
-L'operatore modulo è più utile di quel che sembra. Per esempio, permette di controllare se un numero intero è divisibile per un altro: se
+L'operatore modulo è più utile di quel che sembra. Per esempio, vi permette di controllare se un numero intero è divisibile per un altro: se
 {\tt x \% y} è zero, significa che {\tt x} è divisibile per {\tt y}.
 \index{divisibilità}
 
-Inoltre, può essere usato per estrarre la cifra più a destra di un numero: {\tt x \% 10} restituisce la cifra più a destra del numero {\tt x} (in base 10). Allo stesso modo, {\tt x \% 100} restituisce le ultime due cifre.
+Potete inoltre estrarre la cifra più a destra o più cifre di un numero. Ad esempio {\tt x \% 10} restituisce la cifra più a destra di {\tt x} (in base 10). E analogamente, {\tt x \% 100} restituisce le ultime due cifre.
 
 Per chi usa Python 2, la divisione funziona in modo diverso. L'operatore di divisione intera non esiste, e quello di divisione, \verb"/", esegue una divisione intera se entrambi gli operandi sono interi, mentre il risultato è un decimale a virgola mobile se almeno uno degli operandi è un decimale.
 \index{Python 2}
@@ -2783,7 +2777,7 @@ False
 <class 'bool'>
 \end{verbatim}
 %
-L'operatore {\tt ==} è uno degli {\bf operatori di confronto}; gli altri sono:
+L'operatore {\tt ==} è uno degli {\bf operatori di confronto} (chiamati anche operatori relazionali); gli altri sono:
 
 \begin{verbatim}
       x != y               # x è diverso da y
@@ -2793,10 +2787,7 @@ L'operatore {\tt ==} è uno degli {\bf operatori di confronto}; gli altri sono:
       x <= y               # x è minore o uguale a y
 \end{verbatim}
 %
-Queste operazioni vi saranno familiari, tuttavia i simboli in Python sono diversi da quelli usati comunemente in matematica. Un errore frequente è quello di usare il simbolo di uguale({\tt =}) invece del doppio uguale
-({\tt ==}). Ricordate che {\tt =} è un operatore di assegnazione, mentre
-{\tt ==} è un operatore di confronto. Inoltre in Python non esistono simboli del
-tipo {\tt =<} o {\tt =>}.
+Queste operazioni vi saranno familiari, tuttavia i simboli usati in Python non sono del tutto uguali a quelli matematici. Un errore frequente è usare il simbolo di uguale({\tt =}) anziché il doppio uguale ({\tt ==}). Ricordatevi la differenza: {\tt =} è un operatore di assegnazione, mentre {\tt ==} è un operatore di confronto. Inoltre in Python non esistono simboli come {\tt =<} o {\tt =>}.
 \index{confronto, operatore di}
 \index{operatore!confronto}
 
@@ -2806,7 +2797,7 @@ tipo {\tt =<} o {\tt =>}.
 \index{operatore!logico}
 
 Ci sono tre {\bf operatori logici}: {\tt and}, {\tt
-or}, e {\tt not}.  Il significato di questi operatori è simile al loro significato comune (e, o, non): per esempio, l'espressione {\tt x > 0 and x < 10} è vera solo se sono vere {\em entrambe} le condizioni, cioè {\tt x} è più grande di 0 {\em e} più piccolo di 10.
+or}, e {\tt not}.  Il significato di questi operatori è simile a quello comune (e, o, non): per esempio, l'espressione {\tt x > 0 and x < 10} è vera solo se sono vere {\em entrambe} le condizioni, cioè {\tt x} è più grande di 0 {\em e} più piccolo di 10.
 \index{and, operatore}
 \index{or, operatore}
 \index{not, operatore}
@@ -2814,19 +2805,18 @@ or}, e {\tt not}.  Il significato di questi operatori è simile al loro signific
 \index{operatore!or}
 \index{operatore!not}
 
-L'espressione {\tt n\%2 == 0 or n\%3 == 0} invece è vera se si verifica {\em almeno una} delle due condizioni e cioè se il numero è divisibile per 2 {\em o} per 3 (o per entrambi).
+L'espressione {\tt n \% 2 == 0 or n \% 3 == 0} invece è vera se è verificata {\em almeno una} delle due condizioni, cioè se il numero è divisibile per 2 {\em o} per 3 (o per entrambi).
 
-Infine, l'operatore {\tt not} nega il valore di un'espressione booleana,
-trasformando in falsa un'espressione vera e viceversa. Così, {\tt not (x > y)} è vera se {\tt x > y} è falsa, cioè se {\tt x} è minore o uguale a {\tt y}.
+Infine, l'operatore {\tt not} nega il valore di un'espressione booleana, per cui {\tt not (x > y)} è vera se {\tt x > y} è falsa, cioè se {\tt x} è minore o uguale a {\tt y}.
 
-In senso stretto, gli operandi degli operatori logici dovrebbero essere delle espressioni booleane, ma da questo punto di vista Python non è troppo fiscale: infatti ogni numero diverso da zero viene considerato {\tt True}, e lo zero è considerato {\tt False}.
+In senso stretto, gli operandi degli operatori logici dovrebbero essere delle espressioni booleane, ma qui Python non è rigido: ogni numero diverso da zero viene accettato ed interpretato come {\tt True}.
 
 \begin{verbatim}
 >>> 42 and True
 True
 \end{verbatim}
 %
-Questa flessibilità può essere utile, ma ci sono alcune sottigliezze che potrebbero confondere. È preferibile evitarla (a meno che non sappiate quello che state facendo).
+Questa flessibilità può essere utile, ma ci sono alcune sottigliezze che potrebbero confondere. È preferibile evitarla (a meno che non sappiate esattamente quello che state facendo).
 
 
 \section{Esecuzione condizionale}
@@ -2836,20 +2826,20 @@ Questa flessibilità può essere utile, ma ci sono alcune sottigliezze che potre
 \index{if, istruzione}
 \index{istruzione!if}
 \index{esecuzione condizionale}
-Per poter scrivere programmi utili, c'è molto spesso la necessità di valutare delle condizioni e di variare il comportamento del programma a seconda del risultato della valutazione. Le {\bf istruzioni condizionali} ci offrono questa possibilità. La forma più semplice è l'istruzione {\tt if} (``se'' in inglese):
+Se volete scrivere programmi utili, vi capiterà spesso di dover controllare se si verificano determinate condizioni, e di variare di conseguenza il comportamento del programma. Le {\bf istruzioni condizionali} servono proprio a questo. La forma più semplice di istruzione condizionale è l'istruzione {\tt if} (``se'' in inglese):
 
 \begin{verbatim}
 if x > 0:
-    print("x è positivo")
+    print('x è positivo')
 \end{verbatim}
 %
-L'espressione booleana dopo l'istruzione {\tt if} è chiamata {\bf condizione}.  L'istruzione indentata che segue i due punti della riga if, viene eseguita solo se la condizione è vera. Se la condizione è falsa non viene eseguito nulla.
+L'espressione booleana dopo l'istruzione {\tt if} è chiamata {\bf condizione}.  Se risulta vera, viene eseguita l'istruzione indentata che segue sulla riga successiva. Altrimenti, non succede nulla.
 \index{condizione}
 \index{istruzione!composta}
 
-Come nel caso della definizione di funzione, la struttura dell'istruzione {\tt if} è costituita da un'intestazione seguita da un corpo indentato. Le istruzioni come questa vengono chiamate {\bf istruzioni composte}.
+L'istruzione {\tt if} ha la stessa struttura che abbiamo già visto nel caso delle definizioni di funzione: un'intestazione seguita da un corpo indentato. Le istruzioni come questa vengono chiamate {\bf istruzioni composte}.
 
-Non c'è limite al numero di istruzioni che possono comparire nel corpo, ma deve sempre essercene almeno una. In qualche occasione può essere utile avere un corpo vuoto, ad esempio quando il codice corrispondente non è ancora stato scritto ma si desidera ugualmente provare il programma. In questo caso si può   usare l'istruzione {\tt pass}, che serve solo da segnaposto temporaneo e nulla più:
+Non c'è limite al numero di istruzioni che possono essere scritte nel corpo, ma deve sempre essercene almeno una. Talvolta può servire che il corpo sia privo di istruzioni (di solito quando c'è del codice ancora da scrivere); in questo caso potete usare l'istruzione {\tt pass}, che serve solo da segnaposto temporaneo e nulla più:
 \index{pass, istruzione}
 \index{istruzione!pass}
 
@@ -2866,17 +2856,16 @@ if x < 0:
 \index{parola chiave!else}
 
 Una seconda forma di istruzione {\tt if} è l'{\bf esecuzione alternativa},
-nella quale ci sono due azioni possibili, e il valore della condizione
-determina quale delle due debba essere eseguita e quale no. La sintassi è:
+dove esistono due possibili azioni, e il valore della condizione determina quale delle due azioni debba essere eseguita e quale no. La sintassi è:
 
 \begin{verbatim}
 if x % 2 == 0:
-    print("x è pari")
+    print('x è pari')
 else:
-    print("x è dispari")
+    print('x è dispari')
 \end{verbatim}
 %
-Se il resto della divisione di {\tt x} per 2 è zero, significa che {\tt x} è un numero pari, e il programma mostra il messaggio appropriato. Se invece la condizione è falsa, viene eseguita la serie di istruzioni descritta dopo la riga {\tt else} (che in inglese significa ``altrimenti''). In ogni caso, una delle due alternative sarà sempre eseguita. Le due alternative sono chiamate {\bf ramificazioni}, perché rappresentano dei bivi nel flusso di esecuzione del programma.
+Se il resto della divisione di {\tt x} per 2 è zero, significa che {\tt x} è un numero pari, e il programma mostra il messaggio appropriato. Altrimenti (\verb"else"), se la condizione è falsa, viene eseguito il secondo blocco di istruzioni. Dato che la condizione deve essere necessariamente o vera o falsa, sarà sempre eseguita una sola delle due alternative. Queste sono dette {\bf ramificazioni}, perché rappresentano dei bivi nel flusso di esecuzione del programma.
 \index{ramificazione}
 
 
@@ -2884,18 +2873,18 @@ Se il resto della divisione di {\tt x} per 2 è zero, significa che {\tt x} è u
 \index{serie, condizioni in}
 \index{condizione!in serie}
 
-Talvolta occorre tenere conto di più di due possibili sviluppi, pertanto possiamo aver bisogno di più di due ramificazioni. Un modo per esprimere questo tipo di calcolo sono le {\bf condizioni in serie}:
+A volte è necessario considerare più di due possibili sviluppi, e occorre che nel programma ci siano più di due ramificazioni. Un modo per esprimere questo tipo di calcolo sono le {\bf condizioni in serie}:
 
 \begin{verbatim}
 if x < y:
-    print("x è minore di y")
+    print('x è minore di y')
 elif x > y:
-    print("x è maggiore di y")
+    print('x è maggiore di y')
 else:
-    print("x e y sono uguali")
+    print('x e y sono uguali')
 \end{verbatim}
 %
-{\tt elif} è l'abbreviazione di {\em else if}, che in inglese significa   ``altrimenti se''. Anche in questo caso, solo uno dei rami verrà eseguito, a seconda dell'esito del confronto tra {\tt x} e {\tt y}. Non c'è alcun limite al numero di istruzioni {\tt elif}. Se esiste una clausola {\tt else}, deve essere scritta per ultima, ma non è obbligatoria; il ramo corrispondente viene eseguito solo quando tutte le condizioni precedenti sono false.
+{\tt elif} è l'abbreviazione di {\em else if}, che in inglese significa ``altrimenti se''. Anche stavolta verrà eseguito solo uno dei tre rami, a seconda dell'esito del confronto tra {\tt x} e {\tt y}. Non c'è alcun limite al numero di istruzioni {\tt elif}. Se esiste una clausola {\tt else}, deve essere scritta per ultima, ma non è obbligatoria; il ramo corrispondente viene eseguito solo quando tutte le condizioni precedenti sono false.
 \index{elif, parola chiave }
 \index{parola chiave!elif}
 
@@ -2909,48 +2898,48 @@ elif scelta == 'c':
     disegna_c()
 \end{verbatim}
 %
-Le condizioni vengono controllate nell'ordine in cui sono state scritte: se la prima è falsa viene controllata la seconda e così via. Non appena una condizione risulta vera, viene eseguito il ramo corrispondente e l'intera istruzione {\tt if} si conclude. In ogni caso, anche se risultassero vere altre condizioni successive, dopo l'esecuzione della prima queste ultime verranno trascurate.  
+Le condizioni vengono controllate nell'ordine dall'alto al basso: se la prima è falsa, viene controllata la seconda e così via. Non appena una condizione risulta vera, viene eseguito il ramo corrispondente e l'istruzione termina. Anche se risultassero vere altre condizioni successive, viene eseguita sempre e soltanto la prima che risulta vera.  
 
 
 \section{Condizioni nidificate}
 \index{condizione!nidificata}
 
-Si può anche inserire un'istruzione condizionale nel corpo di un'altra istruzione condizionale. Possiamo scrivere l'esempio del paragrafo precedente anche in questo modo:
+Si può anche inserire un'istruzione condizionale nel corpo di un'altra istruzione condizionale. Possiamo dunque scrivere l'esempio del paragrafo precedente anche in questo modo:
 
 \begin{verbatim}
 if x == y:
-    print("x e y sono uguali")
+    print('x e y sono uguali')
 else:
     if x < y:
-        print("x è minore di y")
+        print('x è minore di y')
     else:
-        print("x è maggiore di y")
+        print('x è maggiore di y')
 \end{verbatim}
 %
-La prima condizione esterna ({\tt if x == y}) contiene due rami: il primo contiene un'istruzione semplice, il secondo un'altra istruzione {\tt if} che a sua volta prevede un'ulteriore ramificazione. Entrambi i rami del secondo {\tt if} sono istruzioni di stampa, ma potrebbero anche contenere a loro volta ulteriori istruzioni condizionali.
+La condizione più esterna contiene due rami: il primo contiene un'istruzione semplice, il secondo un'altra istruzione {\tt if} che a sua volta ha due ramificazioni. Entrambi i rami del secondo {\tt if} sono istruzioni di stampa, ma potrebbero anche contenere a loro volta ulteriori istruzioni condizionali.
 
-Sebbene l'indentazione delle istruzioni aiuti a rendere evidente la struttura, le {\bf condizioni nidificate} diventano rapidamente difficili da leggere, quindi è meglio usarle con moderazione.
+Anche se l'indentazione delle istruzioni aiuta ad evidenziare la struttura, le {\bf condizioni nidificate} diventano rapidamente difficili da leggere, quindi è meglio usarle con moderazione.
 
-Qualche volta, gli operatori logici permettono di semplificare le istruzioni condizionali nidificate:
+Gli operatori logici permettono spesso di semplificare le istruzioni condizionali nidificate. Il codice seguente può essere riscritto usando un'unica condizione:
 
 \begin{verbatim}
 if 0 < x:
     if x < 10:
-        print("x è un numero positivo a una cifra.")
+        print('x è un numero positivo a una cifra.')
 \end{verbatim}
 %
-L'istruzione di stampa è eseguita solo se entrambe le condizioni si verificano. Possiamo allora usare l'operatore booleano {\tt and} per combinarle:
+Infatti, dato che l'istruzione di stampa è eseguita solo se si verificano entrambe le condizioni, possiamo ottenere lo stesso risultato usando l'operatore {\tt and}:
 
 \begin{verbatim}
 if 0 < x and x < 10:
-    print("x è un numero positivo a una cifra.")
+    print('x è un numero positivo a una cifra.')
 \end{verbatim}
 
 Per una condizione di questo tipo, Python consente anche un'opzione sintattica più concisa:
 
 \begin{verbatim}
 if 0 < x < 10:
-    print("x è un numero positivo a una cifra.")
+    print('x è un numero positivo a una cifra.')
 \end{verbatim}
 
 
@@ -2958,18 +2947,18 @@ if 0 < x < 10:
 \label{recursion}
 \index{ricorsione}
 
-Abbiamo visto che è del tutto normale che una funzione ne chiami un'altra, ma è anche consentito ad una funzione di chiamare se stessa. L'utilità può non essere immediatamente evidente, ma questa è una delle cose più magiche che un programma possa fare. Per fare un esempio, diamo un'occhiata a questa funzione:
+Abbiamo visto che è del tutto normale che una funzione ne chiami un'altra, ma è anche consentito ad una funzione di chiamare se stessa. L'utilità può non essere immediatamente comprensibile, ma questa è una delle cose più magiche che un programma possa fare. Per fare un esempio, diamo un'occhiata a questa funzione:
 
 \begin{verbatim}
 def contoallarovescia(n):
     if n <= 0:
-        print("Via!")
+        print('Via!')
     else:
         print(n)
         contoallarovescia(n-1)
 \end{verbatim}
 %
-Se {\tt n} vale 0 o è negativo, scrive la parola ``Via!''.
+Se {\tt n} vale 0 o è negativo, la funzione scrive la parola ``Via!''.
 Altrimenti scrive il numero {\tt n} e poi chiama la funzione {\tt
 contoallarovescia} (cioè se stessa) passando un argomento che vale {\tt n-1}.
 
@@ -3046,9 +3035,9 @@ for}. Vedremo però più avanti degli esempi difficili da scrivere con un ciclo 
 \index{funzione!frame di}
 \index{frame}
 
-Nel Paragrafo~\ref{stackdiagram}, abbiamo usato un diagramma di stack per   rappresentare lo stato di un programma durante una chiamata di funzione. Lo stesso tipo di diagramma può servire a capire come lavora una funzione ricorsiva.
+Nel Paragrafo~\ref{stackdiagram}, abbiamo usato un diagramma di stack per raffigurare lo stato di un programma nel corso di una chiamata di funzione. Lo stesso tipo di diagramma può servire a capire come lavora una funzione ricorsiva.
 
-Ogni volta che una funzione viene chiamata, Python crea un nuovo frame contenente le variabili locali definite all'interno della funzione ed i suoi parametri. Nel caso di una funzione ricorsiva, possono esserci contemporaneamente più frame riguardanti una stessa funzione.
+Ad ogni chiamata di funzione, Python crea un frame che contiene le variabili locali interne alla funzione ed i suoi parametri. Nel caso di una funzione ricorsiva, possono esserci contemporaneamente più frame della stessa funzione nello stack.
 
 La Figura~\ref{fig.stack2} mostra il diagramma di stack della funzione {\tt contoallarovescia} chiamata con {\tt n = 3}.
 
@@ -3059,13 +3048,12 @@ La Figura~\ref{fig.stack2} mostra il diagramma di stack della funzione {\tt cont
 \label{fig.stack2}
 \end{figure}
 
-
-Come al solito, il livello superiore dello stack è il frame di \verb"__main__".
-Questo frame è vuoto, perché in questo caso non vi abbiamo creato alcuna variabile né abbiamo passato alcun parametro.
+Come al solito, il livello superiore dello stack è il frame di \verb"__main__", che
+è vuoto, perché non vi abbiamo creato alcuna variabile né gli abbiamo passato alcun argomento.
 \index{caso base}
 \index{ricorsione!caso base}
 
-I quattro frame di {\tt contoallarovescia} hanno valori diversi del parametro {\tt n}. Il livello inferiore dello stack, dove {\tt n=0}, è chiamato {\bf caso base}. Esso non effettua ulteriori chiamate ricorsive, quindi non ci sono ulteriori frame.
+Nei quattro frame di {\tt contoallarovescia}, il parametro {\tt n} ha valori differenti. Il livello inferiore dello stack, dove {\tt n=0}, è chiamato {\bf caso base}. Quest'ultimo non effettua ulteriori chiamate ricorsive, quindi non produce ulteriori frame.
 
 Come esercizio, disegnate il diagramma di stack della funzione \verb"stampa_n" chiamata con \verb"s='Ciao'" e {\tt n=2}. Poi, scrivete una funzione di nome \verb"fai_n" che accetti come argomenti un oggetto funzione e un numero {\tt n}, e che chiami per {\tt n} volte la funzione data.
 
@@ -3076,15 +3064,15 @@ Come esercizio, disegnate il diagramma di stack della funzione \verb"stampa_n" c
 
 \index{traceback}
 
-Se una ricorsione non raggiunge mai un caso base, la chiamata alla funzione viene eseguita all'infinito ed in teoria il programma non giunge mai alla fine. Questa situazione è conosciuta come {\bf ricorsione infinita}, e di solito non è considerata una buona cosa.
-Questo è un programma minimo che genera una ricorsione infinita:
+Se una ricorsione non raggiunge mai un caso base, continua ad effettuare chiamate ricorsive all'infinito e il programma non può terminare. Questa situazione è nota come {\bf ricorsione infinita}, e di solito non è considerata un fatto positivo.
+Ecco un programma minimale che genera una ricorsione infinita:
 
 \begin{verbatim}
 def ricorsiva():
     ricorsiva()
 \end{verbatim}
 %
-Nella maggior parte degli ambienti, un programma con una ricorsione infinita non viene eseguito davvero all'infinito. Python stampa un messaggio di errore quando è stato raggiunto il massimo livello di ricorsione possibile:
+Nella maggior parte degli ambienti di programmazione, un programma con una ricorsione infinita non viene eseguito davvero all'infinito. Python mostra un messaggio di errore quando viene raggiunto il massimo livello di ricorsione consentito:
 \index{eccezione!RuntimeError}
 \index{RuntimeError}
 
@@ -3099,16 +3087,16 @@ Nella maggior parte degli ambienti, un programma con una ricorsione infinita non
 RuntimeError: Maximum recursion depth exceeded
 \end{verbatim}
 %
-Questo traceback è un po' più lungo di quello che abbiamo visto nel capitolo precedente. Quando si verifica l'errore, nello stack ci sono oltre 1000 frame di chiamata di {\tt ricorsiva}!
+Questo traceback è un po' più grande di quello che abbiamo visto nel capitolo precedente. Quando si verifica l'errore, nello stack ci sono oltre 1000 frame di {\tt ricorsiva}!
 
-Se vi imbattete accidentalmente in una ricorsione infinita, rivedete la vostra funzione per accertare che esista un caso base che non genera una chiamata ricorsiva. E se c'è un caso base, controllate che venga sicuramente raggiunto.
+Se vi imbattete accidentalmente in una ricorsione infinita, rivedete la vostra funzione per accertare che esista un caso base che non genera una ulteriore chiamata ricorsiva. E se c'è un caso base, controllate che venga sicuramente raggiunto.
 
 \section{Input da tastiera}
 \index{Input da tastiera}
 
-I programmi che abbiamo scritto finora non accettano inserimenti di dati da parte dell'operatore, e si limitano a eseguire sempre le stesse operazioni.
+I programmi che abbiamo scritto finora non accettano dati in ingresso da parte dell'utente, ed eseguono sempre le stesse operazioni.
 
-Python comprende una funzione predefinita chiamata \verb"input" che sospende il programma ed attende che l'operatore scriva qualcosa e confermi poi l'inserimento premendo il tasto {\sf Invio} o {\sf Enter}. A quel punto il programma riprende e \verb"input" restituisce ciò che l'operatore ha inserito sotto forma di stringa. In Python 2, la funzione si chiama \verb"raw_input" .
+In Python esiste una funzione predefinita chiamata \verb"input" che sospende il programma ed attende che l'utente scriva qualcosa. Quando l'utente preme il tasto {\sf Invio} oppure {\sf Enter}, il programma riprende e \verb"input" restituisce quello che l'utente ha inserito, come stringa. In Python 2, la funzione si chiama invece \verb"raw_input" .
 \index{Python 2}
 \index{input, funzione}
 \index{funzione!input}
@@ -3120,26 +3108,25 @@ Cosa stai aspettando?
 'Cosa stai aspettando?'
 \end{verbatim}
 %
-Prima di chiamare la funzione, è buona norma stampare un messaggio che informa l'utente di ciò che deve inserire. Questo messaggio è chiamato prompt, e può essere passato come argomento a \verb"input" :
+Prima dell'inserimento dei dati, è buona norma visualizzare un messaggio, chiamato prompt, che informa l'utente di ciò che deve inserire. A questo scopo, \verb"input" accetta un prompt come argomento:
 \index{prompt}
 
 \begin{verbatim}
 >>> nome = input('Come...ti chiami?\n')
 Come...ti chiami?
-Artu', Re dei Bretoni!
+Artù, Re dei Bretoni!
 >>> nome
-'Artu', Re dei Bretoni!'
+'Artù, Re dei Bretoni!'
 \end{verbatim}
 %
 La sequenza \verb"\n" alla fine del prompt rappresenta un {\bf ritorno a capo},
 un carattere speciale che provoca un'interruzione di riga. Ecco perché l'input dell'utente compare sulla riga successiva sotto al prompt.
 \index{ritorno a capo}
 
-Se il valore da inserire è un intero possiamo provare a convertire il valore inserito in {\tt int}:
-
+Se l'input atteso deve essere un numero intero, si può provare a convertire il valore inserito in {\tt int}:
 
 \begin{verbatim}
->>> prompt = "Qual è la velocità in volo di una rondine?\n"
+>>> prompt = 'Qual è la velocità in volo di una rondine?\n'
 >>> velocita = input(prompt)
 Qual è la velocità in volo di una rondine?
 42
@@ -3147,7 +3134,7 @@ Qual è la velocità in volo di una rondine?
 42
 \end{verbatim}
 %
-Ma se la stringa inserita contiene qualcosa di diverso da dei numeri, si verifica un errore:
+Ma se la stringa inserita contiene qualcosa di diverso da dei valori numerici, si verifica un errore:
 
 \begin{verbatim}
 >>> velocita = input(prompt)
@@ -3228,11 +3215,10 @@ Prendetevi la briga di leggere attentamente i messaggi di errore, ma non date pe
 
 \begin{description}
 
-\item[divisione intera:] Operatore, avente simbolo {\tt //}, che divide due numeri e arrotonda il risultato all'intero inferiore (ovvero, verso l'infinito negativo).
+\item[divisione intera:] Operatore, che ha per simbolo {\tt //}, che divide due numeri e arrotonda il risultato all'intero inferiore (ovvero, verso l'infinito negativo).
 \index{divisione!intera}
   
-\item[operatore modulo:]  Operatore matematico, denotato con il segno di percentuale ({\tt \%}), che restituisce il resto della divisione tra due operandi
-interi.
+\item[operatore modulo:]  Operatore matematico, che ha per simbolo ({\tt \%}), che restituisce il resto della divisione tra due operandi interi.
 \index{modulo, operatore}
 \index{operatore!modulo}
 
@@ -3240,21 +3226,20 @@ interi.
 ({\tt True}) o falso ({\tt False}).
 \index{espressione!booleana}
 
-\item[operatore di confronto:] Un operatore che confronta due valori detti operandi: {\tt ==}, {\tt !=}, {\tt >}, {\tt <}, {\tt >=}, e {\tt <=}.
+\item[operatore di confronto:] Operatore che confronta due valori detti operandi: {\tt ==}, {\tt !=}, {\tt >}, {\tt <}, {\tt >=}, e {\tt <=}.
 
-\item[operatore logico:] Un operatore che combina due espressioni booleane: {\tt and}, {\tt or}, e {\tt not}.
+\item[operatore logico:] Operatore che unisce delle espressioni booleane: {\tt and}, {\tt or}, e {\tt not}.
 
-\item[istruzione condizionale:]  Istruzione che controlla il flusso di esecuzione del programma a seconda del verificarsi o meno di certe condizioni.
+\item[istruzione condizionale:]  Istruzione che controlla il flusso di esecuzione del programma, variandolo a seconda di determinate condizioni.
 \index{istruzione!condizionale}
 
-\item[condizione:] Espressione booleana in un'istruzione condizionale che      determina quale ramificazione debba essere seguita dal flusso di esecuzione.
+\item[condizione:] Espressione booleana in un'istruzione condizionale che determina quale ramificazione sarà eseguita.
 \index{condizione}
 
-\item[istruzione composta:]  Istruzione che consiste di un'intestazione terminante con i due punti (:) e di un corpo composto di una o più istruzioni
-indentate rispetto all'intestazione.
+\item[istruzione composta:]  Istruzione che consiste di un'intestazione e di un corpo. L'intestazione deve terminare con i due punti (:) e il corpo deve essere indentato rispetto ad essa.
 \index{istruzione!composta}
 
-\item[ramificazione:] Una delle sequenze di istruzioni alternative scritte in una istruzione condizionale.
+\item[ramificazione:] Uno dei blocchi di istruzioni alternative presenti in un'istruzione condizionale.
 \index{ramificazione}
 
 \item[condizioni in serie:]  Istruzione condizionale con una serie di ramificazioni alternative.
@@ -3263,12 +3248,12 @@ indentate rispetto all'intestazione.
 \item[condizione nidificata (o annidata):]  Un'istruzione condizionale inserita in una ramificazione di un'altra istruzione condizionale.
 \index{condizione!nidificata}
 
-\item[istruzione di ritorno:] Un'istruzione che termina immediatamente una funzione e ritorna al chiamante.
+\item[istruzione di ritorno:] Un'istruzione che fa terminare immediatamente una funzione e ritorna al chiamante.
 
 \item[ricorsione:]  Procedura che chiama la stessa funzione attualmente in esecuzione.
 \index{ricorsione}
 
-\item[caso base:]  Ramificazione di un'istruzione condizionale, posta in una    funzione ricorsiva, che non esegue a sua volta una chiamata ricorsiva.
+\item[caso base:]  Ramificazione di un'istruzione condizionale, posta in una funzione ricorsiva, che non esegue a sua volta una chiamata ricorsiva.
 \index{caso base}
 
 \item[ricorsione infinita:]  Una ricorsione priva di un caso base, oppure che non lo raggiunge mai. Nell'evenienza, causa un errore in esecuzione.
@@ -3461,7 +3446,7 @@ def area(raggio):
     return a
 \end{verbatim}
 %
-Abbiamo già visto l'istruzione {\tt return}, ma nel caso di una funzione    produttiva questa istruzione include un'espressione. Il suo significato è: ``ritorna immediatamente da questa funzione a quella chiamante e usa questa espressione come valore di ritorno''. L'espressione che rappresenta il valore di ritorno può essere anche complessa, e allora l'esempio precedente può essere riscritto in modo più compatto:
+Abbiamo già incontrato l'istruzione {\tt return}, ma in una funzione produttiva questa istruzione include un'espressione. Il suo significato è: ``ritorna subito da questa funzione e usa l'espressione seguente come valore di ritorno''. L'espressione può essere anche complessa, e allora possiamo riscrivere la funzione in modo più compatto:
 \index{return, istruzione}
 \index{istruzione!return}
 
@@ -3470,11 +3455,10 @@ def area(raggio):
     return math.pi * raggio**2
 \end{verbatim}
 %
-D'altra parte, una {\bf variabile temporanea} come {\tt a} può rendere il
-programma più leggibile e semplificarne il debug.
+Peraltro, una {\bf variabile temporanea} come {\tt a} può rendere più agevole il debug.
 \index{variabile!temporanea}
 
-Talvolta è necessario prevedere delle istruzioni di ritorno multiple, ciascuna all'interno di una ramificazione di un'istruzione condizionale:
+Talvolta occorre prevedere più istruzioni di ritorno, una per ciascuna ramificazione di un'istruzione condizionale:
 
 \begin{verbatim}
 def valore_assoluto(x):
@@ -3484,14 +3468,13 @@ def valore_assoluto(x):
         return x
 \end{verbatim}
 %
-Dato che queste istruzioni {\tt return} si trovano in rami diversi di una
-condizione alternativa, solo una di esse verrà effettivamente eseguita.
+Dato che queste istruzioni {\tt return} si trovano in due rami di una
+condizione alternativa, solo una delle due sarà effettivamente eseguita.
 
 Non appena viene eseguita un'istruzione {\tt return}, la funzione termina senza eseguire ulteriori istruzioni. Il codice che viene a trovarsi dopo l'istruzione {\tt return} o in ogni altro punto che non può essere raggiunto dal flusso di esecuzione, è detto {\bf codice morto}.
 \index{codice morto}
 
-In una funzione produttiva è bene assicurarsi che ogni possibile flusso di esecuzione del programma porti ad un'uscita dalla funzione con un'istruzione
-{\tt return}. Per esempio:
+In una funzione produttiva, occorre accertarsi che ogni possibile percorso del flusso di esecuzione del programma conduca ad un'istruzione {\tt return}. Per esempio:
 
 \begin{verbatim}
 def valore_assoluto(x):
@@ -3524,22 +3507,22 @@ Per esercitarvi, scrivete una funzione di nome {\tt compara} che prenda due valo
 \label{incremental.development}
 \index{tecnica di sviluppo!incrementale}
 
-A mano a mano che scriverete funzioni di complessità maggiore, vi troverete a impiegare più tempo per il debug.
+Scrivendo funzioni di dimensioni sempre maggiori, aumenterà anche il tempo da dedicare al debug.
 
-Per fare fronte a programmi via via più complessi, suggerisco una tecnica chiamata {\bf sviluppo incrementale}. Lo scopo dello sviluppo incrementale è evitare lunghe sessioni di debug, aggiungendo e testando continuamente piccole parti di codice alla volta.
+Per affrontare programmi di complessità crescente, suggerisco una tecnica chiamata {\bf sviluppo incrementale}. Lo scopo dello sviluppo incrementale è evitare lunghe sessioni di debug, aggiungendo e provando solo piccole parti di codice alla volta.
 \index{test!sviluppo incrementale}
 \index{teorema di Pitagora}
 
-Come esempio, supponiamo che vogliate trovare la distanza tra due punti, note le coordinate $(x_1, y_1)$ e $(x_2, y_2)$.
-Per il teorema di Pitagora, la distanza è
+Come esempio, supponiamo di voler trovare la distanza tra due punti, note le coordinate $(x_1, y_1)$ e $(x_2, y_2)$.
+Per il teorema di Pitagora, la distanza è:
 
 \begin{displaymath}
 \mathrm{distanza} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
 \end{displaymath}
 %
-La prima cosa da considerare è l'aspetto che la funzione {\tt distanza} deve avere in Python, chiarendo subito quali siano i parametri che deve avere la funzione e quale sia il valore di ritorno da ottenere.
+Per prima cosa dobbiamo considerare quale interfaccia deve avere in Python la funzione {\tt distanza}. In altre parole, quali sono i dati in ingresso (cioè i parametri), e cosa deve restituire in uscita (cioè il valore di ritorno).
 
-Nel nostro caso i dati di partenza (o di {\em input}) sono i due punti, rappresentabili attraverso le loro coordinate (due coppie di numeri); il risultato (o {\em output}) è la distanza, espressa con un valore decimale.
+Nel nostro caso, i dati di ingresso (o di {\em input}) sono i due punti, rappresentabili attraverso le loro coordinate (due coppie di numeri); il risultato (o {\em output}) è la distanza, espressa con un valore decimale.
 
 Si può subito scrivere un primo abbozzo di funzione:
 
@@ -3548,7 +3531,7 @@ def distanza(x1, y1, x2, y2):
     return 0.0
 \end{verbatim}
 %
-Ovviamente questa prima versione non calcola ancora la distanza, ma restituisce sempre 0. Però è già una funzione sintatticamente corretta e può essere eseguita: potete quindi provarla prima di procedere a renderla più complessa.
+Ovviamente questa prima stesura non calcola ancora la distanza, ma restituisce sempre 0. Però è già una funzione sintatticamente corretta e può essere eseguita: potete quindi provarla prima di procedere a renderla più complessa.
 
 Proviamo allora la nuova funzione, chiamandola con dei valori di esempio:
 
@@ -3557,35 +3540,35 @@ Proviamo allora la nuova funzione, chiamandola con dei valori di esempio:
 0.0
 \end{verbatim}
 %
-Ho scelto questi valori in modo che la loro distanza orizzontale sia 3 e quella verticale 4. In tal modo, il risultato è pari a 5: l'ipotenusa di un triangolo rettangolo i cui cateti sono lunghi 3 e 4. Quando collaudiamo una funzione è sempre utile sapere prima il risultato.
+Ho scelto questi valori in modo che la loro distanza orizzontale sia 3 e quella verticale 4. In tal modo, il risultato è pari a 5: l'ipotenusa di un triangolo rettangolo i cui cateti sono lunghi 3 e 4. Quando proviamo una funzione è sempre utile sapere prima il risultato.
 \index{test!sapere il risultato}
 
-A questo punto, abbiamo verificato che la funzione è sintatticamente corretta e possiamo cominciare ad aggiungere righe di codice nel corpo. Un passo successivo plausibile è quello di calcolare le differenze $x_2 - x_1$ e $y_2 - y_1$.  Memorizzeremo queste differenze in due variabili temporanee che chiameremo {\tt dx} e {\tt dy}, e le mostreremo a video.
+A questo punto, abbiamo verificato che la funzione è sintatticamente corretta e possiamo cominciare ad aggiungere righe di codice nel corpo. Un passo successivo plausibile è quello di calcolare le differenze $x_2 - x_1$ e $y_2 - y_1$.  Nella nuova versione assegneremo queste differenze a due variabili temporanee e le visualizzeremo.
 
 \begin{verbatim}
 def distanza(x1, y1, x2, y2):
     dx = x2 - x1
     dy = y2 - y1
-    print("dx è ", dx)
-    print("dy è ", dy)
+    print('dx è ', dx)
+    print('dy è ', dy)
     return 0.0
 \end{verbatim}
 %
-Se la funzione è giusta, usando i valori di prima dovrebbe mostrare \verb"dx è 3" e \verb"dy è 4". Se i risultati coincidono, siamo sicuri che la funzione riceve correttamente i parametri ed elabora altrettanto correttamente i primi calcoli. Altrimenti, dovremo comunque controllare solo poche righe.
+Se la funzione è giusta, usando gli stessi valori di prima dovrebbe mostrare \verb"dx è 3" e \verb"dy è 4". Se le cose stanno così, siamo certi che la funzione si comporta in maniera corretta sia nel ricevere gli argomenti che nell'elaborazione dei primi calcoli. In caso contrario, dovremo comunque controllare solo poche righe.
 
-Proseguiamo con il calcolo della somma dei quadrati di {\tt dx} e {\tt dy}:
+Procediamo calcolando la somma dei quadrati di {\tt dx} e {\tt dy}:
 
 \begin{verbatim}
 def distanza(x1, y1, x2, y2):
     dx = x2 - x1
     dy = y2 - y1
     dsquadr = dx**2 + dy**2
-    print("dsquadr è: ", dsquadr)
+    print('dsquadr è: ', dsquadr)
     return 0.0
 \end{verbatim}
 %
-Di nuovo, eseguite il programma in questa fase e controllate il risultato, che nel nostro caso dovrebbe essere 25.
-Infine, usate la funzione radice quadrata {\tt math.sqrt} per calcolare e restituire il risultato:
+Di nuovo, eseguiamo il programma in questa fase e controlliamo il risultato, che nel nostro caso dovrebbe essere 25.
+Infine, usiamo la funzione radice quadrata {\tt math.sqrt} per calcolare e restituire il risultato:
 \index{sqrt, funzione}
 \index{funzione!sqrt}
 
@@ -3598,41 +3581,37 @@ def distanza(x1, y1, x2, y2):
     return risultato
 \end{verbatim}
 %
-Se tutto funziona, avete finito. Altrimenti, potete stampare per verifica il valore di {\tt risultato} prima dell'istruzione {\tt return}.
+Se tutto funziona, abbiamo finito. Altrimenti, possiamo stampare per verifica il valore di {\tt risultato} prima dell'istruzione {\tt return}.
 
-La versione definitiva della funzione non mostra nulla quando viene eseguita; restituisce solo un valore. Le istruzioni di stampa che avevamo inserito erano utili per il debug, ma una volta verificato che tutto funziona vanno rimosse. Pezzi di codice temporaneo come questi sono detti {\bf ``impalcature''}, perché sono di aiuto nella fase di costruzione del programma ma non fanno parte del prodotto finale. 
+La versione definitiva della funzione non deve mostrare nulla quando viene eseguita; deve  solo restituire un valore. Le istruzioni di stampa che avevamo inserito erano utili per il debug, ma una volta verificato che tutto funziona vanno rimosse. Pezzi di codice temporaneo come questi sono detti {\bf ``impalcature''}, perché sono di aiuto nella fase di costruzione del programma ma non fanno parte del prodotto finale. 
 \index{impalcatura}
 
-Soprattutto agli inizi, non si dovrebbe mai aggiungere più di qualche riga
-di codice alla volta. Con l'esperienza, potrete scrivere e fare il debug di blocchi di codice sempre più corposi. In ogni caso, nelle prime fasi il processo di sviluppo incrementale potrà farvi risparmiare un bel po' di tempo di debug.
+Quando si inizia a programmare, è bene aggiungere solo poche righe di codice alla volta. Poi, con l'esperienza, potrete scrivere e fare il debug di blocchi di codice sempre più corposi. In ogni caso, la tecnica di sviluppo incrementale potrà farvi risparmiare un bel po' di tempo di debug.
 
-Ecco i punti chiave di questa procedura:
+Ecco i punti chiave di questa tecnica:
 
 \begin{enumerate}
 
-\item Iniziate con un programma funzionante e fate piccoli cambiamenti:
-       questo permetterà di scoprire facilmente dove sono localizzati
-       gli eventuali errori.
+\item Iniziare con un programma che funziona e fare ogni volta piccole aggiunte. Ad ogni passo, se dovesse esserci un errore, avrete già idea di dove potrebbe trovarsi.
 
-\item Usate delle variabili per memorizzare i valori intermedi, così
-       da poterli stampare e controllare.
+\item Assegnare i valori intermedi a delle variabili temporanee, così da poterli visualizzare e controllare.
 
-\item Quando il programma funziona perfettamente, rimuovete le istruzioni        temporanee e consolidate le istruzioni multiple in espressioni composte, sempre che questo non renda il programma troppo difficile da leggere.
+\item Una volta ottenuto un programma funzionante, rimuovere le istruzioni temporanee e consolidare le istruzioni multiple in espressioni composte, a meno che il programma non diventi troppo difficile da leggere.
 
 \end{enumerate}
 
 
 Come esercizio, usate lo sviluppo incrementale per scrivere una funzione
-chiamata {\tt ipotenusa}, che restituisca la lunghezza dell'ipotenusa di un
-triangolo rettangolo, dati i due cateti come parametri.
-Registrate ogni passo del processo di sviluppo man mano che procedete.
+di nome {\tt ipotenusa}, che restituisca la lunghezza dell'ipotenusa di un
+triangolo rettangolo, date le lunghezze dei cateti come argomenti.
+Prendete nota di ogni passo del processo di sviluppo man mano che procedete.
 \index{ipotenusa}
 
 \section{Composizione}
 \index{composizione}
 \index{funzione!composizione di}
 
-Come potete ormai immaginare, è possibile chiamare una funzione dall'interno di un'altra funzione. Scriveremo come esempio una funzione che prende due punti geometrici, il centro di un cerchio ed un punto sulla sua circonferenza, e calcola l'area del cerchio.
+Come avrete intuito, è possibile chiamare una funzione dall'interno di un'altra funzione. Scriveremo come esempio una funzione che prende due punti geometrici, il centro di un cerchio ed un punto sulla sua circonferenza, e calcola l'area del cerchio.
 
 Supponiamo che le coordinate del centro del cerchio siano memorizzate nelle variabili {\tt xc} e {\tt yc}, e quelle del punto sulla circonferenza in {\tt xp} e {\tt yp}. Innanzitutto, bisogna trovare il raggio del cerchio, che è pari alla distanza tra i due punti. La funzione {\tt distanza} che abbiamo appena scritto, ci torna utile:
 
@@ -3640,13 +3619,13 @@ Supponiamo che le coordinate del centro del cerchio siano memorizzate nelle vari
 raggio = distanza(xc, yc, xp, yp)
 \end{verbatim}
 %
-Il secondo passo è trovare l'area del cerchio di quel raggio; anche questa funzione l'abbiamo già scritta:
+Il passo successivo è trovare l'area del cerchio di quel raggio; anche questa funzione l'abbiamo già scritta:
 
 \begin{verbatim}
 risultato = area(raggio)
 \end{verbatim}
 %
-Incapsulando il tutto in una funzione otteniamo:
+Incapsulando il tutto in una sola funzione otteniamo:
 \index{incapsulamento}
 
 \begin{verbatim}
@@ -3657,7 +3636,7 @@ def area_cerchio(xc, yc, xp, yp):
 \end{verbatim}
 %
 Le variabili temporanee {\tt raggio} e {\tt risultato} sono utili per lo sviluppo
-e il debug ma, una volta constatato che il programma funziona, possiamo riscrivere la funzione in modo più conciso componendo le chiamate alle funzioni:
+e il debug ma, una volta constatato che il programma funziona, possiamo riscrivere la funzione in modo più conciso componendo le chiamate di funzione:
 
 \begin{verbatim}
 def area_cerchio(xc, yc, xp, yp):
@@ -3668,7 +3647,7 @@ def area_cerchio(xc, yc, xp, yp):
 \section{Funzioni booleane}
 \label{boolean}
 
-Le funzioni possono anche restituire valori booleani (vero o falso), cosa che è spesso utile per includere al loro interno dei test, anche complessi.  
+Le funzioni possono anche restituire valori booleani (vero o falso), cosa che è spesso utilizzata per includere al loro interno dei test, anche complessi.  
 \index{funzione!booleana}
 Per esempio:
 
@@ -3691,7 +3670,7 @@ False
 True
 \end{verbatim}
 %
-Possiamo scrivere la funzione in modo ancora più conciso, visto che il risultato dell'operatore di confronto {\tt ==} è anch'esso un booleano, restituendolo direttamente:
+Possiamo scrivere la funzione in modo ancora più conciso, in quanto il risultato dell'operatore di confronto {\tt ==} è anch'esso un booleano, restituendolo direttamente:
 
 \begin{verbatim}
 def divisibile(x, y):
@@ -3703,14 +3682,14 @@ Le funzioni booleane sono usate spesso nelle istruzioni condizionali:
 
 \begin{verbatim}
 if divisibile(x, y):
-    print("x è divisibile per y")
+    print('x è divisibile per y')
 \end{verbatim}
 %
-Potreste pensare di scrivere in questo modo:
+Potreste anche scrivere in questo modo:
 
 \begin{verbatim}
 if divisibile(x, y) == True:
-    print("x è divisibile per y")
+    print('x è divisibile per y')
 \end{verbatim}
 %
 ma il confronto supplementare è superfluo.
@@ -3725,12 +3704,12 @@ Scrivete ora, per esercizio, una funzione \verb"compreso_tra(x, y, z)" che resti
 \index{Turing, Alan}
 \index{Tesi di Turing}
 
-Abbiamo trattato solo una piccola parte di Python, ma è interessante sapere che questo sottoinsieme è già di per sé un linguaggio di programmazione {\em completo}: questo significa che con gli elementi che già conoscete potete esprimere qualsiasi tipo di elaborazione. Qualsiasi tipo di programma esistente potrebbe essere scritto usando solo le caratteristiche del linguaggio che avete appreso finora (aggiungendo solo alcuni comandi di controllo per gestire dispositivi come mouse, dischi, ecc.)
+Abbiamo trattato solo una piccola parte di Python, ma è interessante sapere che questo sottoinsieme costituisce un linguaggio di programmazione {\em completo}, vale a dire che tutto ciò che è calcolabile può essere espresso con questo linguaggio. Qualsiasi programma esistente potrebbe essere scritto usando solo le caratteristiche del linguaggio che avete appreso finora (a dire il vero, servirebbe anche qualche altro comando per controllare i dispositivi come mouse, dischi, ecc.).
 
-La prova di questa affermazione è un esercizio tutt'altro che banale affrontato per la prima volta da Alan Turing, uno dei pionieri dell'informatica (qualcuno potrebbe obiettare che in realtà era un matematico, ma molti dei primi informatici erano dei matematici). Di conseguenza la dimostrazione è chiamata Tesi di Turing.
+La prova di questa affermazione è un compito tutt'altro che banale svolto per la prima volta da Alan Turing, uno dei pionieri dell'informatica (qualcuno puntualizzerebbe che era un matematico, ma molti dei primi informatici erano dei matematici). Per questo motivo, è detto Tesi di Turing.
 Per una trattazione più completa (ed accurata) della Tesi di Turing, consiglio il libro di Michael Sipser, {\em Introduction to the Theory of Computation}.
 
-Per darvi un'idea di cosa potete fare con gli strumenti imparati finora, proveremo a valutare delle funzioni matematiche definite ricorsivamente. Una funzione ricorsiva è simile ad una definizione circolare, nel senso che la sua definizione contiene un riferimento alla cosa che si sta definendo. Una vera definizione circolare non è propriamente utile:
+Per darvi un'idea di ciò che potete fare con gli strumenti imparati finora, analizziamo alcune funzioni matematiche definite ricorsivamente. Una funzione ricorsiva è una sorta di definizione circolare, cioè la sua definizione contiene un riferimento alla cosa che si sta definendo. Una definizione circolare propriamente detta, non è certo utile:
 
 \begin{description}
 
@@ -3740,8 +3719,8 @@ Per darvi un'idea di cosa potete fare con gli strumenti imparati finora, provere
 
 \end{description}
 
-Sarebbe fastidioso trovare una definizione del genere in un vocabolario.
-D'altra parte, considerate la definizione della funzione matematica    fattoriale (indicata da un numero seguito da un punto esclamativo, $!$), cioè:
+Sarebbe fastidioso trovare una definizione simile in un vocabolario.
+D'altra parte, se andate a vedere la definizione della funzione fattoriale, che è indicata dal simbolo, $!$), trovate qualcosa del genere:
 
 %
 \begin{eqnarray*}
@@ -3752,13 +3731,12 @@ D'altra parte, considerate la definizione della funzione matematica    fattorial
 Questa definizione afferma che il fattoriale di 0 è 1 e che il fattoriale di ogni altro valore $n$, è $n$ moltiplicato per il fattoriale di $n-1$.
 
 Pertanto, $3!$ è 3 moltiplicato $2!$, che a sua volta è 2 moltiplicato $1!$, che
-   a sua volta è 1 moltiplicato $0!$ che per definizione è 1. Riassumendo il tutto, $3!$ è uguale a 3 per 2 per 1 per 1, che fa 6.
+   a sua volta è 1 moltiplicato $0!$ (cioè 1). Riassumendo il tutto, $3!$ è uguale a 3 per 2 per 1 per 1, che fa 6.
 \index{fattoriale, funzione}
 \index{funzione!fattoriale}
 \index{definizione!ricorsiva}
 
-Se potete scrivere una definizione ricorsiva di qualcosa, potete anche scrivere un programma Python per valutarla. Il primo passo è quello di decidere
-quali siano i parametri della funzione. Il {\tt fattoriale} ha evidentemente un solo parametro, un intero:
+Se potete scrivere una definizione ricorsiva di qualcosa, potete anche scrivere un programma Python per valutarla. Per prima cosa occorre individuare quali parametri deve avere la funzione. Il {\tt fattoriale} ha evidentemente un solo parametro, un intero:
 
 \begin{verbatim}
 def fattoriale(n):
@@ -3772,7 +3750,7 @@ def fattoriale(n):
         return 1
 \end{verbatim}
 %
-Altrimenti, e questa è la parte interessante, dobbiamo fare una chiamata ricorsiva per trovare il fattoriale di $n-1$ e poi moltiplicare questo valore per $n$:
+Altrimenti, e qui viene il bello, dobbiamo fare una chiamata ricorsiva per trovare il fattoriale di $n-1$ e poi moltiplicare questo valore per $n$:
 
 \begin{verbatim}
 def fattoriale(n):
@@ -3788,15 +3766,15 @@ Il flusso di esecuzione del programma è simile a quello di {\tt
 contoallarovescia} del Paragrafo~\ref{recursion}. Se chiamiamo {\tt fattoriale}
 con il valore 3:
 
-Dato che 3 è diverso da 0, seguiamo il ramo else e calcoliamo il fattoriale
+Dato che 3 è diverso da 0, seguiamo il secondo ramo e calcoliamo il fattoriale
    di {\tt n-1}...
 
 \begin{quote}
-Dato che 2 è diverso da 0, seguiamo il ramo else e calcoliamo il fattoriale di {\tt n-1}...
+Dato che 2 è diverso da 0, seguiamo il secondo ramo e calcoliamo il fattoriale di {\tt n-1}...
 
 
   \begin{quote}
-  Dato che 1 è diverso da 0, seguiamo il ramo else e calcoliamo il fattoriale di {\tt n-1}...
+  Dato che 1 è diverso da 0, seguiamo il secondo ramo e calcoliamo il fattoriale di {\tt n-1}...
 
 
     \begin{quote}
@@ -3814,10 +3792,10 @@ Il valore di ritorno (1) è moltiplicato per $n$, che è 2, e il risultato
 \end{quote}
 
 
-Il valore di ritorno (2) è moltiplicato per $n$, che è 3, e il risultato, 6, diventa il valore di ritorno della funzione che ha fatto partire l'intera procedura.
+Il valore di ritorno (2) è moltiplicato per $n$, che è 3, e il risultato, 6, diventa il valore di ritorno della chiamata di funzione che ha fatto partire l'intera procedura.
 \index{diagramma!di stack}
 
-La Figura~\ref{fig.stack3} mostra il diagramma di stack per l'intera sequenza di chiamate di funzione:
+La Figura~\ref{fig.stack3} mostra il diagramma di stack per tutta questa sequenza di chiamate di funzione:
 
 \begin{figure}
 \centerline
@@ -3838,15 +3816,14 @@ Notate che nell'ultimo frame le variabili locali {\tt ricors} e {\tt risultato} 
 \index{salto sulla fiducia}
 
 Seguire il flusso di esecuzione è il modo giusto di leggere i programmi, ma
-può diventare rapidamente labirintico se le dimensioni del codice aumentano. Un metodo alternativo è quello che io chiamo ``salto sulla fiducia''.  Quando arrivate ad una chiamata di funzione, invece di seguire il flusso di esecuzione, {\em date per scontato} che la funzione chiamata si comporti correttamente e   che restituisca il valore esatto.
+può diventare rapidamente labirintico se le dimensioni del codice aumentano. Un metodo alternativo è quello che io chiamo ``salto sulla fiducia''.  Quando arrivate ad una chiamata di funzione, invece di seguire il flusso di esecuzione, {\em date per scontato} che la funzione chiamata si comporti correttamente e che restituisca il valore esatto.
 
-Nei fatti, già praticate questo atto di fede quando utilizzate le funzioni predefinite: se chiamate {\tt math.cos} o {\tt math.exp}, non andate a controllare l'implementazione delle funzioni, ma date per scontato che funzionino a dovere perché le hanno scritte dei validi programmatori.
+Nei fatti, già praticate questo atto di fede quando utilizzate le funzioni predefinite: se chiamate {\tt math.cos} o {\tt math.exp}, non andate a controllare il corpo di quelle funzioni: date per scontato che funzionino a dovere perché quelli che hanno scritto le funzioni predefinite sono senz'altro dei validi programmatori.
 
-Lo stesso si può dire per le funzioni che scrivete voi: quando, nel Paragrafo~\ref{boolean}, abbiamo scritto la funzione
-\verb"divisibile" che controlla se un numero è divisibile per un altro, e abbiamo verificato che la funzione è corretta,---controllando e provando il codice---possiamo poi usarla senza doverla ricontrollare di nuovo.
+Lo stesso ragionamento vale quando chiamate una vostra funzione: per esempio, nel Paragrafo~\ref{boolean} avevamo scritto la funzione \verb"divisibile" per controllare se un numero è divisibile per un altro. Quando ci siamo convinti che la funzione è corretta,---controllando e provando il codice---possiamo poi usarla senza doverne ricontrollare ancora il corpo.
 \index{test!salto sulla fiducia}
 
-Idem quando abbiamo chiamate ricorsive: invece di seguire il flusso di esecuzione, potete partire dal presupposto che la chiamata ricorsiva funzioni
+Idem quando avete delle chiamate ricorsive: invece di seguire il flusso di esecuzione, potete partire dal presupposto che la chiamata ricorsiva funzioni
 (restituendo il risultato corretto), per poi chiedervi: ``Supponendo che io trovi il fattoriale di $n-1$, posso calcolare il fattoriale di $n$?''. È chiaro che potete farlo, moltiplicando per $n$.
 
 Certo, è strano partire dal presupposto che una funzione sia giusta quando non avete ancora finito di scriverla, ma non per nulla si chiama "salto sulla fiducia"!
@@ -3877,7 +3854,7 @@ def fibonacci(n):
         return fibonacci(n-1) + fibonacci(n-2)
 \end{verbatim}
 %
-Con una funzione simile, provare a seguire il flusso di esecuzione vi farebbe scoppiare la testa anche con valori di $n$ piuttosto piccoli. Ma in virtù del ``salto sulla fiducia'', dando per scontato che le due chiamate ricorsive funzionino correttamente, è chiaro che la somma dei loro valori di ritorno sarà corretta.
+Con una funzione simile, provare a seguire il flusso di esecuzione vi farebbe venire il mal di testa anche con valori di $n$ piuttosto piccoli. Ma in virtù del ``salto sulla fiducia'', dando per scontato che le due chiamate ricorsive funzionino correttamente, è chiaro che la somma dei loro valori di ritorno sarà corretta.
 \index{flusso di esecuzione}
 
 
@@ -3903,20 +3880,20 @@ La funzione ha un caso base---quando {\tt n == 0}.  Ma se {\tt n} non è intero,
 Alla prima chiamata ricorsiva, infatti, il valore di {\tt n} è 0.5.
 Alla successiva diventa -0.5. Da lì in poi, il valore passato alla funzione diventa ogni volta più piccolo di una unità (cioè più negativo) e non potrà mai essere 0.
 
-Abbiamo due scelte: possiamo tentare di generalizzare la funzione {\tt fattoriale} per farla funzionare anche nel caso di numeri a virgola mobile, o possiamo far controllare alla funzione se il parametro passato è del tipo corretto. La prima possibilità è chiamata in matematica funzione gamma, ma è un po' oltre gli scopi di questo libro; quindi sceglieremo la seconda alternativa.
+Abbiamo due scelte. Possiamo provare a generalizzare la funzione {\tt fattoriale} perché elabori anche numeri a virgola mobile, oppure possiamo fare in modo che la funzione controlli preventivamente il tipo degli argomenti che riceve. La prima opzione è chiamata funzione gamma, ma è un po' oltre gli scopi di questo libro; quindi sceglieremo la seconda.
 \index{funzione!gamma}
 
-Possiamo usare la funzione predefinita {\tt isinstance} per verificare il tipo di argomento. E già che ci siamo, ci accerteremo anche che il numero sia positivo:
+Possiamo usare la funzione predefinita {\tt isinstance} per verificare il tipo di argomento. E visto che ci siamo, ci assicureremo anche che il numero sia positivo:
 \index{isinstance, funzione}
 \index{funzione!isinstance}
 
 \begin{verbatim}
 def fattoriale(n):
     if not isinstance(n, int):
-        print("Il fattoriale è definito solo per numeri interi.")
+        print('Il fattoriale è definito solo per numeri interi.')
         return None
     elif n < 0:
-        print("Il fattoriale non è definito per interi negativi.")
+        print('Il fattoriale non è definito per interi negativi.')
         return None
     elif n == 0:
         return 1
@@ -3924,7 +3901,7 @@ def fattoriale(n):
         return n * fattoriale(n-1)
 \end{verbatim}
 %
-Il primo caso base gestisce i numeri non interi; il secondo, gli interi negativi. In entrambi i casi, il programma mostra un messaggio di errore e restituisce il valore {\tt None} per indicare che qualcosa non ha funzionato:
+Il primo caso base gestisce i tipi non interi; il secondo, gli interi negativi. In entrambi i casi, il programma mostra un messaggio di errore e restituisce il valore {\tt None} per indicare che qualcosa non ha funzionato:
 
 \begin{verbatim}
 >>> print(fattoriale('alfredo'))
@@ -3942,10 +3919,10 @@ Se superiamo entrambi i controlli, possiamo essere
 \index{schema!guardiani}
 \index{condizione!di guardia}
 
-Questo programma mostra lo schema di funzionamento di una {\bf condizione di guardia}.
-I primi due controlli agiscono da ``guardiani'', difendendo il codice che segue da valori che potrebbero causare errori. Le condizioni di guardia rendono possibile provare la correttezza del codice.
+Questo programma illustra uno schema chiamato {\bf condizione di guardia}.
+Le prime due condizioni fanno da ``guardiani'', difendendo il codice successivo da valori che potrebbero causare errori. Le condizioni di guardia rendono possibile la convalida del codice.
 
-Nel Paragrafo~\ref{raise} vedremo un'alternativa più flessibile alla stampa di messaggi di errore: sollevare un'eccezione.
+Nel Paragrafo~\ref{raise} vedremo un'alternativa più flessibile della stampa di messaggi di errore: sollevare un'eccezione.
 
 
 \section{Debug}
@@ -4011,19 +3988,19 @@ Se il flusso di esecuzione vi confonde, questo tipo di output può aiutarvi. Ci 
 
 \begin{description}
 
-\item[variabile temporanea:]  Variabile usata per memorizzare un risultato intermedio durante un calcolo complesso.
+\item[variabile temporanea:]  Variabile a cui si assegna un risultato intermedio di un calcolo complesso.
 \index{variabile!temporanea}
 
-\item[codice morto:]  Parte di un programma che non può mai essere eseguita, spesso perché compare dopo un'istruzione {\tt return}.
+\item[codice morto:]  Porzione di un programma che non può mai essere eseguita, spesso perché compare dopo un'istruzione {\tt return}.
 \index{codice morto}
 
-\item[sviluppo incrementale:]  Tecnica di sviluppo del programma inteso ad evitare lunghe sessioni di debug, aggiungendo e provando piccole porzioni di codice alla volta.
+\item[sviluppo incrementale:]  Tecnica di sviluppo del programma volta ad evitare il debug, aggiungendo e provando piccole porzioni di codice alla volta.
 \index{sviluppo incrementale}
 
-\item[impalcatura:]  Codice temporaneo inserito solo nella fase di sviluppo del programma e che non fa parte della versione finale.
+\item[impalcatura:]  Codice temporaneo utilizzato durante lo sviluppo del programma e che non fa parte della versione finale.
 \index{impalcatura}
 
-\item[condizione di guardia:]  Schema di programmazione che usa una condizione per controllare e gestire le circostanze che possono causare un errore.
+\item[condizione di guardia:]  Schema di programmazione che si avvale di un'istruzione condizionale per controllare e gestire le circostanze che possono causare un errore.
 \index{guardia, condizione di}
 \index{condizione!di guardia}
 
@@ -4158,7 +4135,7 @@ In questo capitolo parleremo dell'iterazione, che è la capacità di eseguire ri
 \index{istruzione!assegnazione}
 \index{riassegnazione}
 
-Vi sarete forse già accorti che è possibile effettuare più assegnazioni ad una stessa variabile. Una nuova assegnazione fa sì che la variabile faccia riferimento ad un nuovo valore (cessando di riferirsi a quello vecchio).
+Vi sarete forse già accorti che è possibile effettuare più assegnazioni ad una stessa variabile. Una nuova assegnazione fa sì che la variabile faccia riferimento ad un nuovo valore, cessando di riferirsi a quello vecchio.
 
 \begin{verbatim}
 >>> x = 5
@@ -4191,7 +4168,7 @@ In Python, un'assegnazione può rendere due variabili temporaneamente uguali, ma
 5
 \end{verbatim}
 %
-La terza riga cambia il valore di {\tt a} ma non cambia quello di {\tt b}, quindi {\tt a} e {\tt b} non sono più uguali.
+La terza riga modifica il valore di {\tt a} ma non quello di {\tt b}, quindi {\tt a} e {\tt b} non sono più uguali.
 
 Anche se le riassegnazioni di variabile sono spesso utili, vanno usate con cautela. Se il valore di una variabile cambia di frequente, può rendere il codice difficile da leggere e correggere.
 
@@ -4217,7 +4194,7 @@ dove il nuovo valore della variabile dipende da quello precedente.
 >>> x = x + 1
 \end{verbatim}
 %
-Questo vuol dire: ``prendi il valore attuale di {\tt x}, aggiungi uno, e aggiorna {\tt x} al nuovo valore.''
+Questo significa: ``prendi il valore attuale di {\tt x}, aggiungi uno, e aggiorna {\tt x} al nuovo valore.''
 
 Se tentate di aggiornare una variabile inesistente, si verifica un errore perché Python valuta il lato destro prima di assegnare un valore a {\tt x}:
 
@@ -4232,7 +4209,7 @@ di solito con una comune assegnazione:
 
 \begin{verbatim}
 >>> x = 0
->>> x = x+1
+>>> x = x + 1
 \end{verbatim}
 %
 L'aggiornamento di una variabile aggiungendo 1 è detto {\bf incremento};
@@ -4246,9 +4223,9 @@ sottrarre 1 è detto invece {\bf decremento}.
 \index{ciclo!while}
 \index{iterazione}
 
-Spesso i computer sono usati per automatizzare dei compiti ripetitivi: ripetere operazioni identiche o simili un gran numero di volte senza fare errori, è qualcosa che i computer fanno molto bene e le persone piuttosto male. Nella programmazione, la ripetizione è chiamata anche {\bf iterazione}.
+Spesso i computer sono usati per automatizzare dei compiti ripetitivi: ripetere operazioni identiche o simili senza fare errori, è qualcosa che i computer fanno molto bene e le persone piuttosto male. Nella programmazione, la ripetizione è chiamata anche {\bf iterazione}.
 
-Abbiamo già visto due funzioni, {\tt contoallarovescia} e \verb"stampa_n", che   iterano usando la ricorsione. Dato che l'iterazione è un'operazione molto frequente, Python fornisce varie caratteristiche del linguaggio per renderla più semplice da implementare. Una è l'istruzione {\tt for}, che abbiamo già visto nel Paragrafo~\ref{repetition} e sulla quale torneremo.
+Abbiamo già visto due funzioni, {\tt contoallarovescia} e \verb"stampa_n", che iterano usando la ricorsione. Dato che l'iterazione è un'operazione molto frequente, Python fornisce varie caratteristiche del linguaggio per renderla più semplice da implementare. Una è l'istruzione {\tt for}, che abbiamo già visto nel Paragrafo~\ref{repetition} e sulla quale torneremo.
 
 Un'altra istruzione è {\tt while}. Ecco una variante di {\tt
 contoallarovescia} che usa l'istruzione {\tt while}:
@@ -4264,15 +4241,15 @@ def contoallarovescia(n):
 Si può quasi leggere il programma con l'istruzione {\tt while} come fosse scritto in inglese: significa ``Finché (while) {\tt n} è maggiore di 0, stampa il valore di {\tt n} e poi decrementa {\tt n} di 1.  Quando arrivi a 0, stampa la stringa {\tt Via!}''
 \index{flusso di esecuzione}
 
-In modo più formale, ecco il flusso di esecuzione di un'istruzione {\tt while}:
+In modo più formale, questo è il flusso di esecuzione di un'istruzione {\tt while}:
 
 \begin{enumerate}
 
 \item Determina se la condizione è vera ({\tt True}) o falsa ({\tt False}).
 
-\item Se la condizione è falsa, esce dal ciclo {\tt while} e continua       l'esecuzione dalla prima istruzione che lo segue.
+\item Se la condizione è falsa, esce dal ciclo {\tt while} e continua l'esecuzione dalla prima istruzione successiva.
 
-\item Se la condizione è vera, esegue tutte le istruzioni nel corpo del ciclo while e vi rimane, ritornando al punto 1.
+\item Se la condizione è vera, esegue il blocco di istruzioni nel corpo del ciclo while e vi rimane, ritornando al punto 1.
 
 \end{enumerate}
 
@@ -4281,14 +4258,14 @@ Questo tipo di flusso è chiamato ciclo, (in inglese {\em loop}), perché il ter
 \index{ciclo}
 \index{corpo}
 
-Il corpo del ciclo deve cambiare il valore di una o più variabili in modo che la condizione possa prima o poi diventare falsa e fare in modo che il ciclo abbia termine. In caso contrario il ciclo si ripeterebbe continuamente, determinando un {\bf ciclo infinito}. Una fonte inesauribile di divertimento per gli informatici, è osservare che le istruzioni dello shampoo:
+Il corpo del ciclo deve cambiare il valore di una o più variabili in modo che la condizione prima o poi diventi falsa e il ciclo abbia termine. Altrimenti, il ciclo verrebbe ripetuto continuamente, dando luogo ad un {\bf ciclo infinito}. Una fonte inesauribile di divertimento per gli informatici, è osservare che le istruzioni dello shampoo:
 ``lava, risciacqua, ripeti'' sono un ciclo infinito.
 
 \index{ciclo!infinito}
 
-Nel caso di {\tt contoallarovescia}, possiamo essere certi che il ciclo terminerà: se {\tt n} è zero o negativo, il ciclo non viene mai eseguito. Altrimenti, {\tt n} diventa via via più piccolo ad ogni ripetizione del ciclo stesso, fino a diventare, prima o poi, zero. 
+Nel caso di {\tt contoallarovescia}, è evidente che il ciclo terminerà: se {\tt n} è zero o negativo, il ciclo non viene mai eseguito. Altrimenti, {\tt n} diventa via via più piccolo ad ogni ripetizione del ciclo stesso, fino a diventare, prima o poi, zero. 
 
-In altri cicli, può non essere così facile stabilirlo. Per esempio:
+In altri cicli, può non essere così evidente. Per esempio:
 
 \begin{verbatim}
 def sequenza(n):
@@ -4303,9 +4280,9 @@ def sequenza(n):
 La condizione di questo ciclo è {\tt n != 1}, per cui il ciclo si ripeterà
 fino a quando {\tt n} non sarà uguale a {\tt 1}, cosa che rende falsa la condizione.
 
-Ad ogni ripetizione del ciclo, il programma stampa il valore di {\tt n} e poi controlla se è pari o dispari. Se è pari, {\tt n} viene diviso per 2. Se è dispari, {\tt n} è moltiplicato per 3 e al risultato viene aggiunto 1. Se per esempio il valore passato a {\tt sequenza} è 3, i valori risultanti di {\tt n} saranno 3, 10, 5, 16, 8, 4, 2, 1.
+Ad ogni ripetizione del ciclo, il programma stampa il valore di {\tt n} e poi controlla se è pari o dispari. Se è pari, {\tt n} viene diviso per 2. Se è dispari, {\tt n} è moltiplicato per 3 e al risultato viene aggiunto 1. Se per esempio il valore passato a {\tt sequenza} è 3, i valori risultanti di {\tt n} saranno nell'ordine 3, 10, 5, 16, 8, 4, 2, 1.
 
-Dato che {\tt n} a volte sale e a volte scende, non c'è prova evidente che {\tt n} raggiungerà 1 in modo da terminare il ciclo. Per qualche particolare valore di {\tt n}, possiamo dimostrarlo: ad esempio, se il valore di partenza è una potenza di 2, {\tt n} sarà per forza un numero pari ad ogni ciclo, fino a raggiungere 1. L'esempio precedente finisce proprio con una sequenza simile, a partire dal numero 16.
+Dato che {\tt n} a volte sale e a volte scende, non c'è modo di stabilire che {\tt n} raggiungerà 1 in modo da terminare il ciclo. Solo per qualche particolare valore di {\tt n}, possiamo dimostrarlo: ad esempio, se il valore di partenza è una potenza di 2, {\tt n} sarà per forza un numero pari ad ogni ciclo, fino a raggiungere 1. L'esempio precedente finisce proprio con una sequenza simile, a partire dal numero 16.
 \index{congettura di Collatz}
 
 La domanda difficile è se il programma giunga a termine per {\em qualsiasi} valore positivo di {\tt n}. Sinora, nessuno è riuscito a dimostrarlo {\em né} a smentirlo!  (Vedere \url{http://it.wikipedia.org/wiki/Congettura_di_Collatz}.)
@@ -4321,28 +4298,28 @@ Come esercizio, riscrivete la funzione \verb"stampa_n" del Paragrafo~\ref{recurs
 
 Vi può capitare di poter stabilire il momento in cui è necessario terminare un ciclo solo mentre il flusso di esecuzione si trova nel bel mezzo del corpo. In questi casi potete usare l'istruzione {\tt break} per interrompere il ciclo e saltarne fuori.
 
-Per esempio, supponiamo che vogliate ricevere delle risposte dall'utente, fino a quando non viene digitata la parola {\tt fatto}.  Potete scrivere:
+Per esempio, supponiamo che vogliate ricevere delle risposte dall'utente, fino a quando non viene digitata la parola {\tt fine}.  Potete scrivere:
 
 \begin{verbatim}
 while True:
     riga = input('> ')
-    if riga == 'fatto':
+    if riga == 'fine':
         break
     print(riga)
 
-print('Fatto!')
+print('Finito!')
 \end{verbatim}
 %
 La condizione del ciclo è {\tt True}, che è sempre vera per definizione, quindi il ciclo è destinato a continuare, a meno che non incontri l'istruzione {\tt break}.
 
 Ad ogni ripetizione, il programma mostra come prompt il simbolo {\tt >}.
-Se l'utente scrive {\tt fatto}, l'istruzione {\tt break} interrompe il ciclo, altrimenti ripete quello che l'utente ha scritto e ritorna da capo. Ecco un esempio di esecuzione:
+Se l'utente scrive {\tt fine}, l'istruzione {\tt break} interrompe il ciclo, altrimenti il programma ripete quello che l'utente ha scritto e ritorna da capo. Ecco un esempio di esecuzione:
 
 \begin{verbatim}
->>> non fatto
-non fatto
->>> fatto
-Fatto!
+> non ho finito
+non ho finito
+> fine
+Finito!
 \end{verbatim}
 %
 Questo modo di scrivere i cicli {\tt while} è frequente, perché vi permette di controllare la condizione ovunque all'interno del ciclo (e non solo all'inizio) e di esprimere la condizione di stop in modo affermativo (``fermati quando succede questo'') piuttosto che negativo (``continua fino a quando non succede questo'').
@@ -4352,7 +4329,7 @@ Questo modo di scrivere i cicli {\tt while} è frequente, perché vi permette di
 \label{squareroot}
 \index{radice quadrata}
 
-Spesso si usano i cicli per calcolare risultati numerici, partendo da un valore approssimativo che viene migliorato iterativamente con approssimazioni successive.
+I cicli si usano spesso per calcolare risultati numerici, partendo da un valore approssimativo che viene migliorato iterativamente con approssimazioni successive.
 \index{metodo di Newton}
 
 Per esempio, un modo di calcolare le radici quadrate è il metodo di Newton. Supponiamo di voler calcolare la radice quadrata di $a$. A partire da una qualunque stima, $x$, possiamo calcolare una stima migliore con la formula seguente:
@@ -4452,7 +4429,7 @@ Alcune delle cose che le persone fanno in modo naturale senza difficoltà o senz
 \section{Debug}
 \label{bisectbug}
 
-Quando inizierete a scrivere programmi di grande dimensioni, aumenterà il tempo da dedicare al debug. Più codice significa più probabilità di commettere un errore e più posti in cui gli errori possono annidarsi.
+Quando inizierete a scrivere programmi di grandi dimensioni, impiegherete più tempo per il debug: più codice significa più probabilità di commettere un errore e più posti in cui gli errori possono annidarsi.
 \index{debug!binario}
 
 Un metodo per ridurre il tempo di debug è il ``debug binario''.
@@ -4464,7 +4441,7 @@ Se il controllo nel punto mediano non è corretto, deve esserci un problema nell
 
 Per ogni controllo eseguito in questa maniera, dimezzate le righe da controllare. Dopo 6 passaggi (che sono meno di 100), dovreste teoricamente arrivare a una o due righe di codice.
 
-In pratica, non è sempre chiaro quale sia la ``metà del programma'' e non è sempre possibile controllare. Non ha neanche molto senso contare le righe e trovare la metà esatta. Meglio considerare i punti del programma dove è più probabile che vi siano errori e quelli dove è facile posizionare dei controlli. Quindi, scegliere un punto dove stimate che le probabilità che l'errore sia prima o dopo quel punto siano circa le stesse.
+In pratica, non è sempre chiaro quale sia la ``metà del programma'' e non è sempre possibile controllare. Non ha neanche molto senso contare le righe e trovare la metà esatta. Meglio considerare i punti del programma dove è più probabile che vi siano errori e quelli dove è facile posizionare dei controlli. Poi, scegliere un punto dove stimate che le probabilità che l'errore sia prima o dopo quel punto siano circa le stesse.
 
 
 \section{Glossario}
@@ -4680,7 +4657,7 @@ Oppure, possiamo usare utilmente gli indici negativi, che contano a ritroso dall
 \index{ciclo!for}
 \index{istruzione!for}
 
-Molti tipi di calcolo comportano l'elaborazione di una stringa, un carattere per volta. Spesso iniziano dal primo carattere, selezionano un carattere per volta, eseguono una certa operazione e continuano fino al completamento della stringa. Questo tipo di elaborazione è definita {\bf attraversamento}. Un modo per scrivere un attraversamento è quello di usare un ciclo {\tt while}:
+Parecchi tipi di calcolo comportano l'elaborazione di una stringa, un carattere per volta. Spesso iniziano dal primo carattere, selezionano un carattere per volta, eseguono una certa operazione e continuano fino alla fine della stringa. Questo tipo di elaborazione è detta {\bf attraversamento}. Un modo per scrivere un attraversamento è quello di usare un ciclo {\tt while}:
 
 \begin{verbatim}
 indice = 0
@@ -4690,7 +4667,7 @@ while indice < len(frutto):
     indice = indice + 1
 \end{verbatim}
 %
-Questo ciclo attraversa tutta la stringa e ne mostra una lettera alla volta,    una per riga. La condizione del ciclo è {\tt indice < len(frutto)}, pertanto   quando {\tt indice} è uguale alla lunghezza della stringa la condizione diventa falsa, il corpo del ciclo non viene più eseguito ed il ciclo termina. L'ultimo carattere a cui si accede è quello con indice {\tt len(frutto)-1}, che è l'ultimo carattere della stringa.
+Questo ciclo attraversa tutta la stringa e ne mostra le singole lettere, ciascuna su una riga separata. La condizione del ciclo è {\tt indice < len(frutto)}, per cui quando {\tt indice} è uguale alla lunghezza della stringa, la condizione diventa falsa e il corpo del ciclo non viene più eseguito. L'ultimo carattere a cui si accede è quello di indice {\tt len(frutto)-1}, cioè l'ultimo carattere della stringa.
 
 Come esercizio, scrivete una funzione che riceva una stringa come argomento e ne stampi i singoli caratteri, uno per riga, partendo dall'ultimo a ritroso.
 
@@ -4706,7 +4683,7 @@ Ad ogni ciclo, il successivo carattere della stringa viene assegnato alla variab
 \index{alfabetico}
 \index{McCloskey, Robert}
 
-L'esempio seguente mostra come usare il concatenamento (addizione di stringhe) e un ciclo {\tt for} per generare una serie alfabetica, cioè una lista di valori in cui gli elementi appaiono in ordine alfabetico. Per esempio, nel libro {\em Make Way for Ducklings} di Robert McCloskey, ci sono degli anatroccoli che si chiamano Jack, Kack, Lack, Mack, Nack, Ouack, Pack, e Quack.  Questo ciclo restituisce i nomi in ordine:
+L'esempio che segue illustra come usare il concatenamento (addizione di stringhe) e un ciclo {\tt for} per generare una serie alfabetica (cioè, disposta in ordine alfabetico). Nel libro {\em Make Way for Ducklings} di Robert McCloskey, ci sono degli anatroccoli che si chiamano Jack, Kack, Lack, Mack, Nack, Ouack, Pack, e Quack.  Questo ciclo restituisce i nomi in ordine:
 
 \begin{verbatim}
 prefissi = 'JKLMNOPQ'
@@ -4793,7 +4770,7 @@ Proseguendo con l'esempio, data una stringa di nome {\tt frutto}, secondo voi ch
 \index{immutabilità}
 \index{stringa!immutabile}
 
-Potreste pensare di utilizzare l'operatore {\tt []} sul lato sinistro di un'assegnazione per cambiare un carattere all'interno di una stringa. Per esempio così:
+Per sostituire un carattere all'interno di una stringa, potreste pensare di utilizzare l'operatore {\tt []} sul lato sinistro di un'assegnazione, per esempio così:
 \index{TypeError}
 \index{eccezione!TypeError}
 
@@ -4810,7 +4787,7 @@ L'``oggetto'' ({\em object}) in questo caso è la stringa, e l'``elemento'' ({\e
 \index{assegnazione!elemento}
 \index{immutabilità}
 
-La ragione dell'errore è che le stringhe sono {\bf immutabili}, in altre parole, non è consentito cambiare una stringa esistente. La miglior cosa da fare è creare una nuova stringa, variante dell'originale:
+La ragione dell'errore è che le stringhe sono {\bf immutabili}, in altre parole, non è consentito cambiare una stringa esistente. La cosa migliore da fare è creare una nuova stringa, variante dell'originale:
 
 \begin{verbatim}
 >>> saluto = 'Ciao, mondo!'
@@ -4840,9 +4817,8 @@ def trova(parola, lettera):
     return -1
 \end{verbatim}
 %
-In un certo senso, questa funzione {\tt trova} è l'inverso dell'operatore {\tt []}.
-Invece di prendere un indice ed estrarre il carattere corrispondente, prende un carattere e trova l'indice in corrispondenza del quale appare il carattere. Se non trova il carattere indicato nella parola, la funzione restituisce {\tt
--1}.
+In un certo senso, {\tt trova} è l'inverso dell'operatore {\tt []}.
+Anziché prendere un indice ed estrarre il carattere corrispondente, prende un carattere e trova l'indice in corrispondenza del quale appare il carattere. Se non trova il carattere indicato nella parola data, la funzione restituisce {\tt -1}.
 
 Per la prima volta incontriamo l'istruzione {\tt return} all'interno di un ciclo. Se {\tt parola[indice] == lettera}, la funzione interrompe il ciclo e ritorna immediatamente, restituendo {\tt indice}. 
 
@@ -4983,7 +4959,7 @@ e
 \index{stringa!confronto}
 \index{confronto!stringa}
 
-Gli operatori di confronto funzionano anche sulle stringhe. Per vedere se
+Gli operatori di confronto funzionano anche sulle stringhe. Per controllare se
 due stringhe sono uguali:
 
 \begin{verbatim}
@@ -5002,13 +4978,13 @@ else:
     print('Tutto ok, banane.')
 \end{verbatim}
 %
-Attenzione che Python non gestisce le parole maiuscole e minuscole come siamo abituati: in un confronto, le lettere maiuscole vengono sempre prima di tutte le minuscole, così che:
+Attenzione che Python non gestisce le lettere maiuscole e minuscole come siamo abituati: in un confronto, le lettere maiuscole vengono sempre prima di tutte le minuscole, così che:
 
 \begin{verbatim}
 La tua parola, Papaya, viene prima di banana.
 \end{verbatim}
 %
-Un modo pratico per aggirare il problema è quello di convertire le stringhe ad un formato standard (tutte maiuscole o tutte minuscole) prima di effettuare il confronto.
+Questo problema si risolve facilmente convertendo le stringhe in un formato standard, ad esempio tutte lettere minuscole, prima di effettuare il confronto.
 
 
 \section{Debug}
@@ -5668,18 +5644,16 @@ Come una stringa, una {\bf lista} è una sequenza di valori. Mentre in una strin
 \index{elemento}
 \index{sequenza}
 
-Ci sono parecchi modi di creare una nuova lista, e quello più semplice
-è racchiudere i suoi elementi tra parentesi quadrate (\verb"[" e \verb"]"):
+Ci sono vari modi per creare una nuova lista; quello più semplice consiste nel
+racchiudere i suoi elementi tra parentesi quadrate (\verb"[" e \verb"]"):
 
 \begin{verbatim}
 [10, 20, 30, 40]
 ['Primi piatti', 'Secondi piatti', 'Dessert']
 \end{verbatim}
 %
-Il primo esempio è una lista di quattro interi, il secondo una lista
-di tre stringhe. Gli elementi di una stessa lista non devono
-necessariamente essere tutti dello stesso tipo. La lista che segue
-contiene una stringa, un numero in virgola mobile, un intero e (meraviglia!) un'altra lista:
+Il primo esempio è una lista di quattro interi; il secondo è una lista
+di tre stringhe. Non è necessario che gli elementi di una stessa lista siano tutti dello stesso tipo: la lista che segue contiene una stringa, un numero in virgola mobile, un intero e (meraviglia!) un'altra lista:
 
 \begin{verbatim}
 ['spam', 2.0, 5, [10, 20]]
@@ -5712,14 +5686,14 @@ Avrete già intuito che potete assegnare i valori della lista a variabili:
 \index{parentesi quadre, operatore}
 \index{operatore!parentesi quadre}
 
-La sintassi per l'accesso agli elementi di una lista è la stessa che abbiamo già visto per i caratteri di una stringa: le parentesi quadre, con un'espressione tra parentesi che specifica l'indice dell'elemento (non dimenticate che gli indici partono da 0!):
+La sintassi per accedere agli elementi di una lista è la stessa usata per i caratteri di una stringa: le parentesi quadre, con un'espressione tra parentesi che specifica l'indice dell'elemento. E ricordate che gli indici partono da 0:
 
 \begin{verbatim}
 >>> formaggi[0]
 'Cheddar'
 \end{verbatim}
 %
-A differenza delle stringhe, le liste sono mutabili. Quando l'operatore parentesi quadre compare sul lato sinistro di un'assegnazione, identifica l'elemento della lista che sarà riassegnato:
+Ma a differenza delle stringhe, le liste sono mutabili. Quando l'operatore parentesi quadre compare sul lato sinistro di un'assegnazione, identifica l'elemento della lista che sarà riassegnato:
 \index{mutabilità}
 
 \begin{verbatim}
@@ -5733,7 +5707,7 @@ L'elemento di indice 1 di {\tt numeri}, che era 123, ora è 5
 \index{indice!inizio da zero}
 \index{zero, indice iniziale}
 
-La Figura~\ref{fig.liststate} mostra il diagramma di {\tt
+La Figura~\ref{fig.liststate} mostra il diagramma di stato di {\tt
 formaggi}, {\tt numeri} e {\tt vuota}:
 \index{diagramma!di stato}
 
@@ -5745,24 +5719,23 @@ formaggi}, {\tt numeri} e {\tt vuota}:
 \label{fig.liststate}
 \end{figure}
 
-Le liste sono rappresentate da riquadri con la parola ``list'' all'esterno e i suoi elementi all'interno.  {\tt formaggi} si riferisce a una lista con tre elementi di indice 0, 1 e 2.
+Le liste possono essere rappresentate da riquadri con la parola ``list'' all'esterno e i suoi elementi all'interno.  {\tt formaggi} si riferisce a una lista con tre elementi di indice 0, 1 e 2.
 {\tt numeri} contiene due elementi; il diagramma mostra che il valore del secondo elemento è stato riassegnato da 123 a 5. {\tt vuota} si riferisce a una lista senza elementi.
 \index{elemento, assegnazione}
 \index{assegnazione!elemento}
 \index{riassegnazione}
 
-Gli indici di una lista funzionano nello stesso modo già visto per le stringhe:
+Gli indici delle liste funzionano nello stesso modo di quelli delle stringhe:
 
 \begin{itemize}
 
-\item Come indice possiamo usare qualsiasi espressione che produca un intero.
+\item L'indice può essere qualsiasi espressione di tipo intero.
 
-\item Se tentate di leggere o modificare un elemento che non esiste, ottenete
-   un messaggio d'errore {\tt IndexError}.
+\item Se tentate di leggere o modificare un elemento che non esiste, ottenete un messaggio d'errore {\tt IndexError}.
 \index{eccezione!IndexError}
 \index{IndexError}
 
-\item Se un indice ha valore negativo, il conteggio parte dalla fine della
+\item Con un indice di valore negativo, si conta a ritroso dalla fine della
    lista.
 
 \end{itemize}
@@ -5790,7 +5763,7 @@ False
 \index{ciclo!for}
 \index{istruzione!for}
 
-Il modo più frequente di attraversare gli elementi di una lista è un ciclo {\tt for}. La sintassi è la stessa delle stringhe:
+Il modo più frequente di attraversare gli elementi di una lista è un ciclo {\tt for}. Anche qui, la sintassi è la stessa delle stringhe:
 
 \begin{verbatim}
 for formaggio in formaggi:
@@ -6040,7 +6013,7 @@ La maggior parte delle operazioni sulle liste possono essere espresse come combi
 \index{elemento!cancellazione}
 \index{cancellare, elementi di lista}
 
-Ci sono alcuni modi per cancellare elementi da una lista. Se conoscete l'indice dell'elemento desiderato, potete usare
+Ci sono vari modi per cancellare elementi da una lista. Se conoscete l'indice dell'elemento desiderato, potete usare
 {\tt pop}:
 \index{pop, metodo}
 \index{metodo!pop}
@@ -6226,7 +6199,7 @@ Fino ad ora abbiamo usato ``oggetto'' e ``valore'' indifferentemente, ma è più
 \index{alias}
 \index{riferimento!alias}
 
-Se {\tt a} si riferisce a un oggetto e assegnate {\tt b = a},
+Se la variabile {\tt a} si riferisce a un oggetto e assegnate {\tt b = a},
 allora entrambe le variabili si riferiscono allo stesso oggetto.
 
 \begin{verbatim}
@@ -6413,7 +6386,7 @@ Prima di usare i metodi delle liste e gli operatori, leggetene attentamente la d
 
 \item Scegliete un costrutto e usate sempre quello.
 
-Una parte dei problemi delle liste deriva dal fatto che ci sono molti modi per fare le cose. Per esempio, per rimuovere un elemento da una lista potete usare {\tt pop}, {\tt remove}, {\tt del}, oppure lo slicing.
+Una parte dei problemi delle liste deriva dal fatto che ci sono molti modi per fare le stesse cose. Per esempio, per rimuovere un elemento da una lista potete usare {\tt pop}, {\tt remove}, {\tt del}, oppure lo slicing.
 
 Per aggiungere un elemento potete usare il metodo {\tt append} o l'operatore {\tt +}. Supponendo che {\tt t} sia una lista e {\tt x} un elemento, le espressioni seguenti vanno entrambe bene:
 
@@ -6486,15 +6459,15 @@ che restituisce una nuova lista ordinata e lascia intatta quella di origine.
 \index{assegnazione!potenziata}
 \index{attraversamento}
 
-\item[riduzione:] Schema di elaborazione che attraversa una sequenza e ne accumula gli elementi in un singolo risultato.
+\item[riduzione:] Schema di calcolo che attraversa una sequenza e ne accumula gli elementi in un singolo risultato.
 \index{riduzione, schema}
 \index{schema!riduzione}
 
-\item[mappa:] Schema di elaborazione che attraversa una sequenza ed esegue una stessa operazione su ciascun elemento della sequenza.
+\item[mappa:] Schema di calcolo che attraversa una sequenza ed esegue una stessa operazione su ciascun elemento della sequenza.
 \index{mappa, schema}
 \index{schema!mappa}
 
-\item[filtro:] Schema di elaborazione che attraversa una lista e seleziona solo gli elementi che soddisfano un dato criterio.
+\item[filtro:] Schema di calcolo che attraversa una lista e seleziona solo gli elementi che soddisfano un dato criterio.
 \index{filtro, schema}
 \index{schema!filtro}
 
@@ -7424,8 +7397,8 @@ Sebbene non sia necessario, è convenzione racchiudere le tuple tra
 >>> t = ('a', 'b', 'c', 'd', 'e')
 \end{verbatim}
 %
-Per creare una tupla con un singolo elemento dobbiamo aggiungere la
-   virgola finale dopo l'elemento:
+Per creare una tupla con un singolo elemento, occorre aggiungere una
+virgola dopo l'elemento:
 \index{singleton}
 \index{tupla!singleton}
 
@@ -7538,11 +7511,9 @@ Questo metodo è farraginoso; l'utilizzo dell'{\bf assegnazione di tupla} è pi�
 >>> a, b = b, a
 \end{verbatim}
 %
-La parte sinistra dell'assegnazione è una tupla di variabili; la parte
-   destra una tupla di valori o espressioni. Ogni valore è assegnato alla rispettiva variabile. Tutte le espressioni sulla destra vengono valutate prima della rispettiva assegnazione.
+Sul lato sinistro abbiamo una tupla di variabili; su quello destro, una tupla di espressioni. Ciascun valore viene assegnato alla rispettiva variabile. Tutte le espressioni sul lato destro vengono valutate prima di ogni assegnazione.
 
-Ovviamente il numero di variabili sulla sinistra deve corrispondere al
-   numero di valori sulla destra:
+Il numero di variabili sulla sinistra deve essere uguale al numero di valori sulla destra:
 \index{eccezione!ValueError}
 \index{ValueError}
 
@@ -7551,7 +7522,7 @@ Ovviamente il numero di variabili sulla sinistra deve corrispondere al
 ValueError: too many values to unpack
 \end{verbatim}
 %
-Più in generale, il lato destro può essere composto da ogni tipo di sequenza (stringhe, liste o tuple). Per esempio, per separare un indirizzo email tra nome utente e dominio, potete scrivere:
+Più in generale, sul lato destro può esserci qualsiasi tipo di sequenza (stringhe, liste o tuple). Per esempio, per separare un indirizzo email tra nome utente e dominio, potete scrivere:
 \index{split, metodo}
 \index{metodo!split}
 \index{email, indirizzo}
@@ -8179,7 +8150,7 @@ Modificate il programma precedente in modo che acquisisca un elenco di parole (v
 \index{deterministico}
 \index{pseudocasuale}
 
-A parità di dati di partenza, i programmi, per la maggior parte, fanno la stessa cosa ogni volta che vengono eseguiti, e per questo motivo sono detti  deterministici. Di solito il determinismo è una buona cosa, in quanto dagli stessi dati in ingresso è logico aspettarsi sempre lo stesso risultato. Per alcune applicazioni, invece, serve che l'esecuzione sia imprevedibile: i videogiochi sono un esempio lampante, ma ce ne sono tanti altri.
+A parità di dati in ingresso, la maggior parte dei programmi genera gli stessi risultati ad ogni esecuzione, e per questo motivo sono detti deterministici. Di solito il determinismo è una cosa giusta, poiché è ovvio attendersi che gli stessi dati producano gli stessi risultati. Per certe applicazioni, tuttavia, è richiesto che l'elaboratore sia imprevedibile: i videogiochi sono un classico esempio, ma ce ne sono anche altri.
 
 Creare un programma realmente non-deterministico è una cosa piuttosto difficile, ma ci sono dei sistemi per renderlo almeno apparentemente non-deterministico. Uno di questi è utilizzare degli algoritmi che generano dei numeri {\bf pseudocasuali}. Questi numeri non sono veri numeri casuali, dato che sono generati da un elaboratore deterministico, ma a prima vista è praticamente impossibile distinguerli da numeri casuali.
 \index{random, modulo}
@@ -8419,7 +8390,7 @@ Quindi usiamo \verb"elabora_file" per costruire un istogramma di
 parole = elabora_file('words.txt')
 diff = sottrai(isto, parole)
 
-print("Parole del libro che non si trovano nell'elenco:")
+print('Parole del libro che non si trovano nell'elenco:')
 for parola in diff:
     print(parola, end=' ')
 \end{verbatim}
@@ -12362,7 +12333,7 @@ while x > 0 and y < 0 :
 
     print('x: ', x)
     print('y: ', y)
-    print("condizione: ", (x > 0 and y < 0))
+    print('condizione: ', (x > 0 and y < 0))
 \end{verbatim}
 %
 Ora, eseguendo il programma, vedrete tre righe di output per ogni ripetizione del ciclo. All'ultimo passaggio, la condizione dovrebbe risultare {\tt False}.  Se il ciclo continua, vedrete comunque i valori di {\tt x} e {\tt y}, e potrete capire meglio il motivo per cui non vengono aggiornati correttamente.
