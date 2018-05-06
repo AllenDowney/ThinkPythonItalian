@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Funzioni produttive</title>
+</head>
+<body>
+<a href="thinkpython_italian006.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian008.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec72">Chapter 6  Funzioni produttive</h1>
+<p>
+<a id="fruitchap"></a></p><p>Molte tra le funzioni di Python che abbiamo usato, come quelle matematiche, producono dei valori di ritorno. Ma quelle che abbiamo scritto noi finora sono tutte “vuote”: hanno un qualche effetto, come visualizzare un testo o muovere tartarughe, ma non hanno un valore di ritorno. In questo capitolo vedremo come si scrivono le funzioni che chiameremo “produttive”.</p>
+<h2 class="section" id="sec73">6.1  Valori di ritorno</h2>
+<p>
+<a id="hevea_default390"></a></p><p>La chiamata di una funzione genera un nuovo valore, che di solito viene associato ad una variabile o si usa come parte di un’espressione.</p><pre class="verbatim">e = math.exp(1.0)
+altezza = raggio * math.sin(radianti)
+</pre><p>
+Le funzioni che abbiamo scritto finora sono “vuote”. Detto in modo semplicistico, non hanno valore di ritorno; ma a voler essere precisi, il loro valore di ritorno è <span class="c003">None</span>.</p><p>In questo capitolo scriveremo finalmente delle funzioni che restituiscono un valore e che chiameremo funzioni “produttive”.
+Facciamo un primo esempio con <span class="c003">area</span>, che calcola l’area di un cerchio di dato raggio:</p><pre class="verbatim">def area(raggio):
+    a = math.pi * raggio**2
+    return a
+</pre><p>
+Abbiamo già incontrato l’istruzione <span class="c003">return</span>, ma in una funzione produttiva questa istruzione include un’espressione. Il suo significato è: “ritorna subito da questa funzione e usa l’espressione seguente come valore di ritorno”. L’espressione può essere anche complessa, e allora possiamo riscrivere la funzione in modo più compatto:
+<a id="hevea_default391"></a>
+<a id="hevea_default392"></a></p><pre class="verbatim">def area(raggio):
+    return math.pi * raggio**2
+</pre><p>
+Peraltro, una <span class="c009">variabile temporanea</span> come <span class="c003">a</span> può rendere più agevole il debug.
+<a id="hevea_default393"></a></p><p>Talvolta occorre prevedere più istruzioni di ritorno, una per ciascuna ramificazione di un’istruzione condizionale:</p><pre class="verbatim">def valore_assoluto(x):
+    if x &lt; 0:
+        return -x
+    else:
+        return x
+</pre><p>
+Dato che queste istruzioni <span class="c003">return</span> si trovano in due rami di una
+condizione alternativa, solo una delle due sarà effettivamente eseguita.</p><p>Non appena viene eseguita un’istruzione <span class="c003">return</span>, la funzione termina senza eseguire ulteriori istruzioni. Il codice che viene a trovarsi dopo l’istruzione <span class="c003">return</span> o in ogni altro punto che non può essere raggiunto dal flusso di esecuzione, è detto <span class="c009">codice morto</span>.
+<a id="hevea_default394"></a></p><p>In una funzione produttiva, occorre accertarsi che ogni possibile percorso del flusso di esecuzione del programma conduca ad un’istruzione <span class="c003">return</span>. Per esempio:</p><pre class="verbatim">def valore_assoluto(x):
+    if x &lt; 0:
+        return -x
+    if x &gt; 0:
+        return x
+</pre><p>
+Questa funzione ha un difetto, in quanto se <span class="c003">x</span> è uguale a 0, nessuna delle due condizioni è vera e la funzione termina senza incontrare un’istruzione <span class="c003">return</span>. Se il flusso di esecuzione arriva alla fine della funzione, il valore di ritorno sarà <span class="c003">None</span>, che non è di certo il valore assoluto di 0.
+<a id="hevea_default395"></a>
+<a id="hevea_default396"></a></p><pre class="verbatim">&gt;&gt;&gt; print(valore_assoluto(0))
+None
+</pre><p>
+A proposito: Python contiene già la funzione <span class="c003">abs</span> che calcola il valore assoluto.
+<a id="hevea_default397"></a>
+<a id="hevea_default398"></a></p><p>Per esercitarvi, scrivete una funzione di nome <span class="c003">compara</span> che prenda due valori, <span class="c003">x</span> e <span class="c003">y</span>, e restituisca
+<span class="c003">1</span> se <span class="c003">x &gt; y</span>, <span class="c003">0</span> se <span class="c003">x == y</span>, e <span class="c003">-1</span> se <span class="c003">x &lt; y</span>.
+<a id="hevea_default399"></a>
+<a id="hevea_default400"></a></p>
+<h2 class="section" id="sec74">6.2  Sviluppo incrementale</h2>
+<p>
+<a id="incremental.development"></a>
+<a id="hevea_default401"></a></p><p>Scrivendo funzioni di dimensioni sempre maggiori, aumenterà anche il tempo da dedicare al debug.</p><p>Per affrontare programmi di complessità crescente, suggerisco una tecnica chiamata <span class="c009">sviluppo incrementale</span>. Lo scopo dello sviluppo incrementale è evitare lunghe sessioni di debug, aggiungendo e provando solo piccole parti di codice alla volta.
+<a id="hevea_default402"></a>
+<a id="hevea_default403"></a></p><p>Come esempio, supponiamo di voler trovare la distanza tra due punti, note le coordinate (<span class="c008">x</span><sub>1</sub>, <span class="c008">y</span><sub>1</sub>) e (<span class="c008">x</span><sub>2</sub>, <span class="c008">y</span><sub>2</sub>).
+Per il teorema di Pitagora, la distanza è:</p><table class="display dcenter"><tr class="c016"><td class="dcell"><span class="c008">distanza</span> = </td><td class="dcell"><span class="c007">√</span></td><td class="dcell"><table class="c002 cellpadding0"><tr><td class="hbar"></td></tr>
+<tr><td class="c011">(<span class="c008">x</span><sub>2</sub> − <span class="c008">x</span><sub>1</sub>)<sup>2</sup> + (<span class="c008">y</span><sub>2</sub> − <span class="c008">y</span><sub>1</sub>)<sup>2</sup></td></tr>
+</table></td></tr>
+</table><p>
+Per prima cosa dobbiamo considerare quale interfaccia deve avere in Python la funzione <span class="c003">distanza</span>. In altre parole, quali sono i dati in ingresso (cioè i parametri), e cosa deve restituire in uscita (cioè il valore di ritorno).</p><p>Nel nostro caso, i dati di ingresso (o di <em>input</em>) sono i due punti, rappresentabili attraverso le loro coordinate (due coppie di numeri); il risultato (o <em>output</em>) è la distanza, espressa con un valore decimale.</p><p>Si può subito scrivere un primo abbozzo di funzione:</p><pre class="verbatim">def distanza(x1, y1, x2, y2):
+    return 0.0
+</pre><p>
+Ovviamente questa prima stesura non calcola ancora la distanza, ma restituisce sempre 0. Però è già una funzione sintatticamente corretta e può essere eseguita: potete quindi provarla prima di procedere a renderla più complessa.</p><p>Proviamo allora la nuova funzione, chiamandola con dei valori di esempio:</p><pre class="verbatim">&gt;&gt;&gt; distanza(1, 2, 4, 6)
+0.0
+</pre><p>
+Ho scelto questi valori in modo che la loro distanza orizzontale sia 3 e quella verticale 4. In tal modo, il risultato è pari a 5: l’ipotenusa di un triangolo rettangolo i cui cateti sono lunghi 3 e 4. Quando proviamo una funzione è sempre utile sapere prima il risultato.
+<a id="hevea_default404"></a></p><p>A questo punto, abbiamo verificato che la funzione è sintatticamente corretta e possiamo cominciare ad aggiungere righe di codice nel corpo. Un passo successivo plausibile è quello di calcolare le differenze <span class="c008">x</span><sub>2</sub> − <span class="c008">x</span><sub>1</sub> e <span class="c008">y</span><sub>2</sub> − <span class="c008">y</span><sub>1</sub>. Nella nuova versione assegneremo queste differenze a due variabili temporanee e le visualizzeremo.</p><pre class="verbatim">def distanza(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    print('dx è ', dx)
+    print('dy è ', dy)
+    return 0.0
+</pre><p>
+Se la funzione è giusta, usando gli stessi valori di prima dovrebbe mostrare <code>dx è 3</code> e <code>dy è 4</code>. Se le cose stanno così, siamo certi che la funzione si comporta in maniera corretta sia nel ricevere gli argomenti che nell’elaborazione dei primi calcoli. In caso contrario, dovremo comunque controllare solo poche righe.</p><p>Procediamo calcolando la somma dei quadrati di <span class="c003">dx</span> e <span class="c003">dy</span>:</p><pre class="verbatim">def distanza(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquadr = dx**2 + dy**2
+    print('dsquadr è: ', dsquadr)
+    return 0.0
+</pre><p>
+Di nuovo, eseguiamo il programma in questa fase e controlliamo il risultato, che nel nostro caso dovrebbe essere 25.
+Infine, usiamo la funzione radice quadrata <span class="c003">math.sqrt</span> per calcolare e restituire il risultato:
+<a id="hevea_default405"></a>
+<a id="hevea_default406"></a></p><pre class="verbatim">def distanza(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquadr = dx**2 + dy**2
+    risultato = math.sqrt(dsquadr)
+    return risultato
+</pre><p>
+Se tutto funziona, abbiamo finito. Altrimenti, possiamo stampare per verifica il valore di <span class="c003">risultato</span> prima dell’istruzione <span class="c003">return</span>.</p><p>La versione definitiva della funzione non deve mostrare nulla quando viene eseguita; deve solo restituire un valore. Le istruzioni di stampa che avevamo inserito erano utili per il debug, ma una volta verificato che tutto funziona vanno rimosse. Pezzi di codice temporaneo come questi sono detti <span class="c009">“impalcature”</span>, perché sono di aiuto nella fase di costruzione del programma ma non fanno parte del prodotto finale. 
+<a id="hevea_default407"></a></p><p>Quando si inizia a programmare, è bene aggiungere solo poche righe di codice alla volta. Poi, con l’esperienza, potrete scrivere e fare il debug di blocchi di codice sempre più corposi. In ogni caso, la tecnica di sviluppo incrementale potrà farvi risparmiare un bel po’ di tempo di debug.</p><p>Ecco i punti chiave di questa tecnica:</p><ol class="enumerate" type=1><li class="li-enumerate">Iniziare con un programma che funziona e fare ogni volta piccole aggiunte. Ad ogni passo, se dovesse esserci un errore, avrete già idea di dove potrebbe trovarsi.</li><li class="li-enumerate">Assegnare i valori intermedi a delle variabili temporanee, così da poterli visualizzare e controllare.</li><li class="li-enumerate">Una volta ottenuto un programma funzionante, rimuovere le istruzioni temporanee e consolidare le istruzioni multiple in espressioni composte, a meno che il programma non diventi troppo difficile da leggere.</li></ol><p>Come esercizio, usate lo sviluppo incrementale per scrivere una funzione
+di nome <span class="c003">ipotenusa</span>, che restituisca la lunghezza dell’ipotenusa di un
+triangolo rettangolo, date le lunghezze dei cateti come argomenti.
+Prendete nota di ogni passo del processo di sviluppo man mano che procedete.
+<a id="hevea_default408"></a></p>
+<h2 class="section" id="sec75">6.3  Composizione</h2>
+<p>
+<a id="hevea_default409"></a>
+<a id="hevea_default410"></a></p><p>Come avrete intuito, è possibile chiamare una funzione dall’interno di un’altra funzione. Scriveremo come esempio una funzione che prende due punti geometrici, il centro di un cerchio ed un punto sulla sua circonferenza, e calcola l’area del cerchio.</p><p>Supponiamo che le coordinate del centro del cerchio siano memorizzate nelle variabili <span class="c003">xc</span> e <span class="c003">yc</span>, e quelle del punto sulla circonferenza in <span class="c003">xp</span> e <span class="c003">yp</span>. Innanzitutto, bisogna trovare il raggio del cerchio, che è pari alla distanza tra i due punti. La funzione <span class="c003">distanza</span> che abbiamo appena scritto, ci torna utile:</p><pre class="verbatim">raggio = distanza(xc, yc, xp, yp)
+</pre><p>
+Il passo successivo è trovare l’area del cerchio di quel raggio; anche questa funzione l’abbiamo già scritta:</p><pre class="verbatim">risultato = area(raggio)
+</pre><p>
+Incapsulando il tutto in una sola funzione otteniamo:
+<a id="hevea_default411"></a></p><pre class="verbatim">def area_cerchio(xc, yc, xp, yp):
+    raggio = distanza(xc, yc, xp, yp)
+    risultato = area(raggio)
+    return risultato
+</pre><p>
+Le variabili temporanee <span class="c003">raggio</span> e <span class="c003">risultato</span> sono utili per lo sviluppo
+e il debug ma, una volta constatato che il programma funziona, possiamo riscrivere la funzione in modo più conciso componendo le chiamate di funzione:</p><pre class="verbatim">def area_cerchio(xc, yc, xp, yp):
+    return area(distanza(xc, yc, xp, yp))
+</pre>
+<h2 class="section" id="sec76">6.4  Funzioni booleane</h2>
+<p>
+<a id="boolean"></a></p><p>Le funzioni possono anche restituire valori booleani (vero o falso), cosa che è spesso utilizzata per includere al loro interno dei test, anche complessi. 
+<a id="hevea_default412"></a>
+Per esempio:</p><pre class="verbatim">def divisibile(x, y):
+    if x % y == 0:
+        return True
+    else:
+        return False
+</pre><p>
+È prassi assegnare come nomi alle funzioni booleane dei predicati che, con accezione interrogativa, attendono una risposta sì/no; <code>divisibile</code> restituisce <span class="c003">True</span> o <span class="c003">False</span> per rispondere alla domanda se è vero o no che <span class="c003">x</span> è divisibile per <span class="c003">y</span>.</p><p>Facciamo un esempio:</p><pre class="verbatim">&gt;&gt;&gt; divisibile(6, 4)
+False
+&gt;&gt;&gt; divisibile(6, 3)
+True
+</pre><p>
+Possiamo scrivere la funzione in modo ancora più conciso, in quanto il risultato dell’operatore di confronto <span class="c003">==</span> è anch’esso un booleano, restituendolo direttamente:</p><pre class="verbatim">def divisibile(x, y):
+    return x % y == 0
+</pre><p>
+Le funzioni booleane sono usate spesso nelle istruzioni condizionali:
+<a id="hevea_default413"></a></p><pre class="verbatim">if divisibile(x, y):
+    print('x è divisibile per y')
+</pre><p>
+Potreste anche scrivere in questo modo:</p><pre class="verbatim">if divisibile(x, y) == True:
+    print('x è divisibile per y')
+</pre><p>
+ma il confronto supplementare è superfluo.</p><p>Scrivete ora, per esercizio, una funzione <code>compreso_tra(x, y, z)</code> che restituisca <span class="c003">True</span> se <span class="c008">x</span> ≤ <span class="c008">y</span> ≤ <span class="c008">z</span> o <span class="c003">False</span> altrimenti.</p>
+<h2 class="section" id="sec77">6.5  Altro sulla ricorsione</h2>
+<p>
+<a id="more.recursion"></a>
+<a id="hevea_default414"></a>
+<a id="hevea_default415"></a>
+<a id="hevea_default416"></a>
+<a id="hevea_default417"></a></p><p>Abbiamo trattato solo una piccola parte di Python, ma è interessante sapere che questo sottoinsieme costituisce un linguaggio di programmazione <em>completo</em>, vale a dire che tutto ciò che è calcolabile può essere espresso con questo linguaggio. Qualsiasi programma esistente potrebbe essere scritto usando solo le caratteristiche del linguaggio che avete appreso finora (a dire il vero, servirebbe anche qualche altro comando per controllare i dispositivi come mouse, dischi, ecc.).</p><p>La prova di questa affermazione è un compito tutt’altro che banale svolto per la prima volta da Alan Turing, uno dei pionieri dell’informatica (qualcuno puntualizzerebbe che era un matematico, ma molti dei primi informatici erano dei matematici). Per questo motivo, è detto Tesi di Turing.
+Per una trattazione più completa (ed accurata) della Tesi di Turing, consiglio il libro di Michael Sipser, <em>Introduction to the Theory of Computation</em>.</p><p>Per darvi un’idea di ciò che potete fare con gli strumenti imparati finora, analizziamo alcune funzioni matematiche definite ricorsivamente. Una funzione ricorsiva è una sorta di definizione circolare, cioè la sua definizione contiene un riferimento alla cosa che si sta definendo. Una definizione circolare propriamente detta, non è certo utile:</p><dl class="description"><dt class="dt-description"><span class="c009">vorpale:</span></dt><dd class="dd-description"> aggettivo usato per descrivere qualcosa di vorpale.
+<a id="hevea_default418"></a>
+<a id="hevea_default419"></a></dd></dl><p>Sarebbe fastidioso trovare una definizione simile in un vocabolario.
+D’altra parte, se andate a vedere la definizione della funzione fattoriale, che è indicata dal simbolo, !), trovate qualcosa del genere:</p><table class="display dcenter"><tr class="c016"><td class="dcell"><table class="c001 cellpading0"><tr><td class="c014">&nbsp;</td><td class="c011">&nbsp;</td><td class="c012">0! = 1 </td></tr>
+<tr><td class="c014">&nbsp;</td><td class="c011">&nbsp;</td><td class="c012"><span class="c008">n</span>! = <span class="c008">n</span> (<span class="c008">n</span>−1)!
+</td></tr>
+</table></td></tr>
+</table><p>
+Questa definizione afferma che il fattoriale di 0 è 1 e che il fattoriale di ogni altro valore <span class="c008">n</span>, è <span class="c008">n</span> moltiplicato per il fattoriale di <span class="c008">n</span>−1.</p><p>Pertanto, 3! è 3 moltiplicato 2!, che a sua volta è 2 moltiplicato 1!, che
+a sua volta è 1 moltiplicato 0! (cioè 1). Riassumendo il tutto, 3! è uguale a 3 per 2 per 1 per 1, che fa 6.
+<a id="hevea_default420"></a>
+<a id="hevea_default421"></a>
+<a id="hevea_default422"></a></p><p>Se potete scrivere una definizione ricorsiva di qualcosa, potete anche scrivere un programma Python per valutarla. Per prima cosa occorre individuare quali parametri deve avere la funzione. Il <span class="c003">fattoriale</span> ha evidentemente un solo parametro, un intero:</p><pre class="verbatim">def fattoriale(n):
+</pre><p>
+Se l’argomento è 0, dobbiamo solo restituire il valore 1:</p><pre class="verbatim">def fattoriale(n):
+    if n == 0:
+        return 1
+</pre><p>
+Altrimenti, e qui viene il bello, dobbiamo fare una chiamata ricorsiva per trovare il fattoriale di <span class="c008">n</span>−1 e poi moltiplicare questo valore per <span class="c008">n</span>:</p><pre class="verbatim">def fattoriale(n):
+    if n == 0:
+        return 1
+    else:
+        ricors = fattoriale(n-1)
+        risultato = n * ricors
+        return risultato
+</pre><p>
+Il flusso di esecuzione del programma è simile a quello di <span class="c003">contoallarovescia</span> del Paragrafo <a href="thinkpython_italian006.html#recursion">5.8</a>. Se chiamiamo <span class="c003">fattoriale</span>
+con il valore 3:</p><p>Dato che 3 è diverso da 0, seguiamo il secondo ramo e calcoliamo il fattoriale
+di <span class="c003">n-1</span>...</p><blockquote class="quote">
+Dato che 2 è diverso da 0, seguiamo il secondo ramo e calcoliamo il fattoriale di <span class="c003">n-1</span>...<blockquote class="quote">
+Dato che 1 è diverso da 0, seguiamo il secondo ramo e calcoliamo il fattoriale di <span class="c003">n-1</span>...<blockquote class="quote">
+Dato che 0 è uguale a 0, seguiamo il primo ramo e ritorniamo 1 senza fare altre chiamate ricorsive.
+</blockquote><p>Il valore di ritorno (1) è moltiplicato per <span class="c008">n</span>, che è 1, e il risultato
+ritorna al chiamante.
+</p></blockquote><p>Il valore di ritorno (1) è moltiplicato per <span class="c008">n</span>, che è 2, e il risultato
+ritorna al chiamante.
+</p></blockquote><p>Il valore di ritorno (2) è moltiplicato per <span class="c008">n</span>, che è 3, e il risultato, 6, diventa il valore di ritorno della chiamata di funzione che ha fatto partire l’intera procedura.
+<a id="hevea_default423"></a></p><p>La Figura <a href="#fig.stack3">6.1</a> mostra il diagramma di stack per tutta questa sequenza di chiamate di funzione:</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian007.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 6.1: Diagramma di stack .</td></tr>
+</table></div>
+<a id="fig.stack3"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>I valori di ritorno sono illustrati mentre vengono passati all’indietro verso l’alto della pila. In ciascun frame, il valore di ritorno è quello di <span class="c003">risultato</span>, che è il prodotto di <span class="c003">n</span> e <span class="c003">ricors</span>.
+<a id="hevea_default424"></a>
+<a id="hevea_default425"></a></p><p>Notate che nell’ultimo frame le variabili locali <span class="c003">ricors</span> e <span class="c003">risultato</span> non esistono, perché il ramo che le crea non viene eseguito.</p>
+<h2 class="section" id="sec78">6.6  Salto sulla fiducia</h2>
+<p>
+<a id="hevea_default426"></a>
+<a id="hevea_default427"></a></p><p>Seguire il flusso di esecuzione è il modo giusto di leggere i programmi, ma
+può diventare rapidamente labirintico se le dimensioni del codice aumentano. Un metodo alternativo è quello che io chiamo “salto sulla fiducia”. Quando arrivate ad una chiamata di funzione, invece di seguire il flusso di esecuzione, <em>date per scontato</em> che la funzione chiamata si comporti correttamente e che restituisca il valore esatto.</p><p>Nei fatti, già praticate questo atto di fede quando utilizzate le funzioni predefinite: se chiamate <span class="c003">math.cos</span> o <span class="c003">math.exp</span>, non andate a controllare il corpo di quelle funzioni: date per scontato che funzionino a dovere perché quelli che hanno scritto le funzioni predefinite sono senz’altro dei validi programmatori.</p><p>Lo stesso ragionamento vale quando chiamate una vostra funzione: per esempio, nel Paragrafo <a href="#boolean">6.4</a> avevamo scritto la funzione <code>divisibile</code> per controllare se un numero è divisibile per un altro. Quando ci siamo convinti che la funzione è corretta,—controllando e provando il codice—possiamo poi usarla senza doverne ricontrollare ancora il corpo.
+<a id="hevea_default428"></a></p><p>Idem quando avete delle chiamate ricorsive: invece di seguire il flusso di esecuzione, potete partire dal presupposto che la chiamata ricorsiva funzioni
+(restituendo il risultato corretto), per poi chiedervi: “Supponendo che io trovi il fattoriale di <span class="c008">n</span>−1, posso calcolare il fattoriale di <span class="c008">n</span>?”. È chiaro che potete farlo, moltiplicando per <span class="c008">n</span>.</p><p>Certo, è strano partire dal presupposto che una funzione sia giusta quando non avete ancora finito di scriverla, ma non per nulla si chiama "salto sulla fiducia"!</p>
+<h2 class="section" id="sec79">6.7  Un altro esempio</h2>
+<p>
+<a id="one.more.example"></a></p><p><a id="hevea_default429"></a>
+<a id="hevea_default430"></a>
+Dopo il <span class="c003">fattoriale</span>, l’esempio più noto di funzione matematica definita ricorsivamente è la funzione <span class="c003">fibonacci</span>, che ha la seguente definizione: (vedere <a href="http://it.wikipedia.org/wiki/Successione_di_Fibonacci"><span class="c003">http://it.wikipedia.org/wiki/Successione_di_Fibonacci</span></a>):
+</p><table class="display dcenter"><tr class="c016"><td class="dcell"><table class="c001 cellpading0"><tr><td class="c014">&nbsp;</td><td class="c011">&nbsp;</td><td class="c012"><span class="c008">fibonacci</span>(0) = 0 </td></tr>
+<tr><td class="c014">&nbsp;</td><td class="c011">&nbsp;</td><td class="c012"><span class="c008">fibonacci</span>(1) = 1 </td></tr>
+<tr><td class="c014">&nbsp;</td><td class="c011">&nbsp;</td><td class="c012"><span class="c008">fibonacci</span>(<span class="c008">n</span>) = <span class="c008">fibonacci</span>(<span class="c008">n</span>−1) + <span class="c008">fibonacci</span>(<span class="c008">n</span>−2)
+</td></tr>
+</table></td></tr>
+</table><p>
+Che tradotta in Python è:</p><pre class="verbatim">def fibonacci(n):
+    if n == 0:
+        return 0
+    elif  n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+</pre><p>
+Con una funzione simile, provare a seguire il flusso di esecuzione vi farebbe venire il mal di testa anche con valori di <span class="c008">n</span> piuttosto piccoli. Ma in virtù del “salto sulla fiducia”, dando per scontato che le due chiamate ricorsive funzionino correttamente, è chiaro che la somma dei loro valori di ritorno sarà corretta.
+<a id="hevea_default431"></a></p>
+<h2 class="section" id="sec80">6.8  Controllo dei tipi</h2>
+<p>
+<a id="guardian"></a></p><p>Cosa succede se chiamiamo <span class="c003">fattoriale</span> passando 1.5 come argomento?
+<a id="hevea_default432"></a>
+<a id="hevea_default433"></a>
+<a id="hevea_default434"></a>
+<a id="hevea_default435"></a></p><pre class="verbatim">&gt;&gt;&gt; fattoriale(1.5)
+RuntimeError: Maximum recursion depth exceeded
+</pre><p>
+Parrebbe una ricorsione infinita. Come mai?
+La funzione ha un caso base—quando <span class="c003">n == 0</span>. Ma se <span class="c003">n</span> non è intero,
+<em>manchiamo</em> il caso base e la ricorsione non si ferma più.
+<a id="hevea_default436"></a></p><p>Alla prima chiamata ricorsiva, infatti, il valore di <span class="c003">n</span> è 0.5.
+Alla successiva diventa -0.5. Da lì in poi, il valore passato alla funzione diventa ogni volta più piccolo di una unità (cioè più negativo) e non potrà mai essere 0.</p><p>Abbiamo due scelte. Possiamo provare a generalizzare la funzione <span class="c003">fattoriale</span> perché elabori anche numeri a virgola mobile, oppure possiamo fare in modo che la funzione controlli preventivamente il tipo degli argomenti che riceve. La prima opzione è chiamata funzione gamma, ma è un po’ oltre gli scopi di questo libro; quindi sceglieremo la seconda.
+<a id="hevea_default437"></a></p><p>Possiamo usare la funzione predefinita <span class="c003">isinstance</span> per verificare il tipo di argomento. E visto che ci siamo, ci assicureremo anche che il numero sia positivo:
+<a id="hevea_default438"></a>
+<a id="hevea_default439"></a></p><pre class="verbatim">def fattoriale(n):
+    if not isinstance(n, int):
+        print('Il fattoriale è definito solo per numeri interi.')
+        return None
+    elif n &lt; 0:
+        print('Il fattoriale non è definito per interi negativi.')
+        return None
+    elif n == 0:
+        return 1
+    else:
+        return n * fattoriale(n-1)
+</pre><p>
+Il primo caso base gestisce i tipi non interi; il secondo, gli interi negativi. In entrambi i casi, il programma mostra un messaggio di errore e restituisce il valore <span class="c003">None</span> per indicare che qualcosa non ha funzionato:</p><pre class="verbatim">&gt;&gt;&gt; print(fattoriale('alfredo'))
+Il fattoriale è definito solo per numeri interi.
+None
+&gt;&gt;&gt; print(fattoriale(-2))
+Il fattoriale non è definito per interi negativi.
+None
+</pre><p>
+Se superiamo entrambi i controlli, possiamo essere
+certi che <span class="c008">n</span> è un intero positivo oppure zero, e che la ricorsione avrà
+termine.
+<a id="hevea_default440"></a>
+<a id="hevea_default441"></a>
+<a id="hevea_default442"></a></p><p>Questo programma illustra uno schema chiamato <span class="c009">condizione di guardia</span>.
+Le prime due condizioni fanno da “guardiani”, difendendo il codice successivo da valori che potrebbero causare errori. Le condizioni di guardia rendono possibile la convalida del codice.</p><p>Nel Paragrafo <a href="thinkpython_italian012.html#raise">11.4</a> vedremo un’alternativa più flessibile della stampa di messaggi di errore: sollevare un’eccezione.</p>
+<h2 class="section" id="sec81">6.9  Debug</h2>
+<p>
+<a id="factdebug"></a></p><p>La suddivisione di un programma di grandi dimensioni in funzioni più piccole, crea dei naturali punti di controllo per il debug. Se una funzione non va, ci sono tre possibilità da prendere in esame:
+<a id="hevea_default443"></a></p><ul class="itemize"><li class="li-itemize">C’è qualcosa di sbagliato negli argomenti che la funzione sta accettando: è violata una precondizione.</li><li class="li-itemize">C’è qualcosa di sbagliato nella funzione: è violata una postcondizione.</li><li class="li-itemize">C’è qualcosa di sbagliato nel valore di ritorno o nel modo in cui viene usato.</li></ul><p>Per escludere la prima possibilità, potete aggiungere un’istruzione di stampa all’inizio della funzione per visualizzare i valori dei parametri (e magari i loro tipi). O potete scrivere del codice che controlla esplicitamente le precondizioni.
+<a id="hevea_default444"></a>
+<a id="hevea_default445"></a></p><p>Se i parametri sembrano corretti, aggiungete un’istruzione di stampa prima di ogni istruzione <span class="c003">return</span> e visualizzate il valore di ritorno. Se possibile, controllate i risultati calcolandoveli a parte. Cercate di chiamare la funzione fornendole dei valori che permettono un agevole controllo del risultato (come nel Paragrafo <a href="#incremental.development">6.2</a>).</p><p>Se la funzione sembra a posto, controllate la chiamata per essere sicuri che il valore di ritorno venga usato correttamente (e soprattutto, venga usato!).
+<a id="hevea_default446"></a></p><p>Aggiungere istruzioni di stampa all’inizio e alla fine di una funzione può aiutare a rendere più chiaro il flusso di esecuzione. Ecco una versione di <span class="c003">fattoriale</span> con delle istruzioni di stampa:</p><pre class="verbatim">def fattoriale(n):
+    spazi = ' ' * (4 * n)
+    print(spazi, 'fattoriale', n)
+    if n == 0:
+        print(spazi, 'ritorno 1')
+        return 1
+    else:
+        ricors = fattoriale(n-1)
+        risultato = n * ricors
+        print(spazi, 'ritorno ', risultato)
+        return risultato
+</pre><p>
+<span class="c003">spazi</span> è una stringa di caratteri di spaziatura che controlla l’indentazione dell’output. Ecco il risultato di <span class="c003">fattoriale(4)</span> :</p><pre class="verbatim">                 fattoriale 4
+             fattoriale 3
+         fattoriale 2
+     fattoriale 1
+ fattoriale 0
+ ritorno 1
+     ritorno 1
+         ritorno 2
+             ritorno 6
+                 ritorno 24
+</pre><p>
+Se il flusso di esecuzione vi confonde, questo tipo di output può aiutarvi. Ci vuole un po’ di tempo per sviluppare delle “impalcature” efficaci, ma in compenso queste possono far risparmiare molto tempo di debug.</p>
+<h2 class="section" id="sec82">6.10  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">variabile temporanea:</span></dt><dd class="dd-description"> Variabile a cui si assegna un risultato intermedio di un calcolo complesso.
+<a id="hevea_default447"></a></dd><dt class="dt-description"><span class="c009">codice morto:</span></dt><dd class="dd-description"> Porzione di un programma che non può mai essere eseguita, spesso perché compare dopo un’istruzione <span class="c003">return</span>.
+<a id="hevea_default448"></a></dd><dt class="dt-description"><span class="c009">sviluppo incrementale:</span></dt><dd class="dd-description"> Tecnica di sviluppo del programma volta ad evitare il debug, aggiungendo e provando piccole porzioni di codice alla volta.
+<a id="hevea_default449"></a></dd><dt class="dt-description"><span class="c009">impalcatura:</span></dt><dd class="dd-description"> Codice temporaneo utilizzato durante lo sviluppo del programma e che non fa parte della versione finale.
+<a id="hevea_default450"></a></dd><dt class="dt-description"><span class="c009">condizione di guardia:</span></dt><dd class="dd-description"> Schema di programmazione che si avvale di un’istruzione condizionale per controllare e gestire le circostanze che possono causare un errore.
+<a id="hevea_default451"></a>
+<a id="hevea_default452"></a></dd></dl>
+<h2 class="section" id="sec83">6.11  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Disegnate un diagramma di stack del seguente programma. Che cosa visualizza?
+</em><a id="hevea_default453"></a></p><pre class="verbatim"><em>def b(z):
+    prod = a(z, z)
+    print(z, prod)
+    return prod
+
+def a(x, y):
+    x = x + 1
+    return x * y
+
+def c(x, y, z):
+    totale = x + y + z
+    quadrato = b(totale)**2
+    return quadrato
+
+x = 1
+y = x + 1
+print(c(x, y+3, x+y))
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="ackermann"></a><p><em>La funzione di Ackermann, </em><span class="c008">A</span>(<span class="c008">m</span>, <span class="c008">n</span>)<em>, è così definita:</em></p><table class="display dcenter"><tr class="c016"><td class="dcell"><table class="c001 cellpading0"><tr><td class="c014"><table class="display"><tr class="c016"><td class="dcell"><span class="c008">A</span>(<span class="c008">m</span>, <span class="c008">n</span>) = </td><td class="dcell"><table class="display"><tr class="c016"><td class="dcell">⎧<br>
+⎪<br>
+⎨<br>
+⎪<br>
+⎩</td><td class="dcell"><table class="c001 cellpading0"><tr><td class="c012">              <span class="c008">n</span>+1</td><td class="c012">se  <span class="c008">m</span> = 0 </td></tr>
+<tr><td class="c012">        <span class="c008">A</span>(<span class="c008">m</span>−1, 1)</td><td class="c012">se  <span class="c008">m</span> &gt; 0  e  <span class="c008">n</span> = 0 </td></tr>
+<tr><td class="c012"><span class="c008">A</span>(<span class="c008">m</span>−1, <span class="c008">A</span>(<span class="c008">m</span>, <span class="c008">n</span>−1))</td><td class="c012">se  <span class="c008">m</span> &gt; 0  e  <span class="c008">n</span> &gt; 0.
+</td></tr>
+</table></td></tr>
+</table></td></tr>
+</table></td></tr>
+</table></td></tr>
+</table><p><em>
+Vedere anche </em><a href="http://it.wikipedia.org/wiki/Funzione_di_Ackermann"><span class="c003"><em>http://it.wikipedia.org/wiki/Funzione_di_Ackermann</em></span></a><em>.
+Scrivete una funzione di nome <span class="c003">ack</span> che valuti la funzione di Ackermann.
+Usate la vostra funzione per calcolare <span class="c003">ack(3, 4)</span>, vi dovrebbe risultare 125.
+Cosa succede per valori maggiori di <span class="c003">m</span> e <span class="c003">n</span>?
+Soluzione: </em><a href="http://thinkpython2.com/code/ackermann.py"><span class="c003"><em>http://thinkpython2.com/code/ackermann.py</em></span></a><em>.
+</em><a id="hevea_default454"></a>
+<a id="hevea_default455"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="palindrome"></a><p><em>Un palindromo è una parola che si legge nello stesso modo sia da sinistra verso destra che viceversa, come “ottetto” e “radar”. In termini ricorsivi, una parola è un palindromo se la prima e l’ultima lettera sono uguali e ciò che resta in mezzo è un palindromo.
+</em><a id="hevea_default456"></a></p><p><em>Quelle che seguono sono funzioni che hanno una stringa come parametro e restituiscono rispettivamente la prima lettera, l’ultima lettera, e quelle in mezzo:</em></p><pre class="verbatim"><em>def prima(parola):
+    return parola[0]
+
+def ultima(parola):
+    return parola[-1]
+
+def mezzo(parola):
+    return parola[1:-1]
+</em></pre><p><em>
+Vedremo meglio come funzionano nel Capitolo </em><a href="thinkpython_italian009.html#strings"><em>8</em></a><em>.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete queste funzioni in un file script <span class="c003">palindromo.py</span>
+e provatele. Cosa succede se chiamate <span class="c003">mezzo</span> con una stringa di due lettere? E di una lettera? E con la stringa vuota, che si scrive <code>''</code> e non contiene caratteri?</em></li><li class="li-enumerate"><em>Scrivete una funzione di nome <code>palindromo</code> che riceva una stringa come argomento e restituisca <span class="c003">True</span> se è un palindromo e <span class="c003">False</span> altrimenti. Ricordate che potete usare la funzione predefinita <span class="c003">len</span> per controllare la lunghezza di una stringa.</em></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/palindrome_soln.py"><em><span class="c003">http://thinkpython2.com/code/palindrome_soln.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  <p><em>Un numero, <span class="c003">a</span>, è una potenza di <span class="c003">b</span> se è divisibile per <span class="c003">b</span>
+e <span class="c003">a/b</span> è a sua volta una potenza di <span class="c003">b</span>. Scrivete una funzione di nome
+<code>potenza</code> che prenda come parametri <span class="c003">a</span> e <span class="c003">b</span>
+e che restituisca <span class="c003">True</span> se <span class="c003">a</span> è una potenza di <span class="c003">b</span>.
+Nota: dovete pensare bene al caso base.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  
+<a id="hevea_default457"></a>
+<a id="hevea_default458"></a><p><em>Il massimo comun divisore (MCD) di due interi </em><span class="c008">a</span><em> e </em><span class="c008">b</span><em> è il numero intero più grande che divide entrambi senza dare resto. </em></p><p><em>Un modo per trovare il MCD di due numeri si basa sull’osservazione che, se </em><span class="c008">r</span><em> è il resto della divisione tra </em><span class="c008">a</span><em> e </em><span class="c008">b</span><em>, allora </em><span class="c008">mcd</span>(<span class="c008">a</span>,
+<span class="c008">b</span>) = <span class="c008">mcd</span>(<span class="c008">b</span>, <span class="c008">r</span>)<em>. Come caso base, possiamo usare </em><span class="c008">mcd</span>(<span class="c008">a</span>, 0) = <span class="c008">a</span><em>.</em></p><p><em>Scrivete una funzione di nome
+<code>mcd</code> che abbia come parametri <span class="c003">a</span> e <span class="c003">b</span>
+e restituisca il loro massimo comun divisore.</em></p><p><em>Fonte: Questo esercizio è basato su un esempio in </em>Structure and Interpretation of Computer Programs<em> di Abelson e Sussman.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian006.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian008.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Stringhe</title>
+</head>
+<body>
+<a href="thinkpython_italian008.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian010.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec94">Chapter 8  Stringhe</h1>
+<p>
+<a id="strings"></a></p><p>Le stringhe non sono valori come gli interi, i float e i booleani. Una stringa è una <span class="c009">sequenza</span>, vale a dire un insieme ordinato di valori di altra natura. In questo capitolo vedrete come si accede ai caratteri che compongono una stringa e imparerete alcuni metodi che le stringhe espongono.
+<a id="hevea_default503"></a></p>
+<h2 class="section" id="sec95">8.1  Una stringa è una sequenza</h2>
+<p>
+<a id="hevea_default504"></a>
+<a id="hevea_default505"></a>
+<a id="hevea_default506"></a></p><p>Una stringa è una sequenza di caratteri. Potete accedere ai singoli caratteri usando gli operatori parentesi quadre:</p><pre class="verbatim">&gt;&gt;&gt; frutto = 'banana'
+&gt;&gt;&gt; lettera = frutto[1]
+</pre><p>
+La seconda istruzione seleziona il carattere numero 1 della variabile <span class="c003">frutto</span> e lo assegna alla variabile <span class="c003">lettera</span>. 
+<a id="hevea_default507"></a></p><p>L’espressione all’interno delle parentesi quadre è chiamato <span class="c009">indice</span>. 
+L’indice è un numero intero che indica (di qui il nome) il carattere della sequenza che desiderate estrarre.</p><p>Ma il risultato potrebbe lasciarvi perplessi:</p><pre class="verbatim">&gt;&gt;&gt; lettera
+a
+</pre><p>
+Per la maggior parte delle persone, la prima lettera di <code>'banana'</code> è <span class="c003">b</span>, non
+<span class="c003">a</span>. Ma per gli informatici, premesso che l’indice è la posizione a partire dall’inizio della stringa, la posizione della prima lettera è considerata la numero zero, non uno.</p><pre class="verbatim">&gt;&gt;&gt; lettera = frutto[0]
+&gt;&gt;&gt; lettera
+b
+</pre><p>
+Quindi <span class="c003">b</span> è la “zero-esima” lettera di <code>'banana'</code>, <span class="c003">a</span>
+è la prima lettera (“1-esima”), e <span class="c003">n</span> è la seconda (“2-esima”)
+lettera.
+<a id="hevea_default508"></a>
+<a id="hevea_default509"></a></p><p>Potete usare come indice qualsiasi espressione, compresi variabili e operatori:</p><pre class="verbatim">&gt;&gt;&gt; i = 1
+&gt;&gt;&gt; frutto[i]
+'a'
+&gt;&gt;&gt; frutto[i+1]
+'n'
+</pre><p>Tuttavia, il valore risultante deve essere un intero. Altrimenti succede questo:
+<a id="hevea_default510"></a>
+<a id="hevea_default511"></a>
+<a id="hevea_default512"></a></p><pre class="verbatim">&gt;&gt;&gt; lettera = frutto[1.5]
+TypeError: string indices must be integers
+</pre>
+<h2 class="section" id="sec96">8.2  <span class="c003">len</span></h2>
+<p>
+<a id="hevea_default513"></a>
+<a id="hevea_default514"></a></p><p><span class="c003">len</span> è una funzione predefinita che restituisce il numero di caratteri contenuti in una stringa:</p><pre class="verbatim">&gt;&gt;&gt; frutto = 'banana'
+&gt;&gt;&gt; len(frutto)
+6
+</pre><p>
+Per estrarre l’ultimo carattere di una stringa, si potrebbe pensare di scrivere qualcosa del genere:
+<a id="hevea_default515"></a>
+<a id="hevea_default516"></a></p><pre class="verbatim">&gt;&gt;&gt; lunghezza = len(frutto)
+&gt;&gt;&gt; ultimo = frutto[lunghezza]
+IndexError: string index out of range
+</pre><p>
+La ragione dell’<span class="c003">IndexError</span> è che non c’è nessuna lettera in <span class="c003">’banana’</span> con indice 6. Siccome partiamo a contare da zero, le sei lettere sono numerate da 0 a 5. Per estrarre l’ultimo carattere, dobbiamo perciò sottrarre 1 da <span class="c003">lunghezza</span>:</p><pre class="verbatim">&gt;&gt;&gt; ultimo = frutto[lunghezza-1]
+&gt;&gt;&gt; ultimo
+'a'
+</pre><p>
+Oppure, possiamo usare utilmente gli indici negativi, che contano a ritroso dalla fine della stringa: l’espressione <span class="c003">frutto[-1]</span> ricava l’ultimo carattere della stringa, <span class="c003">frutto[-2]</span> il penultimo carattere, e così via.
+<a id="hevea_default517"></a></p>
+<h2 class="section" id="sec97">8.3  Attraversamento con un ciclo <span class="c003">for</span></h2>
+<p>
+<a id="for"></a>
+<a id="hevea_default518"></a>
+<a id="hevea_default519"></a>
+<a id="hevea_default520"></a>
+<a id="hevea_default521"></a>
+<a id="hevea_default522"></a></p><p>Parecchi tipi di calcolo comportano l’elaborazione di una stringa, un carattere per volta. Spesso iniziano dal primo carattere, selezionano un carattere per volta, eseguono una certa operazione e continuano fino alla fine della stringa. Questo tipo di elaborazione è detta <span class="c009">attraversamento</span>. Un modo per scrivere un attraversamento è quello di usare un ciclo <span class="c003">while</span>:</p><pre class="verbatim">indice = 0
+while indice &lt; len(frutto):
+    lettera = frutto[indice]
+    print(lettera)
+    indice = indice + 1
+</pre><p>
+Questo ciclo attraversa tutta la stringa e ne mostra le singole lettere, ciascuna su una riga separata. La condizione del ciclo è <span class="c003">indice &lt; len(frutto)</span>, per cui quando <span class="c003">indice</span> è uguale alla lunghezza della stringa, la condizione diventa falsa e il corpo del ciclo non viene più eseguito. L’ultimo carattere a cui si accede è quello di indice <span class="c003">len(frutto)-1</span>, cioè l’ultimo carattere della stringa.</p><p>Come esercizio, scrivete una funzione che riceva una stringa come argomento e ne stampi i singoli caratteri, uno per riga, partendo dall’ultimo a ritroso.</p><p>Un altro modo di scrivere un attraversamento è usare un ciclo <span class="c003">for</span>:</p><pre class="verbatim">for lettera in frutto:
+    print(lettera)
+</pre><p>
+Ad ogni ciclo, il successivo carattere della stringa viene assegnato alla variabile <span class="c003">lettera</span>. Il ciclo continua finché non rimangono più caratteri da analizzare.
+<a id="hevea_default523"></a>
+<a id="hevea_default524"></a>
+<a id="hevea_default525"></a></p><p>L’esempio che segue illustra come usare il concatenamento (addizione di stringhe) e un ciclo <span class="c003">for</span> per generare una serie alfabetica (cioè, disposta in ordine alfabetico). Nel libro <em>Make Way for Ducklings</em> di Robert McCloskey, ci sono degli anatroccoli che si chiamano Jack, Kack, Lack, Mack, Nack, Ouack, Pack, e Quack. Questo ciclo restituisce i nomi in ordine:</p><pre class="verbatim">prefissi = 'JKLMNOPQ'
+suffisso = 'ack'
+
+for lettera in prefissi:
+    print(lettera + suffisso)
+</pre><p>
+Il risultato del programma è:</p><pre class="verbatim">Jack
+Kack
+Lack
+Mack
+Nack
+Oack
+Pack
+Qack
+</pre><p>
+È evidente che non è del tutto giusto, dato che “Ouack” e “Quack” sono scritti in modo errato.</p><p>Provate a modificare il programma per correggere questo errore.</p>
+<h2 class="section" id="sec98">8.4  Slicing</h2>
+<p>
+<a id="slice"></a>
+<a id="hevea_default526"></a>
+<a id="hevea_default527"></a>
+<a id="hevea_default528"></a>
+<a id="hevea_default529"></a>
+<a id="hevea_default530"></a></p><p>Un segmento o porzione di stringa è chiamato <span class="c009">slice</span>. L’operazione di selezione di una porzione di stringa è simile alla selezione di un carattere, ed è detta <span class="c009">slicing</span>:</p><pre class="verbatim">&gt;&gt;&gt; s = 'Monty Python'
+&gt;&gt;&gt; s[0:5]
+'Monty'
+&gt;&gt;&gt; s[6:12]
+'Python'
+</pre><p>
+L’operatore <span class="c003">[n:m]</span> restituisce la porzione di stringa nell’intervallo compreso tra l’“n-esimo” carattere incluso fino all’“m-esimo” escluso. Questo comportamento è poco intuitivo, e per tenerlo a mente può essere d’aiuto immaginare gli indici puntare <em>tra</em> i caratteri, come spiegato nella Figura <a href="#fig.banana">8.1</a>.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian009.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 8.1: Indici di slicing.</td></tr>
+</table></div>
+<a id="fig.banana"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Se non è specificato il primo indice (quello prima dei due punti :), la porzione parte dall’inizio della stringa. Se manca il secondo indice, la porzione arriva fino in fondo alla stringa:</p><pre class="verbatim">&gt;&gt;&gt; frutto = 'banana'
+&gt;&gt;&gt; frutto[:3]
+'ban'
+&gt;&gt;&gt; frutto[3:]
+'ana'
+</pre><p>
+Se il primo indice è maggiore o uguale al secondo, il risultato è una <span class="c009">stringa vuota</span>, rappresentata da due apici consecutivi.
+<a id="hevea_default531"></a></p><pre class="verbatim">&gt;&gt;&gt; frutto = 'banana'
+&gt;&gt;&gt; frutto[3:3]
+''
+</pre><p>
+Una stringa vuota non contiene caratteri e ha lunghezza 0, ma a parte questo è a tutti gli effetti una stringa come le altre.</p><p>Proseguendo con l’esempio, data una stringa di nome <span class="c003">frutto</span>, secondo voi che cosa significa <span class="c003">frutto[:]</span>? Provate a vedere.
+<a id="hevea_default532"></a>
+<a id="hevea_default533"></a></p>
+<h2 class="section" id="sec99">8.5  Le stringhe sono immutabili</h2>
+<p>
+<a id="hevea_default534"></a>
+<a id="hevea_default535"></a>
+<a id="hevea_default536"></a></p><p>Per sostituire un carattere all’interno di una stringa, potreste pensare di utilizzare l’operatore <span class="c003">[]</span> sul lato sinistro di un’assegnazione, per esempio così:
+<a id="hevea_default537"></a>
+<a id="hevea_default538"></a></p><pre class="verbatim">&gt;&gt;&gt; saluto = 'Ciao, mondo!'
+&gt;&gt;&gt; saluto[0] = 'M'
+TypeError: 'str' object does not support item assignment
+</pre><p>
+L’“oggetto” (<em>object</em>) in questo caso è la stringa, e l’“elemento” (<em>item</em>) è il carattere che avete tentato di assegnare. Per ora, consideriamo un oggetto come la stessa cosa di un valore, ma più avanti (Paragrafo <a href="thinkpython_italian011.html#equivalence">10.10</a>) puntualizzeremo meglio questa definizione. 
+<a id="hevea_default539"></a>
+<a id="hevea_default540"></a>
+<a id="hevea_default541"></a>
+<a id="hevea_default542"></a>
+<a id="hevea_default543"></a></p><p>La ragione dell’errore è che le stringhe sono <span class="c009">immutabili</span>, in altre parole, non è consentito cambiare una stringa esistente. La cosa migliore da fare è creare una nuova stringa, variante dell’originale:</p><pre class="verbatim">&gt;&gt;&gt; saluto = 'Ciao, mondo!'
+&gt;&gt;&gt; nuovo_saluto = 'M' + saluto[1:]
+&gt;&gt;&gt; nuovo_saluto
+'Miao, mondo!'
+</pre><p>
+Questo esempio concatena una nuova prima lettera con la restante porzione di <span class="c003">saluto</span>. Non ha alcun effetto sulla stringa di origine, che resta invariata.
+<a id="hevea_default544"></a></p>
+<h2 class="section" id="sec100">8.6  Ricerca</h2>
+<p>
+<a id="find"></a></p><p>Cosa fa la funzione seguente?
+<a id="hevea_default545"></a>
+<a id="hevea_default546"></a></p><pre class="verbatim">def trova(parola, lettera):
+    indice = 0
+    while indice &lt; len(parola):
+        if parola[indice] == lettera:
+            return indice
+        indice = indice + 1
+    return -1
+</pre><p>
+In un certo senso, <span class="c003">trova</span> è l’inverso dell’operatore <span class="c003">[]</span>.
+Anziché prendere un indice ed estrarre il carattere corrispondente, prende un carattere e trova l’indice in corrispondenza del quale appare il carattere. Se non trova il carattere indicato nella parola data, la funzione restituisce <span class="c003">-1</span>.</p><p>Per la prima volta incontriamo l’istruzione <span class="c003">return</span> all’interno di un ciclo. Se <span class="c003">parola[indice] == lettera</span>, la funzione interrompe il ciclo e ritorna immediatamente, restituendo <span class="c003">indice</span>. </p><p>Se il carattere non compare nella stringa data, il programma termina il ciclo normalmente e restituisce <span class="c003">-1</span>.</p><p>Questo schema di calcolo—attraversare una sequenza e ritornare quando si trova ciò che si sta cercando—è chiamato <span class="c009">ricerca</span>.
+<a id="hevea_default547"></a>
+<a id="hevea_default548"></a>
+<a id="hevea_default549"></a></p><p>Come esercizio, modificate la funzione <span class="c003">trova</span> in modo che richieda un terzo parametro, che rappresenta la posizione da cui si deve cominciare la ricerca all’interno della stringa <span class="c003">parola</span>.</p>
+<h2 class="section" id="sec101">8.7  Cicli e contatori</h2>
+<p>
+<a id="counter"></a>
+<a id="hevea_default550"></a>
+<a id="hevea_default551"></a>
+<a id="hevea_default552"></a>
+<a id="hevea_default553"></a></p><p>Il programma seguente conta il numero di volte in cui la lettera <span class="c003">a</span>
+compare in una stringa:</p><pre class="verbatim">parola = 'banana'
+conta = 0
+for lettera in parola:
+    if lettera == 'a':
+        conta = conta + 1
+print(conta)
+</pre><p>
+Si tratta di un altro schema di calcolo chiamato <span class="c009">contatore</span>. La variabile <span class="c003">conta</span> è inizializzata a 0, quindi incrementata di uno per ogni volta che viene trovata una <span class="c003">a</span>.
+Al termine del ciclo, <span class="c003">conta</span> contiene il risultato: il numero totale di lettere <span class="c003">a</span> nella stringa.</p><p>Come esercizio, incapsulate questo codice in una funzione di nome <span class="c003">conta</span>, e generalizzatela in modo che accetti come argomenti sia la stringa che la lettera da cercare.
+Quindi, riscrivete questa funzione in modo che, invece di attraversare completamente la stringa, faccia uso della versione a tre parametri di <span class="c003">trova</span>, vista nel precedente paragrafo.
+<a id="hevea_default554"></a></p>
+<h2 class="section" id="sec102">8.8  Metodi delle stringhe</h2>
+<p>
+<a id="optional"></a></p><p>Le stringhe espongono dei metodi che permettono di effettuare molte utili operazioni. Un <span class="c009">metodo</span> è simile a una funzione—riceve argomenti e restituisce un valore—ma la sintassi è diversa. Prendiamo ad esempio il metodo <span class="c003">upper</span>, che prende una stringa e crea una nuova stringa di tutte lettere maiuscole.
+<a id="hevea_default555"></a>
+<a id="hevea_default556"></a></p><p>Al posto della sintassi delle funzioni, <span class="c003">upper(parola)</span>, si usa la sintassi dei metodi, <span class="c003">parola.upper()</span>.</p><pre class="verbatim">&gt;&gt;&gt; parola = 'banana'
+&gt;&gt;&gt; nuova_parola = parola.upper()
+&gt;&gt;&gt; nuova_parola
+BANANA
+</pre><p>
+Questa forma di notazione a punto, in inglese <em>dot notation</em>, specifica il nome del metodo, <span class="c003">upper</span>, preceduto dal nome della stringa a cui va applicato il metodo, <span class="c003">parola</span>. Le parentesi vuote indicano che il metodo non ha argomenti.
+<a id="hevea_default557"></a>
+<a id="hevea_default558"></a></p><p>La chiamata di un metodo è detta <span class="c009">invocazione</span>; nel nostro caso, diciamo che stiamo invocando <span class="c003">upper</span> su <span class="c003">parola</span>.
+<a id="hevea_default559"></a></p><p>Visto che ci siamo, esiste un metodo delle stringhe chiamato <span class="c003">find</span> che è molto simile alla funzione che abbiamo scritto prima:</p><pre class="verbatim">&gt;&gt;&gt; parola = 'banana'
+&gt;&gt;&gt; indice = parola.find('a')
+&gt;&gt;&gt; indice
+1
+</pre><p>
+In questo esempio, abbiamo invocato <span class="c003">find</span> su <span class="c003">parola</span> e abbiamo passato come parametro la lettera che stiamo cercando.</p><p>In realtà, il metodo <span class="c003">find</span> è più generale della nostra funzione: può ricercare anche sottostringhe e non solo singoli caratteri:</p><pre class="verbatim">&gt;&gt;&gt; parola.find('na')
+2
+</pre><p>
+Di default, <span class="c003">find</span> parte dall’inizio della stringa, ma può ricevere come secondo argomento l’indice da cui partire:
+<a id="hevea_default560"></a></p><pre class="verbatim">&gt;&gt;&gt; parola.find('na', 3)
+4
+</pre><p>
+Questo è un esempio di <span class="c009">argomento opzionale</span>; <span class="c003">find</span> può anche avere un terzo argomento opzionale, l’indice in corrispondenza del quale fermarsi:</p><pre class="verbatim">&gt;&gt;&gt; nome = 'bob'
+&gt;&gt;&gt; nome.find('b', 1, 2)
+-1
+</pre><p>
+In quest’ultimo caso la ricerca fallisce, perché <span class="c003">b</span> non è compreso nell’intervallo da <span class="c003">1</span> a <span class="c003">2</span>, in quanto <span class="c003">2</span> si considera escluso. Questo comportamento rende <span class="c003">find</span> coerente con l’operatore di slicing.</p>
+<h2 class="section" id="sec103">8.9  L’operatore <span class="c003">in</span></h2>
+<p>
+<a id="inboth"></a>
+<a id="hevea_default561"></a>
+<a id="hevea_default562"></a>
+<a id="hevea_default563"></a>
+<a id="hevea_default564"></a></p><p>La parola <span class="c003">in</span> è un operatore booleano che confronta due stringhe e restituisce <span class="c003">True</span> se la prima è una sottostringa della seconda:</p><pre class="verbatim">&gt;&gt;&gt; 'a' in 'banana'
+True
+&gt;&gt;&gt; 'seme' in 'banana'
+False
+</pre><p>
+Ad esempio, la funzione che segue stampa tutte le lettere di <span class="c003">parola1</span> che compaiono anche in <span class="c003">parola2</span>:</p><pre class="verbatim">def in_entrambe(parola1, parola2):
+    for lettera in parola1:
+        if lettera in parola2:
+            print(lettera)
+</pre><p>
+Con qualche nome di variabile scelto bene, Python a volte si legge quasi come fosse un misto di inglese e italiano: “per (ogni) lettera in parola1, se (la) lettera (è) in parola2, stampa (la) lettera.”</p><p>Ecco cosa succede se paragonate carote e patate:</p><pre class="verbatim">&gt;&gt;&gt; in_entrambe('carote', 'patate')
+a
+t
+e
+</pre>
+<h2 class="section" id="sec104">8.10  Confronto di stringhe</h2>
+<p>
+<a id="hevea_default565"></a>
+<a id="hevea_default566"></a></p><p>Gli operatori di confronto funzionano anche sulle stringhe. Per controllare se
+due stringhe sono uguali:</p><pre class="verbatim">if parola == 'banana':
+    print('Tutto ok, banane.')
+</pre><p>
+Altri operatori di confronto sono utili per mettere le parole in ordine alfabetico:</p><pre class="verbatim">if parola &lt; 'banana':
+    print('La tua parola,' + parola + ', viene prima di banana.')
+elif parola &gt; 'banana':
+    print('La tua parola,' + parola + ', viene dopo banana.')
+else:
+    print('Tutto ok, banane.')
+</pre><p>
+Attenzione che Python non gestisce le lettere maiuscole e minuscole come siamo abituati: in un confronto, le lettere maiuscole vengono sempre prima di tutte le minuscole, così che:</p><pre class="verbatim">La tua parola, Papaya, viene prima di banana.
+</pre><p>
+Questo problema si risolve facilmente convertendo le stringhe in un formato standard, ad esempio tutte lettere minuscole, prima di effettuare il confronto.</p>
+<h2 class="section" id="sec105">8.11  Debug</h2>
+<p>
+<a id="hevea_default567"></a>
+<a id="hevea_default568"></a></p><p>Quando usate gli indici per l’attraversamento dei valori di una sequenza, non è facile determinare bene l’inizio e la fine. Ecco una funzione che dovrebbe confrontare due parole e restituire <span class="c003">True</span> quando una parola è scritta al contrario dell’altra, ma contiene due errori:</p><pre class="verbatim">def al_contrario(parola1, parola2):
+    if len(parola1) != len(parola2):
+        return False
+    
+    i = 0
+    j = len(parola2)
+
+    while j &gt; 0:
+        if parola1[i] != parola2[j]:
+            return False
+        i = i+1
+        j = j-1
+
+    return True
+</pre><p>
+La prima istruzione <span class="c003">if</span> controlla se le parole sono della stessa lunghezza. Se non è così, possiamo restituire immediatamente <span class="c003">False</span>. Altrimenti, per il resto della funzione, possiamo presupporre che le parole abbiano pari lunghezza. È un altro esempio di condizione di guardia, vista nel Paragrafo <a href="thinkpython_italian007.html#guardian">6.8</a>.
+<a id="hevea_default569"></a>
+<a id="hevea_default570"></a>
+<a id="hevea_default571"></a></p><p><span class="c003">i</span> e <span class="c003">j</span> sono indici: <span class="c003">i</span> attraversa <span class="c003">parola1</span>
+in avanti, mentre <span class="c003">j</span> attraversa <span class="c003">parola2</span> a ritroso. Se troviamo due lettere che non coincidono, possiamo restituire subito <span class="c003">False</span> Se continuiamo per tutto il ciclo e tutte le lettere coincidono, il valore di ritorno è <span class="c003">True</span>.</p><p>Se proviamo la funzione con i valori “pots” e “stop”, ci aspetteremmo di ricevere di ritorno <span class="c003">True</span>, invece risulta un IndexError:
+<a id="hevea_default572"></a>
+<a id="hevea_default573"></a></p><pre class="verbatim">&gt;&gt;&gt; al_contrario('pots', 'stop')
+...
+  File "reverse.py", line 15, in al_contrario
+    if parola1[i] != parola2[j]:
+IndexError: string index out of range
+</pre><p>
+Per fare il debug, la mia prima mossa è di stampare il valore degli indici appena prima della riga dove è comparso l’errore.</p><pre class="verbatim">    while j &gt; 0:
+        print(i, j)       # stampare qui
+        
+        if parola1[i] != parola2[j]:
+            return False
+        i = i+1
+        j = j-1
+</pre><p>
+Ora, eseguendo di nuovo il programma, ho qualche informazione in più:</p><pre class="verbatim">&gt;&gt;&gt; al_contrario('pots', 'stop')
+0 4
+...
+IndexError: string index out of range
+</pre><p>
+Alla prima esecuzione del ciclo, il valore di <span class="c003">j</span> è 4,
+che è fuori intervallo della stringa <code>'pots'</code>.
+Infatti l’indice dell’ultimo carattere è 3, e il valore iniziale di <span class="c003">j</span> va corretto in <span class="c003">len(parola2)-1</span>.</p><p>Se correggo l’errore e rieseguo ancora il programma:</p><pre class="verbatim">&gt;&gt;&gt; al_contrario('pots', 'stop')
+0 3
+1 2
+2 1
+True
+</pre><p>
+Stavolta il risultato è giusto, ma pare che il ciclo sia stato eseguito solo per tre volte, il che è sospetto. Per avere un’idea di cosa stia succedendo, è utile disegnare un diagramma di stato. Durante la prima iterazione, il frame di <code>al_contrario</code> è illustrato in Figura <a href="#fig.state4">8.2</a>.
+<a id="hevea_default574"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian010.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 8.2: Diagramma di Stato.</td></tr>
+</table></div>
+<a id="fig.state4"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Mi sono preso la libertà di disporre le variabili nel frame e di aggiungere delle linee tratteggiate per evidenziare che i valori di <span class="c003">i</span> e
+<span class="c003">j</span> indicano i caratteri in <span class="c003">parola1</span> e <span class="c003">parola2</span>.</p><p>Partendo da questo diagramma, sviluppate il programma su carta cambiando i valori di <span class="c003">i</span> e <span class="c003">j</span> ad ogni iterazione. Trovate e correggete il secondo errore in questa funzione.
+<a id="isreverse"></a></p>
+<h2 class="section" id="sec106">8.12  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">oggetto:</span></dt><dd class="dd-description"> Qualcosa a cui una variabile può fare riferimento. Per ora, potete utilizzare “oggetto” e “valore” indifferentemente.
+<a id="hevea_default575"></a></dd><dt class="dt-description"><span class="c009">sequenza:</span></dt><dd class="dd-description"> Una raccolta ordinata di valori, in cui ciascun valore è identificato da un numero intero.
+<a id="hevea_default576"></a></dd><dt class="dt-description"><span class="c009">elemento:</span></dt><dd class="dd-description"> Uno dei valori di una sequenza.
+<a id="hevea_default577"></a></dd><dt class="dt-description"><span class="c009">indice:</span></dt><dd class="dd-description"> Un valore intero usato per selezionare un elemento di una sequenza, come un carattere in una stringa. In Python gli indici partono da 0.
+<a id="hevea_default578"></a></dd><dt class="dt-description"><span class="c009">slice:</span></dt><dd class="dd-description"> Porzione di una stringa identificata tramite un intervallo di indici.
+<a id="hevea_default579"></a></dd><dt class="dt-description"><span class="c009">stringa vuota:</span></dt><dd class="dd-description"> Una stringa priva di caratteri e di lunghezza 0, rappresentata da due apici o virgolette successivi.
+<a id="hevea_default580"></a></dd><dt class="dt-description"><span class="c009">immutabile:</span></dt><dd class="dd-description"> Detto di una sequenza i cui elementi non possono essere cambiati.
+<a id="hevea_default581"></a></dd><dt class="dt-description"><span class="c009">attraversare:</span></dt><dd class="dd-description"> Iterare attraverso gli elementi di una sequenza, effettuando su ciascuno un’operazione simile.
+<a id="hevea_default582"></a></dd><dt class="dt-description"><span class="c009">ricerca:</span></dt><dd class="dd-description"> Schema di attraversamento che si ferma quando trova ciò che si sta cercando.
+<a id="hevea_default583"></a>
+<a id="hevea_default584"></a></dd><dt class="dt-description"><span class="c009">contatore:</span></dt><dd class="dd-description"> Variabile utilizzata per contare qualcosa, solitamente inizializzata a zero e poi incrementata.
+<a id="hevea_default585"></a></dd><dt class="dt-description"><span class="c009">invocazione:</span></dt><dd class="dd-description"> Istruzione che chiama un metodo.
+<a id="hevea_default586"></a></dd><dt class="dt-description"><span class="c009">argomento opzionale:</span></dt><dd class="dd-description"> Un argomento di una funzione o di un metodo che non è obbligatorio.
+<a id="hevea_default587"></a>
+<a id="hevea_default588"></a></dd></dl>
+<h2 class="section" id="sec107">8.13  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  
+<a id="hevea_default589"></a>
+<a id="hevea_default590"></a><p><em>Leggete la documentazione dei metodi delle stringhe sul sito
+</em><a href="http://docs.python.org/3/library/stdtypes.html#string-methods"><span class="c003"><em>http://docs.python.org/3/library/stdtypes.html#string-methods</em></span></a><em>.
+Fate degli esperimenti con alcuni metodi per assicurarvi di avere capito come funzionano. <span class="c003">strip</span> e <span class="c003">replace</span> sono particolarmente utili.</em></p><p><em>La documentazione utilizza una sintassi che può risultare poco chiara. Per esempio, in <code>find(sub[, start[, end]])</code>, le parentesi quadre indicano dei parametri opzionali (non vanno digitate). Quindi <span class="c003">sub</span> è obbligatorio, ma
+<span class="c003">start</span> è opzionale, e se indicate <span class="c003">start</span>, allora <span class="c003">end</span> è a sua volta opzionale.
+</em><a id="hevea_default591"></a>
+<a id="hevea_default592"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default593"></a>
+<a id="hevea_default594"></a><p><em>Esiste un metodo delle stringhe di nome <span class="c003">count</span> che è simile alla funzione del Paragrafo </em><a href="#counter"><em>8.7</em></a><em>. Leggete la documentazione del metodo e scrivete un’invocazione che conti il numero di <span class="c003">a</span> in <code>'banana'</code>.
+</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="hevea_default595"></a>
+<a id="hevea_default596"></a>
+<a id="hevea_default597"></a><p><em>Nello slicing, si può specificare un terzo indice che stabilisce lo </em>step<em> o “passo”, cioè il numero di elementi da saltare tra un carattere estratto e il successivo. Uno step di 2 significa estrarre un carattere ogni 2 (uno sì, uno no), 3 significa uno ogni 3 (uno sì, due no), ecc.</em></p><pre class="verbatim"><em>&gt;&gt;&gt; frutto = 'banana'
+&gt;&gt;&gt; frutto[0:5:2]
+'bnn'
+</em></pre><p><em>Uno step di -1 fa scorrere all’indietro nella parola, per cui lo slicing <code>[::-1]</code> genera una stringa scritta al contrario.
+</em><a id="hevea_default598"></a></p><p><em>Usate questo costrutto per scrivere una variante di una sola riga della funzione <code>palindromo</code> dell’Esercizio </em><a href="thinkpython_italian007.html#palindrome"><em>3</em></a><em>.
+</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  <p><em>Tutte le funzioni che seguono </em>dovrebbero<em> controllare se una stringa contiene almeno una lettera minuscola, ma qualcuna di esse è sbagliata. Per ogni funzione, descrivete cosa fa in realtà (supponendo che il parametro sia una stringa).</em></p><pre class="verbatim"><em>def una_minuscola1(s):
+    for c in s:
+        if c.islower():
+            return True
+        else:
+            return False
+
+def una_minuscola2(s):
+    for c in s:
+        if 'c'.islower():
+            return 'True'
+        else:
+            return 'False'
+
+def una_minuscola3(s):
+    for c in s:
+        flag = c.islower()
+    return flag
+
+def una_minuscola4(s):
+    flag = False
+    for c in s:
+        flag = flag or c.islower()
+    return flag
+
+def una_minuscola5(s):
+    for c in s:
+        if not c.islower():
+            return False
+    return True
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  
+<a id="hevea_default599"></a><p><a id="exrotate"></a><em>
+Un cifrario di Cesare è un metodo di criptazione debole che consiste nel “ruotare” ogni lettera di una parola di un dato numero di posti seguendo la sequenza alfabetica, ricominciando da capo quando necessario. Ad esempio ’A’ ruotata di 3 posti diventa ’D’, ’Z’ ruotata di 1 posto diventa ’A’.</em></p><p><em>Per ruotare una parola, si ruota ciascuna delle sue lettere dello stesso numero di posti prefissato.
+Per esempio, “cheer” ruotata di 7 dà “jolly” e “melon” ruotata di -10
+dà “cubed”. Nel film </em>2001: Odissea nello Spazio<em>, il computer di bordo si chiama HAL, che non è altro che IBM ruotato di -1.</em></p><p><em>Scrivete una funzione di nome <code>ruota_parola</code> che richieda una stringa e un intero come parametri, e che restituisca una nuova stringa che contiene le lettere della stringa di partenza ruotate della quantità indicata.</em></p><p><em>Potete usare le funzioni predefinite <span class="c003">ord</span>, che converte un carattere in un codice numerico, e <span class="c003">chr</span>, che converte i codici numerici in caratteri.
+Le lettere sono codificate con il loro numero di ordine alfabetico, per esempio:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; ord('c') - ord('a')
+2
+</em></pre><p><em>Dato che <code>'c'</code> è la “2-esima” lettera dell’alfabeto. Ma attenzione: i codici numerici delle lettere maiuscole sono diversi.</em></p><p><em>Su Internet, talvolta, vengono codificate in ROT13 (un cifrario di Cesare con rotazione 13) delle barzellette potenzialmente offensive. Se non siete suscettibili, cercatene qualcuna e decodificatela. Soluzione: </em><a href="http://thinkpython2.com/code/rotate.py"><em><span class="c003">http://thinkpython2.com/code/rotate.py</span></em></a><em>.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian008.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian010.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

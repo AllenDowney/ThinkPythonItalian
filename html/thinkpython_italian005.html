@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Esercitazione: Progettazione dell’interfaccia</title>
+</head>
+<body>
+<a href="thinkpython_italian004.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian006.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec44">Chapter 4  Esercitazione: Progettazione dell’interfaccia</h1>
+<p>
+<a id="turtlechap"></a></p><p>Questo capitolo vi propone un’esercitazione che dimostra una procedura per progettare delle funzioni che collaborano tra loro.</p><p>Viene illustrato il modulo grafico <span class="c003">turtle</span> che vi permette di creare immagini utilizzando <em>turtle graphics</em>. Si tratta di un modulo già compreso nella maggior parte delle installazioni di Python; tuttavia, se usate PythonAnywhere, non sarete in grado di visualizzare gli esempi basati su turtle (almeno non nel momento in cui scrivo).</p><p>Se avete già installato Python sul vostro computer, gli esempi dovrebbero funzionare. Se non lo avete ancora installato, questo è il momento buono per farlo. Potete trovare delle istruzioni all’indirizzo <a href="http://tinyurl.com/thinkpython2e"><span class="c003">http://tinyurl.com/thinkpython2e</span></a>.</p><p>Il codice degli esempi di questo capitolo è scaricabile dal sito
+<a href="http://thinkpython2.com/code/polygon.py"><span class="c003">http://thinkpython2.com/code/polygon.py</span></a></p>
+<h2 class="section" id="sec45">4.1  Il modulo turtle</h2>
+<p>
+<a id="turtle"></a></p><p>Per controllare se il modulo <span class="c003">turtle</span> è installato, aprite l’interprete Python e scrivete:</p><pre class="verbatim">&gt;&gt;&gt; import turtle
+&gt;&gt;&gt; bob = turtle.Turtle()
+</pre><p>Eseguendo questo codice, dovrebbe comparire una nuova finestra con un cursore a forma di freccetta che rappresenta un’ideale tartaruga. Ora chiudete pure la finestra.</p><p>Create un file di nome <span class="c003">miopoligono.py</span> e scriveteci il seguente codice:</p><pre class="verbatim">import turtle
+bob = turtle.Turtle()
+print(bob)
+turtle.mainloop()
+</pre><p>
+Il modulo <span class="c003">turtle</span> (con la ’t’ minuscola) contiene una funzione di nome <span class="c003">Turtle</span> (con la ’T’ maiuscola) che crea un oggetto Turtle (una “tartaruga”); questo oggetto viene assegnato a una variabile di nome <span class="c003">bob</span>.
+Stampando <span class="c003">bob</span> viene visualizzato qualcosa di questo genere:</p><pre class="verbatim">&lt;turtle.Turtle object at 0xb7bfbf4c&gt;
+</pre><p>
+Ciò significa che <span class="c003">bob</span> fa riferimento ad un oggetto <span class="c003">Turtle</span>,
+come definito nel modulo <span class="c003">turtle</span>.</p><p><code>mainloop</code> dice alla finestra di attendere che l’utente faccia qualcosa, sebbene in questo caso non ci sia molto da fare, se non chiudere la finestra.</p><p>Una volta creata una tartaruga, potete chiamare uno dei suoi <span class="c009">metodi</span> per spostarla in giro per la finestra. Un metodo è simile ad una funzione, ma usa una sintassi leggermente diversa. Ad esempio, per spostare la tartaruga in avanti:</p><pre class="verbatim">bob.fd(100)
+</pre><p>
+Il metodo, <span class="c003">fd</span>, è associato all’oggetto Turtle che abbiamo chiamato
+<span class="c003">bob</span>. 
+Chiamare un metodo è come effettuare una richiesta: in questo caso state chiedendo a <span class="c003">bob</span> di muoversi in avanti [fd sta per <em>forward</em>, NdT].
+L’argomento di <span class="c003">fd</span> è una distanza espressa in pixel, per cui l’effettivo spostamento dipenderà dalle caratteristiche del vostro schermo.</p><p>Altri metodi che potete chiamare su una tartaruga sono: <span class="c003">bk</span> per muoversi indietro (<em>backward</em>) e <span class="c003">lt</span> e <span class="c003">rt</span> per girare a sinistra (<em>left</em>) e a destra (<em>right</em>). Per questi ultimi due, l’argomento è un angolo espresso in gradi. </p><p>Inoltre, ogni tartaruga regge una penna, che può essere appoggiata o sollevata; se la penna è appoggiata, la tartaruga lascia un segno dove passa. I metodi <span class="c003">pu</span> e <span class="c003">pd</span> stanno per “penna su (<em>up</em>)” e “penna giù (<em>down</em>)”.</p><p>Per disegnare un angolo retto, aggiungete queste righe al programma (dopo aver creato <span class="c003">bob</span> e prima di chiamare <code>mainloop</code>):</p><pre class="verbatim">bob.fd(100)
+bob.lt(90)
+bob.fd(100)
+</pre><p>
+Avviando il programma, dovreste vedere <span class="c003">bob</span> muoversi verso destra e poi in alto, lasciandosi dietro due segmenti.</p><p>Ora provate a modificare il programma in modo da disegnare un quadrato. Non andate avanti finché non ci riuscite!</p>
+<h2 class="section" id="sec46">4.2  Ripetizione semplice</h2>
+<p>
+<a id="repetition"></a>
+<a id="hevea_default252"></a></p><p>Probabilmente avete scritto qualcosa del genere:</p><pre class="verbatim">bob.fd(100)
+bob.lt(90)
+
+bob.fd(100)
+bob.lt(90)
+
+bob.fd(100)
+bob.lt(90)
+
+bob.fd(100)
+</pre><p>
+Si può ottenere lo stesso risultato in modo più conciso con un’istruzione <span class="c003">for</span>. Aggiungete questo esempio a <span class="c003">miopoligono.py</span> ed eseguitelo di nuovo:
+<a id="hevea_default253"></a>
+<a id="hevea_default254"></a>
+<a id="hevea_default255"></a></p><pre class="verbatim">for i in range(4):
+    print('Ciao!')
+</pre><p>
+Dovreste vedere qualcosa di simile:</p><pre class="verbatim">Ciao!
+Ciao!
+Ciao!
+Ciao!
+</pre><p>
+Questo è l’utilizzo più semplice dell’istruzione <span class="c003">for</span>; ne vedremo altri più avanti. Ma questo dovrebbe bastare per permettervi di riscrivere il vostro programma di disegno di quadrati. Proseguite nella lettura solo dopo averlo fatto.</p><p>Ecco l’istruzione <span class="c003">for</span> che disegna un quadrato:</p><pre class="verbatim">for i in range(4):
+    bob.fd(100)
+    bob.lt(90)
+</pre><p>
+La sintassi di un’istruzione <span class="c003">for</span> è simile a quella di una funzione. Ha un’intestazione che termina con i due punti e un corpo indentato che può contenere un numero qualunque di istruzioni.</p><p>Un’istruzione <span class="c003">for</span> è chiamata anche <span class="c009">ciclo</span>, perché il flusso dell’esecuzione ne attraversa il corpo per poi ritornare indietro e ripeterlo da capo. In questo caso, il corpo viene eseguito per quattro volte.
+<a id="hevea_default256"></a></p><p>Questa versione del disegno di quadrati è in realtà un pochino differente dalla precedente, in quanto provoca un’ultima svolta dopo aver disegnato l’ultimo lato. Ciò comporta del tempo in più, ma il codice viene semplificato, inoltre lascia la tartaruga nella stessa posizione di partenza, rivolta nella direzione iniziale.</p>
+<h2 class="section" id="sec47">4.3  Esercizi</h2>
+<p>Quella che segue è una serie di esercizi che utilizzano <span class="c003">turtle</span>. Sono pensati per essere divertenti, ma hanno anche uno scopo. Mentre ci lavorate su, provate a pensare quale sia.</p><p>I paragrafi successivi contengono le soluzioni degli esercizi, per cui non continuate la lettura finché non avete finito (o almeno provato).</p><ol class="enumerate" type=1><li class="li-enumerate">Scrivete una funzione di nome <span class="c003">quadrato</span> che richieda un parametro di nome <span class="c003">t</span>, che è una tartaruga. La funzione deve usare la tartaruga per disegnare un quadrato.<p>Scrivete una chiamata alla funzione <span class="c003">quadrato</span> che passi <span class="c003">bob</span> come argomento, ed eseguite nuovamente il programma.</p></li><li class="li-enumerate">Aggiungete a <span class="c003">quadrato</span> un nuovo parametro di nome <span class="c003">lunghezza</span>.
+Modificate il corpo in modo che la lunghezza dei lati sia pari a <span class="c003">lunghezza</span>, quindi modificate la chiamata alla funzione in modo da fornire un secondo argomento. Eseguite di nuovo il programma e provatelo con vari valori di <span class="c003">lunghezza</span>.</li><li class="li-enumerate">Fate una copia di <span class="c003">quadrato</span> e cambiate il nome in <span class="c003">poligono</span>. Aggiungete un altro parametro di nome <span class="c003">n</span> e modificate il corpo in modo che sia disegnato un poligono regolare di n lati. Suggerimento: gli angoli esterni di un poligono regolare di n lati misurano 360/<span class="c008">n</span> gradi.
+<a id="hevea_default257"></a>
+<a id="hevea_default258"></a></li><li class="li-enumerate">Scrivete una funzione di nome <span class="c003">cerchio</span> che prenda come parametri una tartaruga, <span class="c003">t</span>, e un raggio, <span class="c003">r</span>, e che disegni un cerchio approssimato chiamando <span class="c003">poligono</span> con una appropriata lunghezza e numero di lati. Provate la funzione con diversi valori di <span class="c003">r</span>.
+<a id="hevea_default259"></a>
+<a id="hevea_default260"></a><p>Suggerimento: pensate alla circonferenza del cerchio e accertatevi che
+<span class="c003">lunghezza * n = circonferenza</span>.</p></li><li class="li-enumerate">Create una versione più generale della funzione <span class="c003">cerchio</span>, di nome <span class="c003">arco</span>, che richieda un parametro aggiuntivo <span class="c003">angolo</span>, il quale determina la porzione di cerchio da disegnare. <span class="c003">angolo</span> è espresso in gradi, quindi se <span class="c003">angolo=360</span>, <span class="c003">arco</span> deve disegnare un cerchio completo.
+<a id="hevea_default261"></a>
+<a id="hevea_default262"></a></li></ol>
+<h2 class="section" id="sec48">4.4  Incapsulamento</h2>
+<p>Il primo esercizio chiede di inserire il codice per disegnare un quadrato in una definizione di funzione, passando la tartaruga come argomento. Ecco una soluzione:</p><pre class="verbatim">def quadrato(t):
+    for i in range(4):
+        t.fd(100)
+        t.lt(90)
+
+quadrato(bob)
+</pre><p>
+Le istruzioni più interne, <span class="c003">fd</span> e <span class="c003">lt</span> sono doppiamente indentate per significare che si trovano all’interno del ciclo <span class="c003">for</span>, che a sua volta è all’interno della funzione. L’ultima riga, <span class="c003">quadrato(bob)</span>, è a livello del margine sinistro, pertanto indica la fine sia del ciclo <span class="c003">for</span> che della definizione di funzione.</p><p>Dentro la funzione, <span class="c003">t</span> si riferisce alla stessa tartaruga a cui si riferisce <span class="c003">bob</span>, per cui <span class="c003">t.lt(90)</span> ha lo stesso effetto di <span class="c003">bob.lt(90)</span>.
+Ma allora perché non chiamare <span class="c003">bob</span> il parametro? Il motivo è che <span class="c003">t</span>
+può essere qualunque tartaruga, non solo <span class="c003">bob</span>, e in questa maniera è possibile anche creare una seconda tartaruga e passarla come parametro a <span class="c003">quadrato</span>:</p><pre class="verbatim">alice = turtle.Turtle()
+quadrato(alice)
+</pre><p>
+L’inglobare un pezzo di codice in una funzione è chiamato <span class="c009">incapsulamento</span>. Uno dei benefici dell’incapsulamento è che appiccica un nome al codice, il che può servire come una sorta di documentazione. Un altro vantaggio è il riuso del codice: è più conciso chiamare una funzione due volte che copiare e incollare il corpo!
+<a id="hevea_default263"></a></p>
+<h2 class="section" id="sec49">4.5  Generalizzazione</h2>
+<p>Il passo successivo è aggiungere a <span class="c003">quadrato</span> un parametro <span class="c003">lunghezza</span>.
+Ecco una soluzione:</p><pre class="verbatim">def quadrato(t, lunghezza):
+    for i in range(4):
+        t.fd(lunghezza)
+        t.lt(90)
+
+quadrato(bob, 100)
+</pre><p>
+L’aggiunta di un parametro a una funzione è chiamata <span class="c009">generalizzazione</span>
+poiché rende la funzione più generale: nella versione precedente, il quadrato aveva sempre la stessa dimensione, ora può essere grande a piacere.
+<a id="hevea_default264"></a></p><p>Anche il passo seguente è una generalizzazione. Invece di disegnare solo quadrati, <span class="c003">poligono</span> disegna poligoni regolari di un qualunque numero di lati. Ecco una soluzione:</p><pre class="verbatim">def poligono(t, n, lunghezza):
+    angolo = 360 / n
+    for i in range(n):
+        t.fd(lunghezza)
+        t.lt(angolo)
+
+poligono(bob, 7, 70)
+</pre><p>
+Questo esempio disegna un ettagono regolare con lati di lunghezza 70. </p><p>Se usate Python 2, il valore di <span class="c003">angolo</span> può risultare impreciso, per il fatto che la divisione di due interi dà come risultato un intero (“divisione intera”, che vedremo meglio nel prossimo Capitolo). Una semplice soluzione è calcolare <span class="c003">angolo = 360.0 / n</span>. Dato che il numeratore ora è un numero floating-point, anche il risultato sarà un floating-point.
+<a id="hevea_default265"></a></p><p>Quando in una chiamata di funzione avete più di qualche argomento numerico, è facile dimenticare a cosa si riferiscono o in quale ordine vanno disposti. In questi casi, è bene includere i nomi dei parametri nell’elenco degli argomenti:</p><pre class="verbatim">poligono(bob, n=7, lunghezza=70)
+</pre><p>
+Questi sono detti <span class="c009">argomenti con nome</span> perché includono il nome del parametro a cui vengono passati, quale “parola chiave” (da non confondere con le parole chiave riservate come <span class="c003">while</span> e <span class="c003">def</span>).
+<a id="hevea_default266"></a></p><p>Questa sintassi rende il programma più leggibile. È anche un appunto di come funzionano argomenti e parametri: quando chiamate una funzione, gli argomenti vengono assegnati a quei dati parametri.</p>
+<h2 class="section" id="sec50">4.6  Progettazione dell’interfaccia</h2>
+<p>Il prossimo passaggio è scrivere <span class="c003">cerchio</span>, che richiede come parametro il raggio, <span class="c003">r</span>. Ecco una semplice soluzione che usa <span class="c003">poligono</span> per disegnare un poligono di 50 lati:</p><pre class="verbatim">import math
+
+def cerchio(t, r):
+    circonferenza = 2 * math.pi * r
+    n = 50
+    lunghezza = circonferenza / n
+    poligono(t, n, lunghezza)
+</pre><p>
+La prima riga calcola la circonferenza di un cerchio di raggio
+<span class="c003">r</span> usando la nota formula 2 π <span class="c008">r</span>. Dato che usiamo <span class="c003">math.pi</span>, vi ricordo che dovete prima importare il modulo <span class="c003">math</span>. Per convenzione, l’istruzione <span class="c003">import</span> si scrive all’inizio dello script.</p><p><span class="c003">n</span> è il numero di segmenti del nostro cerchio approssimato, e <span class="c003">lunghezza</span> è la lunghezza di ciascun segmento. Così facendo, <span class="c003">poligono</span> disegna un poligono di 50 lati che approssima un cerchio di raggio <span class="c003">r</span>.</p><p>Un limite di questa soluzione è che <span class="c003">n</span> è costante, il che comporta che per cerchi molto grandi i segmenti sono troppo lunghi, e per cerchi piccoli perdiamo tempo a disegnare minuscoli segmenti. Una soluzione sarebbe di generalizzare la funzione tramite un parametro <span class="c003">n</span>, dando all’utente (chiunque chiami la funzione <span class="c003">cerchio</span>) più controllo, ma rendendo così l’interfaccia meno chiara.
+<a id="hevea_default267"></a></p><p>L’<span class="c009">interfaccia</span> è un riassunto di come è usata la funzione: quali sono i parametri? Che cosa fa la funzione? Qual è il valore restituito? Un’interfaccia è considerata “pulita” se permette al chiamante di fare ciò che deve, senza avere a che fare con dettagli non necessari.</p><p>In questo esempio, <span class="c003">r</span> appartiene all’interfaccia perché specifica il cerchio da disegnare. <span class="c003">n</span> è meno pertinente perché riguarda i dettagli di <em>come</em> il cerchio viene reso.</p><p>Piuttosto di ingombrare l’interfaccia di parametri, è meglio scegliere un valore appropriato di <span class="c003">n</span> che dipenda da <span class="c003">circonferenza</span>:</p><pre class="verbatim">def cerchio(t, r):
+    circonferenza = 2 * math.pi * r
+    n = int(circonferenza / 3) + 3
+    lunghezza = circonferenza / n
+    poligono(t, n, lunghezza)
+</pre><p>
+Ora il numero di segmenti è un numero intero vicino a <span class="c003">circonferenza/3</span>, e la lunghezza dei segmenti è circa 3, che è abbastanza piccolo da dare un cerchio di bell’aspetto, ma abbastanza grande da essere efficiente e appropriato per qualsiasi dimensione del cerchio.</p><p>Aggiungere 3 a <span class="c003">n</span> garantisce che il poligono abbia come minimo 3 lati.</p>
+<h2 class="section" id="sec51">4.7  Refactoring</h2>
+<p>
+<a id="refactoring"></a>
+<a id="hevea_default268"></a></p><p>Nello scrivere <span class="c003">cerchio</span>, ho potuto riusare <span class="c003">poligono</span>
+perché un poligono con molti lati è una buona approssimazione di un cerchio. Ma la funzione <span class="c003">arco</span> non è così collaborativa: non possiamo usare <span class="c003">poligono</span> o <span class="c003">cerchio</span> per disegnare un arco.</p><p>Un’alternativa è partire da una copia di <span class="c003">poligono</span> e trasformarla in <span class="c003">arco</span>. Il risultato può essere qualcosa del genere:</p><pre class="verbatim">def arco(t, r, angolo):
+    arco_lunghezza = 2 * math.pi * r * angolo / 360
+    n = int(arco_lunghezza / 3) + 1
+    passo_lunghezza = arco_lunghezza / n
+    passo_angolo = angolo / n
+    
+    for i in range(n):
+        t.fd(passo_lunghezza)
+        t.lt(passo_angolo)
+</pre><p>
+La seconda metà di questa funzione somiglia a <span class="c003">poligono</span>, ma non possiamo riusare questa funzione senza cambiarne l’interfaccia. Potremmo generalizzare <span class="c003">poligono</span> in modo che riceva un angolo come terzo argomento, ma allora <span class="c003">poligono</span> non sarebbe più un nome appropriato! Invece, creiamo una funzione più generale chiamata <span class="c003">polilinea</span>:</p><pre class="verbatim">def polilinea(t, n, lunghezza, angolo):
+    for i in range(n):
+        t.fd(lunghezza)
+        t.lt(angolo)
+</pre><p>
+Ora possiamo riscrivere <span class="c003">poligono</span> e <span class="c003">arco</span> in modo che usino <span class="c003">polilinea</span>:</p><pre class="verbatim">def poligono(t, n, lunghezza):
+    angolo = 360.0 / n
+    polilinea(t, n, lunghezza, angolo)
+
+def arco(t, r, angolo):
+    arco_lunghezza = 2 * math.pi * r * angolo / 360
+    n = int(arco_lunghezza / 3) + 1
+    passo_lunghezza = arco_lunghezza / n
+    passo_angolo = float(angolo) / n
+    polilinea(t, n, passo_lunghezza, passo_angolo)
+</pre><p>
+Infine, riscriviamo <span class="c003">cerchio</span> in modo che usi <span class="c003">arco</span>:</p><pre class="verbatim">def cerchio(t, r):
+    arco(t, r, 360)
+</pre><p>
+Questo procedimento di riarrangiare una programma per migliorare le interfacce e facilitare il riuso del codice, è chiamato <span class="c009">refactoring</span>.
+In questo caso, abbiamo notato che in <span class="c003">arco</span> e in <span class="c003">poligono</span> c’era del codice simile, allora abbiamo semplificato il tutto in <span class="c003">polilinea</span>.
+<a id="hevea_default269"></a></p><p>Avendoci pensato prima, avremmo potuto scrivere <span class="c003">polilinea</span> direttamente, evitando il refactoring, ma spesso all’inizio di un lavoro non si hanno le idee abbastanza chiare per progettare al meglio tutte le interfacce. Una volta cominciato a scrivere il codice, si colgono meglio i problemi. A volte, il refactoring è segno che avete imparato qualcosa.</p>
+<h2 class="section" id="sec52">4.8  Tecnica di sviluppo</h2>
+<p>
+<a id="hevea_default270"></a></p><p>Una <span class="c009">tecnica di sviluppo</span> è una procedura di scrittura dei programmi. Quello che abbiamo usato in questa esercitazione si chiama “incapsulamento e generalizzazione”. I passi della procedura sono:</p><ol class="enumerate" type=1><li class="li-enumerate">Iniziare scrivendo un piccolo programma senza definire funzioni.</li><li class="li-enumerate">Una volta ottenuto un programma funzionante, identificare una sua porzione che sia in sé coerente e autonoma, incapsularla in una funzione e dargli un nome.</li><li class="li-enumerate">Generalizzare la funzione aggiungendo i parametri appropriati.</li><li class="li-enumerate">Ripetere i passi da 1 a 3 fino ad avere un insieme di funzioni. Copiate e incollate il codice funzionante per evitare di riscriverlo (e ricorreggerlo).</li><li class="li-enumerate">Cercare le occasioni per migliorare il programma con il refactoring. Ad esempio, se avete del codice simile in più punti, valutate di semplificare rielaborandolo in una funzione più generale.</li></ol><p>Questa procedura ha alcuni inconvenienti—vedremo più avanti alcune alternative—ma può essere di aiuto se in principio non sapete bene come suddividere il vostro programma in funzioni. È un approccio che vi permette di progettare man mano che andate avanti.</p>
+<h2 class="section" id="sec53">4.9  Stringa di documentazione</h2>
+<p>
+<a id="docstring"></a>
+<a id="hevea_default271"></a>
+<a id="hevea_default272"></a></p><p>Una <span class="c009">stringa di documentazione</span>, o <em>docstring</em>, è una stringa posta all’inizio di una funzione che ne illustra l’interfaccia. Ecco un esempio:</p><pre class="verbatim">def polilinea(t, n, lunghezza, angolo):
+    """Disegna n segmenti di data lunghezza e angolo
+       (in gradi) tra di loro. t e' una tartaruga.
+    """    
+    for i in range(n):
+        t.fd(lunghezza)
+        t.lt(angolo)
+</pre><p>
+Per convenzione, la docstring è racchiusa tra triple virgolette, che le consentono di essere divisibile su più righe (stringa a righe multiple).
+<a id="hevea_default273"></a>
+<a id="hevea_default274"></a>
+<a id="hevea_default275"></a></p><p>È breve, ma contiene le informazioni essenziali di cui qualcuno potrebbe aver bisogno per usare la funzione. Spiega in modo conciso cosa fa la funzione (senza entrare nei dettagli di come lo fa). Spiega che effetti ha ciascun parametro sul comportamento della funzione e di che tipo devono essere i parametri stessi (se non è ovvio).</p><p>Scrivere questo tipo di documentazione è una parte importante della progettazione dell’interfaccia. Un’interfaccia ben studiata dovrebbe essere semplice da spiegare; se fate fatica a spiegare una delle vostre funzioni, può darsi che la sua interfaccia sia migliorabile.</p>
+<h2 class="section" id="sec54">4.10  Debug</h2>
+<p>
+<a id="hevea_default276"></a>
+<a id="hevea_default277"></a></p><p>Un’interfaccia è simile ad un contratto tra la funzione e il suo chiamante. Il chiamante si impegna a fornire certi parametri e la funzione si impegna a svolgere un dato lavoro.</p><p>Ad esempio, a <span class="c003">polilinea</span> devono essere passati quattro argomenti: <span class="c003">t</span> deve essere una tartaruga; <span class="c003">n</span> deve essere un numero intero; <span class="c003">lunghezza</span> deve essere un numero positivo; e <span class="c003">angolo</span> un numero che si intende espresso in gradi.</p><p>Questi requisiti sono detti <span class="c009">precondizioni</span> perché si suppone siano verificati prima che la funzione sia eseguita. Per contro, le condizioni che si devono verificare al termine della funzione sono dette <span class="c009">postcondizioni</span>, e comprendono l’effetto che deve avere la funzione (come il disegnare segmenti) e ogni altro effetto minore (come muovere la tartaruga o fare altri cambiamenti).
+<a id="hevea_default278"></a>
+<a id="hevea_default279"></a></p><p>Le precondizioni sono responsabilità del chiamante. Se questi viola una precondizione (documentata in modo appropriato!) e la funzione non fa correttamente ciò che deve, l’errore sta nel chiamante e non nella funzione.</p><p>Se le precondizioni sono soddisfatte e le postcondizioni no, l’errore sta nella funzione. E il fatto che le vostre pre- e postcondizioni siano chiare, è di aiuto nel debug.</p>
+<h2 class="section" id="sec55">4.11  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">metodo:</span></dt><dd class="dd-description"> Una funzione associata ad un oggetto che viene chiamata utlizzando la notazione a punto.
+<a id="hevea_default280"></a></dd><dt class="dt-description"><span class="c009">ciclo:</span></dt><dd class="dd-description"> Una porzione di programma che può essere eseguita ripetutamente.
+<a id="hevea_default281"></a></dd><dt class="dt-description"><span class="c009">incapsulamento:</span></dt><dd class="dd-description"> Il procedimento di trasformare una serie di istruzioni in una funzione.
+<a id="hevea_default282"></a></dd><dt class="dt-description"><span class="c009">generalizzazione:</span></dt><dd class="dd-description"> Il procedimento di sostituire qualcosa di inutilmente specifico (come un numero) con qualcosa di più generale ed appropriato (come una variabile o un parametro).
+<a id="hevea_default283"></a></dd><dt class="dt-description"><span class="c009">argomento con nome:</span></dt><dd class="dd-description"> Un argomento che include il nome del parametro a cui è destinato come “parola chiave”.
+<a id="hevea_default284"></a></dd><dt class="dt-description"><span class="c009">interfaccia:</span></dt><dd class="dd-description"> Una descrizione di come si usa una funzione, incluso il nome, la descrizione degli argomenti e il valore di ritorno.
+<a id="hevea_default285"></a></dd><dt class="dt-description"><span class="c009">refactoring:</span></dt><dd class="dd-description"> Il procedimento di modifica di un programma funzionante per migliorare le interfacce delle funzioni e altre qualità del codice.
+<a id="hevea_default286"></a></dd><dt class="dt-description"><span class="c009">tecnica di sviluppo:</span></dt><dd class="dd-description"> Procedura di scrittura dei programmi.
+<a id="hevea_default287"></a></dd><dt class="dt-description"><span class="c009">stringa di documentazione o docstring:</span></dt><dd class="dd-description"> Una stringa che compare all’inizio di una definizione di una funzione per documentarne l’interfaccia.
+<a id="hevea_default288"></a>
+<a id="hevea_default289"></a></dd><dt class="dt-description"><span class="c009">precondizione:</span></dt><dd class="dd-description"> Un requisito che deve essere soddisfatto dal chiamante prima di eseguire una funzione.
+<a id="hevea_default290"></a></dd><dt class="dt-description"><span class="c009">postcondizione:</span></dt><dd class="dd-description"> Un requisito che deve essere soddisfatto dalla funzione prima di terminare.
+<a id="hevea_default291"></a></dd></dl>
+<h2 class="section" id="sec56">4.12  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scaricate il codice in questo capitolo dal sito
+</em><a href="http://thinkpython2.com/code/polygon.py"><em><span class="c003">http://thinkpython2.com/code/polygon.py</span></em></a><em>.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Disegnate un diagramma di stack che illustri lo stato del programma mentre esegue <span class="c003">cerchio(bob, raggio)</span>. Potete fare i conti a mano o aggiungere istruzioni di stampa al codice.
+</em><a id="hevea_default292"></a></li><li class="li-enumerate"><em>La versione di <span class="c003">arco</span> nel Paragrafo </em><a href="#refactoring"><em>4.7</em></a><em> non è molto accurata, perché l’approssimazione lineare del cerchio è sempre esterna al cerchio vero. Ne deriva che la Tartaruga finisce ad alcuni pixel di distanza dal traguardo corretto. La mia soluzione mostra un modo per ridurre questo errore. Leggete il codice e cercate di capirlo. Disegnare un diagramma può aiutarvi a comprendere il funzionamento.</em></li></ol></div><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian003.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 4.1: Fiori disegnati con turtle.</td></tr>
+</table></div>
+<a id="fig.flowers"></a>
+<div class="center"><hr class="c019"></div></blockquote><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default293"></a><p><em>Scrivete un insieme di funzioni, generali in modo appropriato, che disegni dei fiori stilizzati come in Figura </em><a href="#fig.flowers"><em>4.1</em></a><em>.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/flower.py"><em><span class="c003">http://thinkpython2.com/code/flower.py</span></em></a><em>,
+richiede anche </em><a href="http://thinkpython2.com/code/polygon.py"><em><span class="c003">http://thinkpython2.com/code/polygon.py</span></em></a><em>.</em></p></div><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian004.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 4.2: Torte disegnate con turtle.</td></tr>
+</table></div>
+<a id="fig.pies"></a>
+<div class="center"><hr class="c019"></div></blockquote><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="hevea_default294"></a><p><em>Scrivete un insieme di funzioni, generali in modo appropriato, che disegni delle forme a torta come in Figura </em><a href="#fig.pies"><em>4.2</em></a><em>.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/pie.py"><em><span class="c003">http://thinkpython2.com/code/pie.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  
+<a id="hevea_default295"></a>
+<a id="hevea_default296"></a><p><em>Le lettere dell’alfabeto possono essere costruite con un moderato numero di elementi di base, come linee orizzontali e verticali e alcune curve. Progettate un alfabeto che possa essere disegnato con un numero minimo di elementi di base e poi scrivete delle funzioni che disegnino le lettere.</em></p><p><em>Dovreste scrivere una funzione per ogni lettera, con nomi tipo
+<code>disegna_a</code>, <code>disegna_b</code>, ecc., e inserirle in un file di nome <span class="c003">lettere.py</span>. Potete scaricare una “macchina da scrivere a tartaruga” da </em><a href="http://thinkpython2.com/code/typewriter.py"><span class="c003"><em>http://thinkpython2.com/code/typewriter.py</em></span></a><em>
+per aiutarvi a provare il vostro codice.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/letters.py"><em><span class="c003">http://thinkpython2.com/code/letters.py</span></em></a><em>, richiede anche
+</em><a href="http://thinkpython2.com/code/polygon.py"><em><span class="c003">http://thinkpython2.com/code/polygon.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  <p><em>Documentatevi sulle spirali sul sito </em><a href="http://it.wikipedia.org/wiki/Spirale"><span class="c003"><em>http://it.wikipedia.org/wiki/Spirale</em></span></a><em>; quindi scrivete un programma che disegni una spirale di Archimede (o di qualche altro tipo). Soluzione: </em><a href="http://thinkpython2.com/code/spiral.py"><span class="c003"><em>http://thinkpython2.com/code/spiral.py</em></span></a><em>.
+</em><a id="hevea_default297"></a>
+<a id="hevea_default298"></a> </p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian004.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian006.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

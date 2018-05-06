@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Esercitazione: Giochi con le parole</title>
+</head>
+<body>
+<a href="thinkpython_italian009.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian011.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec108">Chapter 9  Esercitazione: Giochi con le parole</h1>
+<p>
+<a id="wordplay"></a></p><p>Questo capitolo contiene la seconda esercitazione, in cui dovrete risolvere dei quesiti che consistono nel ricercare parole che hanno delle particolari proprietà. Ad esempio, cercherete i più lunghi palindromi della lingua inglese e le parole le cui lettere sono disposte in ordine alfabetico. Illustrerò anche un’altra tecnica di sviluppo: la riduzione ad un problema già risolto.</p>
+<h2 class="section" id="sec109">9.1  Leggere elenchi di parole</h2>
+<p>
+<a id="wordlist"></a></p><p>Per gli esercizi di questo capitolo ci serve un elenco di parole in inglese. Ci sono parecchi elenchi di parole disponibili sul Web, ma uno dei più adatti ai nostri scopi è quello raccolto da Grady Ward, di pubblico dominio, parte del progetto lessicale Moby (vedere <a href="http://wikipedia.org/wiki/Moby_Project"><span class="c003">http://wikipedia.org/wiki/Moby_Project</span></a>). È un elenco di 113.809 parole ufficiali per cruciverba, cioè parole che sono considerate valide in un gioco di parole crociate o altri giochi con le parole. Nella raccolta Moby il nome del file è <span class="c003">113809of.fic</span>; potete anche scaricare una copia chiamata più semplicemente <span class="c003">words.txt</span>, dal sito
+<a href="http://thinkpython2.com/code/words.txt"><span class="c003">http://thinkpython2.com/code/words.txt</span></a>.
+<a id="hevea_default600"></a>
+<a id="hevea_default601"></a></p><p>Il file è in testo semplice, e potete aprirlo con qualsiasi editor di testo, ma anche leggerlo con Python: la funzione predefinita <span class="c003">open</span> richiede come parametro il nome di un file e restituisce un <span class="c009">oggetto file</span> che potete utilizzare per questo scopo.
+<a id="hevea_default602"></a>
+<a id="hevea_default603"></a>
+<a id="hevea_default604"></a>
+<a id="hevea_default605"></a></p><pre class="verbatim">&gt;&gt;&gt; fin = open('words.txt')
+</pre><p>
+<span class="c003">fin</span> è un nome comunemente usato per un oggetto file usato per operazioni di input.</p><p>L’oggetto file comprende alcuni metodi di lettura, come <span class="c003">readline</span>, che legge i caratteri da un file finché non giunge ad un ritorno a capo, e restituisce il risultato sotto forma di stringa:
+<a id="hevea_default606"></a>
+<a id="hevea_default607"></a></p><pre class="verbatim">&gt;&gt;&gt; fin.readline()
+'aa\n'
+</pre><p>
+La prima parola di questa speciale lista è “aa”, che è un tipo di lava vulcanica. La sequenza <code>\n</code> rappresenta il carattere di ritorno a capo che separa questa parola dalla successiva.</p><p>L’oggetto file tiene traccia del punto in cui si trova all’interno del file, così quando chiamate nuovamente <span class="c003">readline</span>, ottenete la parola successiva:</p><pre class="verbatim">&gt;&gt;&gt; fin.readline()
+'aah\n'
+</pre><p>
+La parola successiva è “aah”, che è perfettamente valida per cui non fate quella faccia! Oppure, se il carattere di ritorno a capo vi dà fastidio, potete sbarazzarvene con il metodo delle stringhe <span class="c003">strip</span>:
+<a id="hevea_default608"></a>
+<a id="hevea_default609"></a></p><pre class="verbatim">&gt;&gt;&gt; riga = fin.readline()
+&gt;&gt;&gt; parola = riga.strip()
+&gt;&gt;&gt; parola
+'aahed'
+</pre><p>
+Potete anche usare un oggetto file all’interno di un ciclo <span class="c003">for</span>.
+Questo programma legge <span class="c003">words.txt</span> e stampa ogni parola, una per riga:
+<a id="hevea_default610"></a>
+<a id="hevea_default611"></a></p><pre class="verbatim">fin = open('words.txt')
+for riga in fin:
+    parola = riga.strip()
+    print(parola)
+</pre>
+<h2 class="section" id="sec110">9.2  Esercizi</h2>
+<p>Le soluzioni a questi esercizi sono discusse nel prossimo paragrafo. Tentate almeno di risolverli prima di continuare la lettura.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete un programma che legga il file <span class="c003">words.txt</span> e stampi solo le parole composte da più di 20 caratteri (caratteri spaziatori esclusi).
+</em><a id="hevea_default612"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  <p><em>Nel 1939, Ernest Vincent Wright pubblicò una novella di 50.000 parole dal titolo
+</em>Gadsby<em> che non conteneva alcuna lettera “e”. Dato che la “e” è la lettera più comune nella lingua inglese, non è una cosa facile.</em></p><p><em>Infatti, in italiano non ho mai composto un piccolo brano siffatto: sono pochi i vocaboli privi tali da riuscirci; finora non ho trovato alcun modo, ma conto di arrivarci in alcuni giorni, pur con un po’ di difficoltà! Ma ora, basta così.</em></p><p><em>Scrivete una funzione di nome <code>niente_e</code> che restituisca <span class="c003">True</span> se una data parola non contiene la lettera “e”.</em></p><p><em>Modificate il programma del paragrafo precedente in modo che stampi solo le parole dell’elenco prive della lettera “e”, e ne calcoli la percentuale sul totale delle parole.
+</em><a id="hevea_default613"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>   <p><em>Scrivete una funzione di nome <span class="c003">evita</span> che richieda una parola e una stringa di lettere vietate, e restituisca <span class="c003">True</span> se la parola non contiene alcuna lettera vietata.</em></p><p><em>Modificate poi il programma in modo che chieda all’utente di inserire una stringa di lettere vietate, e poi stampi il numero di parole che non ne contengono alcuna. Riuscite a trovare una combinazione di 5 lettere vietate che escluda il più piccolo numero di parole?</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  <p><em>Scrivete una funzione di nome <code>usa_solo</code> che richieda una parola e una stringa di lettere, e che restituisca <span class="c003">True</span> se la parola contiene solo le lettere indicate. Riuscite a comporre una frase in inglese usando solo le lettere
+<span class="c003">acefhlo</span>? Diversa da “Hoe alfalfa”?</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>   <p><em>Scrivete una funzione di nome <code>usa_tutte</code> che richieda una parola e una stringa di lettere richieste e che restituisca <span class="c003">True</span> se la parola utilizza tutte le lettere richieste almeno una volta. Quante parole ci sono che usano tutte le vocali <span class="c003">aeiou</span>? E <span class="c003">aeiouy</span>?</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 6</span>  <p><em>Scrivete una funzione di nome <code>alfabetica</code> che restituisca 
+<span class="c003">True</span> se le lettere di una parola compaiono in ordine alfabetico (le doppie valgono). Quante parole “alfabetiche” ci sono?
+</em><a id="hevea_default614"></a></p></div>
+<h2 class="section" id="sec111">9.3  Ricerca</h2>
+<p>
+<a id="search"></a>
+<a id="hevea_default615"></a>
+<a id="hevea_default616"></a></p><p>Tutti gli esercizi del paragrafo precedente hanno qualcosa in comune: possono essere risolti con lo schema di ricerca che abbiamo visto nel Paragrafo <a href="thinkpython_italian009.html#find">8.6</a>. L’esempio più semplice è:</p><pre class="verbatim">def niente_e(parola):
+    for lettera in parola:
+        if lettera == 'e':
+            return False
+    return True
+</pre><p>
+Il ciclo <span class="c003">for</span> attraversa i caratteri in <span class="c003">parola</span>. Se trova la lettera “e”, può immediatamente restituire <span class="c003">False</span>; altrimenti deve esaminare la lettera seguente. Se il ciclo termina normalmente, vuol dire che non è stata trovata alcuna “e”, per cui il risultato è <span class="c003">True</span>.
+<a id="hevea_default617"></a>
+<a id="hevea_default618"></a>
+<a id="hevea_default619"></a></p><p>Si potrebbe scrivere questa funzione in modo più conciso usando l’operatore <span class="c003">in</span>, ma ho preferito iniziare con questa versione perché dimostra la logica dello schema di ricerca.
+<a id="hevea_default620"></a></p><p><span class="c003">evita</span> è una versione più generale di <code>niente_e</code>, ma la struttura è la stessa:</p><pre class="verbatim">def evita(parola, vietate):
+    for lettera in parola:
+        if lettera in vietate:
+            return False
+    return True
+</pre><p>
+Possiamo restituire <span class="c003">False</span> appena troviamo una delle lettere vietate; se arriviamo alla fine del ciclo, viene restituito <span class="c003">True</span>.</p><p><code>usa_solo</code> è simile, solo che il senso della condizione è invertito:</p><pre class="verbatim">def usa_solo(parola, valide):
+    for lettera in parola: 
+        if lettera not in valide:
+            return False
+    return True
+</pre><p>
+Invece di un elenco di lettere vietate, ne abbiamo uno di lettere disponibili. Se in <span class="c003">parola</span> troviamo una lettera che non è una di quelle <span class="c003">valide</span>, possiamo restituire <span class="c003">False</span>.</p><p><code>usa_tutte</code> è ancora simile, solo che rovesciamo il ruolo della parola e della stringa di lettere:</p><pre class="verbatim">def usa_tutte(parola, richieste):
+    for lettera in richieste: 
+        if lettera not in parola:
+            return False
+    return True
+</pre><p>
+Invece di attraversare le lettere in <span class="c003">parola</span>, il ciclo attraversa le lettere richieste. Se una qualsiasi delle lettere richieste non compare nella parola, restituiamo <span class="c003">False</span>.
+<a id="hevea_default621"></a></p><p>Ma se avete pensato davvero da informatici, avrete riconosciuto che <code>usa_tutte</code> era un’istanza di un problema già risolto in precedenza, e avrete scritto:</p><pre class="verbatim">def usa_tutte(parola, richieste):
+    return usa_solo(richieste, parola)
+</pre><p>
+Ecco un esempio di metodo di sviluppo di un programma chiamato <span class="c009">riduzione ad un problema già risolto</span>, che significa che avete riconosciuto che il problema su cui state lavorando è un’istanza di un problema già risolto in precedenza, al quale potete applicare una soluzione che avevate già sviluppato.
+<a id="hevea_default622"></a>
+<a id="hevea_default623"></a></p>
+<h2 class="section" id="sec112">9.4  Cicli con gli indici</h2>
+<p>
+<a id="hevea_default624"></a>
+<a id="hevea_default625"></a></p><p>Ho scritto le funzioni del paragrafo precedente utilizzando dei cicli <span class="c003">for</span>
+perché avevo bisogno solo dei caratteri nelle stringhe e non dovevo fare nulla con gli indici.</p><p>Per <code>alfabetica</code> dobbiamo comparare delle lettere adiacenti, che è un po’ laborioso con un ciclo <span class="c003">for</span>:</p><pre class="verbatim">def alfabetica(parola):
+    precedente = parola[0]
+    for c in parola:
+        if c &lt; precedente:
+            return False
+        precedente = c
+    return True
+</pre><p>Un’alternativa è usare la ricorsione:</p><pre class="verbatim">def alfabetica(parola):
+    if len(parola) &lt;= 1:
+        return True
+    if parola[0] &gt; parola[1]:
+        return False
+    return alfabetica(parola[1:])
+</pre><p>E un’altra opzione è usare un ciclo <span class="c003">while</span>:</p><pre class="verbatim">def alfabetica(parola):
+    i = 0
+    while i &lt; len(parola)-1:
+        if parola[i+1] &lt; parola[i]:
+            return False
+        i = i+1
+    return True
+</pre><p>
+Il ciclo comincia da <span class="c003">i=0</span> e finisce a <span class="c003">i=len(parola)-1</span>. Ogni volta che viene eseguito, il ciclo confronta l’ <span class="c008">i</span>-esimo carattere (consideratelo come il carattere attuale) con l’ <span class="c008">i</span>+1-esimo carattere (consideratelo come quello successivo).</p><p>Se il carattere successivo è minore di quello attuale (cioè viene alfabeticamente prima), allora abbiamo scoperto un’interruzione nella serie alfabetica e la funzione restituisce <span class="c003">False</span>.</p><p>Se arriviamo a fine ciclo senza trovare difetti, la parola ha superato il test. Per convincervi che il ciclo è terminato correttamente, prendete un esempio come <code>'flossy'</code>. La lunghezza della parola è 6, quindi l’ultima ripetizione del ciclo si ha quando <span class="c003">i</span> è 4, che è l’indice del penultimo carattere. Nell’ultima iterazione, il penultimo carattere è comparato all’ultimo, che è quello che vogliamo.
+<a id="hevea_default626"></a></p><p>Ecco una variante di <code>palindromo</code> (vedere l’Esercizio <a href="thinkpython_italian007.html#palindrome">3</a>) che usa due indici; uno parte dall’inizio e aumenta, uno parte dalla fine e diminuisce.</p><pre class="verbatim">def palindromo(parola):
+    i = 0
+    j = len(parola)-1
+
+    while i&lt;j:
+        if parola[i] != parola[j]:
+            return False
+        i = i+1
+        j = j-1
+
+    return True
+</pre><p>Oppure, possiamo ridurre ad un problema già risolto e scrivere:</p><pre class="verbatim">def palindromo(parola):
+    return al_contrario(parola, parola)
+</pre><p>
+<a id="hevea_default627"></a>
+<a id="hevea_default628"></a></p><p>Usando <code>al_contrario</code> del Paragrafo <a href="thinkpython_italian009.html#isreverse">8.11</a>.</p>
+<h2 class="section" id="sec113">9.5  Debug</h2>
+<p>
+<a id="hevea_default629"></a>
+<a id="hevea_default630"></a>
+<a id="hevea_default631"></a></p><p>Collaudare i programmi non è facile. Le funzioni di questo capitolo sono relativamente agevoli da provare, perché potete facilmente controllare il risultato da voi. Nonostante ciò, scegliere un insieme di parole che riescano a escludere ogni possibile errore è un qualcosa tra il difficile e l’impossibile.</p><p>Prendiamo ad esempio <code>niente_e</code>. Ci sono due evidenti casi da controllare: le parole che hanno una o più ’e’ devono dare come risultato <span class="c003">False</span>;
+quelle che invece non hanno ‘e’, <span class="c003">True</span>. E fin qui, in un caso o nell’altro, non c’è niente di particolarmente difficile.</p><p>Per ciascun caso ci sono alcuni sottocasi meno ovvi. Tra le parole che contengono “e”, dovreste provare parole che iniziano con “e”, finiscono con “e”, hanno “e” da qualche parte nel mezzo della parola. Dovreste poi provare parole lunghe, parole corte e parole cortissime. Nello specifico, la stringa vuota è un esempio di <span class="c009">caso particolare</span>, che è uno dei casi meno ovvi dove si nascondono spesso gli errori.
+<a id="hevea_default632"></a></p><p>Oltre che con i casi da voi ideati, sarebbe anche bene fare un test del vostro programma con un elenco di parole come <span class="c003">words.txt</span>. Scansionando l’output potreste intercettare qualche errore, ma attenzione: può trattarsi di un certo tipo di errore (parole che non dovrebbero essere incluse ma invece ci sono) e non di un altro (parole che dovrebbero essere incluse ma non ci sono).</p><p>In linea generale, fare dei test può aiutarvi a trovare i bug, ma non è facile generare un buon insieme di casi di prova, e anche se ci riuscite non potete essere certi che il vostro programma sia corretto al 100 per cento.</p><p>Secondo un leggendario informatico:
+<a id="hevea_default633"></a></p><blockquote class="quote">
+Il test di un programma può essere usato per dimostrare la presenza di bug, ma mai per dimostrarne l’assenza!<p>— Edsger W. Dijkstra
+</p></blockquote><p>
+<a id="hevea_default634"></a></p>
+<h2 class="section" id="sec114">9.6  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">oggetto file:</span></dt><dd class="dd-description"> Un valore che rappresenta un file aperto.
+<a id="hevea_default635"></a></dd><dt class="dt-description"><span class="c009">riduzione ad un problema già risolto:</span></dt><dd class="dd-description"> Modo di risolvere un problema esprimendolo come un’istanza di un problema precedentemente risolto.
+<a id="hevea_default636"></a>
+<a id="hevea_default637"></a></dd><dt class="dt-description"><span class="c009">caso particolare:</span></dt><dd class="dd-description"> un caso atipico o non ovvio (e con meno probabilità di essere gestito correttamente) che viene testato.
+<a id="hevea_default638"></a></dd></dl>
+<h2 class="section" id="sec115">9.7  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 7</span>  
+<a id="hevea_default639"></a>
+<a id="hevea_default640"></a>
+<a id="hevea_default641"></a><p><em>Questa domanda deriva da un quesito trasmesso nel programma radiofonico </em>Car Talk<em> 
+(</em><a href="http://www.cartalk.com/content/puzzlers"><em><span class="c003">http://www.cartalk.com/content/puzzlers</span></em></a><em>):</em></p><blockquote class="quote"><em>
+“Ditemi una parola inglese con tre lettere doppie consecutive. Vi dò un paio di parole che andrebbero quasi bene, ma non del tutto. Per esempio la parola “committee”, c-o-m-m-i-t-t-e-e. Sarebbe buona se non fosse per la “i” che si insinua in mezzo. O “Mississippi”: M-i-s-s-i-s-s-i-p-p-i. Togliendo le “i” andrebbe bene. Ma esiste una parola che ha tre coppie di lettere uguali consecutive, e per quanto ne so dovrebbe essere l’unica. Magari ce ne sono altre 500, ma me ne viene in mente solo una. Qual è?”
+</em></blockquote><p><em>Scrivete un programma per trovare la parola. Soluzione: </em><a href="http://thinkpython2.com/code/cartalk1.py"><em><span class="c003">http://thinkpython2.com/code/cartalk1.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 8</span>  <em>
+Ecco un altro quesito di </em>Car Talk<em>
+(</em><a href="http://www.cartalk.com/content/puzzlers"><span class="c003"><em>http://www.cartalk.com/content/puzzlers</em></span></a><em>):
+</em><a id="hevea_default642"></a>
+<a id="hevea_default643"></a>
+<a id="hevea_default644"></a>
+<a id="hevea_default645"></a><blockquote class="quote"><em>
+“L’altro giorno stavo guidando in autostrada e guardai il mio contachilometri. È a sei cifre, come la maggior parte dei contachilometri, e mostra solo chilometri interi. Se la mia macchina, per esempio, avesse 300.000 km, vedrei 3-0-0-0-0-0.”</em><p><em>“Quello che vidi quel giorno era interessante. Notai che le ultime 4 cifre erano palindrome, cioè si potevano leggere in modo identico sia da sinistra a destra che viceversa. Per esempio 5-4-4-5 è palindromo, per cui il contachilometri avrebbe potuto essere 3-1-5-4-4-5”</em></p><p><em>“Un chilometro dopo, gli ultimi 5 numeri erano palindromi. Per esempio potrei aver letto 3-6-5-4-5-6. Un altro chilometro dopo, le 4 cifre di mezzo erano palindrome. E tenetevi forte: un altro chilometro dopo tutte e 6 erano palindrome!”</em></p><p><em>“La domanda è: quanto segnava il contachilometri la prima volta che guardai?”
+</em></p></blockquote><p><em>Scrivete un programma in Python che controlli tutti i numeri a sei cifre e visualizzi i numeri che soddisfano le condizioni sopra indicate. Soluzione: </em><a href="http://thinkpython2.com/code/cartalk2.py"><em><span class="c003">http://thinkpython2.com/code/cartalk2.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 9</span>  <em>
+Ecco un altro quesito di </em>Car Talk<em> (</em><a href="http://www.cartalk.com/content/puzzlers"><span class="c003"><em>http://www.cartalk.com/content/puzzlers</em></span></a><em>) che potete risolvere con una ricerca :
+</em><a id="hevea_default646"></a>
+<a id="hevea_default647"></a>
+<a id="hevea_default648"></a><blockquote class="quote"><em>
+“Di recente ho fatto visita a mia madre, e ci siamo accorti che le due cifre che compongono la mia età, invertite, formano la sua. Per esempio, se lei avesse 73 anni, io ne avrei 37. Ci siamo domandati quanto spesso succedesse questo negli anni, ma poi abbiamo divagato su altri discorsi senza darci una risposta.”</em><p><em>“Tornato a casa, ho calcolato che le cifre delle nostre età sono state sinora invertibili per sei volte. Ho calcolato anche che se fossimo fortunati succederebbe ancora tra pochi anni, e se fossimo veramente fortunati succederebbe un’altra volta ancora. In altre parole, potrebbe succedere per 8 volte in tutto. La domanda è: quanti anni ho io in questo momento?”</em></p></blockquote><p><em>Scrivete un programma in Python che ricerchi la soluzione a questo quesito. Suggerimento: potrebbe esservi utile il metodo delle stringhe <span class="c003">zfill</span>.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/cartalk3.py"><em><span class="c003">http://thinkpython2.com/code/cartalk3.py</span></em></a><em>.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian009.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian011.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

@@ -1,0 +1,305 @@
+\begin{tocenv}
+\tocitem \@locref{sec1}{\begin{@norefs}\@print{Chapter 0}\quad{}Prefazione{}\end{@norefs}}
+\tocitem \@locref{sec5}{\begin{@norefs}\@print{Chapter 1}\quad{}Lo scopo del programma{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec6}{\begin{@norefs}\@print{1.1}\quad{}Che cos'è un programma?{}\end{@norefs}}
+\tocitem \@locref{sec7}{\begin{@norefs}\@print{1.2}\quad{}Avviare Python{}\end{@norefs}}
+\tocitem \@locref{sec8}{\begin{@norefs}\@print{1.3}\quad{}Il primo programma{}\end{@norefs}}
+\tocitem \@locref{sec9}{\begin{@norefs}\@print{1.4}\quad{}Operatori aritmetici{}\end{@norefs}}
+\tocitem \@locref{sec10}{\begin{@norefs}\@print{1.5}\quad{}Valori e tipi{}\end{@norefs}}
+\tocitem \@locref{sec11}{\begin{@norefs}\@print{1.6}\quad{}Linguaggi formali e linguaggi naturali{}\end{@norefs}}
+\tocitem \@locref{sec12}{\begin{@norefs}\@print{1.7}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec13}{\begin{@norefs}\@print{1.8}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec14}{\begin{@norefs}\@print{1.9}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec15}{\begin{@norefs}\@print{Chapter 2}\quad{}Variabili, espressioni ed istruzioni{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec16}{\begin{@norefs}\@print{2.1}\quad{}Istruzioni di assegnazione{}\end{@norefs}}
+\tocitem \@locref{sec17}{\begin{@norefs}\@print{2.2}\quad{}Nomi delle variabili{}\end{@norefs}}
+\tocitem \@locref{sec18}{\begin{@norefs}\@print{2.3}\quad{}Espressioni e istruzioni{}\end{@norefs}}
+\tocitem \@locref{sec19}{\begin{@norefs}\@print{2.4}\quad{}Modalità script{}\end{@norefs}}
+\tocitem \@locref{sec20}{\begin{@norefs}\@print{2.5}\quad{}Ordine delle operazioni{}\end{@norefs}}
+\tocitem \@locref{sec21}{\begin{@norefs}\@print{2.6}\quad{}Operazioni sulle stringhe{}\end{@norefs}}
+\tocitem \@locref{sec22}{\begin{@norefs}\@print{2.7}\quad{}Commenti{}\end{@norefs}}
+\tocitem \@locref{sec23}{\begin{@norefs}\@print{2.8}\quad{}Debug{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec24}{\begin{@norefs}\@print{2.8.1}\quad{}Errori di sintassi{}\end{@norefs}}
+\tocitem \@locref{sec25}{\begin{@norefs}\@print{2.8.2}\quad{}Errori in esecuzione{}\end{@norefs}}
+\tocitem \@locref{sec26}{\begin{@norefs}\@print{2.8.3}\quad{}Errori di semantica{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec27}{\begin{@norefs}\@print{2.9}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec28}{\begin{@norefs}\@print{2.10}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec29}{\begin{@norefs}\@print{Chapter 3}\quad{}Funzioni{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec30}{\begin{@norefs}\@print{3.1}\quad{}Chiamate di funzione{}\end{@norefs}}
+\tocitem \@locref{sec31}{\begin{@norefs}\@print{3.2}\quad{}Funzioni matematiche{}\end{@norefs}}
+\tocitem \@locref{sec32}{\begin{@norefs}\@print{3.3}\quad{}Composizione{}\end{@norefs}}
+\tocitem \@locref{sec33}{\begin{@norefs}\@print{3.4}\quad{}Aggiungere nuove funzioni{}\end{@norefs}}
+\tocitem \@locref{sec34}{\begin{@norefs}\@print{3.5}\quad{}Definizioni e loro utilizzo{}\end{@norefs}}
+\tocitem \@locref{sec35}{\begin{@norefs}\@print{3.6}\quad{}Flusso di esecuzione{}\end{@norefs}}
+\tocitem \@locref{sec36}{\begin{@norefs}\@print{3.7}\quad{}Parametri e argomenti{}\end{@norefs}}
+\tocitem \@locref{sec37}{\begin{@norefs}\@print{3.8}\quad{}Variabili e parametri sono locali{}\end{@norefs}}
+\tocitem \@locref{sec38}{\begin{@norefs}\@print{3.9}\quad{}Diagrammi di stack{}\end{@norefs}}
+\tocitem \@locref{sec39}{\begin{@norefs}\@print{3.10}\quad{}Funzioni ``produttive'' e funzioni ``vuote''{}\end{@norefs}}
+\tocitem \@locref{sec40}{\begin{@norefs}\@print{3.11}\quad{}Perché usare le funzioni?{}\end{@norefs}}
+\tocitem \@locref{sec41}{\begin{@norefs}\@print{3.12}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec42}{\begin{@norefs}\@print{3.13}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec43}{\begin{@norefs}\@print{3.14}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec44}{\begin{@norefs}\@print{Chapter 4}\quad{}Esercitazione: Progettazione dell'interfaccia{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec45}{\begin{@norefs}\@print{4.1}\quad{}Il modulo turtle{}\end{@norefs}}
+\tocitem \@locref{sec46}{\begin{@norefs}\@print{4.2}\quad{}Ripetizione semplice{}\end{@norefs}}
+\tocitem \@locref{sec47}{\begin{@norefs}\@print{4.3}\quad{}Esercizi{}\end{@norefs}}
+\tocitem \@locref{sec48}{\begin{@norefs}\@print{4.4}\quad{}Incapsulamento{}\end{@norefs}}
+\tocitem \@locref{sec49}{\begin{@norefs}\@print{4.5}\quad{}Generalizzazione{}\end{@norefs}}
+\tocitem \@locref{sec50}{\begin{@norefs}\@print{4.6}\quad{}Progettazione dell'interfaccia{}\end{@norefs}}
+\tocitem \@locref{sec51}{\begin{@norefs}\@print{4.7}\quad{}Refactoring{}\end{@norefs}}
+\tocitem \@locref{sec52}{\begin{@norefs}\@print{4.8}\quad{}Tecnica di sviluppo{}\end{@norefs}}
+\tocitem \@locref{sec53}{\begin{@norefs}\@print{4.9}\quad{}Stringa di documentazione{}\end{@norefs}}
+\tocitem \@locref{sec54}{\begin{@norefs}\@print{4.10}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec55}{\begin{@norefs}\@print{4.11}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec56}{\begin{@norefs}\@print{4.12}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec57}{\begin{@norefs}\@print{Chapter 5}\quad{}Istruzioni condizionali e ricorsione{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec58}{\begin{@norefs}\@print{5.1}\quad{}Divisione intera e modulo{}\end{@norefs}}
+\tocitem \@locref{sec59}{\begin{@norefs}\@print{5.2}\quad{}Espressioni booleane{}\end{@norefs}}
+\tocitem \@locref{sec60}{\begin{@norefs}\@print{5.3}\quad{}Operatori logici{}\end{@norefs}}
+\tocitem \@locref{sec61}{\begin{@norefs}\@print{5.4}\quad{}Esecuzione condizionale{}\end{@norefs}}
+\tocitem \@locref{sec62}{\begin{@norefs}\@print{5.5}\quad{}Esecuzione alternativa{}\end{@norefs}}
+\tocitem \@locref{sec63}{\begin{@norefs}\@print{5.6}\quad{}Condizioni in serie{}\end{@norefs}}
+\tocitem \@locref{sec64}{\begin{@norefs}\@print{5.7}\quad{}Condizioni nidificate{}\end{@norefs}}
+\tocitem \@locref{sec65}{\begin{@norefs}\@print{5.8}\quad{}Ricorsione{}\end{@norefs}}
+\tocitem \@locref{sec66}{\begin{@norefs}\@print{5.9}\quad{}Diagrammi di stack delle funzioni ricorsive{}\end{@norefs}}
+\tocitem \@locref{sec67}{\begin{@norefs}\@print{5.10}\quad{}Ricorsione infinita{}\end{@norefs}}
+\tocitem \@locref{sec68}{\begin{@norefs}\@print{5.11}\quad{}Input da tastiera{}\end{@norefs}}
+\tocitem \@locref{sec69}{\begin{@norefs}\@print{5.12}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec70}{\begin{@norefs}\@print{5.13}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec71}{\begin{@norefs}\@print{5.14}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec72}{\begin{@norefs}\@print{Chapter 6}\quad{}Funzioni produttive{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec73}{\begin{@norefs}\@print{6.1}\quad{}Valori di ritorno{}\end{@norefs}}
+\tocitem \@locref{sec74}{\begin{@norefs}\@print{6.2}\quad{}Sviluppo incrementale{}\end{@norefs}}
+\tocitem \@locref{sec75}{\begin{@norefs}\@print{6.3}\quad{}Composizione{}\end{@norefs}}
+\tocitem \@locref{sec76}{\begin{@norefs}\@print{6.4}\quad{}Funzioni booleane{}\end{@norefs}}
+\tocitem \@locref{sec77}{\begin{@norefs}\@print{6.5}\quad{}Altro sulla ricorsione{}\end{@norefs}}
+\tocitem \@locref{sec78}{\begin{@norefs}\@print{6.6}\quad{}Salto sulla fiducia{}\end{@norefs}}
+\tocitem \@locref{sec79}{\begin{@norefs}\@print{6.7}\quad{}Un altro esempio{}\end{@norefs}}
+\tocitem \@locref{sec80}{\begin{@norefs}\@print{6.8}\quad{}Controllo dei tipi{}\end{@norefs}}
+\tocitem \@locref{sec81}{\begin{@norefs}\@print{6.9}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec82}{\begin{@norefs}\@print{6.10}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec83}{\begin{@norefs}\@print{6.11}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec84}{\begin{@norefs}\@print{Chapter 7}\quad{}Iterazione{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec85}{\begin{@norefs}\@print{7.1}\quad{}Riassegnazione{}\end{@norefs}}
+\tocitem \@locref{sec86}{\begin{@norefs}\@print{7.2}\quad{}Aggiornare le variabili{}\end{@norefs}}
+\tocitem \@locref{sec87}{\begin{@norefs}\@print{7.3}\quad{}L'istruzione {\tt while}{}\end{@norefs}}
+\tocitem \@locref{sec88}{\begin{@norefs}\@print{7.4}\quad{}{\tt break}{}\end{@norefs}}
+\tocitem \@locref{sec89}{\begin{@norefs}\@print{7.5}\quad{}Radici quadrate{}\end{@norefs}}
+\tocitem \@locref{sec90}{\begin{@norefs}\@print{7.6}\quad{}Algoritmi{}\end{@norefs}}
+\tocitem \@locref{sec91}{\begin{@norefs}\@print{7.7}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec92}{\begin{@norefs}\@print{7.8}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec93}{\begin{@norefs}\@print{7.9}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec94}{\begin{@norefs}\@print{Chapter 8}\quad{}Stringhe{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec95}{\begin{@norefs}\@print{8.1}\quad{}Una stringa è una sequenza{}\end{@norefs}}
+\tocitem \@locref{sec96}{\begin{@norefs}\@print{8.2}\quad{}{\tt len}{}\end{@norefs}}
+\tocitem \@locref{sec97}{\begin{@norefs}\@print{8.3}\quad{}Attraversamento con un ciclo {\tt for}{}\end{@norefs}}
+\tocitem \@locref{sec98}{\begin{@norefs}\@print{8.4}\quad{}Slicing{}\end{@norefs}}
+\tocitem \@locref{sec99}{\begin{@norefs}\@print{8.5}\quad{}Le stringhe sono immutabili{}\end{@norefs}}
+\tocitem \@locref{sec100}{\begin{@norefs}\@print{8.6}\quad{}Ricerca{}\end{@norefs}}
+\tocitem \@locref{sec101}{\begin{@norefs}\@print{8.7}\quad{}Cicli e contatori{}\end{@norefs}}
+\tocitem \@locref{sec102}{\begin{@norefs}\@print{8.8}\quad{}Metodi delle stringhe{}\end{@norefs}}
+\tocitem \@locref{sec103}{\begin{@norefs}\@print{8.9}\quad{}L'operatore {\tt in}{}\end{@norefs}}
+\tocitem \@locref{sec104}{\begin{@norefs}\@print{8.10}\quad{}Confronto di stringhe{}\end{@norefs}}
+\tocitem \@locref{sec105}{\begin{@norefs}\@print{8.11}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec106}{\begin{@norefs}\@print{8.12}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec107}{\begin{@norefs}\@print{8.13}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec108}{\begin{@norefs}\@print{Chapter 9}\quad{}Esercitazione: Giochi con le parole{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec109}{\begin{@norefs}\@print{9.1}\quad{}Leggere elenchi di parole{}\end{@norefs}}
+\tocitem \@locref{sec110}{\begin{@norefs}\@print{9.2}\quad{}Esercizi{}\end{@norefs}}
+\tocitem \@locref{sec111}{\begin{@norefs}\@print{9.3}\quad{}Ricerca{}\end{@norefs}}
+\tocitem \@locref{sec112}{\begin{@norefs}\@print{9.4}\quad{}Cicli con gli indici{}\end{@norefs}}
+\tocitem \@locref{sec113}{\begin{@norefs}\@print{9.5}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec114}{\begin{@norefs}\@print{9.6}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec115}{\begin{@norefs}\@print{9.7}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec116}{\begin{@norefs}\@print{Chapter 10}\quad{}Liste{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec117}{\begin{@norefs}\@print{10.1}\quad{}Una lista è una sequenza{}\end{@norefs}}
+\tocitem \@locref{sec118}{\begin{@norefs}\@print{10.2}\quad{}Le liste sono mutabili{}\end{@norefs}}
+\tocitem \@locref{sec119}{\begin{@norefs}\@print{10.3}\quad{}Attraversamento di una lista{}\end{@norefs}}
+\tocitem \@locref{sec120}{\begin{@norefs}\@print{10.4}\quad{}Operazioni sulle liste{}\end{@norefs}}
+\tocitem \@locref{sec121}{\begin{@norefs}\@print{10.5}\quad{}Slicing delle liste{}\end{@norefs}}
+\tocitem \@locref{sec122}{\begin{@norefs}\@print{10.6}\quad{}Metodi delle liste{}\end{@norefs}}
+\tocitem \@locref{sec123}{\begin{@norefs}\@print{10.7}\quad{}Mappare, filtrare e ridurre{}\end{@norefs}}
+\tocitem \@locref{sec124}{\begin{@norefs}\@print{10.8}\quad{}Cancellare elementi{}\end{@norefs}}
+\tocitem \@locref{sec125}{\begin{@norefs}\@print{10.9}\quad{}Liste e stringhe{}\end{@norefs}}
+\tocitem \@locref{sec126}{\begin{@norefs}\@print{10.10}\quad{}Oggetti e valori{}\end{@norefs}}
+\tocitem \@locref{sec127}{\begin{@norefs}\@print{10.11}\quad{}Alias{}\end{@norefs}}
+\tocitem \@locref{sec128}{\begin{@norefs}\@print{10.12}\quad{}Liste come argomenti{}\end{@norefs}}
+\tocitem \@locref{sec129}{\begin{@norefs}\@print{10.13}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec130}{\begin{@norefs}\@print{10.14}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec131}{\begin{@norefs}\@print{10.15}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec132}{\begin{@norefs}\@print{Chapter 11}\quad{}Dizionari{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec133}{\begin{@norefs}\@print{11.1}\quad{}Un dizionario è una mappatura{}\end{@norefs}}
+\tocitem \@locref{sec134}{\begin{@norefs}\@print{11.2}\quad{}Il dizionario come raccolta di contatori{}\end{@norefs}}
+\tocitem \@locref{sec135}{\begin{@norefs}\@print{11.3}\quad{}Cicli e dizionari{}\end{@norefs}}
+\tocitem \@locref{sec136}{\begin{@norefs}\@print{11.4}\quad{}Lookup inverso{}\end{@norefs}}
+\tocitem \@locref{sec137}{\begin{@norefs}\@print{11.5}\quad{}Dizionari e liste{}\end{@norefs}}
+\tocitem \@locref{sec138}{\begin{@norefs}\@print{11.6}\quad{}Memoizzazione{}\end{@norefs}}
+\tocitem \@locref{sec139}{\begin{@norefs}\@print{11.7}\quad{}Variabili globali{}\end{@norefs}}
+\tocitem \@locref{sec140}{\begin{@norefs}\@print{11.8}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec141}{\begin{@norefs}\@print{11.9}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec142}{\begin{@norefs}\@print{11.10}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec143}{\begin{@norefs}\@print{Chapter 12}\quad{}Tuple{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec144}{\begin{@norefs}\@print{12.1}\quad{}Le tuple sono immutabili{}\end{@norefs}}
+\tocitem \@locref{sec145}{\begin{@norefs}\@print{12.2}\quad{}Assegnazione di tupla{}\end{@norefs}}
+\tocitem \@locref{sec146}{\begin{@norefs}\@print{12.3}\quad{}Tuple come valori di ritorno{}\end{@norefs}}
+\tocitem \@locref{sec147}{\begin{@norefs}\@print{12.4}\quad{}Tuple di argomenti a lunghezza variabile{}\end{@norefs}}
+\tocitem \@locref{sec148}{\begin{@norefs}\@print{12.5}\quad{}Liste e tuple{}\end{@norefs}}
+\tocitem \@locref{sec149}{\begin{@norefs}\@print{12.6}\quad{}Dizionari e tuple{}\end{@norefs}}
+\tocitem \@locref{sec150}{\begin{@norefs}\@print{12.7}\quad{}Sequenze di sequenze{}\end{@norefs}}
+\tocitem \@locref{sec151}{\begin{@norefs}\@print{12.8}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec152}{\begin{@norefs}\@print{12.9}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec153}{\begin{@norefs}\@print{12.10}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec154}{\begin{@norefs}\@print{Chapter 13}\quad{}Esercitazione: Scelta della struttura di dati{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec155}{\begin{@norefs}\@print{13.1}\quad{}Analisi di frequenza delle parole{}\end{@norefs}}
+\tocitem \@locref{sec156}{\begin{@norefs}\@print{13.2}\quad{}Numeri casuali{}\end{@norefs}}
+\tocitem \@locref{sec157}{\begin{@norefs}\@print{13.3}\quad{}Istogramma di parole{}\end{@norefs}}
+\tocitem \@locref{sec158}{\begin{@norefs}\@print{13.4}\quad{}Parole più comuni{}\end{@norefs}}
+\tocitem \@locref{sec159}{\begin{@norefs}\@print{13.5}\quad{}Parametri opzionali{}\end{@norefs}}
+\tocitem \@locref{sec160}{\begin{@norefs}\@print{13.6}\quad{}Sottrazione di dizionari{}\end{@norefs}}
+\tocitem \@locref{sec161}{\begin{@norefs}\@print{13.7}\quad{}Parole a caso{}\end{@norefs}}
+\tocitem \@locref{sec162}{\begin{@norefs}\@print{13.8}\quad{}Analisi di Markov{}\end{@norefs}}
+\tocitem \@locref{sec163}{\begin{@norefs}\@print{13.9}\quad{}Strutture di dati{}\end{@norefs}}
+\tocitem \@locref{sec164}{\begin{@norefs}\@print{13.10}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec165}{\begin{@norefs}\@print{13.11}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec166}{\begin{@norefs}\@print{13.12}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec167}{\begin{@norefs}\@print{Chapter 14}\quad{}File{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec168}{\begin{@norefs}\@print{14.1}\quad{}Persistenza{}\end{@norefs}}
+\tocitem \@locref{sec169}{\begin{@norefs}\@print{14.2}\quad{}Lettura e scrittura{}\end{@norefs}}
+\tocitem \@locref{sec170}{\begin{@norefs}\@print{14.3}\quad{}L'operatore di formato{}\end{@norefs}}
+\tocitem \@locref{sec171}{\begin{@norefs}\@print{14.4}\quad{}Nomi di file e percorsi{}\end{@norefs}}
+\tocitem \@locref{sec172}{\begin{@norefs}\@print{14.5}\quad{}Gestire le eccezioni{}\end{@norefs}}
+\tocitem \@locref{sec173}{\begin{@norefs}\@print{14.6}\quad{}Database{}\end{@norefs}}
+\tocitem \@locref{sec174}{\begin{@norefs}\@print{14.7}\quad{}Pickling{}\end{@norefs}}
+\tocitem \@locref{sec175}{\begin{@norefs}\@print{14.8}\quad{}Pipe{}\end{@norefs}}
+\tocitem \@locref{sec176}{\begin{@norefs}\@print{14.9}\quad{}Scrivere moduli{}\end{@norefs}}
+\tocitem \@locref{sec177}{\begin{@norefs}\@print{14.10}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec178}{\begin{@norefs}\@print{14.11}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec179}{\begin{@norefs}\@print{14.12}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec180}{\begin{@norefs}\@print{Chapter 15}\quad{}Classi e oggetti{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec181}{\begin{@norefs}\@print{15.1}\quad{}Tipi personalizzati{}\end{@norefs}}
+\tocitem \@locref{sec182}{\begin{@norefs}\@print{15.2}\quad{}Attributi{}\end{@norefs}}
+\tocitem \@locref{sec183}{\begin{@norefs}\@print{15.3}\quad{}Rettangoli{}\end{@norefs}}
+\tocitem \@locref{sec184}{\begin{@norefs}\@print{15.4}\quad{}Istanze come valori di ritorno{}\end{@norefs}}
+\tocitem \@locref{sec185}{\begin{@norefs}\@print{15.5}\quad{}Gli oggetti sono mutabili{}\end{@norefs}}
+\tocitem \@locref{sec186}{\begin{@norefs}\@print{15.6}\quad{}Copia{}\end{@norefs}}
+\tocitem \@locref{sec187}{\begin{@norefs}\@print{15.7}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec188}{\begin{@norefs}\@print{15.8}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec189}{\begin{@norefs}\@print{15.9}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec190}{\begin{@norefs}\@print{Chapter 16}\quad{}Classi e funzioni{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec191}{\begin{@norefs}\@print{16.1}\quad{}Tempo{}\end{@norefs}}
+\tocitem \@locref{sec192}{\begin{@norefs}\@print{16.2}\quad{}Funzioni pure{}\end{@norefs}}
+\tocitem \@locref{sec193}{\begin{@norefs}\@print{16.3}\quad{}Modificatori{}\end{@norefs}}
+\tocitem \@locref{sec194}{\begin{@norefs}\@print{16.4}\quad{}Sviluppo prototipale e Sviluppo pianificato{}\end{@norefs}}
+\tocitem \@locref{sec195}{\begin{@norefs}\@print{16.5}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec196}{\begin{@norefs}\@print{16.6}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec197}{\begin{@norefs}\@print{16.7}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec198}{\begin{@norefs}\@print{Chapter 17}\quad{}Classi e metodi{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec199}{\begin{@norefs}\@print{17.1}\quad{}Funzionalità orientate agli oggetti{}\end{@norefs}}
+\tocitem \@locref{sec200}{\begin{@norefs}\@print{17.2}\quad{}Stampa di oggetti{}\end{@norefs}}
+\tocitem \@locref{sec201}{\begin{@norefs}\@print{17.3}\quad{}Un altro esempio{}\end{@norefs}}
+\tocitem \@locref{sec202}{\begin{@norefs}\@print{17.4}\quad{}Un esempio più complesso{}\end{@norefs}}
+\tocitem \@locref{sec203}{\begin{@norefs}\@print{17.5}\quad{}Il metodo speciale init{}\end{@norefs}}
+\tocitem \@locref{sec204}{\begin{@norefs}\@print{17.6}\quad{}Il metodo speciale {\tt \_\_str\_\_}{}\end{@norefs}}
+\tocitem \@locref{sec205}{\begin{@norefs}\@print{17.7}\quad{}Operator overloading{}\end{@norefs}}
+\tocitem \@locref{sec206}{\begin{@norefs}\@print{17.8}\quad{}Smistamento in base al tipo{}\end{@norefs}}
+\tocitem \@locref{sec207}{\begin{@norefs}\@print{17.9}\quad{}Polimorfismo{}\end{@norefs}}
+\tocitem \@locref{sec208}{\begin{@norefs}\@print{17.10}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec209}{\begin{@norefs}\@print{17.11}\quad{}Interfaccia e implementazione{}\end{@norefs}}
+\tocitem \@locref{sec210}{\begin{@norefs}\@print{17.12}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec211}{\begin{@norefs}\@print{17.13}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec212}{\begin{@norefs}\@print{Chapter 18}\quad{}Ereditarietà{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec213}{\begin{@norefs}\@print{18.1}\quad{}Oggetti Carta{}\end{@norefs}}
+\tocitem \@locref{sec214}{\begin{@norefs}\@print{18.2}\quad{}Attributi di classe{}\end{@norefs}}
+\tocitem \@locref{sec215}{\begin{@norefs}\@print{18.3}\quad{}Confrontare le carte{}\end{@norefs}}
+\tocitem \@locref{sec216}{\begin{@norefs}\@print{18.4}\quad{}Mazzi di carte{}\end{@norefs}}
+\tocitem \@locref{sec217}{\begin{@norefs}\@print{18.5}\quad{}Stampare il mazzo{}\end{@norefs}}
+\tocitem \@locref{sec218}{\begin{@norefs}\@print{18.6}\quad{}Aggiungere, togliere, mescolare e ordinare{}\end{@norefs}}
+\tocitem \@locref{sec219}{\begin{@norefs}\@print{18.7}\quad{}Ereditarietà{}\end{@norefs}}
+\tocitem \@locref{sec220}{\begin{@norefs}\@print{18.8}\quad{}Diagrammi di classe{}\end{@norefs}}
+\tocitem \@locref{sec221}{\begin{@norefs}\@print{18.9}\quad{}Debug{}\end{@norefs}}
+\tocitem \@locref{sec222}{\begin{@norefs}\@print{18.10}\quad{}Incapsulamento dei dati{}\end{@norefs}}
+\tocitem \@locref{sec223}{\begin{@norefs}\@print{18.11}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec224}{\begin{@norefs}\@print{18.12}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec225}{\begin{@norefs}\@print{Chapter 19}\quad{}Ulteriori strumenti{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec226}{\begin{@norefs}\@print{19.1}\quad{}Espressioni condizionali{}\end{@norefs}}
+\tocitem \@locref{sec227}{\begin{@norefs}\@print{19.2}\quad{}List comprehension{}\end{@norefs}}
+\tocitem \@locref{sec228}{\begin{@norefs}\@print{19.3}\quad{}Generator expression{}\end{@norefs}}
+\tocitem \@locref{sec229}{\begin{@norefs}\@print{19.4}\quad{}{\tt any} e {\tt all}{}\end{@norefs}}
+\tocitem \@locref{sec230}{\begin{@norefs}\@print{19.5}\quad{}Insiemi (set){}\end{@norefs}}
+\tocitem \@locref{sec231}{\begin{@norefs}\@print{19.6}\quad{}Contatori{}\end{@norefs}}
+\tocitem \@locref{sec232}{\begin{@norefs}\@print{19.7}\quad{}defaultdict{}\end{@norefs}}
+\tocitem \@locref{sec233}{\begin{@norefs}\@print{19.8}\quad{}Tuple con nome (namedtuple){}\end{@norefs}}
+\tocitem \@locref{sec234}{\begin{@norefs}\@print{19.9}\quad{}Raccolta di argomenti con nome{}\end{@norefs}}
+\tocitem \@locref{sec235}{\begin{@norefs}\@print{19.10}\quad{}Glossario{}\end{@norefs}}
+\tocitem \@locref{sec236}{\begin{@norefs}\@print{19.11}\quad{}Esercizi{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec237}{\begin{@norefs}\@print{Appendix A}\quad{}Debug{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec238}{\begin{@norefs}\@print{A.1}\quad{}Errori di sintassi{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec239}{\begin{@norefs}\@print{A.1.1}\quad{}Continuo a fare modifiche ma non cambia nulla.{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec240}{\begin{@norefs}\@print{A.2}\quad{}Errori di runtime{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec241}{\begin{@norefs}\@print{A.2.1}\quad{}Il programma non fa assolutamente nulla.{}\end{@norefs}}
+\tocitem \@locref{sec242}{\begin{@norefs}\@print{A.2.2}\quad{}Il programma si blocca.{}\end{@norefs}}
+\tocitem \@locref{sec246}{\begin{@norefs}\@print{A.2.3}\quad{}Quando eseguo il programma è sollevata un'eccezione.{}\end{@norefs}}
+\tocitem \@locref{sec247}{\begin{@norefs}\@print{A.2.4}\quad{}Ho aggiunto talmente tante istruzioni di stampa che sono sommerso di output.{}\end{@norefs}}
+\end{tocenv}
+\tocitem \@locref{sec248}{\begin{@norefs}\@print{A.3}\quad{}Errori di semantica{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec249}{\begin{@norefs}\@print{A.3.1}\quad{}Il mio programma non funziona.{}\end{@norefs}}
+\tocitem \@locref{sec250}{\begin{@norefs}\@print{A.3.2}\quad{}Ho una grande e complicata espressione che non fa quello che voglio.{}\end{@norefs}}
+\tocitem \@locref{sec251}{\begin{@norefs}\@print{A.3.3}\quad{}Ho una funzione che non restituisce quello che voglio.{}\end{@norefs}}
+\tocitem \@locref{sec252}{\begin{@norefs}\@print{A.3.4}\quad{}Sono proprio bloccato e mi serve aiuto.{}\end{@norefs}}
+\tocitem \@locref{sec253}{\begin{@norefs}\@print{A.3.5}\quad{}No, ho davvero bisogno di aiuto.{}\end{@norefs}}
+\end{tocenv}
+\end{tocenv}
+\tocitem \@locref{sec254}{\begin{@norefs}\@print{Appendix B}\quad{}Analisi degli Algoritmi{}\end{@norefs}}
+\begin{tocenv}
+\tocitem \@locref{sec255}{\begin{@norefs}\@print{B.1}\quad{}Ordine di complessità{}\end{@norefs}}
+\tocitem \@locref{sec256}{\begin{@norefs}\@print{B.2}\quad{}Analisi delle operazioni fondamentali di Python{}\end{@norefs}}
+\tocitem \@locref{sec257}{\begin{@norefs}\@print{B.3}\quad{}Analisi degli algoritmi di ricerca{}\end{@norefs}}
+\tocitem \@locref{sec258}{\begin{@norefs}\@print{B.4}\quad{}Tabelle hash{}\end{@norefs}}
+\tocitem \@locref{sec259}{\begin{@norefs}\@print{B.5}\quad{}Glossario{}\end{@norefs}}
+\end{tocenv}
+\end{tocenv}

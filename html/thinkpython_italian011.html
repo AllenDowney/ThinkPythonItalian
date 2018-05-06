@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Liste</title>
+</head>
+<body>
+<a href="thinkpython_italian010.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian012.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec116">Chapter 10  Liste</h1>
+<p>Questo capitolo illustra uno dei più utili tipi predefiniti di Python, le liste. Imparerete anche altri dettagli sugli oggetti, e vedrete cosa succede in presenza di uno stesso oggetto con più nomi.</p>
+<h2 class="section" id="sec117">10.1  Una lista è una sequenza</h2>
+<p>
+<a id="sequence"></a></p><p>Come una stringa, una <span class="c009">lista</span> è una sequenza di valori. Mentre in una stringa i valori sono dei caratteri, in una lista possono essere di qualsiasi tipo. I valori che fanno parte della lista sono chiamati <span class="c009">elementi</span>.
+<a id="hevea_default649"></a>
+<a id="hevea_default650"></a>
+<a id="hevea_default651"></a>
+<a id="hevea_default652"></a></p><p>Ci sono vari modi per creare una nuova lista; quello più semplice consiste nel
+racchiudere i suoi elementi tra parentesi quadrate (<code>[</code> e <code>]</code>):</p><pre class="verbatim">[10, 20, 30, 40]
+['Primi piatti', 'Secondi piatti', 'Dessert']
+</pre><p>
+Il primo esempio è una lista di quattro interi; il secondo è una lista
+di tre stringhe. Non è necessario che gli elementi di una stessa lista siano tutti dello stesso tipo: la lista che segue contiene una stringa, un numero in virgola mobile, un intero e (meraviglia!) un’altra lista:</p><pre class="verbatim">['spam', 2.0, 5, [10, 20]]
+</pre><p>
+Una lista all’interno di un’altra lista è detta lista <span class="c009">nidificata</span>.
+<a id="hevea_default653"></a></p><p>Una lista che non contiene elementi è detta lista vuota; potete crearne una scrivendo le due parentesi quadre vuote, <code>[]</code>.
+<a id="hevea_default654"></a></p><p>Avrete già intuito che potete assegnare i valori della lista a variabili:</p><pre class="verbatim">&gt;&gt;&gt; formaggi = ['Cheddar', 'Edam', 'Gouda']
+&gt;&gt;&gt; numeri = [42, 123]
+&gt;&gt;&gt; vuota = []
+&gt;&gt;&gt; print(formaggi, numeri, vuota)
+['Cheddar', 'Edam', 'Gouda'] [42, 123] []
+</pre><p>
+<a id="hevea_default655"></a></p>
+<h2 class="section" id="sec118">10.2  Le liste sono mutabili</h2>
+<p>
+<a id="mutable"></a>
+<a id="hevea_default656"></a>
+<a id="hevea_default657"></a>
+<a id="hevea_default658"></a>
+<a id="hevea_default659"></a>
+<a id="hevea_default660"></a></p><p>La sintassi per accedere agli elementi di una lista è la stessa usata per i caratteri di una stringa: le parentesi quadre, con un’espressione tra parentesi che specifica l’indice dell’elemento. E ricordate che gli indici partono da 0:</p><pre class="verbatim">&gt;&gt;&gt; formaggi[0]
+'Cheddar'
+</pre><p>
+Ma a differenza delle stringhe, le liste sono mutabili. Quando l’operatore parentesi quadre compare sul lato sinistro di un’assegnazione, identifica l’elemento della lista che sarà riassegnato:
+<a id="hevea_default661"></a></p><pre class="verbatim">&gt;&gt;&gt; numeri = [42, 123]
+&gt;&gt;&gt; numeri[1] = 5
+&gt;&gt;&gt; numeri
+[42, 5]
+</pre><p>
+L’elemento di indice 1 di <span class="c003">numeri</span>, che era 123, ora è 5
+<a id="hevea_default662"></a>
+<a id="hevea_default663"></a></p><p>La Figura <a href="#fig.liststate">10.1</a> mostra il diagramma di stato di <span class="c003">formaggi</span>, <span class="c003">numeri</span> e <span class="c003">vuota</span>:
+<a id="hevea_default664"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian011.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 10.1: Diagramma di stato</td></tr>
+</table></div>
+<a id="fig.liststate"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Le liste possono essere rappresentate da riquadri con la parola “list” all’esterno e i suoi elementi all’interno. <span class="c003">formaggi</span> si riferisce a una lista con tre elementi di indice 0, 1 e 2.
+<span class="c003">numeri</span> contiene due elementi; il diagramma mostra che il valore del secondo elemento è stato riassegnato da 123 a 5. <span class="c003">vuota</span> si riferisce a una lista senza elementi.
+<a id="hevea_default665"></a>
+<a id="hevea_default666"></a>
+<a id="hevea_default667"></a></p><p>Gli indici delle liste funzionano nello stesso modo di quelli delle stringhe:</p><ul class="itemize"><li class="li-itemize">L’indice può essere qualsiasi espressione di tipo intero.</li><li class="li-itemize">Se tentate di leggere o modificare un elemento che non esiste, ottenete un messaggio d’errore <span class="c003">IndexError</span>.
+<a id="hevea_default668"></a>
+<a id="hevea_default669"></a></li><li class="li-itemize">Con un indice di valore negativo, si conta a ritroso dalla fine della
+lista.</li></ul><p>
+<a id="hevea_default670"></a>
+<a id="hevea_default671"></a>
+<a id="hevea_default672"></a>
+<a id="hevea_default673"></a>
+<a id="hevea_default674"></a></p><p>Anche l’operatore <span class="c003">in</span> funziona con le liste:</p><pre class="verbatim">&gt;&gt;&gt; formaggi = ['Cheddar', 'Edam', 'Gouda']
+&gt;&gt;&gt; 'Edam' in formaggi
+True
+&gt;&gt;&gt; 'Brie' in formaggi
+False
+</pre>
+<h2 class="section" id="sec119">10.3  Attraversamento di una lista</h2>
+<p>
+<a id="hevea_default675"></a>
+<a id="hevea_default676"></a>
+<a id="hevea_default677"></a>
+<a id="hevea_default678"></a>
+<a id="hevea_default679"></a></p><p>Il modo più frequente di attraversare gli elementi di una lista è un ciclo <span class="c003">for</span>. Anche qui, la sintassi è la stessa delle stringhe:</p><pre class="verbatim">for formaggio in formaggi:
+    print(formaggio)
+</pre><p>
+Questo metodo funziona bene per leggere gli elementi di una lista, ma se volete scrivere o aggiornare degli elementi vi servono gli indici. Un modo per farlo è usare una combinazione delle funzioni predefinite <span class="c003">range</span> e <span class="c003">len</span>:
+<a id="hevea_default680"></a>
+<a id="hevea_default681"></a></p><pre class="verbatim">for i in range(len(numeri)):
+    numeri[i] = numeri[i] * 2
+</pre><p>
+Questo ciclo attraversa la lista e aggiorna tutti gli elementi. <span class="c003">len</span>
+restituisce il numero di elementi della lista. <span class="c003">range</span> restituisce una lista di indici da 0 a <span class="c008">n</span>−1, dove <span class="c008">n</span> è la lunghezza della lista. Ad ogni ripetizione del ciclo, <span class="c003">i</span> prende l’indice dell’elemento successivo. L’istruzione di assegnazione nel corpo usa <span class="c003">i</span> per leggere il vecchio valore dell’elemento e assegnare quello nuovo.
+<a id="hevea_default682"></a>
+<a id="hevea_default683"></a></p><p>Un ciclo <span class="c003">for</span> su una lista vuota non esegue mai il corpo:</p><pre class="verbatim">for x in []:
+    print('Questo non succede mai.')
+</pre><p>
+Sebbene una lista possa contenerne un’altra, quella nidificata conta sempre come un singolo elemento. Quindi la lunghezza di questa lista è quattro:
+<a id="hevea_default684"></a>
+<a id="hevea_default685"></a></p><pre class="verbatim">['spam', 1, ['Brie', 'Roquefort', 'Pol le Veq'], [1, 2, 3]]
+</pre>
+<h2 class="section" id="sec120">10.4  Operazioni sulle liste</h2>
+<p>
+<a id="hevea_default686"></a></p><p>L’operatore <span class="c003">+</span> concatena delle liste:
+<a id="hevea_default687"></a>
+<a id="hevea_default688"></a></p><pre class="verbatim">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [4, 5, 6]
+&gt;&gt;&gt; c = a + b
+&gt;&gt;&gt; c
+[1, 2, 3, 4, 5, 6]
+</pre><p>
+L’operatore <span class="c003">*</span> ripete una lista per un dato numero di volte:
+<a id="hevea_default689"></a>
+<a id="hevea_default690"></a></p><pre class="verbatim">&gt;&gt;&gt; [0] * 4
+[0, 0, 0, 0]
+&gt;&gt;&gt; [1, 2, 3] * 3
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
+</pre><p>
+Il primo esempio ripete <span class="c003">[0]</span> per quattro volte. Il secondo ripete la lista <span class="c003">[1, 2, 3]</span> per tre volte.</p>
+<h2 class="section" id="sec121">10.5  Slicing delle liste</h2>
+<p>
+<a id="hevea_default691"></a>
+<a id="hevea_default692"></a>
+<a id="hevea_default693"></a>
+<a id="hevea_default694"></a>
+<a id="hevea_default695"></a></p><p>Anche l’operazione di slicing funziona sulle liste:</p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c', 'd', 'e', 'f']
+&gt;&gt;&gt; t[1:3]
+['b', 'c']
+&gt;&gt;&gt; t[:4]
+['a', 'b', 'c', 'd']
+&gt;&gt;&gt; t[3:]
+['d', 'e', 'f']
+</pre><p>
+Se omettete il primo indice, lo slicing comincia dall’inizio, mentre se manca il secondo, termina alla fine. Se vengono omessi entrambi, lo slicing è una copia dell’intera lista.
+<a id="hevea_default696"></a>
+<a id="hevea_default697"></a>
+<a id="hevea_default698"></a></p><pre class="verbatim">&gt;&gt;&gt; t[:]
+['a', 'b', 'c', 'd', 'e', 'f']
+</pre><p>
+Dato che le liste sono mutabili, spesso è utile farne una copia prima di eseguire operazioni che le modificano.
+<a id="hevea_default699"></a></p><p>Un operatore di slicing sul lato sinistro di un’assegnazione, permette di aggiornare più elementi.
+<a id="hevea_default700"></a>
+<a id="hevea_default701"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c', 'd', 'e', 'f']
+&gt;&gt;&gt; t[1:3] = ['x', 'y']
+&gt;&gt;&gt; t
+['a', 'x', 'y', 'd', 'e', 'f']
+</pre>
+<h2 class="section" id="sec122">10.6  Metodi delle liste</h2>
+<p>
+<a id="hevea_default702"></a>
+<a id="hevea_default703"></a></p><p>Python fornisce dei metodi che operano sulle liste. Ad esempio,
+<span class="c003">append</span> aggiunge un nuovo elemento in coda alla lista:
+<a id="hevea_default704"></a>
+<a id="hevea_default705"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; t.append('d')
+&gt;&gt;&gt; t
+['a', 'b', 'c', 'd']
+</pre><p>
+<span class="c003">extend</span> prende una lista come argomento e accoda tutti i suoi elementi:
+<a id="hevea_default706"></a>
+<a id="hevea_default707"></a></p><pre class="verbatim">&gt;&gt;&gt; t1 = ['a', 'b', 'c']
+&gt;&gt;&gt; t2 = ['d', 'e']
+&gt;&gt;&gt; t1.extend(t2)
+&gt;&gt;&gt; t1
+['a', 'b', 'c', 'd', 'e']
+</pre><p>
+Questo esempio lascia immutata la lista <span class="c003">t2</span>.</p><p><span class="c003">sort</span> dispone gli elementi della lista in ordine crescente:
+<a id="hevea_default708"></a>
+<a id="hevea_default709"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['d', 'c', 'e', 'b', 'a']
+&gt;&gt;&gt; t.sort()
+&gt;&gt;&gt; t
+['a', 'b', 'c', 'd', 'e']
+</pre><p>
+La maggior parte dei metodi delle liste sono vuoti: modificano la lista e restituiscono <span class="c003">None</span>. Se scrivete accidentalmente <span class="c003">t = t.sort()</span>, il risultato vi deluderà.
+<a id="hevea_default710"></a>
+<a id="hevea_default711"></a>
+<a id="hevea_default712"></a></p>
+<h2 class="section" id="sec123">10.7  Mappare, filtrare e ridurre</h2>
+<p>
+<a id="filter"></a></p><p>Per sommare tutti i numeri in una lista, potete usare un ciclo come questo:</p><pre class="verbatim">def somma_tutti(t):
+    totale = 0
+    for x in t:
+        totale += x
+    return totale
+</pre><p>
+<span class="c003">totale</span> è inizializzato a 0. Ad ogni ripetizione del ciclo,
+<span class="c003">x</span> prende un elemento dalla lista. L’operatore <span class="c003">+=</span> è una forma abbreviata per aggiornare una variabile. Questa
+<span class="c009">istruzione di assegnazione potenziata</span>,
+<a id="hevea_default713"></a>
+<a id="hevea_default714"></a>
+<a id="hevea_default715"></a>
+<a id="hevea_default716"></a></p><pre class="verbatim">    totale += x
+</pre><p>
+è equivalente a</p><pre class="verbatim">    totale = totale + x
+</pre><p>
+Man mano che il ciclo lavora, <span class="c003">totale</span> accumula la somma degli elementi; una variabile usata in questo modo è detta anche <span class="c009">accumulatore</span>.
+<a id="hevea_default717"></a></p><p>Sommare gli elementi di una lista è un’operazione talmente comune che Python contiene una apposita funzione predefinita, <span class="c003">sum</span>:</p><pre class="verbatim">&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; sum(t)
+6
+</pre><p>
+Una simile operazione che compatta una sequenza di elementi in un singolo valore, è chiamata <span class="c009">riduzione</span>.
+<a id="hevea_default718"></a>
+<a id="hevea_default719"></a>
+<a id="hevea_default720"></a></p><p>Talvolta è necessario attraversare una lista per costruirne contemporaneamente un’altra. Per esempio, la funzione seguente prende una lista di stringhe e restituisce una nuova lista che contiene le stesse stringhe in lettere maiuscole:</p><pre class="verbatim">def tutte_maiuscole(t):
+    res = []
+    for s in t:
+        res.append(s.capitalize())
+    return res
+</pre><p>
+<span class="c003">res</span> è inizializzata come una lista vuota; ad ogni ripetizione del ciclo viene accodato un elemento. Pertanto <span class="c003">res</span> è una sorta di accumulatore.
+<a id="hevea_default721"></a></p><p>Un’operazione come quella di <code>tutte_maiuscole</code> è chiamata anche <span class="c009">mappa</span>: applica una funzione (in questo caso il metodo <span class="c003">capitalize</span>) su ciascun elemento di una sequenza.
+<a id="hevea_default722"></a>
+<a id="hevea_default723"></a>
+<a id="hevea_default724"></a>
+<a id="hevea_default725"></a></p><p>Un’altra operazione frequente è la selezione di alcuni elementi di una lista per formare una sottolista. Per esempio, la seguente funzione prende una lista di stringhe e restituisce una lista che contiene solo le stringhe scritte in lettere maiuscole:</p><pre class="verbatim">def solo_maiuscole(t):
+    res = []
+    for s in t:
+        if s.isupper():
+            res.append(s)
+    return res
+</pre><p>
+<span class="c003">isupper</span> è un metodo delle stringhe che restituisce <span class="c003">True</span> se la stringa contiene solo lettere maiuscole.</p><p>Un’operazione come quella di <code>solo_maiuscole</code> è chiamata <span class="c009">filtro</span> perché seleziona solo alcuni elementi, filtrando gli altri.</p><p>La maggior parte delle operazioni sulle liste possono essere espresse come combinazioni di mappa, filtro e riduzione.</p>
+<h2 class="section" id="sec124">10.8  Cancellare elementi</h2>
+<p>
+<a id="hevea_default726"></a>
+<a id="hevea_default727"></a></p><p>Ci sono vari modi per cancellare elementi da una lista. Se conoscete l’indice dell’elemento desiderato, potete usare
+<span class="c003">pop</span>:
+<a id="hevea_default728"></a>
+<a id="hevea_default729"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; x = t.pop(1)
+&gt;&gt;&gt; t
+['a', 'c']
+&gt;&gt;&gt; x
+'b'
+</pre><p>
+<span class="c003">pop</span> modifica la lista e restituisce l’elemento che è stato rimosso. Se omettete l’indice, il metodo cancella e restituisce l’ultimo elemento della lista.</p><p>Se non vi serve il valore rimosso, potete usare l’operatore <span class="c003">del</span>:
+<a id="hevea_default730"></a>
+<a id="hevea_default731"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; del t[1]
+&gt;&gt;&gt; t
+['a', 'c']
+</pre><p>Se conoscete l’elemento da rimuovere ma non il suo indice, potete usare <span class="c003">remove</span>:
+<a id="hevea_default732"></a>
+<a id="hevea_default733"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c']
+&gt;&gt;&gt; t.remove('b')
+&gt;&gt;&gt; t
+['a', 'c']
+</pre><p>
+Il valore di ritorno di <span class="c003">remove</span> è <span class="c003">None</span>.
+<a id="hevea_default734"></a>
+<a id="hevea_default735"></a></p><p>Per cancellare più di un elemento potete usare <span class="c003">del</span> con lo slicing:</p><pre class="verbatim">&gt;&gt;&gt; t = ['a', 'b', 'c', 'd', 'e', 'f']
+&gt;&gt;&gt; del t[1:5]
+&gt;&gt;&gt; t
+['a', 'f']
+</pre><p>
+Come di consueto, lo slicing seleziona gli elementi fino al secondo indice escluso.</p>
+<h2 class="section" id="sec125">10.9  Liste e stringhe</h2>
+<p>
+<a id="hevea_default736"></a>
+<a id="hevea_default737"></a>
+<a id="hevea_default738"></a></p><p>Una stringa è una sequenza di caratteri e una lista è una sequenza di valori, ma una lista di caratteri non è la stessa cosa di una stringa. Per convertire una stringa in una lista di caratteri, potete usare <span class="c003">list</span>:
+<a id="hevea_default739"></a>
+<a id="hevea_default740"></a></p><pre class="verbatim">&gt;&gt;&gt; s = 'spam'
+&gt;&gt;&gt; t = list(s)
+&gt;&gt;&gt; t
+['s', 'p', 'a', 'm']
+</pre><p>
+Poiché <span class="c003">list</span> è una funzione predefinita, va evitato di chiamare una variabile con questo nome. Personalmente evito anche <span class="c003">l</span> perché somiglia troppo a <span class="c003">1</span>. Ecco perché di solito uso <span class="c003">t</span>.</p><p>La funzione <span class="c003">list</span> separa una stringa in singole lettere. Se invece volete spezzare una stringa nelle singole parole, usate il metodo <span class="c003">split</span>:
+<a id="hevea_default741"></a>
+<a id="hevea_default742"></a></p><pre class="verbatim">&gt;&gt;&gt; s = 'profonda nostalgia dei fiordi'
+&gt;&gt;&gt; t = s.split()
+&gt;&gt;&gt; t
+['profonda', 'nostalgia', 'dei', 'fiordi']
+</pre><p>
+Un argomento opzionale chiamato <span class="c009">delimitatore</span> specifica quale carattere va considerato come separatore delle parole. L’esempio che segue usa il trattino come separatore:
+<a id="hevea_default743"></a>
+<a id="hevea_default744"></a></p><pre class="verbatim">&gt;&gt;&gt; s = 'spam-spam-spam'
+&gt;&gt;&gt; delimita = '-'
+&gt;&gt;&gt; t = s.split(delimita)
+&gt;&gt;&gt; t
+['spam', 'spam', 'spam']
+</pre><p>
+<span class="c003">join</span> è l’inverso di <span class="c003">split</span>: prende una lista di stringhe e concatena gli elementi. <span class="c003">join</span> è un metodo delle stringhe, quindi lo dovete invocare per mezzo del delimitatore e passare la lista come parametro:
+<a id="hevea_default745"></a>
+<a id="hevea_default746"></a>
+<a id="hevea_default747"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ['profonda', 'nostalgia', 'dei', 'fiordi']
+&gt;&gt;&gt; delimita = ' '
+&gt;&gt;&gt; s = delimita.join(t)
+&gt;&gt;&gt; s
+'profonda nostalgia dei fiordi'
+</pre><p>
+In questo caso il delimitatore è uno spazio, quindi
+<span class="c003">join</span> aggiunge uno spazio tra le parole. Per concatenare delle stringhe senza spazi, basta usare come delimitatore la stringa vuota <code>''</code>.
+<a id="hevea_default748"></a></p>
+<h2 class="section" id="sec126">10.10  Oggetti e valori</h2>
+<p>
+<a id="equivalence"></a>
+<a id="hevea_default749"></a>
+<a id="hevea_default750"></a></p><p>Se eseguiamo queste istruzioni di assegnazione:</p><pre class="verbatim">a = 'banana'
+b = 'banana'
+</pre><p>
+Sappiamo che <span class="c003">a</span> e <span class="c003">b</span> si riferiscono a una stringa, ma non sappiamo se si riferiscono alla <em>stessa</em> stringa.
+Ci sono due possibili stati, illustrati in Figura <a href="#fig.list1">10.2</a>.
+<a id="hevea_default751"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian012.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 10.2: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.list1"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>In un caso, <span class="c003">a</span> e <span class="c003">b</span> si riferiscono a due oggetti diversi che hanno lo stesso valore. Nell’altro, si riferiscono allo stesso oggetto.
+<a id="hevea_default752"></a>
+<a id="hevea_default753"></a></p><p>Per controllare se due variabili si riferiscono allo stesso oggetto, potete usare l’operatore <span class="c003">is</span>.</p><pre class="verbatim">&gt;&gt;&gt; a = 'banana'
+&gt;&gt;&gt; b = 'banana'
+&gt;&gt;&gt; a is b
+True
+</pre><p>
+In questo esempio, Python ha creato un unico oggetto stringa, e sia <span class="c003">a</span> che <span class="c003">b</span> fanno riferimento ad esso.</p><p>Ma se create due liste, ottenete due oggetti distinti:</p><pre class="verbatim">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [1, 2, 3]
+&gt;&gt;&gt; a is b
+False
+</pre><p>
+Quindi il diagramma di stato somiglia a quello di Figura <a href="#fig.list2">10.3</a>.
+<a id="hevea_default754"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian013.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 10.3: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.list2"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>In quest’ultimo caso si dice che le due liste sono <span class="c009">equivalenti</span>,
+perché contengono gli stessi elementi, ma non <span class="c009">identiche</span>, perché non sono lo stesso oggetto.
+Se due oggetti sono identici, sono anche equivalenti, ma se sono equivalenti non sono necessariamente identici.
+<a id="hevea_default755"></a>
+<a id="hevea_default756"></a></p><p>Fino ad ora abbiamo usato “oggetto” e “valore” indifferentemente, ma è più preciso dire che un oggetto ha un valore. Se valutate <span class="c003">[1,2,3]</span>, ottenete un oggetto lista il cui valore è una sequenza di interi. Se un’altra lista contiene gli stessi elementi, diciamo che ha lo stesso valore, ma non che è lo stesso oggetto.
+<a id="hevea_default757"></a>
+<a id="hevea_default758"></a></p>
+<h2 class="section" id="sec127">10.11  Alias</h2>
+<p>
+<a id="hevea_default759"></a>
+<a id="hevea_default760"></a></p><p>Se la variabile <span class="c003">a</span> si riferisce a un oggetto e assegnate <span class="c003">b = a</span>,
+allora entrambe le variabili si riferiscono allo stesso oggetto.</p><pre class="verbatim">&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; b is a
+True
+</pre><p>
+Il diagramma di stato è quello in Figura <a href="#fig.list3">10.4</a>.
+<a id="hevea_default761"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian014.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 10.4: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.list3"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>L’associazione tra una variabile e un oggetto è chiamato <span class="c009">riferimento</span>. In questo esempio ci sono due riferimenti allo stesso oggetto.
+<a id="hevea_default762"></a></p><p>Un oggetto che ha più di un riferimento ha anche più di un nome, e si dice quindi che l’oggetto ha degli <span class="c009">alias</span>.
+<a id="hevea_default763"></a></p><p>Se l’oggetto munito di alias è mutabile, i cambiamenti provocati da un alias si riflettono anche sull’altro:</p><pre class="verbatim">&gt;&gt;&gt; b[0] = 42
+&gt;&gt;&gt; a
+[42, 2, 3]
+</pre><p>
+Sebbene questo comportamento possa essere utile, è anche fonte di errori. In genere è più sicuro evitare gli alias quando si sta lavorando con oggetti mutabili.
+<a id="hevea_default764"></a></p><p>Per gli oggetti immutabili come le stringhe, gli alias non sono un problema. In questo esempio:</p><pre class="verbatim">a = 'banana'
+b = 'banana'
+</pre><p>
+Non fa quasi mai differenza se <span class="c003">a</span> e <span class="c003">b</span> facciano riferimento alla stessa stringa o meno.</p>
+<h2 class="section" id="sec128">10.12  Liste come argomenti</h2>
+<p>
+<a id="list.arguments"></a>
+<a id="hevea_default765"></a>
+<a id="hevea_default766"></a>
+<a id="hevea_default767"></a>
+<a id="hevea_default768"></a>
+<a id="hevea_default769"></a></p><p>Quando passate una lista a una funzione, questa riceve un riferimento alla lista. Se la funzione modifica la lista, il chiamante vede la modifica. Per esempio, <code>decapita</code> rimuove il primo elemento di una lista:</p><pre class="verbatim">def decapita(t):
+    del t[0]
+</pre><p>
+Vediamo come si usa:</p><pre class="verbatim">&gt;&gt;&gt; lettere = ['a', 'b', 'c']
+&gt;&gt;&gt; decapita(lettere)
+&gt;&gt;&gt; lettere
+['b', 'c']
+</pre><p>
+Il parametro <span class="c003">t</span> e la variabile <span class="c003">lettere</span> sono due alias dello stesso oggetto. Il diagramma di stack è riportato in Figura <a href="#fig.stack5">10.5</a>.
+<a id="hevea_default770"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian015.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 10.5: Diagramma di stack.</td></tr>
+</table></div>
+<a id="fig.stack5"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Dato che la lista è condivisa da due frame, la disegno in mezzo.</p><p>È importante distinguere tra operazioni che modificano le liste e operazioni che creano nuove liste. Per esempio il metodo <span class="c003">append</span> modifica una lista, ma l’operatore <span class="c003">+</span> ne crea una nuova.</p><p>Ecco un esempio che usa <span class="c003">append</span>:
+<a id="hevea_default771"></a>
+<a id="hevea_default772"></a>
+<a id="hevea_default773"></a>
+<a id="hevea_default774"></a>
+</p><pre class="verbatim">&gt;&gt;&gt; t1 = [1, 2]
+&gt;&gt;&gt; t2 = t1.append(3)
+&gt;&gt;&gt; t1
+[1, 2, 3]
+&gt;&gt;&gt; t2
+None
+</pre><p>
+Il valore di ritorno di <span class="c003">append</span> è <span class="c003">None</span>.</p><p>Un esempio di utilizzo dell’operatore <span class="c003">+</span>:
+</p><pre class="verbatim">&gt;&gt;&gt; t3 = t1 + [4]
+&gt;&gt;&gt; t1
+[1, 2, 3]
+&gt;&gt;&gt; t3
+[1, 2, 3, 4]
+</pre><p>
+Il risultato è una nuova lista, e la lista di origine resta immutata.</p><p>Questa differenza è importante quando scrivete delle funzioni che devono modificare delle liste. Per esempio, questa funzione
+<em>non</em> cancella il primo elemento della lista:
+</p><pre class="verbatim">def non_decapita(t):
+    t = t[1:]              # SBAGLIATO!
+</pre><p>
+L’operatore di slicing crea una nuova lista e l’assegnazione fa in modo che <span class="c003">t</span> si riferisca ad essa, ma tutto ciò non ha effetti sul chiamante.
+<a id="hevea_default775"></a>
+<a id="hevea_default776"></a>
+</p><pre class="verbatim">&gt;&gt;&gt; t4 = [1, 2, 3]
+&gt;&gt;&gt; non_decapita(t4)
+&gt;&gt;&gt; t4
+[1, 2, 3]
+</pre><p>
+Alla chiamata di <code>non_decapita</code>, <span class="c003">t</span> e <span class="c003">t4</span> fanno riferimento
+alla stessa lista. Alla fine, <span class="c003">t</span> fa riferimento ad una nuova lista,
+mentre <span class="c003">t4</span> continua a fare riferimento alla stessa lista, non modificata.</p><p>Un’alternativa valida è scrivere una funzione che crea e restituisce una nuova lista. Per esempio, <span class="c003">ritaglia</span> restituisce tutti gli elementi di una lista tranne il primo:</p><pre class="verbatim">def ritaglia(t):
+    return t[1:]
+</pre><p>
+Questa funzione lascia intatta la lista di origine. Ecco come si usa:</p><pre class="verbatim">&gt;&gt;&gt; lettere = ['a', 'b', 'c']
+&gt;&gt;&gt; resto = ritaglia(lettere)
+&gt;&gt;&gt; resto
+['b', 'c']
+</pre>
+<h2 class="section" id="sec129">10.13  Debug</h2>
+<p>
+<a id="hevea_default777"></a></p><p>Un uso poco accurato delle liste (e degli altri oggetti mutabili) può portare a lunghe ore di debug. Ecco alcune delle trappole più comuni e i modi per evitarle:</p><ol class="enumerate" type=1><li class="li-enumerate">La maggior parte dei metodi delle liste modificano l’argomento e restituiscono <span class="c003">None</span>. È il comportamento opposto dei metodi delle stringhe, che restituiscono una nuova stringa e lasciano immutato l’originale.<p>Se siete abituati a scrivere il codice per le stringhe così:</p><pre class="verbatim">parola = parola.strip()
+</pre><p>Può venire spontaneo di scrivere il codice per le liste così:</p><pre class="verbatim">t = t.sort()           # SBAGLIATO!
+</pre><p>
+<a id="hevea_default778"></a>
+<a id="hevea_default779"></a></p><p>Ma poiché <span class="c003">sort</span> restituisce <span class="c003">None</span>, l’operazione successiva che eseguite su <span class="c003">t</span> con tutta probabilità fallirà.</p><p>Prima di usare i metodi delle liste e gli operatori, leggetene attentamente la documentazione e fate una prova in modalità interattiva.</p></li><li class="li-enumerate">Scegliete un costrutto e usate sempre quello.<p>Una parte dei problemi delle liste deriva dal fatto che ci sono molti modi per fare le stesse cose. Per esempio, per rimuovere un elemento da una lista potete usare <span class="c003">pop</span>, <span class="c003">remove</span>, <span class="c003">del</span>, oppure lo slicing.</p><p>Per aggiungere un elemento potete usare il metodo <span class="c003">append</span> o l’operatore <span class="c003">+</span>. Supponendo che <span class="c003">t</span> sia una lista e <span class="c003">x</span> un elemento, le espressioni seguenti vanno entrambe bene:</p><pre class="verbatim">t.append(x)
+t = t + [x]
+</pre><p>Mentre queste sono sbagliate:</p><pre class="verbatim">t.append([x])          # SBAGLIATO!
+t = t.append(x)        # SBAGLIATO!
+t + [x]                # SBAGLIATO!
+t = t + x              # SBAGLIATO!
+</pre><p>Provate ognuno di questi esempi in modalità interattiva per verificare quello che fanno. Noterete che solo l’ultima espressione causa un errore di esecuzione; le altre sono consentite, ma fanno la cosa sbagliata.</p></li><li class="li-enumerate">Fate copie per evitare gli alias.
+<a id="hevea_default780"></a>
+<a id="hevea_default781"></a><p>Se volete usare un metodo come <span class="c003">sort</span> che modifica l’argomento, ma anche mantenere inalterata la lista di origine, potete farne una copia.</p><pre class="verbatim">&gt;&gt;&gt; t = [3, 1, 2]
+&gt;&gt;&gt; t2 = t[:]
+&gt;&gt;&gt; t2.sort()
+&gt;&gt;&gt; t
+[3, 1, 2]
+&gt;&gt;&gt; t2
+[1, 2, 3]
+</pre><p>In questo esempio, si può anche usare la funzione predefinita <span class="c003">sorted</span>,
+che restituisce una nuova lista ordinata e lascia intatta quella di origine.
+<a id="hevea_default782"></a>
+<a id="hevea_default783"></a></p><pre class="verbatim">&gt;&gt;&gt; t2 = sorted(t)
+&gt;&gt;&gt; t
+[3, 1, 2]
+&gt;&gt;&gt; t2
+[1, 2, 3]
+</pre></li></ol>
+<h2 class="section" id="sec130">10.14  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">lista:</span></dt><dd class="dd-description"> Una sequenza di valori.
+<a id="hevea_default784"></a></dd><dt class="dt-description"><span class="c009">elemento:</span></dt><dd class="dd-description"> Uno dei valori in una lista (o in altri tipi di sequenza).
+<a id="hevea_default785"></a></dd><dt class="dt-description"><span class="c009">lista nidificata:</span></dt><dd class="dd-description"> Lista che è contenuta come elemento in un’altra lista.
+<a id="hevea_default786"></a></dd><dt class="dt-description"><span class="c009">accumulatore:</span></dt><dd class="dd-description"> Variabile usata in un ciclo per sommare cumulativamente un risultato.
+<a id="hevea_default787"></a></dd><dt class="dt-description"><span class="c009">assegnazione potenziata:</span></dt><dd class="dd-description"> Istruzione che aggiorna un valore di una variabile usando un operatore come <code>+=</code>.
+<a id="hevea_default788"></a>
+<a id="hevea_default789"></a></dd><dt class="dt-description"><span class="c009">riduzione:</span></dt><dd class="dd-description"> Schema di calcolo che attraversa una sequenza e ne accumula gli elementi in un singolo risultato.
+<a id="hevea_default790"></a>
+<a id="hevea_default791"></a></dd><dt class="dt-description"><span class="c009">mappa:</span></dt><dd class="dd-description"> Schema di calcolo che attraversa una sequenza ed esegue una stessa operazione su ciascun elemento della sequenza.
+<a id="hevea_default792"></a>
+<a id="hevea_default793"></a></dd><dt class="dt-description"><span class="c009">filtro:</span></dt><dd class="dd-description"> Schema di calcolo che attraversa una lista e seleziona solo gli elementi che soddisfano un dato criterio.
+<a id="hevea_default794"></a>
+<a id="hevea_default795"></a></dd><dt class="dt-description"><span class="c009">oggetto:</span></dt><dd class="dd-description"> Qualcosa a cui una variabile può fare riferimento. Un oggetto ha un tipo e un valore.
+<a id="hevea_default796"></a></dd><dt class="dt-description"><span class="c009">equivalente:</span></dt><dd class="dd-description"> Avente lo stesso valore.
+<a id="hevea_default797"></a></dd><dt class="dt-description"><span class="c009">identico:</span></dt><dd class="dd-description"> Essere lo stesso oggetto (implica anche l’equivalenza).
+<a id="hevea_default798"></a></dd><dt class="dt-description"><span class="c009">riferimento:</span></dt><dd class="dd-description"> L’associazione tra una variabile e il suo valore.
+<a id="hevea_default799"></a></dd><dt class="dt-description"><span class="c009">alias:</span></dt><dd class="dd-description"> Due o più variabili che si riferiscono allo stesso oggetto, con nomi diversi.
+<a id="hevea_default800"></a></dd><dt class="dt-description"><span class="c009">delimitatore:</span></dt><dd class="dd-description"> Carattere o stringa usato per indicare i punti dove una stringa deve essere spezzata.
+<a id="hevea_default801"></a></dd></dl>
+<h2 class="section" id="sec131">10.15  Esercizi</h2>
+<p>Potete scaricare le soluzioni degli esercizi seguenti all’indirizzo
+<a href="http://thinkpython2.com/code/list_exercises.py"><span class="c003">http://thinkpython2.com/code/list_exercises.py</span></a>.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete una funzione di nome <code>somma_nidificata</code> che prenda una lista di liste di numeri interi e sommi gli elementi di tutte le liste nidificate.
+Esempio:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; t = [[1, 2], [3], [4, 5, 6]]
+&gt;&gt;&gt; somma_nidificata(t)
+21
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="cumulative"></a>
+<a id="hevea_default802"></a><p><em>Scrivete una funzione di nome <code>somma_cumulata</code> che prenda una lista di numeri e restituisca la somma cumulata, cioè una nuova lista dove l’</em><span class="c008">i</span><em>-esimo elemento è la somma dei primi </em><span class="c008">i</span>+1<em> elementi della lista di origine. Per esempio:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; somma_cumulata(t)
+[1, 3, 6]
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  <p><em>Scrivete una funzione di nome <code>mediani</code> che prenda una lista e restituisca una nuova lista che contenga tutti gli elementi, esclusi il primo e l’ultimo.
+Esempio:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; t = [1, 2, 3, 4]
+&gt;&gt;&gt; mediani(t)
+[2, 3]
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  <p><em>Scrivete una funzione di nome <code>tronca</code> che prenda una lista, la modifichi togliendo il primo e l’ultimo elemento, e restituisca <span class="c003">None</span>.
+Esempio:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; t = [1, 2, 3, 4]
+&gt;&gt;&gt; tronca(t)
+&gt;&gt;&gt; t
+[2, 3]
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  <em>
+Scrivete una funzione di nome <code>ordinata</code> che prenda una lista come parametro e restituisca <span class="c003">True</span> se la lista è ordinata in senso crescente, <span class="c003">False</span> altrimenti. Esempio:</em><pre class="verbatim"><em>&gt;&gt;&gt; ordinata([1, 2, 2])
+True
+&gt;&gt;&gt; ordinata(['b', 'a'])
+False
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 6</span>  
+<a id="anagram"></a>
+<a id="hevea_default803"></a><p><em>Due parole sono anagrammi se potete ottenerle riordinando le lettere di cui sono composte. Scrivete una funzione di nome <code>anagramma</code>
+che riceva due stringhe e restituisca <span class="c003">True</span> se sono anagrammi.
+</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 7</span>  
+<a id="duplicate"></a>
+<a id="hevea_default804"></a>
+<a id="hevea_default805"></a><p><em>Scrivete una funzione di nome <code>ha_duplicati</code> che richieda una lista e restituisca <span class="c003">True</span> se contiene elementi che compaiono più di una volta. Non deve modificare la lista di origine.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 8</span>  <p><em>Questo è un esercizio sul cosiddetto “Paradosso del compleanno”; potete approfondirlo leggendo </em><a href="http://it.wikipedia.org/wiki/Paradosso_del_compleanno"><em><span class="c003">http://it.wikipedia.org/wiki/Paradosso_del_compleanno</span></em></a><em>.
+</em><a id="hevea_default806"></a></p><p><em>Se in una classe ci sono 23 studenti, quante probabilità ci sono che due di loro compiano gli anni lo stesso giorno? Potete stimare questa probabilità generando alcuni campioni a caso di 23 date e controllando le corrispondenze. Suggerimento: per generare date in modo casuale usate la funzione <span class="c003">randint</span> nel modulo <span class="c003">random</span>.
+</em><a id="hevea_default807"></a>
+<a id="hevea_default808"></a>
+<a id="hevea_default809"></a>
+<a id="hevea_default810"></a></p><p><em>Potete scaricare la mia soluzione da </em><a href="http://thinkpython2.com/code/birthday.py"><em><span class="c003">http://thinkpython2.com/code/birthday.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 9</span>  
+<a id="hevea_default811"></a>
+<a id="hevea_default812"></a>
+<a id="hevea_default813"></a>
+<a id="hevea_default814"></a><p><em>Scrivete una funzione che legga il file <span class="c003">words.txt</span> e crei una lista in cui ogni parola è un elemento. Scrivete due versioni della funzione, una che usi il metodo <span class="c003">append</span> e una il costrutto <span class="c003">t = t + [x]</span>. Quale richiede più tempo di esecuzione? Perché?</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/wordlist.py"><em><span class="c003">http://thinkpython2.com/code/wordlist.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 10</span>  
+<a id="wordlist1"></a>
+<a id="bisection"></a>
+<a id="hevea_default815"></a>
+<a id="hevea_default816"></a>
+<a id="hevea_default817"></a>
+<a id="hevea_default818"></a><p><em>Per controllare se una parola è contenuta in un elenco, è possibile usare l’operatore <span class="c003">in</span>, ma è un metodo lento, perché ricerca le parole seguendo il loro ordine.</em></p><p><em>Dato che le parole sono in ordine alfabetico, possiamo accelerare l’operazione con una ricerca binaria (o per bisezione), che è un po’ come cercare una parola nel vocabolario.
+Partite nel mezzo e controllate se la parola che cercate viene prima o dopo la parola di metà elenco. Se prima, cercherete nella prima metà nello stesso modo, se dopo, cercherete nella seconda metà.</em></p><p><em>Ad ogni passaggio, dimezzate lo spazio di ricerca. Se l’elenco ha 113.809 parole, ci vorranno circa 17 passaggi per trovare la parola o concludere che non c’è.</em></p><p><em>Scrivete una funzione di nome <span class="c003">bisezione</span> che richieda una lista ordinata e un valore da ricercare, e restituisca <span class="c003">True</span> se la parola fa parte della lista, o <span class="c003">False</span> se non è presente.
+</em><a id="hevea_default819"></a>
+<a id="hevea_default820"></a></p><p><em>Oppure, potete leggere la documentazione del modulo <span class="c003">bisect</span> e usare quello! Soluzione: </em><a href="http://thinkpython2.com/code/inlist.py"><span class="c003"><em>http://thinkpython2.com/code/inlist.py</em></span></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 11</span>  
+<a id="hevea_default821"></a><p><em>Una coppia di parole è “bifronte” se l’una si legge nel verso opposto dell’altra. Scrivete un programma che trovi tutte le parole bifronti nella lista di parole. Soluzione: </em><a href="http://thinkpython2.com/code/reverse_pair.py"><em><span class="c003">http://thinkpython2.com/code/reverse_pair.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 12</span>  
+<a id="hevea_default822"></a><p><em>Due parole si “incastrano” se, prendendo le loro lettere alternativamente dall’una e dall’altra, si forma una nuova parola. Per esempio, le parole inglesi “shoe” and “cold” incastrandosi formano “schooled”.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete un programma che trovi tutte le coppie di parole che possono incastrarsi. Suggerimento: non elaborate tutte le coppie!</em></li><li class="li-enumerate"><em>Riuscite a trovare dei gruppi di tre parole che possono incastrarsi tra loro? Cioè, tre parole da cui, prendendo le lettere una ad una alternativamente, nell’ordine, si formi una nuova parola? (Es. “ace”, “bus” e “as” danno “abacuses”)</em></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/interlock.py"><em><span class="c003">http://thinkpython2.com/code/interlock.py</span></em></a><em>.
+Fonte: Questo esercizio è tratto da un esempio di </em><a href="http://puzzlers.org"><em><span class="c003">http://puzzlers.org</span></em></a><em>.
+</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian010.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian012.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

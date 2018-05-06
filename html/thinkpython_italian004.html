@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Funzioni</title>
+</head>
+<body>
+<a href="thinkpython_italian003.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian005.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec29">Chapter 3  Funzioni</h1>
+<p>
+<a id="funcchap"></a></p><p>Nell’ambito della programmazione, una <span class="c009">funzione</span> è una serie di istruzioni che esegue un calcolo, alla quale viene assegnato un nome. Per definire una funzione, dovete specificarne il nome e scrivere la serie di istruzioni. In un secondo tempo, potete “chiamare” la funzione mediante il nome che le avete assegnato. 
+<a id="hevea_default146"></a></p>
+<h2 class="section" id="sec30">3.1  Chiamate di funzione</h2>
+<p>
+<a id="functionchap"></a>
+<a id="hevea_default147"></a></p><p>Abbiamo già visto un esempio di una <span class="c009">chiamata di funzione</span>:</p><pre class="verbatim">&gt;&gt;&gt; type(42)
+&lt;class 'int'&gt;
+</pre><p>
+Il nome di questa funzione è <span class="c003">type</span>. L’espressione tra parentesi è chiamata <span class="c009">argomento</span> della funzione, e il risultato che produce è il tipo di valore dell’argomento che abbiamo inserito.
+<a id="hevea_default148"></a></p><p>Si usa dire che una funzione “prende” o “riceve” un argomento e, una volta eseguita l’elaborazione, “ritorna” o “restituisce” un risultato. Il risultato è detto <span class="c009">valore di ritorno</span>.
+<a id="hevea_default149"></a>
+<a id="hevea_default150"></a></p><p>Python contiene una raccolta di funzioni per convertire i valori da un tipo a un altro. La funzione <span class="c003">int</span> prende un dato valore e lo converte, se possibile, in un numero intero. Se la conversione è impossibile, Python comunica che si è verificato un errore:
+<a id="hevea_default151"></a>
+<a id="hevea_default152"></a>
+<a id="hevea_default153"></a></p><pre class="verbatim">&gt;&gt;&gt; int('32')
+32
+&gt;&gt;&gt; int('Ciao')
+ValueError: invalid literal for int(): Ciao
+</pre><p>
+<span class="c003">int</span> può anche convertire valori in virgola mobile in interi, ma non arrotonda bensì tronca la parte decimale.</p><pre class="verbatim">&gt;&gt;&gt; int(3.99999)
+3
+&gt;&gt;&gt; int(-2.3)
+-2
+</pre><p>
+La funzione <span class="c003">float</span> converte interi e stringhe in numeri a virgola mobile:
+<a id="hevea_default154"></a>
+<a id="hevea_default155"></a></p><pre class="verbatim">&gt;&gt;&gt; float(32)
+32.0
+&gt;&gt;&gt; float('3.14159')
+3.14159
+</pre><p>
+Infine, <span class="c003">str</span> converte l’argomento in una stringa:
+<a id="hevea_default156"></a>
+<a id="hevea_default157"></a></p><pre class="verbatim">&gt;&gt;&gt; str(32)
+'32'
+&gt;&gt;&gt; str(3.14159)
+'3.14159'
+</pre>
+<h2 class="section" id="sec31">3.2  Funzioni matematiche</h2>
+<p>
+<a id="hevea_default158"></a></p><p>Python è provvisto di un modulo matematico che comprende buona parte delle funzioni matematiche d’uso frequente. Un <span class="c009">modulo</span> è un file che contiene una raccolta di funzioni correlate.
+<a id="hevea_default159"></a>
+<a id="hevea_default160"></a></p><p>Prima di poter usare le funzioni contenute in un modulo, lo dobbiamo importare con un’<span class="c009">istruzione di importazione</span>:</p><pre class="verbatim">&gt;&gt;&gt; import math
+</pre><p>
+Questa istruzione crea un <span class="c009">oggetto modulo</span> chiamato math. Se visualizzate l’oggetto modulo, ottenete alcune informazioni a riguardo:</p><pre class="verbatim">&gt;&gt;&gt; math
+&lt;module 'math' (built-in)&gt;
+</pre><p>
+L’oggetto modulo contiene le funzioni e le variabili definite all’interno del modulo stesso. Per accedere a una funzione del modulo, dovete specificare, nell’ordine, il nome del modulo e il nome della funzione, separati da un punto. Questo formato è chiamato <span class="c009">notazione a punto</span> o <em>dot notation</em>.
+<a id="hevea_default161"></a>
+<a id="hevea_default162"></a></p><pre class="verbatim">&gt;&gt;&gt; rapporto = potenza_segnale / potenza_rumore
+&gt;&gt;&gt; decibel = 10 * math.log10(rapporto)
+
+&gt;&gt;&gt; radianti = 0.7
+&gt;&gt;&gt; altezza = math.sin(radianti)
+</pre><p>
+Il primo esempio utilizza la funzione <code>math.log10</code> per calcolare un rapporto segnale/rumore in decibel (a condizione che siano stati definiti i valori di <code>potenza_segnale</code> e <code>potenza_rumore</code>). Il modulo math contiene anche <span class="c003">log</span>, che calcola i logaritmi naturali in base <span class="c003">e</span>.
+<a id="hevea_default163"></a>
+<a id="hevea_default164"></a>
+<a id="hevea_default165"></a>
+<a id="hevea_default166"></a>
+<a id="hevea_default167"></a></p><p>Il secondo esempio calcola il seno della variabile <span class="c003">radianti</span>. Il nome della variabile spiega già che <span class="c003">sin</span> e le altre funzioni trigonometriche (<span class="c003">cos</span>, <span class="c003">tan</span>, ecc.) accettano argomenti espressi in radianti. Per convertire da gradi in radianti occorre dividere per 180 e moltiplicare per π:</p><pre class="verbatim">&gt;&gt;&gt; gradi = 45
+&gt;&gt;&gt; radianti = gradi / 180.0 * math.pi
+&gt;&gt;&gt; math.sin(radianti)
+0.707106781187
+</pre><p>
+L’espressione <span class="c003">math.pi</span> ricava la variabile <span class="c003">pi</span> dal modulo matematico. Il suo valore è un numero decimale, approssimazione di π, accurata a circa 15 cifre. 
+<a id="hevea_default168"></a></p><p>Se ricordate la trigonometria, potete verificare il risultato precedente confrontandolo con la radice quadrata di 2 diviso 2:
+<a id="hevea_default169"></a>
+<a id="hevea_default170"></a></p><pre class="verbatim">&gt;&gt;&gt; math.sqrt(2) / 2.0
+0.707106781187
+</pre>
+<h2 class="section" id="sec32">3.3  Composizione</h2>
+<p>
+<a id="hevea_default171"></a></p><p>Finora, abbiamo considerato gli elementi di un programma - variabili, espressioni e istruzioni - separatamente, senza discutere di come utilizzarli insieme.</p><p>Una delle caratteristiche più utili dei linguaggi di programmazione è la loro capacità di prendere dei piccoli mattoni e <span class="c009">comporli</span> tra loro. Per esempio, l’argomento di una funzione può essere un qualunque tipo di espressione, operazioni aritmetiche incluse:</p><pre class="verbatim">x = math.sin(gradi / 360.0 * 2 * math.pi)
+</pre><p>
+E anche chiamate di funzione:</p><pre class="verbatim">x = math.exp(math.log(x+1))
+</pre><p>
+In linea generale, dovunque potete mettere un valore potete anche mettere un’espressione a piacere, con un’eccezione: il lato sinistro di un’istruzione di assegnazione deve essere un nome di variabile. Ogni altra espressione darebbe un errore di sintassi (vedremo più avanti le eccezioni a questa regola).</p><pre class="verbatim">&gt;&gt;&gt; minuti = ore * 60                 # giusto
+&gt;&gt;&gt; ore * 60 = minuti                 # sbagliato!
+SyntaxError: can't assign to operator
+</pre><p>
+<a id="hevea_default172"></a>
+<a id="hevea_default173"></a></p>
+<h2 class="section" id="sec33">3.4  Aggiungere nuove funzioni</h2>
+<p>Finora abbiamo usato solo funzioni predefinite o “built-in”, che sono parte integrante di Python, ma è anche possibile crearne di nuove.
+Una <span class="c009">definizione di funzione</span> specifica il nome di una nuova funzione e la serie di istruzioni che viene eseguita quando la funzione viene chiamata.
+<a id="hevea_default174"></a>
+<a id="hevea_default175"></a>
+<a id="hevea_default176"></a></p><p>Ecco un esempio:</p><pre class="verbatim">def stampa_brani():
+    print('Terror di tutta la foresta egli è,')
+    print("Con l'ascia in mano si sente un re.")
+</pre><p>
+<span class="c003">def</span> è una parola chiave riservata che indica la definizione di una nuova funzione. Il nome della funzione è <code>stampa_brani</code>. Le regole per i nomi delle funzioni sono le stesse dei nomi delle variabili: lettere, numeri e underscore (<code>_</code>) sono permessi, ma il primo carattere non può essere un numero. Non si possono usare parole riservate, e bisogna evitare di avere una funzione e una variabile con lo stesso nome
+<a id="hevea_default177"></a>
+<a id="hevea_default178"></a>
+<a id="hevea_default179"></a></p><p>Le parentesi vuote dopo il nome indicano che la funzione non accetta alcun argomento.
+<a id="hevea_default180"></a>
+<a id="hevea_default181"></a>
+<a id="hevea_default182"></a>
+<a id="hevea_default183"></a>
+<a id="hevea_default184"></a></p><p>La prima riga della definizione di funzione è chiamata <span class="c009">intestazione</span>;
+il resto è detto <span class="c009">corpo</span>. L’intestazione deve terminare con i due punti, e il corpo deve essere obbligatoriamente indentato, cioè deve avere un rientro rispetto all’intestazione. Per convenzione, l’indentazione è sempre di quattro spazi. Il corpo può contenere un qualsiasi numero di istruzioni.</p><p>Le stringhe nelle istruzioni di stampa sono racchiuse tra apici (<code>' '</code>) oppure virgolette (<code>" "</code>). Virgolette e apici sono equivalenti; la maggioranza degli utenti usa gli apici, eccetto nei casi in cui nel testo da stampare sono contenuti degli apici (che possono essere usati anche come apostrofi o accenti). In questi casi, frequenti con l’italiano, bisogna usare le virgolette.</p><p>Virgolette e apici devono essere alti e di tipo indifferenziato, quelli che trovate tra i simboli in alto sulla vostra tastiera. Altre virgolette “tipografiche”, come quelle in questa frase, non sono valide in Python.</p><p>Se scrivete una funzione in modalità interattiva, l’interprete mette tre puntini di sospensione (<em>...</em>) per indicare che la definizione non è completa:
+<a id="hevea_default185"></a></p><pre class="verbatim">&gt;&gt;&gt; def stampa_brani():
+...     print('Terror di tutta la foresta egli è,')
+...     print("Con l'ascia in mano si sente un re.")
+...
+</pre><p>
+Per concludere la funzione, dovete inserire una riga vuota.</p><p>La definizione di una funzione crea un <span class="c009">oggetto funzione</span> che è di tipo <code>function</code>:
+<a id="hevea_default186"></a>
+<a id="hevea_default187"></a></p><pre class="verbatim">&gt;&gt;&gt; print(stampa_brani)
+&lt;function stampa_brani at 0xb7e99e9c&gt;
+&gt;&gt;&gt; type(stampa_brani)
+&lt;class 'function'&gt;
+</pre><p>La sintassi per chiamare la nuova funzione è la stessa che abbiamo visto per le funzioni predefinite:</p><pre class="verbatim">&gt;&gt;&gt; stampa_brani()
+Terror di tutta la foresta egli è,
+Con l'ascia in mano si sente un re.
+</pre><p>
+Una volta definita una funzione, si può utilizzarla all’interno di un’altra funzione. Per esempio, per ripetere due volte il brano precedente possiamo scrivere una funzione <code>ripeti_brani</code>:</p><pre class="verbatim">def ripeti_brani():
+    stampa_brani()
+    stampa_brani()
+</pre><p>
+E quindi chiamare <code>ripeti_brani</code>:</p><pre class="verbatim">&gt;&gt;&gt; ripeti_brani()
+Terror di tutta la foresta egli è,
+Con l'ascia in mano si sente un re.
+Terror di tutta la foresta egli è,
+Con l'ascia in mano si sente un re.
+</pre><p>
+Ma a dire il vero, la canzone del taglialegna non fa così!</p>
+<h2 class="section" id="sec34">3.5  Definizioni e loro utilizzo</h2>
+<p>
+<a id="hevea_default188"></a></p><p>Raggruppando assieme i frammenti di codice del Paragrafo precedente, il programma diventa:</p><pre class="verbatim">def stampa_brani():
+    print('Terror di tutta la foresta egli è,')
+    print("Con l'ascia in mano si sente un re.")
+
+def ripeti_brani():
+    stampa_brani()
+    stampa_brani()
+
+ripeti_brani()
+</pre><p>Questo programma contiene due definizioni di funzione: <code>stampa_brani</code> e
+<code>ripeti_brani</code>. Le definizioni di funzione sono eseguite come le altre istruzioni, ma il loro effetto è solo quello di creare una nuova funzione. Le istruzioni all’interno di una definizione non vengono eseguite fino a quando la funzione non viene chiamata, e la definizione di per sé non genera alcun risultato.</p><p>Ovviamente, una funzione deve essere definita prima di poterla usare: la definizione della funzione deve sempre precedere la sua chiamata.
+<a id="hevea_default189"></a></p><p>Come esercizio, spostate l’ultima riga del programma all’inizio, per fare in modo che la chiamata della funzione appaia prima della definizione. Eseguite il programma e guardate che tipo di messaggio d’errore ottenete.</p><p>Ora riportate la chiamata della funzione al suo posto, e spostate la definizione di <code>stampa_brani</code> dopo la definizione di <code>ripeti_brani</code>. Cosa succede quando avviate il programma?</p>
+<h2 class="section" id="sec35">3.6  Flusso di esecuzione</h2>
+<p>
+<a id="hevea_default190"></a></p><p>Per essere sicuri che una funzione sia stata definita prima di essere utilizzata, dovete conoscere l’ordine in cui le istruzioni vengono eseguite, che è chiamato <span class="c009">flusso di esecuzione</span>.</p><p>L’esecuzione inizia sempre dalla prima istruzione del programma; quindi, le istruzioni successive sono eseguite una alla volta, procedendo dall’alto verso il basso.</p><p>Le definizioni di funzione non cambiano il flusso di esecuzione del programma, ma ricordate che le istruzioni all’interno delle funzioni non vengono eseguite fino a quando la funzione non viene chiamata. </p><p>Quando viene chiamata una funzione, si genera una specie di deviazione nel flusso di esecuzione: anziché proseguire con l’istruzione successiva, il flusso salta nel corpo della funzione chiamata, ne esegue le istruzioni, e infine riprende il percorso dal punto che aveva lasciato.</p><p>Parrebbe tutto abbastanza semplice, se non fosse che una funzione può chiamarne un’altra. Mentre si trova all’interno di una funzione, il programma può dover eseguire le istruzioni che si trovano in un’altra funzione. Poi, mentre esegue quella nuova funzione, il programma potrebbe andare ad eseguirne un’altra ancora!</p><p>Fortunatamente, Python sa tener bene traccia di dove si trova: ogni volta che una funzione viene completata, il programma ritorna al punto della funzione chiamante che aveva lasciato. E una volta giunto alla fine, termina il suo lavoro.</p><p>Concludendo, nel leggere un programma non è sempre opportuno farlo dall’alto in basso. Spesso è più logico seguire il flusso di esecuzione.</p>
+<h2 class="section" id="sec36">3.7  Parametri e argomenti</h2>
+<p>
+<a id="parametri"></a>
+<a id="hevea_default191"></a>
+<a id="hevea_default192"></a>
+<a id="hevea_default193"></a>
+<a id="hevea_default194"></a></p><p>Alcune delle funzioni che abbiamo visto richiedono degli argomenti. Per esempio, se volete trovare il seno di un numero chiamando la funzione <span class="c003">math.sin</span>, dovete passarle quel numero come argomento. Alcune funzioni ricevono più di un argomento: a <span class="c003">math.pow</span> ne servono due, che sono la base e l’esponente dell’operazione di elevamento a potenza. </p><p>All’interno della funzione, gli argomenti che le vengono passati sono assegnati ad altrettante variabili chiamate <span class="c009">parametri</span>. Ecco un esempio di definizione di una funzione che riceve un argomento:
+<a id="hevea_default195"></a></p><pre class="verbatim">def stampa2volte(bruce):
+    print(bruce)
+    print(bruce)
+</pre><p>
+Questa funzione assegna l’argomento ricevuto ad un parametro chiamato <span class="c003">bruce</span>. Quando la funzione viene chiamata, stampa il valore del parametro (qualunque esso sia) due volte.</p><p>Questa funzione elabora qualunque valore che possa essere stampato.</p><pre class="verbatim">&gt;&gt;&gt; stampa2volte('Spam')
+Spam
+Spam
+&gt;&gt;&gt; stampa2volte(42)
+42
+42
+&gt;&gt;&gt; stampa2volte(math.pi)
+3.14159265359
+3.14159265359
+</pre><p>
+Le stesse regole di composizione che valgono per le funzioni predefinite si applicano anche alle funzioni definite da un programmatore, pertanto possiamo usare come argomento per <code>stampa2volte</code> qualsiasi espressione:
+<a id="hevea_default196"></a>
+<a id="hevea_default197"></a></p><pre class="verbatim">&gt;&gt;&gt; stampa2volte('Spam '*4)
+Spam Spam Spam Spam
+Spam Spam Spam Spam
+&gt;&gt;&gt; stampa2volte(math.cos(math.pi))
+-1.0
+-1.0
+</pre><p>
+L’argomento viene valutato prima della chiamata alla funzione, pertanto nell’esempio appena proposto le espressioni <code>'Spam '*4</code> e
+<span class="c003">math.cos(math.pi)</span> vengono valutate una volta sola.
+<a id="hevea_default198"></a></p><p>Potete anche usare una variabile come argomento di una funzione:</p><pre class="verbatim">&gt;&gt;&gt; michael = 'Eric, the half a bee.'
+&gt;&gt;&gt; stampa2volte(michael)
+Eric, the half a bee.
+Eric, the half a bee.
+</pre><p>
+Il nome della variabile che passiamo come argomento (<span class="c003">michael</span>) non ha niente a che fare con il nome del parametro nella definizione della funzione (<span class="c003">bruce</span>). Non ha importanza come era stato denominato il valore di partenza (nel codice chiamante); qui in <code>stampa2volte</code>, chiamiamo tutto quanto <span class="c003">bruce</span>.</p>
+<h2 class="section" id="sec37">3.8  Variabili e parametri sono locali</h2>
+<p>
+<a id="hevea_default199"></a></p><p>Quando create una variabile in una funzione, essa è <span class="c009">locale</span>,
+cioè esiste solo all’interno della funzione. Per esempio:
+<a id="hevea_default200"></a></p><pre class="verbatim">def cat2volte(parte1, parte2):
+    cat = parte1 + parte2
+    stampa2volte(cat)
+</pre><p>
+Questa funzione prende due argomenti, li concatena e poi stampa il risultato per due volte. Ecco un esempio che la utilizza:
+<a id="hevea_default201"></a></p><pre class="verbatim">&gt;&gt;&gt; riga1 = 'Bing tiddle '
+&gt;&gt;&gt; riga2 = 'tiddle bang.'
+&gt;&gt;&gt; cat2volte(riga1, riga2)
+Bing tiddle tiddle bang.
+Bing tiddle tiddle bang.
+</pre><p>
+Quando <code>cat2volte</code> termina, la variabile <span class="c003">cat</span> viene distrutta. Se provassimo a stamparla, otterremmo infatti un messaggio d’errore:
+<a id="hevea_default202"></a>
+<a id="hevea_default203"></a></p><pre class="verbatim">&gt;&gt;&gt; print(cat)
+NameError: name 'cat' is not defined
+</pre><p>
+Anche i parametri sono locali: esternamente alla funzione <code>stampa2volte</code>, non esiste nulla di nome <span class="c003">bruce</span>.
+<a id="hevea_default204"></a></p>
+<h2 class="section" id="sec38">3.9  Diagrammi di stack</h2>
+<p>
+<a id="stackdiagram"></a>
+<a id="hevea_default205"></a>
+<a id="hevea_default206"></a>
+<a id="hevea_default207"></a></p><p>Per tenere traccia di quali variabili possono essere usate e dove, a volte può risultare utile disegnare un <span class="c009">diagramma di stack</span>. Come i diagrammi di stato, i diagrammi di stack mostrano il valore di ciascuna variabile, ma in più indicano a quale funzione essa appartiene.</p><p>Ciascuna funzione è rappresentata da un <span class="c009">frame</span>, un riquadro che riporta a fianco il nome della funzione e all’interno un elenco dei suoi parametri e delle sue variabili. Nel caso dell’esempio precedente, il diagramma di stack è illustrato in Figura <a href="#fig.stack">3.1</a>.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian002.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 3.1: Diagramma di stack.</td></tr>
+</table></div>
+<a id="fig.stack"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>I frame sono disposti in una pila che indica quale funzione ne ha chiamata un’altra e così via. Nell’esempio, <code>stampa2volte</code> è stata chiamata da <code>cat2volte</code>, e <code>cat2volte</code> è stata a sua volta chiamata da 
+<code>__main__</code>, che è un nome speciale per il frame principale. Quando si crea una variabile che è esterna ad ogni funzione, essa appartiene a 
+<code>__main__</code>.
+<a id="hevea_default208"></a></p><p>Ogni parametro fa riferimento allo stesso valore del suo argomento corrispondente. Così, <span class="c003">parte1</span> ha lo stesso valore di
+<span class="c003">riga1</span>, <span class="c003">parte2</span> ha lo stesso valore di <span class="c003">riga2</span>,
+e <span class="c003">bruce</span> ha lo stesso valore di <span class="c003">cat</span>.</p><p>Se si verifica un errore durante la chiamata di una funzione, Python mostra il nome della funzione, il nome della funzione che l’ha chiamata, il nome della funzione che a sua volta ha chiamato quest’ultima e così via, fino a raggiungere il primo livello che è sempre <code>__main__</code>.</p><p>Ad esempio se cercate di accedere a <span class="c003">cat</span> dall’interno di
+<code>stampa2volte</code>, ottenete un errore di tipo <span class="c003">NameError</span>:</p><pre class="verbatim">Traceback (innermost last):
+  File "test.py", line 13, in __main__
+    cat2volte(riga1, riga2)
+  File "test.py", line 5, in cat2volte
+    stampa2volte(cat)
+  File "test.py", line 9, in stampa2volte
+    print(cat)
+NameError: name 'cat' is not defined
+</pre><p>
+Questo elenco di funzioni è detto <span class="c009">traceback</span>. Il traceback vi dice in quale file è avvenuto l’errore, e in quale riga, e quale funzione era in esecuzione in quel momento. Mostra anche la riga di codice che ha causato l’errore.
+<a id="hevea_default209"></a></p><p>L’ordine delle funzioni nel traceback è lo stesso di quello dei frame nel diagramma di stack. La funzione attualmente in esecuzione si trova in fondo all’elenco.</p>
+<h2 class="section" id="sec39">3.10  Funzioni “produttive” e funzioni “vuote”</h2>
+<p>
+<a id="hevea_default210"></a>
+<a id="hevea_default211"></a> </p><p>Alcune delle funzioni che abbiamo usato, come le funzioni matematiche, restituiscono dei risultati; in mancanza di definizioni migliori, personalmente le chiamo <span class="c009">funzioni “produttive”</span>. Altre funzioni, come <code>stampa2volte</code>, eseguono un’azione ma non restituiscono alcun valore. Le chiameremo <span class="c009">funzioni “vuote”</span>.</p><p>Quando chiamate una funzione produttiva, quasi sempre è per fare qualcosa di utile con il suo risultato, tipo assegnarlo a una variabile o usarlo come parte di un’espressione.</p><pre class="verbatim">x = math.cos(radianti)
+aureo = (math.sqrt(5) + 1) / 2
+</pre><p>
+Se chiamate una funzione in modalità interattiva, Python ne mostra il risultato:</p><pre class="verbatim">&gt;&gt;&gt; math.sqrt(5)
+2.2360679774997898
+</pre><p>
+Ma in uno script, se chiamate una funzione produttiva così come è, il valore di ritorno è perso!</p><pre class="verbatim">math.sqrt(5)
+</pre><p>
+Questo script in effetti calcola la radice quadrata di 5, ma non conserva nè visualizza il risultato, per cui non è di grande utilità.
+<a id="hevea_default212"></a>
+<a id="hevea_default213"></a></p><p>Le funzioni vuote possono visualizzare qualcosa sullo schermo o avere qualche altro effetto, ma non restituiscono un valore. Se provate comunque ad assegnare il risultato ad una variabile, ottenete un valore speciale chiamato
+<span class="c003">None</span> (nulla).
+<a id="hevea_default214"></a>
+<a id="hevea_default215"></a></p><pre class="verbatim">&gt;&gt;&gt; risultato = stampa2volte('Bing')
+Bing
+Bing
+&gt;&gt;&gt; print(risultato)
+None
+</pre><p>
+Il valore <span class="c003">None</span> non è la stessa cosa della stringa <code>'None'</code>. 
+È un valore speciale che appartiene ad un tipo tutto suo:</p><pre class="verbatim">&gt;&gt;&gt; type(None)
+&lt;class 'NoneType'&gt;
+</pre><p>
+Le funzioni che abbiamo scritto finora, sono tutte vuote. Cominceremo a scriverne di produttive tra alcuni capitoli.</p>
+<h2 class="section" id="sec40">3.11  Perché usare le funzioni?</h2>
+<p>
+<a id="hevea_default216"></a></p><p>Potrebbe non esservi ancora ben chiaro perché valga la pena di suddividere il programma in funzioni. Ecco alcuni motivi:</p><ul class="itemize"><li class="li-itemize">Creare una nuova funzione vi dà modo di dare un nome a un gruppo di istruzioni, rendendo il programma più facile da leggere e da correggere.</li><li class="li-itemize">Le funzioni possono rendere un programma più breve, eliminando il codice ripetitivo. Se in un secondo tempo dovete fare una modifica, basterà farla in un posto solo.</li><li class="li-itemize">Dividere un programma lungo in funzioni vi permette di correggere le parti una per una, per poi assemblarle in un complesso funzionante.</li><li class="li-itemize">Funzioni ben fatte sono spesso utili per più programmi. Quando ne avete scritta e corretta una, la potete riutilizzare tale e quale.</li></ul>
+<h2 class="section" id="sec41">3.12  Debug</h2>
+<p>
+<a id="editor"></a>
+<a id="hevea_default217"></a></p><p>Saper rintracciare e correggere gli errori è una essenziale qualità che dovete acquisire. Anche se a volte può essere demotivante, si tratta infatti di una delle parti più intellettualmente ricche, stimolanti ed interessanti della programmazione.
+<a id="hevea_default218"></a></p><p>Possiamo paragonare il debug al lavoro di un investigatore: avete a disposizione degli indizi e dovete ricostruire quali processi ed eventi hanno prodotto il risultato che osservate.</p><p>Il debug è anche simile ad una scienza sperimentale. Quando pensate di aver capito cosa può avere provocato un errore, modificate il programma di conseguenza e riprovate di nuovo. Se l’ipotesi era giusta, avete saputo prevedere il risultato della modifica e vi siete avvicinati di un passo ad un programma funzionante. Se l’ipotesi era sbagliata, ne dovete formulare un’altra. Come disse Sherlock Holmes: “Una volta eliminato l’impossibile, qualsiasi cosa rimanga, per quanto improbabile, deve essere la verità.”
+(A. Conan Doyle, <em>Il segno dei quattro</em>)
+<a id="hevea_default219"></a>
+<a id="hevea_default220"></a></p><p>Per alcuni, la programmazione e la rimozione degli errori sono in fondo la stessa cosa: programmare è una procedura di graduale rimozione degli errori da un programma, fino a quando non funziona a dovere. L’idea di fondo è di iniziare con un programma funzionante e di fare ogni volta piccole modifiche, effettuandone man mano il debug.</p><p>Linux, ad esempio, è un sistema operativo fatto da milioni di righe di codice, ma nacque come un semplice programma che Linus Torvalds usava per esplorare il chip Intel 80386. Secondo Larry Greenfields, “Uno dei progetti iniziali di Linus era un programma che doveva visualizzare alternativamente una sequenza di AAAA e BBBB. Questo programma si è poi evoluto in Linux”. (<em>The Linux Users’ Guide</em> Beta Version 1).
+<a id="hevea_default221"></a></p>
+<h2 class="section" id="sec42">3.13  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">funzione:</span></dt><dd class="dd-description"> Una serie di istruzioni dotata di un nome che esegue una certa operazione utile. Le funzioni possono o meno ricevere argomenti e possono o meno produrre un risultato.
+<a id="hevea_default222"></a></dd><dt class="dt-description"><span class="c009">definizione di funzione:</span></dt><dd class="dd-description"> Istruzione che crea una nuova funzione, specificandone il nome, i parametri, e le istruzioni che contiene.
+<a id="hevea_default223"></a></dd><dt class="dt-description"><span class="c009">oggetto funzione:</span></dt><dd class="dd-description"> Valore creato da una definizione di funzione. Il nome della funzione è una variabile che fa riferimento a un oggetto funzione.
+<a id="hevea_default224"></a></dd><dt class="dt-description"><span class="c009">intestazione:</span></dt><dd class="dd-description"> La prima riga di una definizione di funzione.
+<a id="hevea_default225"></a></dd><dt class="dt-description"><span class="c009">corpo:</span></dt><dd class="dd-description"> La serie di istruzioni all’interno di una definizione di funzione.
+<a id="hevea_default226"></a></dd><dt class="dt-description"><span class="c009">parametro:</span></dt><dd class="dd-description"> Un nome usato all’interno di una funzione che fa riferimento al valore passato come argomento.
+<a id="hevea_default227"></a></dd><dt class="dt-description"><span class="c009">chiamata di funzione:</span></dt><dd class="dd-description"> Istruzione che esegue una funzione. Consiste nel nome della funzione seguito da un elenco di argomenti tra parentesi.
+<a id="hevea_default228"></a></dd><dt class="dt-description"><span class="c009">argomento:</span></dt><dd class="dd-description"> Un valore fornito (passato) a una funzione quando viene chiamata. Questo valore viene assegnato al corrispondente parametro nella funzione.
+<a id="hevea_default229"></a></dd><dt class="dt-description"><span class="c009">variabile locale:</span></dt><dd class="dd-description"> Variabile definita all’interno di una funzione e che puo essere usata solo all’interno della funzione.
+<a id="hevea_default230"></a></dd><dt class="dt-description"><span class="c009">valore di ritorno:</span></dt><dd class="dd-description"> Il risultato di una funzione. Se una chiamata di funzione viene usata come espressione, il valore di ritorno è il valore dell’espressione.
+<a id="hevea_default231"></a></dd><dt class="dt-description"><span class="c009">funzione “produttiva”:</span></dt><dd class="dd-description"> Una funzione che restituisce un valore.
+<a id="hevea_default232"></a></dd><dt class="dt-description"><span class="c009">funzione “vuota”:</span></dt><dd class="dd-description"> Una funzione che restituisce sempre <span class="c003">None</span>.
+<a id="hevea_default233"></a></dd><dt class="dt-description"><span class="c009"><span class="c003">None</span>:</span></dt><dd class="dd-description"> Valore speciale restituito dalle funzioni vuote.
+<a id="hevea_default234"></a>
+<a id="hevea_default235"></a></dd><dt class="dt-description"><span class="c009">modulo:</span></dt><dd class="dd-description"> Un file che contiene una raccolta di funzioni correlate e altre definizioni.
+<a id="hevea_default236"></a></dd><dt class="dt-description"><span class="c009">istruzione import:</span></dt><dd class="dd-description"> Istruzione che legge un file modulo e crea un oggetto modulo utilizzabile.
+<a id="hevea_default237"></a>
+<a id="hevea_default238"></a></dd><dt class="dt-description"><span class="c009">oggetto modulo:</span></dt><dd class="dd-description"> Valore creato da un’istruzione <span class="c003">import</span> che fornisce l’accesso ai valori definiti in un modulo.
+<a id="hevea_default239"></a></dd><dt class="dt-description"><span class="c009">dot notation o notazione a punto:</span></dt><dd class="dd-description"> Sintassi per chiamare una funzione di un modulo diverso, specificando il nome del modulo seguito da un punto e dal nome della funzione.
+<a id="hevea_default240"></a>
+<a id="hevea_default241"></a></dd><dt class="dt-description"><span class="c009">composizione:</span></dt><dd class="dd-description"> Utilizzare un’espressione come parte di un’espressione più grande o un’istruzione come parte di un’istruzione più grande.
+<a id="hevea_default242"></a></dd><dt class="dt-description"><span class="c009">flusso di esecuzione:</span></dt><dd class="dd-description"> L’ordine in cui vengono eseguite le istruzioni nel corso di un programma.
+<a id="hevea_default243"></a></dd><dt class="dt-description"><span class="c009">diagramma di stack:</span></dt><dd class="dd-description"> Rappresentazione grafica di una serie di funzioni impilate, delle loro variabili e dei valori a cui fanno riferimento.
+<a id="hevea_default244"></a></dd><dt class="dt-description"><span class="c009">frame:</span></dt><dd class="dd-description"> Un riquadro in un diagramma di stack che rappresenta una chiamata di funzione. Contiene le variabili locali e i parametri della funzione.
+<a id="hevea_default245"></a>
+<a id="hevea_default246"></a></dd><dt class="dt-description"><span class="c009">traceback:</span></dt><dd class="dd-description"> Elenco delle funzioni in corso di esecuzione, visualizzato quando si verifica un errore.
+<a id="hevea_default247"></a></dd></dl>
+<h2 class="section" id="sec43">3.14  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  
+<a id="hevea_default248"></a>
+<a id="hevea_default249"></a><p><em>Scrivete una funzione chiamata <code>giustif_destra</code> che richieda una stringa <span class="c003">s</span> come parametro e stampi la stringa con tanti spazi iniziali da far sì che l’ultima lettera della stringa cada nella colonna 70 del display.</em></p><pre class="verbatim"><em>&gt;&gt;&gt; giustif_destra('monty')
+                                                                 monty
+</em></pre><p><em>Suggerimento: usate concatenamento delle stringhe e ripetizione. Inoltre,
+Python contiene una funzione predefinita chiamata <span class="c003">len</span> che restituisce la lunghezza di una stringa, ad esempio il valore di <code>len('monty')</code> è 5.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default250"></a><p><em>Un oggetto funzione è un valore che potete assegnare a una variabile o passare come argomento. Ad esempio, <code>fai2volte</code> è una funzione che accetta un oggetto funzione come argomento e la chiama per due volte.</em></p><pre class="verbatim"><em>def fai2volte(f):
+    f()
+    f()
+</em></pre><p><em>Ecco un esempio che usa <code>fai2volte</code> per chiamare una funzione di nome <code>stampa_spam</code> due volte.</em></p><pre class="verbatim"><em>def stampa_spam():
+    print('spam')
+
+fai2volte(stampa_spam)
+</em></pre><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete questo esempio in uno script e provatelo.</em></li><li class="li-enumerate"><em>Modificate <code>fai2volte</code> in modo che accetti due argomenti, un oggetto funzione e un valore, e che chiami la funzione due volte passando il valore come argomento.</em></li><li class="li-enumerate"><em>Copiate nel vostro script la definizione di <code>stampa_2volte</code> che abbiamo visto nel corso di questo capitolo.</em></li><li class="li-enumerate"><em>Usate la versione modificata di <code>fai2volte</code> per chiamare
+<code>stampa_2volte</code> per due volte, passando <code>'spam'</code> come argomento.</em></li><li class="li-enumerate"><em>Definite una nuova funzione di nome <code>fai_quattro</code> che richieda un oggetto funzione e un valore e chiami la funzione per 4 volte, passando il valore come argomento. Dovrebbero esserci solo due istruzioni nel corpo di questa funzione, non quattro.</em></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/do_four.py"><em><span class="c003">http://thinkpython2.com/code/do_four.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  <p><em>Nota: questo esercizio dovrebbe essere svolto con le sole istruzioni e caratteristiche del linguaggio imparate finora.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete una funzione che disegni una griglia come questa:
+</em><a id="hevea_default251"></a><pre class="verbatim"><em>+ - - - - + - - - - +
+|         |         |
+|         |         |
+|         |         |
+|         |         |
++ - - - - + - - - - +
+|         |         |
+|         |         |
+|         |         |
+|         |         |
++ - - - - + - - - - +
+</em></pre><p><em>
+Suggerimento: per stampare più di un valore per riga, stampate una sequenza di valori separati da virgole:</em></p><pre class="verbatim"><em>print('+', '-')
+</em></pre><p><em>
+Di default, <span class="c003">print</span> va a capo; si può però variare questo comportamento e restare sulla stessa riga, inserendo uno spazio, in questo modo:</em></p><pre class="verbatim"><em>print('+', end=' ')
+print('-')
+</em></pre><p><em>
+L’output di queste istruzioni è <code>'+ -'</code>.</em></p><p><em>Una funzione <span class="c003">print</span> priva di argomento, termina la riga e va a capo.</em></p></li><li class="li-enumerate"><em>Scrivete una funzione che disegni una griglia simile, con quattro righe e quattro colonne.</em></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/grid.py"><em><span class="c003">http://thinkpython2.com/code/grid.py</span></em></a><em>.
+Fonte: Esercizio tratto da Oualline, </em>Practical C Programming, Third Edition<em>, O’Reilly Media, 1997.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian003.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian005.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

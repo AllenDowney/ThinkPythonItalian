@@ -1,0 +1,1741 @@
+\indexentry{GNU Free Documentation License}{\@locref{hevea_default0}{0}}
+\indexentry{Free Documentation License, GNU}{\@locref{hevea_default1}{0}}
+\indexentry{Elkner, Jeff}{\@locref{hevea_default2}{0}}
+\indexentry{Olin College}{\@locref{hevea_default3}{0}}
+\indexentry{Elkner, Jeff}{\@locref{hevea_default4}{0}}
+\indexentry{Meyers, Chris}{\@locref{hevea_default5}{0}}
+\indexentry{GNU Free Documentation License}{\@locref{hevea_default6}{0}}
+\indexentry{Free Documentation License, GNU}{\@locref{hevea_default7}{0}}
+\indexentry{Creative Commons}{\@locref{hevea_default8}{0}}
+\indexentry{collaboratori}{\@locref{hevea_default9}{0}}
+\indexentry{risoluzione di problemi}{\@locref{hevea_default10}{1}}
+\indexentry{programma}{\@locref{hevea_default11}{1.1}}
+\indexentry{algoritmo}{\@locref{hevea_default12}{1.1}}
+\indexentry{avviare Python}{\@locref{hevea_default13}{1.2}}
+\indexentry{Python!avvio}{\@locref{hevea_default14}{1.2}}
+\indexentry{Python in un browser}{\@locref{hevea_default15}{1.2}}
+\indexentry{PythonAnywhere}{\@locref{hevea_default16}{1.2}}
+\indexentry{Python 2}{\@locref{hevea_default17}{1.2}}
+\indexentry{interprete}{\@locref{hevea_default18}{1.2}}
+\indexentry{prompt}{\@locref{hevea_default19}{1.2}}
+\indexentry{Ciao, Mondo!}{\@locref{hevea_default20}{1.3}}
+\indexentry{apici}{\@locref{hevea_default21}{1.3}}
+\indexentry{stampa, istruzione di}{\@locref{hevea_default22}{1.3}}
+\indexentry{istruzione!di stampa}{\@locref{hevea_default23}{1.3}}
+\indexentry{funzione}{\@locref{hevea_default24}{1.3}}
+\indexentry{print, funzione}{\@locref{hevea_default25}{1.3}}
+\indexentry{Python 2}{\@locref{hevea_default26}{1.3}}
+\indexentry{operatore!aritmetico}{\@locref{hevea_default27}{1.4}}
+\indexentry{aritmetico!operatore}{\@locref{hevea_default28}{1.4}}
+\indexentry{bitwise, operatore}{\@locref{hevea_default29}{1.4}}
+\indexentry{operatore!bitwise}{\@locref{hevea_default30}{1.4}}
+\indexentry{valore}{\@locref{hevea_default31}{1.5}}
+\indexentry{tipo}{\@locref{hevea_default32}{1.5}}
+\indexentry{stringa}{\@locref{hevea_default33}{1.5}}
+\indexentry{intero}{\@locref{hevea_default34}{1.5}}
+\indexentry{floating-point}{\@locref{hevea_default35}{1.5}}
+\indexentry{stringa}{\@locref{hevea_default36}{1.5}}
+\indexentry{classe}{\@locref{hevea_default37}{1.5}}
+\indexentry{tipo}{\@locref{hevea_default38}{1.5}}
+\indexentry{string, tipo}{\@locref{hevea_default39}{1.5}}
+\indexentry{tipo!str}{\@locref{hevea_default40}{1.5}}
+\indexentry{int, tipo}{\@locref{hevea_default41}{1.5}}
+\indexentry{tipo!int}{\@locref{hevea_default42}{1.5}}
+\indexentry{float, tipo}{\@locref{hevea_default43}{1.5}}
+\indexentry{tipo!float}{\@locref{hevea_default44}{1.5}}
+\indexentry{apici}{\@locref{hevea_default45}{1.5}}
+\indexentry{sequenza}{\@locref{hevea_default46}{1.5}}
+\indexentry{linguaggio!formale}{\@locref{hevea_default47}{1.6}}
+\indexentry{linguaggio!naturale}{\@locref{hevea_default48}{1.6}}
+\indexentry{simbolo}{\@locref{hevea_default49}{1.6}}
+\indexentry{token}{\@locref{hevea_default50}{1.6}}
+\indexentry{struttura}{\@locref{hevea_default51}{1.6}}
+\indexentry{parsing}{\@locref{hevea_default52}{1.6}}
+\indexentry{ambiguità}{\@locref{hevea_default53}{1.6}}
+\indexentry{ridondanza}{\@locref{hevea_default54}{1.6}}
+\indexentry{letteralità}{\@locref{hevea_default55}{1.6}}
+\indexentry{poesia}{\@locref{hevea_default56}{1.6}}
+\indexentry{prosa}{\@locref{hevea_default57}{1.6}}
+\indexentry{debug}{\@locref{hevea_default58}{1.7}}
+\indexentry{debug}{\@locref{hevea_default59}{1.7}}
+\indexentry{bug}{\@locref{hevea_default60}{1.7}}
+\indexentry{debug!risposta emotiva}{\@locref{hevea_default61}{1.7}}
+\indexentry{emotività, nel debug}{\@locref{hevea_default62}{1.7}}
+\indexentry{soluzione di problemi}{\@locref{hevea_default63}{1.8}}
+\indexentry{linguaggio!di alto livello}{\@locref{hevea_default64}{1.8}}
+\indexentry{linguaggio!di basso livello}{\@locref{hevea_default65}{1.8}}
+\indexentry{portabilità}{\@locref{hevea_default66}{1.8}}
+\indexentry{interprete}{\@locref{hevea_default67}{1.8}}
+\indexentry{prompt}{\@locref{hevea_default68}{1.8}}
+\indexentry{programma}{\@locref{hevea_default69}{1.8}}
+\indexentry{stampa, istruzione di}{\@locref{hevea_default70}{1.8}}
+\indexentry{istruzione!di stampa}{\@locref{hevea_default71}{1.8}}
+\indexentry{operatore}{\@locref{hevea_default72}{1.8}}
+\indexentry{valore}{\@locref{hevea_default73}{1.8}}
+\indexentry{type}{\@locref{hevea_default74}{1.8}}
+\indexentry{intero}{\@locref{hevea_default75}{1.8}}
+\indexentry{floating-point}{\@locref{hevea_default76}{1.8}}
+\indexentry{stringa}{\@locref{hevea_default77}{1.8}}
+\indexentry{linguaggio!naturale}{\@locref{hevea_default78}{1.8}}
+\indexentry{linguaggio!formale}{\@locref{hevea_default79}{1.8}}
+\indexentry{simbolo}{\@locref{hevea_default80}{1.8}}
+\indexentry{token}{\@locref{hevea_default81}{1.8}}
+\indexentry{sintassi}{\@locref{hevea_default82}{1.8}}
+\indexentry{parsing}{\@locref{hevea_default83}{1.8}}
+\indexentry{bug}{\@locref{hevea_default84}{1.8}}
+\indexentry{debug}{\@locref{hevea_default85}{1.8}}
+\indexentry{errore!messaggio di}{\@locref{hevea_default86}{1.9}}
+\indexentry{calcolatrice}{\@locref{hevea_default87}{1.9}}
+\indexentry{cadenza di corsa}{\@locref{hevea_default88}{1.9}}
+\indexentry{variabile}{\@locref{hevea_default89}{2}}
+\indexentry{istruzione!di assegnazione}{\@locref{hevea_default90}{2.1}}
+\indexentry{assegnazione, istruzione di}{\@locref{hevea_default91}{2.1}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default92}{2.1}}
+\indexentry{variabile}{\@locref{hevea_default93}{2.2}}
+\indexentry{underscore, carattere}{\@locref{hevea_default94}{2.2}}
+\indexentry{parola chiave}{\@locref{hevea_default95}{2.2}}
+\indexentry{espressione}{\@locref{hevea_default96}{2.3}}
+\indexentry{valutazione}{\@locref{hevea_default97}{2.3}}
+\indexentry{valutazione}{\@locref{hevea_default98}{2.3}}
+\indexentry{esecuzione}{\@locref{hevea_default99}{2.3}}
+\indexentry{script}{\@locref{hevea_default100}{2.4}}
+\indexentry{modalità script}{\@locref{hevea_default101}{2.4}}
+\indexentry{modalità interattiva}{\@locref{hevea_default102}{2.4}}
+\indexentry{modalità script}{\@locref{hevea_default103}{2.4}}
+\indexentry{ordine delle operazioni}{\@locref{hevea_default104}{2.5}}
+\indexentry{PEMDAS}{\@locref{hevea_default105}{2.5}}
+\indexentry{stringa!operazioni}{\@locref{hevea_default106}{2.6}}
+\indexentry{operatore!stringa}{\@locref{hevea_default107}{2.6}}
+\indexentry{concatenamento}{\@locref{hevea_default108}{2.6}}
+\indexentry{commutatività}{\@locref{hevea_default109}{2.6}}
+\indexentry{commento}{\@locref{hevea_default110}{2.7}}
+\indexentry{debug}{\@locref{hevea_default111}{2.8}}
+\indexentry{sintassi!errore di}{\@locref{hevea_default112}{2.8.1}}
+\indexentry{errore!di sintassi}{\@locref{hevea_default113}{2.8.1}}
+\indexentry{errore!messaggio di}{\@locref{hevea_default114}{2.8.1}}
+\indexentry{sintassi}{\@locref{hevea_default115}{2.8.1}}
+\indexentry{parentesi!corrispondenza}{\@locref{hevea_default116}{2.8.1}}
+\indexentry{errore!in esecuzione}{\@locref{hevea_default117}{2.8.2}}
+\indexentry{errore!di runtime}{\@locref{hevea_default118}{2.8.2}}
+\indexentry{eccezione}{\@locref{hevea_default119}{2.8.2}}
+\indexentry{linguaggio!sicuro}{\@locref{hevea_default120}{2.8.2}}
+\indexentry{semantica}{\@locref{hevea_default121}{2.8.3}}
+\indexentry{semantica!errore di}{\@locref{hevea_default122}{2.8.3}}
+\indexentry{errore!di semantica}{\@locref{hevea_default123}{2.8.3}}
+\indexentry{errore!messaggio di}{\@locref{hevea_default124}{2.8.3}}
+\indexentry{variabile}{\@locref{hevea_default125}{2.9}}
+\indexentry{assegnazione}{\@locref{hevea_default126}{2.9}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default127}{2.9}}
+\indexentry{parola chiave}{\@locref{hevea_default128}{2.9}}
+\indexentry{operando}{\@locref{hevea_default129}{2.9}}
+\indexentry{espressione}{\@locref{hevea_default130}{2.9}}
+\indexentry{valutazione}{\@locref{hevea_default131}{2.9}}
+\indexentry{istruzione}{\@locref{hevea_default132}{2.9}}
+\indexentry{esecuzione}{\@locref{hevea_default133}{2.9}}
+\indexentry{modalità interattiva}{\@locref{hevea_default134}{2.9}}
+\indexentry{modalità script}{\@locref{hevea_default135}{2.9}}
+\indexentry{script}{\@locref{hevea_default136}{2.9}}
+\indexentry{ordine delle operazioni}{\@locref{hevea_default137}{2.9}}
+\indexentry{concatenamento}{\@locref{hevea_default138}{2.9}}
+\indexentry{commento}{\@locref{hevea_default139}{2.9}}
+\indexentry{sintassi!errore di}{\@locref{hevea_default140}{2.9}}
+\indexentry{eccezione}{\@locref{hevea_default141}{2.9}}
+\indexentry{semantica}{\@locref{hevea_default142}{2.9}}
+\indexentry{semantica!errore di}{\@locref{hevea_default143}{2.9}}
+\indexentry{calcolatrice}{\@locref{hevea_default144}{2.10}}
+\indexentry{cadenza di corsa}{\@locref{hevea_default145}{2.10}}
+\indexentry{funzione}{\@locref{hevea_default146}{3}}
+\indexentry{funzione!chiamata di}{\@locref{hevea_default147}{3.1}}
+\indexentry{parentesi!argomento in}{\@locref{hevea_default148}{3.1}}
+\indexentry{argomento}{\@locref{hevea_default149}{3.1}}
+\indexentry{valore di ritorno}{\@locref{hevea_default150}{3.1}}
+\indexentry{conversione!di tipo}{\@locref{hevea_default151}{3.1}}
+\indexentry{int, funzione}{\@locref{hevea_default152}{3.1}}
+\indexentry{funzione!int}{\@locref{hevea_default153}{3.1}}
+\indexentry{float, funzione}{\@locref{hevea_default154}{3.1}}
+\indexentry{funzione!float}{\@locref{hevea_default155}{3.1}}
+\indexentry{str, funzione}{\@locref{hevea_default156}{3.1}}
+\indexentry{funzione!str}{\@locref{hevea_default157}{3.1}}
+\indexentry{funzioni matematiche}{\@locref{hevea_default158}{3.2}}
+\indexentry{modulo}{\@locref{hevea_default159}{3.2}}
+\indexentry{oggetto!modulo}{\@locref{hevea_default160}{3.2}}
+\indexentry{dot notation}{\@locref{hevea_default161}{3.2}}
+\indexentry{notazione a punto}{\@locref{hevea_default162}{3.2}}
+\indexentry{log, funzione}{\@locref{hevea_default163}{3.2}}
+\indexentry{funzione!log}{\@locref{hevea_default164}{3.2}}
+\indexentry{seno, funzione}{\@locref{hevea_default165}{3.2}}
+\indexentry{radiante}{\@locref{hevea_default166}{3.2}}
+\indexentry{funzione!trigonometrica}{\@locref{hevea_default167}{3.2}}
+\indexentry{pi}{\@locref{hevea_default168}{3.2}}
+\indexentry{sqrt, funzione}{\@locref{hevea_default169}{3.2}}
+\indexentry{funzione!sqrt}{\@locref{hevea_default170}{3.2}}
+\indexentry{composizione}{\@locref{hevea_default171}{3.3}}
+\indexentry{SyntaxError}{\@locref{hevea_default172}{3.3}}
+\indexentry{eccezione!SyntaxError}{\@locref{hevea_default173}{3.3}}
+\indexentry{funzione}{\@locref{hevea_default174}{3.4}}
+\indexentry{funzione!definizione di}{\@locref{hevea_default175}{3.4}}
+\indexentry{definizione!di funzione}{\@locref{hevea_default176}{3.4}}
+\indexentry{def, parola chiave}{\@locref{hevea_default177}{3.4}}
+\indexentry{parola chiave!def}{\@locref{hevea_default178}{3.4}}
+\indexentry{argomento}{\@locref{hevea_default179}{3.4}}
+\indexentry{parentesi!vuote}{\@locref{hevea_default180}{3.4}}
+\indexentry{intestazione}{\@locref{hevea_default181}{3.4}}
+\indexentry{corpo}{\@locref{hevea_default182}{3.4}}
+\indexentry{indentazione}{\@locref{hevea_default183}{3.4}}
+\indexentry{due punti}{\@locref{hevea_default184}{3.4}}
+\indexentry{ellissi}{\@locref{hevea_default185}{3.4}}
+\indexentry{tipo!function}{\@locref{hevea_default186}{3.4}}
+\indexentry{oggetto!funzione}{\@locref{hevea_default187}{3.4}}
+\indexentry{funzione!definizione di}{\@locref{hevea_default188}{3.5}}
+\indexentry{uso prima di def}{\@locref{hevea_default189}{3.5}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default190}{3.6}}
+\indexentry{parametro}{\@locref{hevea_default191}{3.7}}
+\indexentry{funzione!parametro di}{\@locref{hevea_default192}{3.7}}
+\indexentry{argomento}{\@locref{hevea_default193}{3.7}}
+\indexentry{funzione!argomento di}{\@locref{hevea_default194}{3.7}}
+\indexentry{parentesi!parametri in}{\@locref{hevea_default195}{3.7}}
+\indexentry{composizione}{\@locref{hevea_default196}{3.7}}
+\indexentry{funzione!personalizzata}{\@locref{hevea_default197}{3.7}}
+\indexentry{argomento}{\@locref{hevea_default198}{3.7}}
+\indexentry{variabile!locale}{\@locref{hevea_default199}{3.8}}
+\indexentry{parentesi!parametri in}{\@locref{hevea_default200}{3.8}}
+\indexentry{concatenamento}{\@locref{hevea_default201}{3.8}}
+\indexentry{NameError}{\@locref{hevea_default202}{3.8}}
+\indexentry{eccezione!NameError}{\@locref{hevea_default203}{3.8}}
+\indexentry{parametri}{\@locref{hevea_default204}{3.8}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default205}{3.9}}
+\indexentry{funzione!frame di}{\@locref{hevea_default206}{3.9}}
+\indexentry{frame}{\@locref{hevea_default207}{3.9}}
+\indexentry{main}{\@locref{hevea_default208}{3.9}}
+\indexentry{traceback}{\@locref{hevea_default209}{3.9}}
+\indexentry{funzione!produttiva}{\@locref{hevea_default210}{3.10}}
+\indexentry{funzione!vuota}{\@locref{hevea_default211}{3.10}}
+\indexentry{modalità interattiva}{\@locref{hevea_default212}{3.10}}
+\indexentry{modalità script}{\@locref{hevea_default213}{3.10}}
+\indexentry{None, valore speciale}{\@locref{hevea_default214}{3.10}}
+\indexentry{valore speciale!None}{\@locref{hevea_default215}{3.10}}
+\indexentry{funzione!motivi}{\@locref{hevea_default216}{3.11}}
+\indexentry{debug}{\@locref{hevea_default217}{3.12}}
+\indexentry{debug!sperimentale}{\@locref{hevea_default218}{3.12}}
+\indexentry{Holmes, Sherlock}{\@locref{hevea_default219}{3.12}}
+\indexentry{Doyle, Arthur Conan}{\@locref{hevea_default220}{3.12}}
+\indexentry{Linux}{\@locref{hevea_default221}{3.12}}
+\indexentry{funzione}{\@locref{hevea_default222}{3.13}}
+\indexentry{funzione!definizione di}{\@locref{hevea_default223}{3.13}}
+\indexentry{oggetto!funzione}{\@locref{hevea_default224}{3.13}}
+\indexentry{intestazione}{\@locref{hevea_default225}{3.13}}
+\indexentry{corpo}{\@locref{hevea_default226}{3.13}}
+\indexentry{parametro}{\@locref{hevea_default227}{3.13}}
+\indexentry{funzione!chiamata di}{\@locref{hevea_default228}{3.13}}
+\indexentry{argomento}{\@locref{hevea_default229}{3.13}}
+\indexentry{variabile!locale}{\@locref{hevea_default230}{3.13}}
+\indexentry{valore di ritorno}{\@locref{hevea_default231}{3.13}}
+\indexentry{funzione!produttiva}{\@locref{hevea_default232}{3.13}}
+\indexentry{funzione!vuota}{\@locref{hevea_default233}{3.13}}
+\indexentry{None, valore speciale}{\@locref{hevea_default234}{3.13}}
+\indexentry{valore speciale!None}{\@locref{hevea_default235}{3.13}}
+\indexentry{modulo}{\@locref{hevea_default236}{3.13}}
+\indexentry{import, istruzione}{\@locref{hevea_default237}{3.13}}
+\indexentry{istruzione!import}{\@locref{hevea_default238}{3.13}}
+\indexentry{modulo}{\@locref{hevea_default239}{3.13}}
+\indexentry{dot notation}{\@locref{hevea_default240}{3.13}}
+\indexentry{notazione a punto}{\@locref{hevea_default241}{3.13}}
+\indexentry{composizione}{\@locref{hevea_default242}{3.13}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default243}{3.13}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default244}{3.13}}
+\indexentry{funzione!frame di}{\@locref{hevea_default245}{3.13}}
+\indexentry{frame}{\@locref{hevea_default246}{3.13}}
+\indexentry{traceback}{\@locref{hevea_default247}{3.13}}
+\indexentry{len, funzione}{\@locref{hevea_default248}{3.14}}
+\indexentry{funzione!len}{\@locref{hevea_default249}{3.14}}
+\indexentry{oggetto!funzione}{\@locref{hevea_default250}{3.14}}
+\indexentry{griglia}{\@locref{hevea_default251}{3.14}}
+\indexentry{ripetizione}{\@locref{hevea_default252}{4.2}}
+\indexentry{for, ciclo}{\@locref{hevea_default253}{4.2}}
+\indexentry{ciclo!for}{\@locref{hevea_default254}{4.2}}
+\indexentry{istruzione!for}{\@locref{hevea_default255}{4.2}}
+\indexentry{ciclo}{\@locref{hevea_default256}{4.2}}
+\indexentry{poligono, funzione}{\@locref{hevea_default257}{4.3}}
+\indexentry{funzione!poligono}{\@locref{hevea_default258}{4.3}}
+\indexentry{cerchio, funzione}{\@locref{hevea_default259}{4.3}}
+\indexentry{funzione!cerchio}{\@locref{hevea_default260}{4.3}}
+\indexentry{arco, funzione}{\@locref{hevea_default261}{4.3}}
+\indexentry{funzione!arco}{\@locref{hevea_default262}{4.3}}
+\indexentry{incapsulamento}{\@locref{hevea_default263}{4.4}}
+\indexentry{generalizzazione}{\@locref{hevea_default264}{4.5}}
+\indexentry{Python 2}{\@locref{hevea_default265}{4.5}}
+\indexentry{argomento!con nome}{\@locref{hevea_default266}{4.5}}
+\indexentry{interfaccia}{\@locref{hevea_default267}{4.6}}
+\indexentry{refactoring}{\@locref{hevea_default268}{4.7}}
+\indexentry{refactoring}{\@locref{hevea_default269}{4.7}}
+\indexentry{tecnica di sviluppo!incapsulamento e generalizzazione}{\@locref{hevea_default270}{4.8}}
+\indexentry{docstring}{\@locref{hevea_default271}{4.9}}
+\indexentry{stringa!di documentazione}{\@locref{hevea_default272}{4.9}}
+\indexentry{virgolette}{\@locref{hevea_default273}{4.9}}
+\indexentry{stringa!triple virgolette}{\@locref{hevea_default274}{4.9}}
+\indexentry{stringa!a righe multiple}{\@locref{hevea_default275}{4.9}}
+\indexentry{debug}{\@locref{hevea_default276}{4.10}}
+\indexentry{interfaccia}{\@locref{hevea_default277}{4.10}}
+\indexentry{precondizione}{\@locref{hevea_default278}{4.10}}
+\indexentry{postcondizione}{\@locref{hevea_default279}{4.10}}
+\indexentry{metodo}{\@locref{hevea_default280}{4.11}}
+\indexentry{ciclo}{\@locref{hevea_default281}{4.11}}
+\indexentry{incapsulamento}{\@locref{hevea_default282}{4.11}}
+\indexentry{generalizzazione}{\@locref{hevea_default283}{4.11}}
+\indexentry{argomento!con nome}{\@locref{hevea_default284}{4.11}}
+\indexentry{interfaccia}{\@locref{hevea_default285}{4.11}}
+\indexentry{refactoring}{\@locref{hevea_default286}{4.11}}
+\indexentry{tecnica di sviluppo}{\@locref{hevea_default287}{4.11}}
+\indexentry{docstring}{\@locref{hevea_default288}{4.11}}
+\indexentry{stringa!documentazione}{\@locref{hevea_default289}{4.11}}
+\indexentry{precondizione}{\@locref{hevea_default290}{4.11}}
+\indexentry{postcondizione}{\@locref{hevea_default291}{4.11}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default292}{4.12}}
+\indexentry{fiore}{\@locref{hevea_default293}{4.12}}
+\indexentry{torta}{\@locref{hevea_default294}{4.12}}
+\indexentry{alfabeto}{\@locref{hevea_default295}{4.12}}
+\indexentry{macchina da scrivere a tartaruga}{\@locref{hevea_default296}{4.12}}
+\indexentry{spirale}{\@locref{hevea_default297}{4.12}}
+\indexentry{spirale di Archimede}{\@locref{hevea_default298}{4.12}}
+\indexentry{divisione!intera}{\@locref{hevea_default299}{5.1}}
+\indexentry{divisione!decimale}{\@locref{hevea_default300}{5.1}}
+\indexentry{modulo, operatore}{\@locref{hevea_default301}{5.1}}
+\indexentry{operatore!modulo}{\@locref{hevea_default302}{5.1}}
+\indexentry{divisibilità}{\@locref{hevea_default303}{5.1}}
+\indexentry{Python 2}{\@locref{hevea_default304}{5.1}}
+\indexentry{espressione!booleana}{\@locref{hevea_default305}{5.2}}
+\indexentry{operatore!logico}{\@locref{hevea_default306}{5.2}}
+\indexentry{True, valore speciale}{\@locref{hevea_default307}{5.2}}
+\indexentry{False, valore speciale}{\@locref{hevea_default308}{5.2}}
+\indexentry{valore speciale!True}{\@locref{hevea_default309}{5.2}}
+\indexentry{valore speciale!False}{\@locref{hevea_default310}{5.2}}
+\indexentry{bool, tipo}{\@locref{hevea_default311}{5.2}}
+\indexentry{tipo!bool}{\@locref{hevea_default312}{5.2}}
+\indexentry{confronto, operatore di}{\@locref{hevea_default313}{5.2}}
+\indexentry{operatore!confronto}{\@locref{hevea_default314}{5.2}}
+\indexentry{logico, operatore}{\@locref{hevea_default315}{5.3}}
+\indexentry{operatore!logico}{\@locref{hevea_default316}{5.3}}
+\indexentry{and, operatore}{\@locref{hevea_default317}{5.3}}
+\indexentry{or, operatore}{\@locref{hevea_default318}{5.3}}
+\indexentry{not, operatore}{\@locref{hevea_default319}{5.3}}
+\indexentry{operatore!and}{\@locref{hevea_default320}{5.3}}
+\indexentry{operatore!or}{\@locref{hevea_default321}{5.3}}
+\indexentry{operatore!not}{\@locref{hevea_default322}{5.3}}
+\indexentry{istruzione!condizionale}{\@locref{hevea_default323}{5.4}}
+\indexentry{if, istruzione}{\@locref{hevea_default324}{5.4}}
+\indexentry{istruzione!if}{\@locref{hevea_default325}{5.4}}
+\indexentry{esecuzione condizionale}{\@locref{hevea_default326}{5.4}}
+\indexentry{condizione}{\@locref{hevea_default327}{5.4}}
+\indexentry{istruzione!composta}{\@locref{hevea_default328}{5.4}}
+\indexentry{pass, istruzione}{\@locref{hevea_default329}{5.4}}
+\indexentry{istruzione!pass}{\@locref{hevea_default330}{5.4}}
+\indexentry{esecuzione alternativa}{\@locref{hevea_default331}{5.5}}
+\indexentry{else, parola chiave}{\@locref{hevea_default332}{5.5}}
+\indexentry{parola chiave!else}{\@locref{hevea_default333}{5.5}}
+\indexentry{ramificazione}{\@locref{hevea_default334}{5.5}}
+\indexentry{serie, condizioni in}{\@locref{hevea_default335}{5.6}}
+\indexentry{condizione!in serie}{\@locref{hevea_default336}{5.6}}
+\indexentry{elif, parola chiave }{\@locref{hevea_default337}{5.6}}
+\indexentry{parola chiave!elif}{\@locref{hevea_default338}{5.6}}
+\indexentry{condizione!nidificata}{\@locref{hevea_default339}{5.7}}
+\indexentry{ricorsione}{\@locref{hevea_default340}{5.8}}
+\indexentry{main}{\@locref{hevea_default341}{5.8}}
+\indexentry{ricorsione}{\@locref{hevea_default342}{5.8}}
+\indexentry{funzione!ricorsiva}{\@locref{hevea_default343}{5.8}}
+\indexentry{return, istruzione}{\@locref{hevea_default344}{5.8}}
+\indexentry{istruzione!return}{\@locref{hevea_default345}{5.8}}
+\indexentry{for, ciclo}{\@locref{hevea_default346}{5.8}}
+\indexentry{ciclo!for}{\@locref{hevea_default347}{5.8}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default348}{5.9}}
+\indexentry{funzione!frame di}{\@locref{hevea_default349}{5.9}}
+\indexentry{frame}{\@locref{hevea_default350}{5.9}}
+\indexentry{caso base}{\@locref{hevea_default351}{5.9}}
+\indexentry{ricorsione!caso base}{\@locref{hevea_default352}{5.9}}
+\indexentry{ricorsione!infinita}{\@locref{hevea_default353}{5.10}}
+\indexentry{errore!in esecuzione}{\@locref{hevea_default354}{5.10}}
+\indexentry{traceback}{\@locref{hevea_default355}{5.10}}
+\indexentry{eccezione!RuntimeError}{\@locref{hevea_default356}{5.10}}
+\indexentry{RuntimeError}{\@locref{hevea_default357}{5.10}}
+\indexentry{Input da tastiera}{\@locref{hevea_default358}{5.11}}
+\indexentry{Python 2}{\@locref{hevea_default359}{5.11}}
+\indexentry{input, funzione}{\@locref{hevea_default360}{5.11}}
+\indexentry{funzione!input}{\@locref{hevea_default361}{5.11}}
+\indexentry{prompt}{\@locref{hevea_default362}{5.11}}
+\indexentry{ritorno a capo}{\@locref{hevea_default363}{5.11}}
+\indexentry{ValueError}{\@locref{hevea_default364}{5.11}}
+\indexentry{eccezione!ValueError}{\@locref{hevea_default365}{5.11}}
+\indexentry{debug}{\@locref{hevea_default366}{5.12}}
+\indexentry{traceback}{\@locref{hevea_default367}{5.12}}
+\indexentry{spaziatore}{\@locref{hevea_default368}{5.12}}
+\indexentry{errore!in esecuzione}{\@locref{hevea_default369}{5.12}}
+\indexentry{eccezione!OverflowError}{\@locref{hevea_default370}{5.12}}
+\indexentry{OverflowError}{\@locref{hevea_default371}{5.12}}
+\indexentry{divisione!intera}{\@locref{hevea_default372}{5.12}}
+\indexentry{divisione!intera}{\@locref{hevea_default373}{5.13}}
+\indexentry{modulo, operatore}{\@locref{hevea_default374}{5.13}}
+\indexentry{operatore!modulo}{\@locref{hevea_default375}{5.13}}
+\indexentry{espressione!booleana}{\@locref{hevea_default376}{5.13}}
+\indexentry{istruzione!condizionale}{\@locref{hevea_default377}{5.13}}
+\indexentry{condizione}{\@locref{hevea_default378}{5.13}}
+\indexentry{istruzione!composta}{\@locref{hevea_default379}{5.13}}
+\indexentry{ramificazione}{\@locref{hevea_default380}{5.13}}
+\indexentry{condizione!in serie}{\@locref{hevea_default381}{5.13}}
+\indexentry{condizione!nidificata}{\@locref{hevea_default382}{5.13}}
+\indexentry{ricorsione}{\@locref{hevea_default383}{5.13}}
+\indexentry{caso base}{\@locref{hevea_default384}{5.13}}
+\indexentry{ricorsione!infinita}{\@locref{hevea_default385}{5.13}}
+\indexentry{Fermat, ultimo teorema di}{\@locref{hevea_default386}{5.14}}
+\indexentry{triangolo}{\@locref{hevea_default387}{5.14}}
+\indexentry{turtle}{\@locref{hevea_default388}{5.14}}
+\indexentry{curva di Koch}{\@locref{hevea_default389}{5.14}}
+\indexentry{valore di ritorno}{\@locref{hevea_default390}{6.1}}
+\indexentry{return, istruzione}{\@locref{hevea_default391}{6.1}}
+\indexentry{istruzione!return}{\@locref{hevea_default392}{6.1}}
+\indexentry{variabile!temporanea}{\@locref{hevea_default393}{6.1}}
+\indexentry{codice morto}{\@locref{hevea_default394}{6.1}}
+\indexentry{None, valore speciale}{\@locref{hevea_default395}{6.1}}
+\indexentry{valore speciale!None}{\@locref{hevea_default396}{6.1}}
+\indexentry{abs, funzione}{\@locref{hevea_default397}{6.1}}
+\indexentry{funzione!abs}{\@locref{hevea_default398}{6.1}}
+\indexentry{compara, funzione}{\@locref{hevea_default399}{6.1}}
+\indexentry{funzione!compara}{\@locref{hevea_default400}{6.1}}
+\indexentry{tecnica di sviluppo!incrementale}{\@locref{hevea_default401}{6.2}}
+\indexentry{test!sviluppo incrementale}{\@locref{hevea_default402}{6.2}}
+\indexentry{teorema di Pitagora}{\@locref{hevea_default403}{6.2}}
+\indexentry{test!sapere il risultato}{\@locref{hevea_default404}{6.2}}
+\indexentry{sqrt, funzione}{\@locref{hevea_default405}{6.2}}
+\indexentry{funzione!sqrt}{\@locref{hevea_default406}{6.2}}
+\indexentry{impalcatura}{\@locref{hevea_default407}{6.2}}
+\indexentry{ipotenusa}{\@locref{hevea_default408}{6.2}}
+\indexentry{composizione}{\@locref{hevea_default409}{6.3}}
+\indexentry{funzione!composizione di}{\@locref{hevea_default410}{6.3}}
+\indexentry{incapsulamento}{\@locref{hevea_default411}{6.3}}
+\indexentry{funzione!booleana}{\@locref{hevea_default412}{6.4}}
+\indexentry{istruzione!condizionale}{\@locref{hevea_default413}{6.4}}
+\indexentry{ricorsione}{\@locref{hevea_default414}{6.5}}
+\indexentry{linguaggio!completo di Turing}{\@locref{hevea_default415}{6.5}}
+\indexentry{Turing, Alan}{\@locref{hevea_default416}{6.5}}
+\indexentry{Tesi di Turing}{\@locref{hevea_default417}{6.5}}
+\indexentry{vorpale}{\@locref{hevea_default418}{6.5}}
+\indexentry{definizione!circolare}{\@locref{hevea_default419}{6.5}}
+\indexentry{fattoriale, funzione}{\@locref{hevea_default420}{6.5}}
+\indexentry{funzione!fattoriale}{\@locref{hevea_default421}{6.5}}
+\indexentry{definizione!ricorsiva}{\@locref{hevea_default422}{6.5}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default423}{6.5}}
+\indexentry{funzione!frame di}{\@locref{hevea_default424}{6.5}}
+\indexentry{frame}{\@locref{hevea_default425}{6.5}}
+\indexentry{ricorsione}{\@locref{hevea_default426}{6.6}}
+\indexentry{salto sulla fiducia}{\@locref{hevea_default427}{6.6}}
+\indexentry{test!salto sulla fiducia}{\@locref{hevea_default428}{6.6}}
+\indexentry{fibonacci, funzione}{\@locref{hevea_default429}{6.7}}
+\indexentry{funzione!fibonacci}{\@locref{hevea_default430}{6.7}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default431}{6.7}}
+\indexentry{controllo dei tipi}{\@locref{hevea_default432}{6.8}}
+\indexentry{controllo errore}{\@locref{hevea_default433}{6.8}}
+\indexentry{fattoriale, funzione}{\@locref{hevea_default434}{6.8}}
+\indexentry{RuntimeError}{\@locref{hevea_default435}{6.8}}
+\indexentry{ricorsione!infinita}{\@locref{hevea_default436}{6.8}}
+\indexentry{funzione!gamma}{\@locref{hevea_default437}{6.8}}
+\indexentry{isinstance, funzione}{\@locref{hevea_default438}{6.8}}
+\indexentry{funzione!isinstance}{\@locref{hevea_default439}{6.8}}
+\indexentry{guardia, condizione di}{\@locref{hevea_default440}{6.8}}
+\indexentry{schema!guardiani}{\@locref{hevea_default441}{6.8}}
+\indexentry{condizione!di guardia}{\@locref{hevea_default442}{6.8}}
+\indexentry{debug}{\@locref{hevea_default443}{6.9}}
+\indexentry{precondizione}{\@locref{hevea_default444}{6.9}}
+\indexentry{postcondizione}{\@locref{hevea_default445}{6.9}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default446}{6.9}}
+\indexentry{variabile!temporanea}{\@locref{hevea_default447}{6.10}}
+\indexentry{codice morto}{\@locref{hevea_default448}{6.10}}
+\indexentry{sviluppo incrementale}{\@locref{hevea_default449}{6.10}}
+\indexentry{impalcatura}{\@locref{hevea_default450}{6.10}}
+\indexentry{guardia, condizione di}{\@locref{hevea_default451}{6.10}}
+\indexentry{condizione!di guardia}{\@locref{hevea_default452}{6.10}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default453}{6.11}}
+\indexentry{Ackermann, funzione di}{\@locref{hevea_default454}{6.11}}
+\indexentry{funzione!ack}{\@locref{hevea_default455}{6.11}}
+\indexentry{palindromo}{\@locref{hevea_default456}{6.11}}
+\indexentry{massimo comun divisore (MCD)}{\@locref{hevea_default457}{6.11}}
+\indexentry{MCD (massimo comun divisore)}{\@locref{hevea_default458}{6.11}}
+\indexentry{assegnazione}{\@locref{hevea_default459}{7.1}}
+\indexentry{istruzione!assegnazione}{\@locref{hevea_default460}{7.1}}
+\indexentry{riassegnazione}{\@locref{hevea_default461}{7.1}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default462}{7.1}}
+\indexentry{uguaglianza e assegnazione}{\@locref{hevea_default463}{7.1}}
+\indexentry{aggiornamento}{\@locref{hevea_default464}{7.2}}
+\indexentry{variabile!aggiornamento}{\@locref{hevea_default465}{7.2}}
+\indexentry{inizializzazione!prima di aggiornare}{\@locref{hevea_default466}{7.2}}
+\indexentry{incremento}{\@locref{hevea_default467}{7.2}}
+\indexentry{decremento}{\@locref{hevea_default468}{7.2}}
+\indexentry{istruzione!while}{\@locref{hevea_default469}{7.3}}
+\indexentry{ciclo!while}{\@locref{hevea_default470}{7.3}}
+\indexentry{iterazione}{\@locref{hevea_default471}{7.3}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default472}{7.3}}
+\indexentry{condizione}{\@locref{hevea_default473}{7.3}}
+\indexentry{ciclo}{\@locref{hevea_default474}{7.3}}
+\indexentry{corpo}{\@locref{hevea_default475}{7.3}}
+\indexentry{ciclo!infinito}{\@locref{hevea_default476}{7.3}}
+\indexentry{congettura di Collatz}{\@locref{hevea_default477}{7.3}}
+\indexentry{break, istruzione}{\@locref{hevea_default478}{7.4}}
+\indexentry{istruzione!break}{\@locref{hevea_default479}{7.4}}
+\indexentry{radice quadrata}{\@locref{hevea_default480}{7.5}}
+\indexentry{metodo di Newton}{\@locref{hevea_default481}{7.5}}
+\indexentry{aggiornamento}{\@locref{hevea_default482}{7.5}}
+\indexentry{virgola mobile}{\@locref{hevea_default483}{7.5}}
+\indexentry{epsilon}{\@locref{hevea_default484}{7.5}}
+\indexentry{algoritmo}{\@locref{hevea_default485}{7.6}}
+\indexentry{addizione!con riporto}{\@locref{hevea_default486}{7.6}}
+\indexentry{sottrazione!con prestito}{\@locref{hevea_default487}{7.6}}
+\indexentry{debug!binario}{\@locref{hevea_default488}{7.7}}
+\indexentry{riassegnazione}{\@locref{hevea_default489}{7.8}}
+\indexentry{aggiornamento}{\@locref{hevea_default490}{7.8}}
+\indexentry{inizializzazione!variabile}{\@locref{hevea_default491}{7.8}}
+\indexentry{incremento}{\@locref{hevea_default492}{7.8}}
+\indexentry{decremento}{\@locref{hevea_default493}{7.8}}
+\indexentry{iterazione}{\@locref{hevea_default494}{7.8}}
+\indexentry{ciclo!infinito}{\@locref{hevea_default495}{7.8}}
+\indexentry{algoritmo}{\@locref{hevea_default496}{7.8}}
+\indexentry{algoritmo!radice quadrata}{\@locref{hevea_default497}{7.9}}
+\indexentry{incapsulamento}{\@locref{hevea_default498}{7.9}}
+\indexentry{eval, funzione}{\@locref{hevea_default499}{7.9}}
+\indexentry{funzione!eval}{\@locref{hevea_default500}{7.9}}
+\indexentry{Ramanujan, Srinivasa}{\@locref{hevea_default501}{7.9}}
+\indexentry{pi}{\@locref{hevea_default502}{7.9}}
+\indexentry{sequenza}{\@locref{hevea_default503}{8}}
+\indexentry{carattere}{\@locref{hevea_default504}{8.1}}
+\indexentry{parentesi quadre, operatore}{\@locref{hevea_default505}{8.1}}
+\indexentry{operatore!parentesi quadre}{\@locref{hevea_default506}{8.1}}
+\indexentry{indice}{\@locref{hevea_default507}{8.1}}
+\indexentry{indice!inizio da zero}{\@locref{hevea_default508}{8.1}}
+\indexentry{zero, indice iniziale}{\@locref{hevea_default509}{8.1}}
+\indexentry{indice}{\@locref{hevea_default510}{8.1}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default511}{8.1}}
+\indexentry{TypeError}{\@locref{hevea_default512}{8.1}}
+\indexentry{len, funzione}{\@locref{hevea_default513}{8.2}}
+\indexentry{funzione!len}{\@locref{hevea_default514}{8.2}}
+\indexentry{eccezione!IndexError}{\@locref{hevea_default515}{8.2}}
+\indexentry{IndexError}{\@locref{hevea_default516}{8.2}}
+\indexentry{indice!negativo}{\@locref{hevea_default517}{8.2}}
+\indexentry{attraversamento}{\@locref{hevea_default518}{8.3}}
+\indexentry{ciclo!attraversamento}{\@locref{hevea_default519}{8.3}}
+\indexentry{for, ciclo}{\@locref{hevea_default520}{8.3}}
+\indexentry{ciclo!for}{\@locref{hevea_default521}{8.3}}
+\indexentry{istruzione!for}{\@locref{hevea_default522}{8.3}}
+\indexentry{concatenamento}{\@locref{hevea_default523}{8.3}}
+\indexentry{alfabetico}{\@locref{hevea_default524}{8.3}}
+\indexentry{McCloskey, Robert}{\@locref{hevea_default525}{8.3}}
+\indexentry{slicing!operatore di}{\@locref{hevea_default526}{8.4}}
+\indexentry{operatore!di slicing}{\@locref{hevea_default527}{8.4}}
+\indexentry{indice!slicing}{\@locref{hevea_default528}{8.4}}
+\indexentry{stringa!slicing}{\@locref{hevea_default529}{8.4}}
+\indexentry{slicing!stringa}{\@locref{hevea_default530}{8.4}}
+\indexentry{apici}{\@locref{hevea_default531}{8.4}}
+\indexentry{copia!slicing}{\@locref{hevea_default532}{8.4}}
+\indexentry{slicing!copia}{\@locref{hevea_default533}{8.4}}
+\indexentry{mutabilità}{\@locref{hevea_default534}{8.5}}
+\indexentry{immutabilità}{\@locref{hevea_default535}{8.5}}
+\indexentry{stringa!immutabile}{\@locref{hevea_default536}{8.5}}
+\indexentry{TypeError}{\@locref{hevea_default537}{8.5}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default538}{8.5}}
+\indexentry{oggetto}{\@locref{hevea_default539}{8.5}}
+\indexentry{elemento}{\@locref{hevea_default540}{8.5}}
+\indexentry{elemento!assegnazione}{\@locref{hevea_default541}{8.5}}
+\indexentry{assegnazione!elemento}{\@locref{hevea_default542}{8.5}}
+\indexentry{immutabilità}{\@locref{hevea_default543}{8.5}}
+\indexentry{concatenamento}{\@locref{hevea_default544}{8.5}}
+\indexentry{trova, funzione}{\@locref{hevea_default545}{8.6}}
+\indexentry{funzione!trova}{\@locref{hevea_default546}{8.6}}
+\indexentry{attraversamento}{\@locref{hevea_default547}{8.6}}
+\indexentry{ricerca!schema di}{\@locref{hevea_default548}{8.6}}
+\indexentry{schema!di ricerca}{\@locref{hevea_default549}{8.6}}
+\indexentry{contatore}{\@locref{hevea_default550}{8.7}}
+\indexentry{contatori e cicli}{\@locref{hevea_default551}{8.7}}
+\indexentry{cicli e contatori}{\@locref{hevea_default552}{8.7}}
+\indexentry{ciclo!con stringhe}{\@locref{hevea_default553}{8.7}}
+\indexentry{incapsulamento}{\@locref{hevea_default554}{8.7}}
+\indexentry{metodo}{\@locref{hevea_default555}{8.8}}
+\indexentry{stringa!metodi}{\@locref{hevea_default556}{8.8}}
+\indexentry{parentesi!vuote}{\@locref{hevea_default557}{8.8}}
+\indexentry{notazione a punto}{\@locref{hevea_default558}{8.8}}
+\indexentry{invocazione}{\@locref{hevea_default559}{8.8}}
+\indexentry{argomento!opzionale}{\@locref{hevea_default560}{8.8}}
+\indexentry{in, operatore}{\@locref{hevea_default561}{8.9}}
+\indexentry{operatore!in}{\@locref{hevea_default562}{8.9}}
+\indexentry{booleano, operatore}{\@locref{hevea_default563}{8.9}}
+\indexentry{operatore!booleano}{\@locref{hevea_default564}{8.9}}
+\indexentry{stringa!confronto}{\@locref{hevea_default565}{8.10}}
+\indexentry{confronto!stringa}{\@locref{hevea_default566}{8.10}}
+\indexentry{debug}{\@locref{hevea_default567}{8.11}}
+\indexentry{attraversamento}{\@locref{hevea_default568}{8.11}}
+\indexentry{guardia, condizione di}{\@locref{hevea_default569}{8.11}}
+\indexentry{schema!guardiani}{\@locref{hevea_default570}{8.11}}
+\indexentry{indice}{\@locref{hevea_default571}{8.11}}
+\indexentry{IndexError}{\@locref{hevea_default572}{8.11}}
+\indexentry{eccezione!IndexError}{\@locref{hevea_default573}{8.11}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default574}{8.11}}
+\indexentry{oggetto}{\@locref{hevea_default575}{8.12}}
+\indexentry{sequenza}{\@locref{hevea_default576}{8.12}}
+\indexentry{elemento}{\@locref{hevea_default577}{8.12}}
+\indexentry{indice}{\@locref{hevea_default578}{8.12}}
+\indexentry{slice}{\@locref{hevea_default579}{8.12}}
+\indexentry{stringa!vuota}{\@locref{hevea_default580}{8.12}}
+\indexentry{immutabilità}{\@locref{hevea_default581}{8.12}}
+\indexentry{attraversamento}{\@locref{hevea_default582}{8.12}}
+\indexentry{ricerca!schema di}{\@locref{hevea_default583}{8.12}}
+\indexentry{schema!di ricerca}{\@locref{hevea_default584}{8.12}}
+\indexentry{contatore}{\@locref{hevea_default585}{8.12}}
+\indexentry{invocazione}{\@locref{hevea_default586}{8.12}}
+\indexentry{opzionale, argomento}{\@locref{hevea_default587}{8.12}}
+\indexentry{argomento!opzionale}{\@locref{hevea_default588}{8.12}}
+\indexentry{stringa!metodi}{\@locref{hevea_default589}{8.13}}
+\indexentry{metodo!stringa}{\@locref{hevea_default590}{8.13}}
+\indexentry{opzionale, argomento}{\@locref{hevea_default591}{8.13}}
+\indexentry{argomento!opzionale}{\@locref{hevea_default592}{8.13}}
+\indexentry{count, metodo}{\@locref{hevea_default593}{8.13}}
+\indexentry{metodo!count}{\@locref{hevea_default594}{8.13}}
+\indexentry{step, ampiezza}{\@locref{hevea_default595}{8.13}}
+\indexentry{slicing!operatore di}{\@locref{hevea_default596}{8.13}}
+\indexentry{operatore!di slicing}{\@locref{hevea_default597}{8.13}}
+\indexentry{palindromo}{\@locref{hevea_default598}{8.13}}
+\indexentry{rotazione di lettere}{\@locref{hevea_default599}{8.13}}
+\indexentry{Moby Project}{\@locref{hevea_default600}{9.1}}
+\indexentry{cruciverba}{\@locref{hevea_default601}{9.1}}
+\indexentry{open, funzione}{\@locref{hevea_default602}{9.1}}
+\indexentry{funzione!open}{\@locref{hevea_default603}{9.1}}
+\indexentry{testo!semplice}{\@locref{hevea_default604}{9.1}}
+\indexentry{oggetto!file}{\@locref{hevea_default605}{9.1}}
+\indexentry{readline, metodo}{\@locref{hevea_default606}{9.1}}
+\indexentry{metodo!readline}{\@locref{hevea_default607}{9.1}}
+\indexentry{strip, metodo}{\@locref{hevea_default608}{9.1}}
+\indexentry{metodo!strip}{\@locref{hevea_default609}{9.1}}
+\indexentry{open, funzione}{\@locref{hevea_default610}{9.1}}
+\indexentry{funzione!open}{\@locref{hevea_default611}{9.1}}
+\indexentry{spaziatore}{\@locref{hevea_default612}{9.2}}
+\indexentry{lipogramma}{\@locref{hevea_default613}{9.2}}
+\indexentry{alfabetico}{\@locref{hevea_default614}{9.2}}
+\indexentry{ricerca!schema di}{\@locref{hevea_default615}{9.3}}
+\indexentry{schema!di ricerca}{\@locref{hevea_default616}{9.3}}
+\indexentry{attraversamento}{\@locref{hevea_default617}{9.3}}
+\indexentry{in, operatore}{\@locref{hevea_default618}{9.3}}
+\indexentry{operatore!in}{\@locref{hevea_default619}{9.3}}
+\indexentry{generalizzazione}{\@locref{hevea_default620}{9.3}}
+\indexentry{attraversamento}{\@locref{hevea_default621}{9.3}}
+\indexentry{riduzione ad un problema già risolto}{\@locref{hevea_default622}{9.3}}
+\indexentry{tecnica di sviluppo!riduzione}{\@locref{hevea_default623}{9.3}}
+\indexentry{ciclo!con indici}{\@locref{hevea_default624}{9.4}}
+\indexentry{indice!nei cicli}{\@locref{hevea_default625}{9.4}}
+\indexentry{palindromo}{\@locref{hevea_default626}{9.4}}
+\indexentry{riduzione ad un problema già risolto}{\@locref{hevea_default627}{9.4}}
+\indexentry{tecnica di sviluppo!riduzione}{\@locref{hevea_default628}{9.4}}
+\indexentry{debug}{\@locref{hevea_default629}{9.5}}
+\indexentry{test!difficoltà}{\@locref{hevea_default630}{9.5}}
+\indexentry{programma!test}{\@locref{hevea_default631}{9.5}}
+\indexentry{caso!particolare}{\@locref{hevea_default632}{9.5}}
+\indexentry{test!e assenza di bug}{\@locref{hevea_default633}{9.5}}
+\indexentry{Dijkstra, Edsger}{\@locref{hevea_default634}{9.5}}
+\indexentry{oggetto!file}{\@locref{hevea_default635}{9.6}}
+\indexentry{riduzione ad un problema già risolto}{\@locref{hevea_default636}{9.6}}
+\indexentry{tecnica di sviluppo!riduzione}{\@locref{hevea_default637}{9.6}}
+\indexentry{caso!particolare}{\@locref{hevea_default638}{9.6}}
+\indexentry{Car Talk}{\@locref{hevea_default639}{9.7}}
+\indexentry{quesito}{\@locref{hevea_default640}{9.7}}
+\indexentry{lettere!doppie}{\@locref{hevea_default641}{9.7}}
+\indexentry{Car Talk}{\@locref{hevea_default642}{9.7}}
+\indexentry{Puzzler}{\@locref{hevea_default643}{9.7}}
+\indexentry{contachilometri}{\@locref{hevea_default644}{9.7}}
+\indexentry{palindromo}{\@locref{hevea_default645}{9.7}}
+\indexentry{Car Talk}{\@locref{hevea_default646}{9.7}}
+\indexentry{Puzzler}{\@locref{hevea_default647}{9.7}}
+\indexentry{palindromo}{\@locref{hevea_default648}{9.7}}
+\indexentry{lista}{\@locref{hevea_default649}{10.1}}
+\indexentry{tipo!list}{\@locref{hevea_default650}{10.1}}
+\indexentry{elemento}{\@locref{hevea_default651}{10.1}}
+\indexentry{sequenza}{\@locref{hevea_default652}{10.1}}
+\indexentry{lista!nidificata}{\@locref{hevea_default653}{10.1}}
+\indexentry{lista!vuota}{\@locref{hevea_default654}{10.1}}
+\indexentry{assegnazione}{\@locref{hevea_default655}{10.1}}
+\indexentry{lista!elemento}{\@locref{hevea_default656}{10.2}}
+\indexentry{accesso}{\@locref{hevea_default657}{10.2}}
+\indexentry{indice}{\@locref{hevea_default658}{10.2}}
+\indexentry{parentesi quadre, operatore}{\@locref{hevea_default659}{10.2}}
+\indexentry{operatore!parentesi quadre}{\@locref{hevea_default660}{10.2}}
+\indexentry{mutabilità}{\@locref{hevea_default661}{10.2}}
+\indexentry{indice!inizio da zero}{\@locref{hevea_default662}{10.2}}
+\indexentry{zero, indice iniziale}{\@locref{hevea_default663}{10.2}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default664}{10.2}}
+\indexentry{elemento, assegnazione}{\@locref{hevea_default665}{10.2}}
+\indexentry{assegnazione!elemento}{\@locref{hevea_default666}{10.2}}
+\indexentry{riassegnazione}{\@locref{hevea_default667}{10.2}}
+\indexentry{eccezione!IndexError}{\@locref{hevea_default668}{10.2}}
+\indexentry{IndexError}{\@locref{hevea_default669}{10.2}}
+\indexentry{lista!indice}{\@locref{hevea_default670}{10.2}}
+\indexentry{lista!appartenenza}{\@locref{hevea_default671}{10.2}}
+\indexentry{appartenenza!lista}{\@locref{hevea_default672}{10.2}}
+\indexentry{in, operatore}{\@locref{hevea_default673}{10.2}}
+\indexentry{operatore!in}{\@locref{hevea_default674}{10.2}}
+\indexentry{lista!attraversamento}{\@locref{hevea_default675}{10.3}}
+\indexentry{attraversamento!lista}{\@locref{hevea_default676}{10.3}}
+\indexentry{for, ciclo}{\@locref{hevea_default677}{10.3}}
+\indexentry{ciclo!for}{\@locref{hevea_default678}{10.3}}
+\indexentry{istruzione!for}{\@locref{hevea_default679}{10.3}}
+\indexentry{ciclo!con indici}{\@locref{hevea_default680}{10.3}}
+\indexentry{indice!nei cicli}{\@locref{hevea_default681}{10.3}}
+\indexentry{elemento!aggiornamento}{\@locref{hevea_default682}{10.3}}
+\indexentry{aggiornamento!elemento}{\@locref{hevea_default683}{10.3}}
+\indexentry{nidificata, lista}{\@locref{hevea_default684}{10.3}}
+\indexentry{lista!nidificata}{\@locref{hevea_default685}{10.3}}
+\indexentry{lista!operazione}{\@locref{hevea_default686}{10.4}}
+\indexentry{concatenamento!lista}{\@locref{hevea_default687}{10.4}}
+\indexentry{lista!concatenamento}{\@locref{hevea_default688}{10.4}}
+\indexentry{ripetizione!lista}{\@locref{hevea_default689}{10.4}}
+\indexentry{lista!ripetizione}{\@locref{hevea_default690}{10.4}}
+\indexentry{slicing!operatore di}{\@locref{hevea_default691}{10.5}}
+\indexentry{operatore!di slicing}{\@locref{hevea_default692}{10.5}}
+\indexentry{indice!slicing}{\@locref{hevea_default693}{10.5}}
+\indexentry{lista!slicing}{\@locref{hevea_default694}{10.5}}
+\indexentry{slicing!lista}{\@locref{hevea_default695}{10.5}}
+\indexentry{lista!copia}{\@locref{hevea_default696}{10.5}}
+\indexentry{slicing!copia}{\@locref{hevea_default697}{10.5}}
+\indexentry{copia!slicing}{\@locref{hevea_default698}{10.5}}
+\indexentry{mutabilità}{\@locref{hevea_default699}{10.5}}
+\indexentry{slicing!aggiornamento}{\@locref{hevea_default700}{10.5}}
+\indexentry{aggiornamento!slicing}{\@locref{hevea_default701}{10.5}}
+\indexentry{lista!metodi}{\@locref{hevea_default702}{10.6}}
+\indexentry{metodi delle liste}{\@locref{hevea_default703}{10.6}}
+\indexentry{append, metodo}{\@locref{hevea_default704}{10.6}}
+\indexentry{metodo!append}{\@locref{hevea_default705}{10.6}}
+\indexentry{extend, metodo}{\@locref{hevea_default706}{10.6}}
+\indexentry{metodo!extend}{\@locref{hevea_default707}{10.6}}
+\indexentry{sort, metodo}{\@locref{hevea_default708}{10.6}}
+\indexentry{metodo!sort}{\@locref{hevea_default709}{10.6}}
+\indexentry{metodo!vuoto}{\@locref{hevea_default710}{10.6}}
+\indexentry{None, valore speciale}{\@locref{hevea_default711}{10.6}}
+\indexentry{valore speciale!None}{\@locref{hevea_default712}{10.6}}
+\indexentry{aggiornamento!operatore di}{\@locref{hevea_default713}{10.7}}
+\indexentry{operatore!di aggiornamento}{\@locref{hevea_default714}{10.7}}
+\indexentry{assegnazione!potenziata}{\@locref{hevea_default715}{10.7}}
+\indexentry{potenziata, assegnazione}{\@locref{hevea_default716}{10.7}}
+\indexentry{accumulatore!somma}{\@locref{hevea_default717}{10.7}}
+\indexentry{riduzione, schema}{\@locref{hevea_default718}{10.7}}
+\indexentry{schema!riduzione}{\@locref{hevea_default719}{10.7}}
+\indexentry{attraversamento}{\@locref{hevea_default720}{10.7}}
+\indexentry{accumulatore!lista}{\@locref{hevea_default721}{10.7}}
+\indexentry{mappa, schema}{\@locref{hevea_default722}{10.7}}
+\indexentry{schema!mappa}{\@locref{hevea_default723}{10.7}}
+\indexentry{filtro, schema}{\@locref{hevea_default724}{10.7}}
+\indexentry{schema!filtro}{\@locref{hevea_default725}{10.7}}
+\indexentry{elemento!cancellazione}{\@locref{hevea_default726}{10.8}}
+\indexentry{cancellare, elementi di lista}{\@locref{hevea_default727}{10.8}}
+\indexentry{pop, metodo}{\@locref{hevea_default728}{10.8}}
+\indexentry{metodo!pop}{\@locref{hevea_default729}{10.8}}
+\indexentry{del, operatore}{\@locref{hevea_default730}{10.8}}
+\indexentry{operatore!del}{\@locref{hevea_default731}{10.8}}
+\indexentry{remove, metodo}{\@locref{hevea_default732}{10.8}}
+\indexentry{metodo!remove}{\@locref{hevea_default733}{10.8}}
+\indexentry{None, valore speciale}{\@locref{hevea_default734}{10.8}}
+\indexentry{valore speciale!None}{\@locref{hevea_default735}{10.8}}
+\indexentry{lista}{\@locref{hevea_default736}{10.9}}
+\indexentry{stringa}{\@locref{hevea_default737}{10.9}}
+\indexentry{sequenza}{\@locref{hevea_default738}{10.9}}
+\indexentry{list, funzione}{\@locref{hevea_default739}{10.9}}
+\indexentry{funzione!list}{\@locref{hevea_default740}{10.9}}
+\indexentry{split, metodo}{\@locref{hevea_default741}{10.9}}
+\indexentry{metodo!split}{\@locref{hevea_default742}{10.9}}
+\indexentry{argomento!opzionale}{\@locref{hevea_default743}{10.9}}
+\indexentry{delimitatore}{\@locref{hevea_default744}{10.9}}
+\indexentry{join, metodo}{\@locref{hevea_default745}{10.9}}
+\indexentry{metodo!join}{\@locref{hevea_default746}{10.9}}
+\indexentry{concatenamento}{\@locref{hevea_default747}{10.9}}
+\indexentry{stringa!vuota}{\@locref{hevea_default748}{10.9}}
+\indexentry{oggetto}{\@locref{hevea_default749}{10.10}}
+\indexentry{valore}{\@locref{hevea_default750}{10.10}}
+\indexentry{alias}{\@locref{hevea_default751}{10.10}}
+\indexentry{is, operatore}{\@locref{hevea_default752}{10.10}}
+\indexentry{operatore!is}{\@locref{hevea_default753}{10.10}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default754}{10.10}}
+\indexentry{equivalente}{\@locref{hevea_default755}{10.10}}
+\indexentry{identità}{\@locref{hevea_default756}{10.10}}
+\indexentry{oggetto}{\@locref{hevea_default757}{10.10}}
+\indexentry{valore}{\@locref{hevea_default758}{10.10}}
+\indexentry{alias}{\@locref{hevea_default759}{10.11}}
+\indexentry{riferimento!alias}{\@locref{hevea_default760}{10.11}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default761}{10.11}}
+\indexentry{riferimento}{\@locref{hevea_default762}{10.11}}
+\indexentry{mutabilità}{\@locref{hevea_default763}{10.11}}
+\indexentry{immutabilità}{\@locref{hevea_default764}{10.11}}
+\indexentry{lista!come argomento}{\@locref{hevea_default765}{10.12}}
+\indexentry{argomento}{\@locref{hevea_default766}{10.12}}
+\indexentry{argomento!lista}{\@locref{hevea_default767}{10.12}}
+\indexentry{riferimento}{\@locref{hevea_default768}{10.12}}
+\indexentry{parametro}{\@locref{hevea_default769}{10.12}}
+\indexentry{diagramma!di stack}{\@locref{hevea_default770}{10.12}}
+\indexentry{append, metodo}{\@locref{hevea_default771}{10.12}}
+\indexentry{metodo!append}{\@locref{hevea_default772}{10.12}}
+\indexentry{lista!concatenamento}{\@locref{hevea_default773}{10.12}}
+\indexentry{concatenamento!lista}{\@locref{hevea_default774}{10.12}}
+\indexentry{slicing!operatore di}{\@locref{hevea_default775}{10.12}}
+\indexentry{operatore!di slicing}{\@locref{hevea_default776}{10.12}}
+\indexentry{debug}{\@locref{hevea_default777}{10.13}}
+\indexentry{sort, metodo}{\@locref{hevea_default778}{10.13}}
+\indexentry{metodo!sort}{\@locref{hevea_default779}{10.13}}
+\indexentry{alias!copiare per evitare}{\@locref{hevea_default780}{10.13}}
+\indexentry{copia!per evitare alias}{\@locref{hevea_default781}{10.13}}
+\indexentry{sorted!funzione}{\@locref{hevea_default782}{10.13}}
+\indexentry{funzione!sorted}{\@locref{hevea_default783}{10.13}}
+\indexentry{lista}{\@locref{hevea_default784}{10.14}}
+\indexentry{elemento}{\@locref{hevea_default785}{10.14}}
+\indexentry{lista!nidificata}{\@locref{hevea_default786}{10.14}}
+\indexentry{accumulatore}{\@locref{hevea_default787}{10.14}}
+\indexentry{assegnazione!potenziata}{\@locref{hevea_default788}{10.14}}
+\indexentry{attraversamento}{\@locref{hevea_default789}{10.14}}
+\indexentry{riduzione, schema}{\@locref{hevea_default790}{10.14}}
+\indexentry{schema!riduzione}{\@locref{hevea_default791}{10.14}}
+\indexentry{mappa, schema}{\@locref{hevea_default792}{10.14}}
+\indexentry{schema!mappa}{\@locref{hevea_default793}{10.14}}
+\indexentry{filtro, schema}{\@locref{hevea_default794}{10.14}}
+\indexentry{schema!filtro}{\@locref{hevea_default795}{10.14}}
+\indexentry{oggetto}{\@locref{hevea_default796}{10.14}}
+\indexentry{equivalente}{\@locref{hevea_default797}{10.14}}
+\indexentry{identico}{\@locref{hevea_default798}{10.14}}
+\indexentry{riferimento}{\@locref{hevea_default799}{10.14}}
+\indexentry{alias}{\@locref{hevea_default800}{10.14}}
+\indexentry{delimitatore}{\@locref{hevea_default801}{10.14}}
+\indexentry{cumulativa, somma}{\@locref{hevea_default802}{10.15}}
+\indexentry{anagramma}{\@locref{hevea_default803}{10.15}}
+\indexentry{duplicato}{\@locref{hevea_default804}{10.15}}
+\indexentry{unicità}{\@locref{hevea_default805}{10.15}}
+\indexentry{compleanno, paradosso del}{\@locref{hevea_default806}{10.15}}
+\indexentry{random, modulo}{\@locref{hevea_default807}{10.15}}
+\indexentry{modulo!random}{\@locref{hevea_default808}{10.15}}
+\indexentry{randint, funzione}{\@locref{hevea_default809}{10.15}}
+\indexentry{funzione!randint}{\@locref{hevea_default810}{10.15}}
+\indexentry{append, metodo}{\@locref{hevea_default811}{10.15}}
+\indexentry{metodo!append}{\@locref{hevea_default812}{10.15}}
+\indexentry{lista!concatenamento}{\@locref{hevea_default813}{10.15}}
+\indexentry{concatenamento!lista}{\@locref{hevea_default814}{10.15}}
+\indexentry{appartenenza!ricerca binaria}{\@locref{hevea_default815}{10.15}}
+\indexentry{ricerca!binaria}{\@locref{hevea_default816}{10.15}}
+\indexentry{appartenenza!ricerca binaria}{\@locref{hevea_default817}{10.15}}
+\indexentry{ricerca!binaria}{\@locref{hevea_default818}{10.15}}
+\indexentry{bisect, modulo}{\@locref{hevea_default819}{10.15}}
+\indexentry{modulo!bisect}{\@locref{hevea_default820}{10.15}}
+\indexentry{bifronte, parola}{\@locref{hevea_default821}{10.15}}
+\indexentry{incastro, parola}{\@locref{hevea_default822}{10.15}}
+\indexentry{dizionario}{\@locref{hevea_default823}{11.1}}
+\indexentry{tipo!dict}{\@locref{hevea_default824}{11.1}}
+\indexentry{chiave}{\@locref{hevea_default825}{11.1}}
+\indexentry{chiave-valore, coppia}{\@locref{hevea_default826}{11.1}}
+\indexentry{indice}{\@locref{hevea_default827}{11.1}}
+\indexentry{elemento}{\@locref{hevea_default828}{11.1}}
+\indexentry{dict, funzione}{\@locref{hevea_default829}{11.1}}
+\indexentry{funzione!dict}{\@locref{hevea_default830}{11.1}}
+\indexentry{graffe, parentesi}{\@locref{hevea_default831}{11.1}}
+\indexentry{parentesi!graffe}{\@locref{hevea_default832}{11.1}}
+\indexentry{eccezione!KeyError}{\@locref{hevea_default833}{11.1}}
+\indexentry{KeyError}{\@locref{hevea_default834}{11.1}}
+\indexentry{len, funzione}{\@locref{hevea_default835}{11.1}}
+\indexentry{funzione!len}{\@locref{hevea_default836}{11.1}}
+\indexentry{appartenenza!dizionario}{\@locref{hevea_default837}{11.1}}
+\indexentry{in, operatore}{\@locref{hevea_default838}{11.1}}
+\indexentry{operatore!in}{\@locref{hevea_default839}{11.1}}
+\indexentry{values, metodo}{\@locref{hevea_default840}{11.1}}
+\indexentry{metodo!values}{\@locref{hevea_default841}{11.1}}
+\indexentry{tabella hash}{\@locref{hevea_default842}{11.1}}
+\indexentry{contatore}{\@locref{hevea_default843}{11.2}}
+\indexentry{implementazione}{\@locref{hevea_default844}{11.2}}
+\indexentry{istogramma}{\@locref{hevea_default845}{11.2}}
+\indexentry{frequenza}{\@locref{hevea_default846}{11.2}}
+\indexentry{attraversamento}{\@locref{hevea_default847}{11.2}}
+\indexentry{istogramma}{\@locref{hevea_default848}{11.2}}
+\indexentry{get, metodo}{\@locref{hevea_default849}{11.2}}
+\indexentry{metodo!get}{\@locref{hevea_default850}{11.2}}
+\indexentry{dizionario!ciclo con}{\@locref{hevea_default851}{11.3}}
+\indexentry{ciclo!con dizionario}{\@locref{hevea_default852}{11.3}}
+\indexentry{attraversamento}{\@locref{hevea_default853}{11.3}}
+\indexentry{sorted, funzione}{\@locref{hevea_default854}{11.3}}
+\indexentry{funzione!sorted}{\@locref{hevea_default855}{11.3}}
+\indexentry{dizionario!lookup}{\@locref{hevea_default856}{11.4}}
+\indexentry{dizionario!lookup inverso}{\@locref{hevea_default857}{11.4}}
+\indexentry{lookup!dizionario}{\@locref{hevea_default858}{11.4}}
+\indexentry{lookup inverso, dizionario}{\@locref{hevea_default859}{11.4}}
+\indexentry{ricerca}{\@locref{hevea_default860}{11.4}}
+\indexentry{schema!di ricerca}{\@locref{hevea_default861}{11.4}}
+\indexentry{raise, istruzione}{\@locref{hevea_default862}{11.4}}
+\indexentry{istruzione!raise}{\@locref{hevea_default863}{11.4}}
+\indexentry{eccezione!LookupError}{\@locref{hevea_default864}{11.4}}
+\indexentry{LookupError}{\@locref{hevea_default865}{11.4}}
+\indexentry{traceback}{\@locref{hevea_default866}{11.4}}
+\indexentry{argomento!opzionale}{\@locref{hevea_default867}{11.4}}
+\indexentry{dizionario!inverso}{\@locref{hevea_default868}{11.5}}
+\indexentry{singleton}{\@locref{hevea_default869}{11.5}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default870}{11.5}}
+\indexentry{TypeError}{\@locref{hevea_default871}{11.5}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default872}{11.5}}
+\indexentry{hash, funzione}{\@locref{hevea_default873}{11.5}}
+\indexentry{hashing}{\@locref{hevea_default874}{11.5}}
+\indexentry{immutabilità}{\@locref{hevea_default875}{11.5}}
+\indexentry{fibonacci, funzione}{\@locref{hevea_default876}{11.6}}
+\indexentry{funzione!fibonacci}{\@locref{hevea_default877}{11.6}}
+\indexentry{funzione!frame di}{\@locref{hevea_default878}{11.6}}
+\indexentry{frame}{\@locref{hevea_default879}{11.6}}
+\indexentry{grafico di chiamata}{\@locref{hevea_default880}{11.6}}
+\indexentry{memoizzazione}{\@locref{hevea_default881}{11.6}}
+\indexentry{variabile!globale}{\@locref{hevea_default882}{11.7}}
+\indexentry{flag}{\@locref{hevea_default883}{11.7}}
+\indexentry{main}{\@locref{hevea_default884}{11.7}}
+\indexentry{riassegnazione}{\@locref{hevea_default885}{11.7}}
+\indexentry{global, istruzione}{\@locref{hevea_default886}{11.7}}
+\indexentry{istruzione!global}{\@locref{hevea_default887}{11.7}}
+\indexentry{dichiarazione}{\@locref{hevea_default888}{11.7}}
+\indexentry{aggiornamento!variabile globale}{\@locref{hevea_default889}{11.7}}
+\indexentry{variabile!globale!aggiornamento}{\@locref{hevea_default890}{11.7}}
+\indexentry{UnboundLocalError}{\@locref{hevea_default891}{11.7}}
+\indexentry{eccezione!UnboundLocalError}{\@locref{hevea_default892}{11.7}}
+\indexentry{contatore}{\@locref{hevea_default893}{11.7}}
+\indexentry{mutabilità}{\@locref{hevea_default894}{11.7}}
+\indexentry{debug}{\@locref{hevea_default895}{11.8}}
+\indexentry{congruenza, controllo di}{\@locref{hevea_default896}{11.8}}
+\indexentry{coerenza, controllo di}{\@locref{hevea_default897}{11.8}}
+\indexentry{bella copia}{\@locref{hevea_default898}{11.8}}
+\indexentry{pprint, modulo}{\@locref{hevea_default899}{11.8}}
+\indexentry{modulo!pprint}{\@locref{hevea_default900}{11.8}}
+\indexentry{impalcatura}{\@locref{hevea_default901}{11.8}}
+\indexentry{mappatura}{\@locref{hevea_default902}{11.9}}
+\indexentry{dizionario}{\@locref{hevea_default903}{11.9}}
+\indexentry{chiave-valore, coppia}{\@locref{hevea_default904}{11.9}}
+\indexentry{elemento!dizionario}{\@locref{hevea_default905}{11.9}}
+\indexentry{chiave}{\@locref{hevea_default906}{11.9}}
+\indexentry{valore}{\@locref{hevea_default907}{11.9}}
+\indexentry{implementazione}{\@locref{hevea_default908}{11.9}}
+\indexentry{tabella hash}{\@locref{hevea_default909}{11.9}}
+\indexentry{hash, funzione}{\@locref{hevea_default910}{11.9}}
+\indexentry{hashing}{\@locref{hevea_default911}{11.9}}
+\indexentry{lookup}{\@locref{hevea_default912}{11.9}}
+\indexentry{lookup inverso}{\@locref{hevea_default913}{11.9}}
+\indexentry{singleton}{\@locref{hevea_default914}{11.9}}
+\indexentry{chiamata, grafico di}{\@locref{hevea_default915}{11.9}}
+\indexentry{diagramma!grafico di chiamata}{\@locref{hevea_default916}{11.9}}
+\indexentry{memoizzazione}{\@locref{hevea_default917}{11.9}}
+\indexentry{globale, variabile}{\@locref{hevea_default918}{11.9}}
+\indexentry{global, istruzione}{\@locref{hevea_default919}{11.9}}
+\indexentry{istruzione!global}{\@locref{hevea_default920}{11.9}}
+\indexentry{flag}{\@locref{hevea_default921}{11.9}}
+\indexentry{dichiarazione}{\@locref{hevea_default922}{11.9}}
+\indexentry{insieme di appartenenza}{\@locref{hevea_default923}{11.10}}
+\indexentry{appartenenza!insieme di}{\@locref{hevea_default924}{11.10}}
+\indexentry{setdefault, metodo}{\@locref{hevea_default925}{11.10}}
+\indexentry{metodo!setdefault}{\@locref{hevea_default926}{11.10}}
+\indexentry{Ackermann, funzione di}{\@locref{hevea_default927}{11.10}}
+\indexentry{funzione!ack}{\@locref{hevea_default928}{11.10}}
+\indexentry{duplicato}{\@locref{hevea_default929}{11.10}}
+\indexentry{lettere!rotazione}{\@locref{hevea_default930}{11.10}}
+\indexentry{rotazione!lettere}{\@locref{hevea_default931}{11.10}}
+\indexentry{Car Talk}{\@locref{hevea_default932}{11.10}}
+\indexentry{Puzzler}{\@locref{hevea_default933}{11.10}}
+\indexentry{omofono}{\@locref{hevea_default934}{11.10}}
+\indexentry{riducibile, parola}{\@locref{hevea_default935}{11.10}}
+\indexentry{parola, riducibile}{\@locref{hevea_default936}{11.10}}
+\indexentry{tupla}{\@locref{hevea_default937}{12.1}}
+\indexentry{tipo!tuple}{\@locref{hevea_default938}{12.1}}
+\indexentry{sequenza}{\@locref{hevea_default939}{12.1}}
+\indexentry{mutabilità}{\@locref{hevea_default940}{12.1}}
+\indexentry{immutabilità}{\@locref{hevea_default941}{12.1}}
+\indexentry{parentesi!tuple in}{\@locref{hevea_default942}{12.1}}
+\indexentry{singleton}{\@locref{hevea_default943}{12.1}}
+\indexentry{tupla!singleton}{\@locref{hevea_default944}{12.1}}
+\indexentry{tuple, funzione}{\@locref{hevea_default945}{12.1}}
+\indexentry{funzione!tuple}{\@locref{hevea_default946}{12.1}}
+\indexentry{parentesi quadre, operatore}{\@locref{hevea_default947}{12.1}}
+\indexentry{operatore!parentesi quadre}{\@locref{hevea_default948}{12.1}}
+\indexentry{slicing!operatore di}{\@locref{hevea_default949}{12.1}}
+\indexentry{operatore!di slicing}{\@locref{hevea_default950}{12.1}}
+\indexentry{tupla!slicing}{\@locref{hevea_default951}{12.1}}
+\indexentry{slicing!tupla}{\@locref{hevea_default952}{12.1}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default953}{12.1}}
+\indexentry{TypeError}{\@locref{hevea_default954}{12.1}}
+\indexentry{elemento!assegnazione}{\@locref{hevea_default955}{12.1}}
+\indexentry{assegnazione!elemento}{\@locref{hevea_default956}{12.1}}
+\indexentry{tupla!assegnazione}{\@locref{hevea_default957}{12.2}}
+\indexentry{assegnazione!tupla}{\@locref{hevea_default958}{12.2}}
+\indexentry{scambio, schema di}{\@locref{hevea_default959}{12.2}}
+\indexentry{schema!di scambio}{\@locref{hevea_default960}{12.2}}
+\indexentry{eccezione!ValueError}{\@locref{hevea_default961}{12.2}}
+\indexentry{ValueError}{\@locref{hevea_default962}{12.2}}
+\indexentry{split, metodo}{\@locref{hevea_default963}{12.2}}
+\indexentry{metodo!split}{\@locref{hevea_default964}{12.2}}
+\indexentry{email, indirizzo}{\@locref{hevea_default965}{12.2}}
+\indexentry{tupla}{\@locref{hevea_default966}{12.3}}
+\indexentry{valore!tupla}{\@locref{hevea_default967}{12.3}}
+\indexentry{valore di ritorno!tupla}{\@locref{hevea_default968}{12.3}}
+\indexentry{funzione!tupla come valore di ritorno}{\@locref{hevea_default969}{12.3}}
+\indexentry{divmod}{\@locref{hevea_default970}{12.3}}
+\indexentry{tupla!assegnazione}{\@locref{hevea_default971}{12.3}}
+\indexentry{assegnazione!tupla}{\@locref{hevea_default972}{12.3}}
+\indexentry{max, funzione}{\@locref{hevea_default973}{12.3}}
+\indexentry{funzione!max}{\@locref{hevea_default974}{12.3}}
+\indexentry{min, funzione}{\@locref{hevea_default975}{12.3}}
+\indexentry{funzione!min}{\@locref{hevea_default976}{12.3}}
+\indexentry{lunghezza variabile, tupla di argomenti}{\@locref{hevea_default977}{12.4}}
+\indexentry{argomento!tupla di lunghezza variabile}{\@locref{hevea_default978}{12.4}}
+\indexentry{raccolta}{\@locref{hevea_default979}{12.4}}
+\indexentry{parametro!raccolta}{\@locref{hevea_default980}{12.4}}
+\indexentry{argomento!raccolta}{\@locref{hevea_default981}{12.4}}
+\indexentry{spacchettamento}{\@locref{hevea_default982}{12.4}}
+\indexentry{argomento!spacchettamento}{\@locref{hevea_default983}{12.4}}
+\indexentry{TypeError}{\@locref{hevea_default984}{12.4}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default985}{12.4}}
+\indexentry{max, funzione}{\@locref{hevea_default986}{12.4}}
+\indexentry{funzione!max}{\@locref{hevea_default987}{12.4}}
+\indexentry{min, funzione}{\@locref{hevea_default988}{12.4}}
+\indexentry{funzione!min}{\@locref{hevea_default989}{12.4}}
+\indexentry{sum, funzione}{\@locref{hevea_default990}{12.4}}
+\indexentry{funzione!sum}{\@locref{hevea_default991}{12.4}}
+\indexentry{zip, funzione}{\@locref{hevea_default992}{12.5}}
+\indexentry{funzione!zip}{\@locref{hevea_default993}{12.5}}
+\indexentry{iteratore}{\@locref{hevea_default994}{12.5}}
+\indexentry{lista!di tuple}{\@locref{hevea_default995}{12.5}}
+\indexentry{attraversamento}{\@locref{hevea_default996}{12.5}}
+\indexentry{tupla!assegnazione}{\@locref{hevea_default997}{12.5}}
+\indexentry{assegnazione!tupla}{\@locref{hevea_default998}{12.5}}
+\indexentry{ciclo}{\@locref{hevea_default999}{12.5}}
+\indexentry{for, ciclo}{\@locref{hevea_default1000}{12.5}}
+\indexentry{attraversamento}{\@locref{hevea_default1001}{12.5}}
+\indexentry{enumerate, funzione}{\@locref{hevea_default1002}{12.5}}
+\indexentry{funzione!enumerate}{\@locref{hevea_default1003}{12.5}}
+\indexentry{iteratore}{\@locref{hevea_default1004}{12.5}}
+\indexentry{oggetto!enumerate}{\@locref{hevea_default1005}{12.5}}
+\indexentry{enumerate, oggetto}{\@locref{hevea_default1006}{12.5}}
+\indexentry{dizionario}{\@locref{hevea_default1007}{12.6}}
+\indexentry{items, metodo}{\@locref{hevea_default1008}{12.6}}
+\indexentry{metodo!items}{\@locref{hevea_default1009}{12.6}}
+\indexentry{chiave-valore, coppia}{\@locref{hevea_default1010}{12.6}}
+\indexentry{iteratore}{\@locref{hevea_default1011}{12.6}}
+\indexentry{dizionario!inizializzazione}{\@locref{hevea_default1012}{12.6}}
+\indexentry{zip, funzione!uso con dict}{\@locref{hevea_default1013}{12.6}}
+\indexentry{update, metodo}{\@locref{hevea_default1014}{12.6}}
+\indexentry{metodo!update}{\@locref{hevea_default1015}{12.6}}
+\indexentry{attraversamento!dizionario}{\@locref{hevea_default1016}{12.6}}
+\indexentry{dizionario!attraversamento}{\@locref{hevea_default1017}{12.6}}
+\indexentry{tupla!come chiave di dizionario}{\@locref{hevea_default1018}{12.6}}
+\indexentry{hashing}{\@locref{hevea_default1019}{12.6}}
+\indexentry{tupla!in parentesi quadre}{\@locref{hevea_default1020}{12.6}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default1021}{12.6}}
+\indexentry{sequenza}{\@locref{hevea_default1022}{12.7}}
+\indexentry{stringa}{\@locref{hevea_default1023}{12.7}}
+\indexentry{lista}{\@locref{hevea_default1024}{12.7}}
+\indexentry{tupla}{\@locref{hevea_default1025}{12.7}}
+\indexentry{mutabilità}{\@locref{hevea_default1026}{12.7}}
+\indexentry{immutabilità}{\@locref{hevea_default1027}{12.7}}
+\indexentry{sorted, funzione}{\@locref{hevea_default1028}{12.7}}
+\indexentry{funzione!sorted}{\@locref{hevea_default1029}{12.7}}
+\indexentry{reversed, funzione}{\@locref{hevea_default1030}{12.7}}
+\indexentry{funzione!reversed}{\@locref{hevea_default1031}{12.7}}
+\indexentry{iteratore}{\@locref{hevea_default1032}{12.7}}
+\indexentry{debug}{\@locref{hevea_default1033}{12.8}}
+\indexentry{struttura di dati}{\@locref{hevea_default1034}{12.8}}
+\indexentry{formato, errore di}{\@locref{hevea_default1035}{12.8}}
+\indexentry{errore!di formato}{\@locref{hevea_default1036}{12.8}}
+\indexentry{structshape, modulo}{\@locref{hevea_default1037}{12.8}}
+\indexentry{modulo!structshape}{\@locref{hevea_default1038}{12.8}}
+\indexentry{tupla}{\@locref{hevea_default1039}{12.9}}
+\indexentry{tupla!assegnazione}{\@locref{hevea_default1040}{12.9}}
+\indexentry{assegnazione!tupla}{\@locref{hevea_default1041}{12.9}}
+\indexentry{raccolta}{\@locref{hevea_default1042}{12.9}}
+\indexentry{spacchettamento}{\@locref{hevea_default1043}{12.9}}
+\indexentry{zip, oggetto}{\@locref{hevea_default1044}{12.9}}
+\indexentry{oggetto!zip}{\@locref{hevea_default1045}{12.9}}
+\indexentry{iteratore}{\@locref{hevea_default1046}{12.9}}
+\indexentry{struttura di dati}{\@locref{hevea_default1047}{12.9}}
+\indexentry{formato}{\@locref{hevea_default1048}{12.9}}
+\indexentry{lettere!frequenza}{\@locref{hevea_default1049}{12.10}}
+\indexentry{frequenza!di lettere}{\@locref{hevea_default1050}{12.10}}
+\indexentry{anagramma, insieme}{\@locref{hevea_default1051}{12.10}}
+\indexentry{insieme!anagramma}{\@locref{hevea_default1052}{12.10}}
+\indexentry{Scarabeo}{\@locref{hevea_default1053}{12.10}}
+\indexentry{metatesi}{\@locref{hevea_default1054}{12.10}}
+\indexentry{Car Talk}{\@locref{hevea_default1055}{12.10}}
+\indexentry{Puzzler}{\@locref{hevea_default1056}{12.10}}
+\indexentry{parola, riducibile}{\@locref{hevea_default1057}{12.10}}
+\indexentry{definizione!ricorsiva}{\@locref{hevea_default1058}{12.10}}
+\indexentry{string, modulo}{\@locref{hevea_default1059}{13.1}}
+\indexentry{modulo!string}{\@locref{hevea_default1060}{13.1}}
+\indexentry{strip, metodo}{\@locref{hevea_default1061}{13.1}}
+\indexentry{metodo!strip}{\@locref{hevea_default1062}{13.1}}
+\indexentry{replace, metodo}{\@locref{hevea_default1063}{13.1}}
+\indexentry{metodo!replace}{\@locref{hevea_default1064}{13.1}}
+\indexentry{translate, metodo}{\@locref{hevea_default1065}{13.1}}
+\indexentry{metodo!translate}{\@locref{hevea_default1066}{13.1}}
+\indexentry{Progetto Gutenberg}{\@locref{hevea_default1067}{13.1}}
+\indexentry{testo!semplice}{\@locref{hevea_default1068}{13.1}}
+\indexentry{parola, frequenza}{\@locref{hevea_default1069}{13.1}}
+\indexentry{frequenza!di parole}{\@locref{hevea_default1070}{13.1}}
+\indexentry{numero casuale}{\@locref{hevea_default1071}{13.2}}
+\indexentry{deterministico}{\@locref{hevea_default1072}{13.2}}
+\indexentry{pseudocasuale}{\@locref{hevea_default1073}{13.2}}
+\indexentry{random, modulo}{\@locref{hevea_default1074}{13.2}}
+\indexentry{modulo!random}{\@locref{hevea_default1075}{13.2}}
+\indexentry{random, funzione}{\@locref{hevea_default1076}{13.2}}
+\indexentry{funzione!random}{\@locref{hevea_default1077}{13.2}}
+\indexentry{randint, funzione}{\@locref{hevea_default1078}{13.2}}
+\indexentry{funzione!randint}{\@locref{hevea_default1079}{13.2}}
+\indexentry{choice, funzione}{\@locref{hevea_default1080}{13.2}}
+\indexentry{funzione!choice}{\@locref{hevea_default1081}{13.2}}
+\indexentry{istogramma!scelta casuale}{\@locref{hevea_default1082}{13.2}}
+\indexentry{istogramma!frequenza delle parole}{\@locref{hevea_default1083}{13.3}}
+\indexentry{Austin, Jane}{\@locref{hevea_default1084}{13.3}}
+\indexentry{accumulatore!istogramma}{\@locref{hevea_default1085}{13.3}}
+\indexentry{attraversamento}{\@locref{hevea_default1086}{13.3}}
+\indexentry{aggiornamento!istogramma}{\@locref{hevea_default1087}{13.3}}
+\indexentry{parametro!opzionale}{\@locref{hevea_default1088}{13.5}}
+\indexentry{funzione!personalizzata}{\@locref{hevea_default1089}{13.5}}
+\indexentry{valore di default}{\@locref{hevea_default1090}{13.5}}
+\indexentry{sovrascrittura}{\@locref{hevea_default1091}{13.5}}
+\indexentry{dizionario!sottrazione}{\@locref{hevea_default1092}{13.6}}
+\indexentry{sottrazione!dizionario}{\@locref{hevea_default1093}{13.6}}
+\indexentry{insieme}{\@locref{hevea_default1094}{13.6}}
+\indexentry{tipo!set}{\@locref{hevea_default1095}{13.6}}
+\indexentry{istogramma!scelta casuale}{\@locref{hevea_default1096}{13.7}}
+\indexentry{algoritmo}{\@locref{hevea_default1097}{13.7}}
+\indexentry{Markov, analisi di}{\@locref{hevea_default1098}{13.8}}
+\indexentry{prefisso}{\@locref{hevea_default1099}{13.8}}
+\indexentry{suffisso}{\@locref{hevea_default1100}{13.8}}
+\indexentry{mappatura}{\@locref{hevea_default1101}{13.8}}
+\indexentry{testo!casuale}{\@locref{hevea_default1102}{13.8}}
+\indexentry{minestrone}{\@locref{hevea_default1103}{13.8}}
+\indexentry{struttura di dati}{\@locref{hevea_default1104}{13.9}}
+\indexentry{implementazione}{\@locref{hevea_default1105}{13.9}}
+\indexentry{tupla!come chiave di dizionario}{\@locref{hevea_default1106}{13.9}}
+\indexentry{benchmarking}{\@locref{hevea_default1107}{13.9}}
+\indexentry{profile, modulo}{\@locref{hevea_default1108}{13.9}}
+\indexentry{modulo!profile}{\@locref{hevea_default1109}{13.9}}
+\indexentry{debug}{\@locref{hevea_default1110}{13.10}}
+\indexentry{errore!di battitura}{\@locref{hevea_default1111}{13.10}}
+\indexentry{debug!sperimentale}{\@locref{hevea_default1112}{13.10}}
+\indexentry{tecnica di sviluppo!programmazione a tentoni}{\@locref{hevea_default1113}{13.10}}
+\indexentry{deterministico}{\@locref{hevea_default1114}{13.11}}
+\indexentry{pseudocasuale}{\@locref{hevea_default1115}{13.11}}
+\indexentry{default, valore di}{\@locref{hevea_default1116}{13.11}}
+\indexentry{sovrascrittura}{\@locref{hevea_default1117}{13.11}}
+\indexentry{benchmarking}{\@locref{hevea_default1118}{13.11}}
+\indexentry{debug!con la papera di gomma}{\@locref{hevea_default1119}{13.11}}
+\indexentry{frequenza!di parole}{\@locref{hevea_default1120}{13.12}}
+\indexentry{Zipf, legge di}{\@locref{hevea_default1121}{13.12}}
+\indexentry{logaritmo}{\@locref{hevea_default1122}{13.12}}
+\indexentry{Matplotlib}{\@locref{hevea_default1123}{13.12}}
+\indexentry{file}{\@locref{hevea_default1124}{14.1}}
+\indexentry{tipo!file}{\@locref{hevea_default1125}{14.1}}
+\indexentry{persistenza}{\@locref{hevea_default1126}{14.1}}
+\indexentry{pickle, modulo}{\@locref{hevea_default1127}{14.1}}
+\indexentry{modulo!pickle}{\@locref{hevea_default1128}{14.1}}
+\indexentry{file!lettura e scrittura}{\@locref{hevea_default1129}{14.2}}
+\indexentry{open, funzione}{\@locref{hevea_default1130}{14.2}}
+\indexentry{funzione!open}{\@locref{hevea_default1131}{14.2}}
+\indexentry{close, metodo}{\@locref{hevea_default1132}{14.2}}
+\indexentry{metodo!close}{\@locref{hevea_default1133}{14.2}}
+\indexentry{formato!operatore di}{\@locref{hevea_default1134}{14.3}}
+\indexentry{operatore!di formato}{\@locref{hevea_default1135}{14.3}}
+\indexentry{formato!stringa di}{\@locref{hevea_default1136}{14.3}}
+\indexentry{stringa!di formato}{\@locref{hevea_default1137}{14.3}}
+\indexentry{formato!sequenza di}{\@locref{hevea_default1138}{14.3}}
+\indexentry{sequenza!di formato}{\@locref{hevea_default1139}{14.3}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default1140}{14.3}}
+\indexentry{TypeError}{\@locref{hevea_default1141}{14.3}}
+\indexentry{file!nome}{\@locref{hevea_default1142}{14.4}}
+\indexentry{percorso}{\@locref{hevea_default1143}{14.4}}
+\indexentry{directory}{\@locref{hevea_default1144}{14.4}}
+\indexentry{cartella}{\@locref{hevea_default1145}{14.4}}
+\indexentry{os, modulo}{\@locref{hevea_default1146}{14.4}}
+\indexentry{modulo!os}{\@locref{hevea_default1147}{14.4}}
+\indexentry{getcwd, funzione}{\@locref{hevea_default1148}{14.4}}
+\indexentry{funzione!getcwd}{\@locref{hevea_default1149}{14.4}}
+\indexentry{lavoro, directory di}{\@locref{hevea_default1150}{14.4}}
+\indexentry{directory!di lavoro}{\@locref{hevea_default1151}{14.4}}
+\indexentry{percorso!relativo}{\@locref{hevea_default1152}{14.4}}
+\indexentry{percorso!assoluto}{\@locref{hevea_default1153}{14.4}}
+\indexentry{exists, funzione}{\@locref{hevea_default1154}{14.4}}
+\indexentry{funzione!exists}{\@locref{hevea_default1155}{14.4}}
+\indexentry{directory!esplorazione}{\@locref{hevea_default1156}{14.4}}
+\indexentry{open, funzione}{\@locref{hevea_default1157}{14.5}}
+\indexentry{funzione!open}{\@locref{hevea_default1158}{14.5}}
+\indexentry{eccezione!IOError}{\@locref{hevea_default1159}{14.5}}
+\indexentry{IOError}{\@locref{hevea_default1160}{14.5}}
+\indexentry{file!permesso}{\@locref{hevea_default1161}{14.5}}
+\indexentry{permesso, accesso a file}{\@locref{hevea_default1162}{14.5}}
+\indexentry{eccezione, gestione}{\@locref{hevea_default1163}{14.5}}
+\indexentry{try, istruzione}{\@locref{hevea_default1164}{14.5}}
+\indexentry{istruzione!try}{\@locref{hevea_default1165}{14.5}}
+\indexentry{database}{\@locref{hevea_default1166}{14.6}}
+\indexentry{dbm, modulo}{\@locref{hevea_default1167}{14.6}}
+\indexentry{modulo!dbm}{\@locref{hevea_default1168}{14.6}}
+\indexentry{open, funzione}{\@locref{hevea_default1169}{14.6}}
+\indexentry{funzione!open}{\@locref{hevea_default1170}{14.6}}
+\indexentry{database, oggetto}{\@locref{hevea_default1171}{14.6}}
+\indexentry{oggetto!database}{\@locref{hevea_default1172}{14.6}}
+\indexentry{aggiornamento!di database}{\@locref{hevea_default1173}{14.6}}
+\indexentry{bytes, oggetto}{\@locref{hevea_default1174}{14.6}}
+\indexentry{oggetto!bytes}{\@locref{hevea_default1175}{14.6}}
+\indexentry{dizionario, metodi!anydbm, modulo}{\@locref{hevea_default1176}{14.6}}
+\indexentry{close, metodo}{\@locref{hevea_default1177}{14.6}}
+\indexentry{metodo!close}{\@locref{hevea_default1178}{14.6}}
+\indexentry{pickling}{\@locref{hevea_default1179}{14.7}}
+\indexentry{pickle, modulo}{\@locref{hevea_default1180}{14.7}}
+\indexentry{modulo!pickle}{\@locref{hevea_default1181}{14.7}}
+\indexentry{shelve, modulo}{\@locref{hevea_default1182}{14.7}}
+\indexentry{modulo!shelve}{\@locref{hevea_default1183}{14.7}}
+\indexentry{shell}{\@locref{hevea_default1184}{14.8}}
+\indexentry{pipe}{\@locref{hevea_default1185}{14.8}}
+\indexentry{ls (comando Unix)}{\@locref{hevea_default1186}{14.8}}
+\indexentry{comando Unix!ls}{\@locref{hevea_default1187}{14.8}}
+\indexentry{popen, funzione}{\@locref{hevea_default1188}{14.8}}
+\indexentry{funzione!popen}{\@locref{hevea_default1189}{14.8}}
+\indexentry{readline, metodo}{\@locref{hevea_default1190}{14.8}}
+\indexentry{metodo!readline}{\@locref{hevea_default1191}{14.8}}
+\indexentry{read, metodo}{\@locref{hevea_default1192}{14.8}}
+\indexentry{metodo!read}{\@locref{hevea_default1193}{14.8}}
+\indexentry{close, metodo}{\@locref{hevea_default1194}{14.8}}
+\indexentry{metodo!close}{\@locref{hevea_default1195}{14.8}}
+\indexentry{md5}{\@locref{hevea_default1196}{14.8}}
+\indexentry{checksum}{\@locref{hevea_default1197}{14.8}}
+\indexentry{modulo, scrittura}{\@locref{hevea_default1198}{14.9}}
+\indexentry{conteggio}{\@locref{hevea_default1199}{14.9}}
+\indexentry{oggetto!modulo}{\@locref{hevea_default1200}{14.9}}
+\indexentry{import, istruzione}{\@locref{hevea_default1201}{14.9}}
+\indexentry{istruzione!import}{\@locref{hevea_default1202}{14.9}}
+\indexentry{name, variabile predefinita}{\@locref{hevea_default1203}{14.9}}
+\indexentry{main}{\@locref{hevea_default1204}{14.9}}
+\indexentry{modulo!reload}{\@locref{hevea_default1205}{14.9}}
+\indexentry{reload, funzione}{\@locref{hevea_default1206}{14.9}}
+\indexentry{funzione!reload}{\@locref{hevea_default1207}{14.9}}
+\indexentry{debug}{\@locref{hevea_default1208}{14.10}}
+\indexentry{spaziatore}{\@locref{hevea_default1209}{14.10}}
+\indexentry{repr, funzione}{\@locref{hevea_default1210}{14.10}}
+\indexentry{funzione!repr}{\@locref{hevea_default1211}{14.10}}
+\indexentry{stringa!rappresentazione}{\@locref{hevea_default1212}{14.10}}
+\indexentry{fine riga, carattere}{\@locref{hevea_default1213}{14.10}}
+\indexentry{persistenza}{\@locref{hevea_default1214}{14.11}}
+\indexentry{operatore!di formato}{\@locref{hevea_default1215}{14.11}}
+\indexentry{stringa!di formato}{\@locref{hevea_default1216}{14.11}}
+\indexentry{sequenza!di formato}{\@locref{hevea_default1217}{14.11}}
+\indexentry{file!di testo}{\@locref{hevea_default1218}{14.11}}
+\indexentry{directory}{\@locref{hevea_default1219}{14.11}}
+\indexentry{percorso}{\@locref{hevea_default1220}{14.11}}
+\indexentry{percorso!relativo}{\@locref{hevea_default1221}{14.11}}
+\indexentry{percorso!assoluto}{\@locref{hevea_default1222}{14.11}}
+\indexentry{gestire}{\@locref{hevea_default1223}{14.11}}
+\indexentry{database}{\@locref{hevea_default1224}{14.11}}
+\indexentry{bytes, oggetto}{\@locref{hevea_default1225}{14.11}}
+\indexentry{oggetto!bytes}{\@locref{hevea_default1226}{14.11}}
+\indexentry{shell}{\@locref{hevea_default1227}{14.11}}
+\indexentry{pipe, oggetto}{\@locref{hevea_default1228}{14.11}}
+\indexentry{oggetto!pipe}{\@locref{hevea_default1229}{14.11}}
+\indexentry{anagramma, insieme}{\@locref{hevea_default1230}{14.12}}
+\indexentry{insieme!anagramma}{\@locref{hevea_default1231}{14.12}}
+\indexentry{MP3}{\@locref{hevea_default1232}{14.12}}
+\indexentry{duplicato}{\@locref{hevea_default1233}{14.12}}
+\indexentry{md5, algoritmo}{\@locref{hevea_default1234}{14.12}}
+\indexentry{algoritmo!md5}{\@locref{hevea_default1235}{14.12}}
+\indexentry{checksum}{\@locref{hevea_default1236}{14.12}}
+\indexentry{md5sum}{\@locref{hevea_default1237}{14.12}}
+\indexentry{diff}{\@locref{hevea_default1238}{14.12}}
+\indexentry{programmazione!orientata agli oggetti}{\@locref{hevea_default1239}{15}}
+\indexentry{tipo!personalizzato}{\@locref{hevea_default1240}{15.1}}
+\indexentry{punto, matematico}{\@locref{hevea_default1241}{15.1}}
+\indexentry{rappresentazione}{\@locref{hevea_default1242}{15.1}}
+\indexentry{classe}{\@locref{hevea_default1243}{15.1}}
+\indexentry{oggetto!classe}{\@locref{hevea_default1244}{15.1}}
+\indexentry{classe!definizione di}{\@locref{hevea_default1245}{15.1}}
+\indexentry{definizione!di classe}{\@locref{hevea_default1246}{15.1}}
+\indexentry{Punto, classe}{\@locref{hevea_default1247}{15.1}}
+\indexentry{classe!Punto}{\@locref{hevea_default1248}{15.1}}
+\indexentry{docstring}{\@locref{hevea_default1249}{15.1}}
+\indexentry{oggetto!classe}{\@locref{hevea_default1250}{15.1}}
+\indexentry{istanza}{\@locref{hevea_default1251}{15.1}}
+\indexentry{istanziare}{\@locref{hevea_default1252}{15.1}}
+\indexentry{esadecimale}{\@locref{hevea_default1253}{15.1}}
+\indexentry{istanza!attributo di}{\@locref{hevea_default1254}{15.2}}
+\indexentry{attributo!di istanza}{\@locref{hevea_default1255}{15.2}}
+\indexentry{dot notation}{\@locref{hevea_default1256}{15.2}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default1257}{15.2}}
+\indexentry{diagramma!di oggetto}{\@locref{hevea_default1258}{15.2}}
+\indexentry{istanza!come argomento}{\@locref{hevea_default1259}{15.2}}
+\indexentry{alias}{\@locref{hevea_default1260}{15.2}}
+\indexentry{rappresentazione}{\@locref{hevea_default1261}{15.3}}
+\indexentry{Rettangolo, classe}{\@locref{hevea_default1262}{15.3}}
+\indexentry{classe!Rettangolo}{\@locref{hevea_default1263}{15.3}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default1264}{15.3}}
+\indexentry{diagramma!di oggetto}{\@locref{hevea_default1265}{15.3}}
+\indexentry{oggetto contenuto (embedded)}{\@locref{hevea_default1266}{15.3}}
+\indexentry{istanza!come valore di ritorno}{\@locref{hevea_default1267}{15.4}}
+\indexentry{valore di ritorno}{\@locref{hevea_default1268}{15.4}}
+\indexentry{oggetto!mutabile}{\@locref{hevea_default1269}{15.5}}
+\indexentry{mutabilità}{\@locref{hevea_default1270}{15.5}}
+\indexentry{alias}{\@locref{hevea_default1271}{15.6}}
+\indexentry{copia!di un oggetto}{\@locref{hevea_default1272}{15.6}}
+\indexentry{oggetto!copia}{\@locref{hevea_default1273}{15.6}}
+\indexentry{copy, modulo}{\@locref{hevea_default1274}{15.6}}
+\indexentry{modulo!copy}{\@locref{hevea_default1275}{15.6}}
+\indexentry{is, operatore}{\@locref{hevea_default1276}{15.6}}
+\indexentry{operatore!is}{\@locref{hevea_default1277}{15.6}}
+\indexentry{identità}{\@locref{hevea_default1278}{15.6}}
+\indexentry{equivalenza}{\@locref{hevea_default1279}{15.6}}
+\indexentry{oggetto contenuto (embedded)!copia}{\@locref{hevea_default1280}{15.6}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default1281}{15.6}}
+\indexentry{diagramma!di oggetto}{\@locref{hevea_default1282}{15.6}}
+\indexentry{shallow, copia}{\@locref{hevea_default1283}{15.6}}
+\indexentry{copia!shallow}{\@locref{hevea_default1284}{15.6}}
+\indexentry{profonda, copia}{\@locref{hevea_default1285}{15.6}}
+\indexentry{copia!profonda}{\@locref{hevea_default1286}{15.6}}
+\indexentry{deepcopy, funzione}{\@locref{hevea_default1287}{15.6}}
+\indexentry{funzione!deepcopy}{\@locref{hevea_default1288}{15.6}}
+\indexentry{debug}{\@locref{hevea_default1289}{15.7}}
+\indexentry{eccezione!AttributeError}{\@locref{hevea_default1290}{15.7}}
+\indexentry{AttributeError}{\@locref{hevea_default1291}{15.7}}
+\indexentry{type, funzione}{\@locref{hevea_default1292}{15.7}}
+\indexentry{funzione!type}{\@locref{hevea_default1293}{15.7}}
+\indexentry{isinstance, funzione}{\@locref{hevea_default1294}{15.7}}
+\indexentry{funzione!isinstance}{\@locref{hevea_default1295}{15.7}}
+\indexentry{hasattr, funzione}{\@locref{hevea_default1296}{15.7}}
+\indexentry{funzione!hasattr}{\@locref{hevea_default1297}{15.7}}
+\indexentry{attributo}{\@locref{hevea_default1298}{15.7}}
+\indexentry{try, istruzione}{\@locref{hevea_default1299}{15.7}}
+\indexentry{istruzione!try}{\@locref{hevea_default1300}{15.7}}
+\indexentry{classe}{\@locref{hevea_default1301}{15.8}}
+\indexentry{tipo!personalizzato}{\@locref{hevea_default1302}{15.8}}
+\indexentry{oggetto!classe}{\@locref{hevea_default1303}{15.8}}
+\indexentry{istanza}{\@locref{hevea_default1304}{15.8}}
+\indexentry{istanziare}{\@locref{hevea_default1305}{15.8}}
+\indexentry{attributo!istanza}{\@locref{hevea_default1306}{15.8}}
+\indexentry{istanza!attributo di}{\@locref{hevea_default1307}{15.8}}
+\indexentry{oggetto contenuto (embedded)}{\@locref{hevea_default1308}{15.8}}
+\indexentry{copia!shallow}{\@locref{hevea_default1309}{15.8}}
+\indexentry{copia!profonda}{\@locref{hevea_default1310}{15.8}}
+\indexentry{diagramma!di oggetto}{\@locref{hevea_default1311}{15.8}}
+\indexentry{tipo!personalizzato}{\@locref{hevea_default1312}{16.1}}
+\indexentry{Tempo, classe}{\@locref{hevea_default1313}{16.1}}
+\indexentry{classe!Tempo}{\@locref{hevea_default1314}{16.1}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default1315}{16.1}}
+\indexentry{diagramma!di oggetto}{\@locref{hevea_default1316}{16.1}}
+\indexentry{prototipo ed evoluzioni}{\@locref{hevea_default1317}{16.2}}
+\indexentry{tecnica di sviluppo!prototipo ed evoluzioni}{\@locref{hevea_default1318}{16.2}}
+\indexentry{funzione!pura}{\@locref{hevea_default1319}{16.2}}
+\indexentry{Monty Python e il Sacro Graal}{\@locref{hevea_default1320}{16.2}}
+\indexentry{addizione!con riporto}{\@locref{hevea_default1321}{16.2}}
+\indexentry{modificatore}{\@locref{hevea_default1322}{16.3}}
+\indexentry{funzione!modificatore}{\@locref{hevea_default1323}{16.3}}
+\indexentry{incremento}{\@locref{hevea_default1324}{16.3}}
+\indexentry{caso!particolare}{\@locref{hevea_default1325}{16.3}}
+\indexentry{stile di programmazione funzionale}{\@locref{hevea_default1326}{16.3}}
+\indexentry{prototipo ed evoluzioni}{\@locref{hevea_default1327}{16.4}}
+\indexentry{tecnica di sviluppo!prototipo ed evoluzioni}{\@locref{hevea_default1328}{16.4}}
+\indexentry{sviluppo pianificato}{\@locref{hevea_default1329}{16.4}}
+\indexentry{tecnica di sviluppo!pianificato}{\@locref{hevea_default1330}{16.4}}
+\indexentry{sessagesimale}{\@locref{hevea_default1331}{16.4}}
+\indexentry{addizione!con riporto}{\@locref{hevea_default1332}{16.4}}
+\indexentry{divmod}{\@locref{hevea_default1333}{16.4}}
+\indexentry{coerenza, controllo di}{\@locref{hevea_default1334}{16.4}}
+\indexentry{sottrazione!con prestito}{\@locref{hevea_default1335}{16.4}}
+\indexentry{generalizzazione}{\@locref{hevea_default1336}{16.4}}
+\indexentry{debug}{\@locref{hevea_default1337}{16.5}}
+\indexentry{invariante}{\@locref{hevea_default1338}{16.5}}
+\indexentry{raise, istruzione}{\@locref{hevea_default1339}{16.5}}
+\indexentry{istruzione!raise}{\@locref{hevea_default1340}{16.5}}
+\indexentry{assert, istruzione}{\@locref{hevea_default1341}{16.5}}
+\indexentry{istruzione!assert}{\@locref{hevea_default1342}{16.5}}
+\indexentry{prototipo ed evoluzioni}{\@locref{hevea_default1343}{16.6}}
+\indexentry{sviluppo pianificato}{\@locref{hevea_default1344}{16.6}}
+\indexentry{funzione!pura}{\@locref{hevea_default1345}{16.6}}
+\indexentry{modificatore}{\@locref{hevea_default1346}{16.6}}
+\indexentry{stile di programmazione funzionale}{\@locref{hevea_default1347}{16.6}}
+\indexentry{invariante}{\@locref{hevea_default1348}{16.6}}
+\indexentry{assert, istruzione}{\@locref{hevea_default1349}{16.6}}
+\indexentry{istruzione!assert}{\@locref{hevea_default1350}{16.6}}
+\indexentry{cadenza di corsa}{\@locref{hevea_default1351}{16.7}}
+\indexentry{datetime, modulo}{\@locref{hevea_default1352}{16.7}}
+\indexentry{modulo!datetime}{\@locref{hevea_default1353}{16.7}}
+\indexentry{compleanno}{\@locref{hevea_default1354}{16.7}}
+\indexentry{Giorno del Doppio}{\@locref{hevea_default1355}{16.7}}
+\indexentry{programmazione!orientata agli oggetti}{\@locref{hevea_default1356}{17.1}}
+\indexentry{metodo}{\@locref{hevea_default1357}{17.1}}
+\indexentry{funzione}{\@locref{hevea_default1358}{17.1}}
+\indexentry{sintassi}{\@locref{hevea_default1359}{17.1}}
+\indexentry{semantica}{\@locref{hevea_default1360}{17.1}}
+\indexentry{tipo!personalizzato}{\@locref{hevea_default1361}{17.1}}
+\indexentry{oggetto!stampa}{\@locref{hevea_default1362}{17.2}}
+\indexentry{indentazione}{\@locref{hevea_default1363}{17.2}}
+\indexentry{funzione!sintassi}{\@locref{hevea_default1364}{17.2}}
+\indexentry{dot notation}{\@locref{hevea_default1365}{17.2}}
+\indexentry{metodo!sintassi}{\@locref{hevea_default1366}{17.2}}
+\indexentry{soggetto}{\@locref{hevea_default1367}{17.2}}
+\indexentry{self (nome di parametro)}{\@locref{hevea_default1368}{17.2}}
+\indexentry{parametro!self}{\@locref{hevea_default1369}{17.2}}
+\indexentry{metafora, invocazione di metodo}{\@locref{hevea_default1370}{17.2}}
+\indexentry{incremento}{\@locref{hevea_default1371}{17.3}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default1372}{17.3}}
+\indexentry{TypeError}{\@locref{hevea_default1373}{17.3}}
+\indexentry{posizionale, argomento}{\@locref{hevea_default1374}{17.3}}
+\indexentry{argomento!posizionale}{\@locref{hevea_default1375}{17.3}}
+\indexentry{other (nome di parametro)}{\@locref{hevea_default1376}{17.4}}
+\indexentry{parametro!other}{\@locref{hevea_default1377}{17.4}}
+\indexentry{init, metodo}{\@locref{hevea_default1378}{17.5}}
+\indexentry{metodo!init}{\@locref{hevea_default1379}{17.5}}
+\indexentry{parametro!opzionale}{\@locref{hevea_default1380}{17.5}}
+\indexentry{valore di default}{\@locref{hevea_default1381}{17.5}}
+\indexentry{sovrascrittura}{\@locref{hevea_default1382}{17.5}}
+\indexentry{Punto, classe}{\@locref{hevea_default1383}{17.5}}
+\indexentry{classe!Punto}{\@locref{hevea_default1384}{17.5}}
+\indexentry{str metodo@\_\_str\_\_, metodo}{\@locref{hevea_default1385}{17.6}}
+\indexentry{metodo!\_\_str\_\_}{\@locref{hevea_default1386}{17.6}}
+\indexentry{rappresentazione!di stringa}{\@locref{hevea_default1387}{17.6}}
+\indexentry{stampa, istruzione di}{\@locref{hevea_default1388}{17.6}}
+\indexentry{istruzione!di stampa}{\@locref{hevea_default1389}{17.6}}
+\indexentry{tipo!personalizzato}{\@locref{hevea_default1390}{17.7}}
+\indexentry{add, metodo}{\@locref{hevea_default1391}{17.7}}
+\indexentry{metodo!add}{\@locref{hevea_default1392}{17.7}}
+\indexentry{operator overloading}{\@locref{hevea_default1393}{17.7}}
+\indexentry{isinstance, funzione}{\@locref{hevea_default1394}{17.8}}
+\indexentry{funzione!isinstance}{\@locref{hevea_default1395}{17.8}}
+\indexentry{smistamento in base al tipo}{\@locref{hevea_default1396}{17.8}}
+\indexentry{commutatività}{\@locref{hevea_default1397}{17.8}}
+\indexentry{radd, metodo}{\@locref{hevea_default1398}{17.8}}
+\indexentry{metodo!radd}{\@locref{hevea_default1399}{17.8}}
+\indexentry{smistamento in base al tipo}{\@locref{hevea_default1400}{17.9}}
+\indexentry{polimorfismo}{\@locref{hevea_default1401}{17.9}}
+\indexentry{debug}{\@locref{hevea_default1402}{17.10}}
+\indexentry{init, metodo}{\@locref{hevea_default1403}{17.10}}
+\indexentry{attributo!inizializzazione}{\@locref{hevea_default1404}{17.10}}
+\indexentry{hasattr, funzione}{\@locref{hevea_default1405}{17.10}}
+\indexentry{funzione!hasattr}{\@locref{hevea_default1406}{17.10}}
+\indexentry{dict, attributo@\_\_dict\_\_ attributo}{\@locref{hevea_default1407}{17.10}}
+\indexentry{attributo!\_\_dict\_\_}{\@locref{hevea_default1408}{17.10}}
+\indexentry{attraversamento!dizionario}{\@locref{hevea_default1409}{17.10}}
+\indexentry{dizionario!attraversamento}{\@locref{hevea_default1410}{17.10}}
+\indexentry{getattr, funzione}{\@locref{hevea_default1411}{17.10}}
+\indexentry{funzione!getattr}{\@locref{hevea_default1412}{17.10}}
+\indexentry{interfaccia}{\@locref{hevea_default1413}{17.11}}
+\indexentry{implementazione}{\@locref{hevea_default1414}{17.11}}
+\indexentry{manutenzione}{\@locref{hevea_default1415}{17.11}}
+\indexentry{progettazione!orientata agli oggetti}{\@locref{hevea_default1416}{17.11}}
+\indexentry{attributo}{\@locref{hevea_default1417}{17.11}}
+\indexentry{linguaggio!orientato agli oggetti}{\@locref{hevea_default1418}{17.12}}
+\indexentry{programmazione!orientata agli oggetti}{\@locref{hevea_default1419}{17.12}}
+\indexentry{metodo}{\@locref{hevea_default1420}{17.12}}
+\indexentry{soggetto}{\@locref{hevea_default1421}{17.12}}
+\indexentry{posizionale, argomento}{\@locref{hevea_default1422}{17.12}}
+\indexentry{argomento!posizionale}{\@locref{hevea_default1423}{17.12}}
+\indexentry{overloading}{\@locref{hevea_default1424}{17.12}}
+\indexentry{operator overloading}{\@locref{hevea_default1425}{17.12}}
+\indexentry{smistamento in base al tipo}{\@locref{hevea_default1426}{17.12}}
+\indexentry{polimorfismo}{\@locref{hevea_default1427}{17.12}}
+\indexentry{information hiding}{\@locref{hevea_default1428}{17.12}}
+\indexentry{valore di default!evitare i mutabili}{\@locref{hevea_default1429}{17.13}}
+\indexentry{oggetto mutabile, come valore di default}{\@locref{hevea_default1430}{17.13}}
+\indexentry{peggior bug}{\@locref{hevea_default1431}{17.13}}
+\indexentry{bug!il peggiore}{\@locref{hevea_default1432}{17.13}}
+\indexentry{Canguro, classe}{\@locref{hevea_default1433}{17.13}}
+\indexentry{classe!Canguro}{\@locref{hevea_default1434}{17.13}}
+\indexentry{alias}{\@locref{hevea_default1435}{17.13}}
+\indexentry{contenuto, oggetto}{\@locref{hevea_default1436}{17.13}}
+\indexentry{oggetto!contenuto}{\@locref{hevea_default1437}{17.13}}
+\indexentry{carte da gioco}{\@locref{hevea_default1438}{18}}
+\indexentry{poker}{\@locref{hevea_default1439}{18}}
+\indexentry{mazzo}{\@locref{hevea_default1440}{18}}
+\indexentry{valore (delle carte da gioco)}{\@locref{hevea_default1441}{18.1}}
+\indexentry{seme}{\@locref{hevea_default1442}{18.1}}
+\indexentry{codificare}{\@locref{hevea_default1443}{18.1}}
+\indexentry{criptare}{\@locref{hevea_default1444}{18.1}}
+\indexentry{corrispondenza}{\@locref{hevea_default1445}{18.1}}
+\indexentry{rappresentazione}{\@locref{hevea_default1446}{18.1}}
+\indexentry{Carta, classe}{\@locref{hevea_default1447}{18.1}}
+\indexentry{classe!Carta}{\@locref{hevea_default1448}{18.1}}
+\indexentry{init, metodo}{\@locref{hevea_default1449}{18.1}}
+\indexentry{metodo!init}{\@locref{hevea_default1450}{18.1}}
+\indexentry{classe!attributo di}{\@locref{hevea_default1451}{18.2}}
+\indexentry{attributo!di classe}{\@locref{hevea_default1452}{18.2}}
+\indexentry{istanza!attributo di}{\@locref{hevea_default1453}{18.2}}
+\indexentry{attributo!di istanza}{\@locref{hevea_default1454}{18.2}}
+\indexentry{dot notation}{\@locref{hevea_default1455}{18.2}}
+\indexentry{diagramma!di stato}{\@locref{hevea_default1456}{18.2}}
+\indexentry{diagramma!di oggetto}{\@locref{hevea_default1457}{18.2}}
+\indexentry{operatore!relazionale}{\@locref{hevea_default1458}{18.3}}
+\indexentry{tipo!personalizzato}{\@locref{hevea_default1459}{18.3}}
+\indexentry{sovrascrittura}{\@locref{hevea_default1460}{18.3}}
+\indexentry{operator overloading}{\@locref{hevea_default1461}{18.3}}
+\indexentry{cmp metodo@\_\_lt\_\_, metodo}{\@locref{hevea_default1462}{18.3}}
+\indexentry{metodo!\_\_lt\_\_}{\@locref{hevea_default1463}{18.3}}
+\indexentry{tupla!confronto}{\@locref{hevea_default1464}{18.3}}
+\indexentry{confronto!tupla}{\@locref{hevea_default1465}{18.3}}
+\indexentry{lista!di oggetti}{\@locref{hevea_default1466}{18.4}}
+\indexentry{mazzo, carte da gioco}{\@locref{hevea_default1467}{18.4}}
+\indexentry{init, metodo}{\@locref{hevea_default1468}{18.4}}
+\indexentry{metodo!init}{\@locref{hevea_default1469}{18.4}}
+\indexentry{composizione}{\@locref{hevea_default1470}{18.4}}
+\indexentry{ciclo!nidificato}{\@locref{hevea_default1471}{18.4}}
+\indexentry{Mazzo, classe}{\@locref{hevea_default1472}{18.4}}
+\indexentry{classe!Mazzo}{\@locref{hevea_default1473}{18.4}}
+\indexentry{append, metodo}{\@locref{hevea_default1474}{18.4}}
+\indexentry{metodo!append}{\@locref{hevea_default1475}{18.4}}
+\indexentry{str metodo@\_\_str\_\_, metodo}{\@locref{hevea_default1476}{18.5}}
+\indexentry{metodo!\_\_str\_\_}{\@locref{hevea_default1477}{18.5}}
+\indexentry{accumulatore!stringa}{\@locref{hevea_default1478}{18.5}}
+\indexentry{stringa!accumulatore}{\@locref{hevea_default1479}{18.5}}
+\indexentry{join, metodo}{\@locref{hevea_default1480}{18.5}}
+\indexentry{metodo!join}{\@locref{hevea_default1481}{18.5}}
+\indexentry{ritorno a capo}{\@locref{hevea_default1482}{18.5}}
+\indexentry{pop, metodo}{\@locref{hevea_default1483}{18.6}}
+\indexentry{metodo!pop}{\@locref{hevea_default1484}{18.6}}
+\indexentry{append, metodo}{\@locref{hevea_default1485}{18.6}}
+\indexentry{metodo!append}{\@locref{hevea_default1486}{18.6}}
+\indexentry{impiallacciatura}{\@locref{hevea_default1487}{18.6}}
+\indexentry{random, modulo}{\@locref{hevea_default1488}{18.6}}
+\indexentry{modulo!random}{\@locref{hevea_default1489}{18.6}}
+\indexentry{shuffle, funzione}{\@locref{hevea_default1490}{18.6}}
+\indexentry{funzione!shuffle}{\@locref{hevea_default1491}{18.6}}
+\indexentry{sort, metodo}{\@locref{hevea_default1492}{18.6}}
+\indexentry{metodo!sort}{\@locref{hevea_default1493}{18.6}}
+\indexentry{ereditarietà}{\@locref{hevea_default1494}{18.7}}
+\indexentry{programmazione!orientata agli oggetti}{\@locref{hevea_default1495}{18.7}}
+\indexentry{parentesi!classe madre in}{\@locref{hevea_default1496}{18.7}}
+\indexentry{Mano, classe}{\@locref{hevea_default1497}{18.7}}
+\indexentry{classe!Mano}{\@locref{hevea_default1498}{18.7}}
+\indexentry{madre, classe}{\@locref{hevea_default1499}{18.7}}
+\indexentry{classe!madre}{\@locref{hevea_default1500}{18.7}}
+\indexentry{figlia, classe}{\@locref{hevea_default1501}{18.7}}
+\indexentry{classe!figlia}{\@locref{hevea_default1502}{18.7}}
+\indexentry{sovrascrittura}{\@locref{hevea_default1503}{18.7}}
+\indexentry{init, metodo}{\@locref{hevea_default1504}{18.7}}
+\indexentry{metodo!init}{\@locref{hevea_default1505}{18.7}}
+\indexentry{incapsulamento}{\@locref{hevea_default1506}{18.7}}
+\indexentry{IS-A, relazione}{\@locref{hevea_default1507}{18.8}}
+\indexentry{HAS-A, relazione}{\@locref{hevea_default1508}{18.8}}
+\indexentry{diagramma!di classe}{\@locref{hevea_default1509}{18.8}}
+\indexentry{molteplicità (nel diagramma di classe)}{\@locref{hevea_default1510}{18.8}}
+\indexentry{debug}{\@locref{hevea_default1511}{18.9}}
+\indexentry{ereditarietà}{\@locref{hevea_default1512}{18.9}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default1513}{18.9}}
+\indexentry{mro, metodo}{\@locref{hevea_default1514}{18.9}}
+\indexentry{metodo!mro}{\@locref{hevea_default1515}{18.9}}
+\indexentry{ordine di risoluzione dei metodi}{\@locref{hevea_default1516}{18.9}}
+\indexentry{sovrascrittura}{\@locref{hevea_default1517}{18.9}}
+\indexentry{interfaccia}{\@locref{hevea_default1518}{18.9}}
+\indexentry{precondizione}{\@locref{hevea_default1519}{18.9}}
+\indexentry{postcondizione}{\@locref{hevea_default1520}{18.9}}
+\indexentry{Liskov, principio di sostituzione}{\@locref{hevea_default1521}{18.9}}
+\indexentry{tecnica di sviluppo!incapsulamento dei dati}{\@locref{hevea_default1522}{18.10}}
+\indexentry{incapsulamento!dei dati}{\@locref{hevea_default1523}{18.10}}
+\indexentry{refactoring}{\@locref{hevea_default1524}{18.10}}
+\indexentry{codificare}{\@locref{hevea_default1525}{18.11}}
+\indexentry{classe!attributo di}{\@locref{hevea_default1526}{18.11}}
+\indexentry{attributo!di classe}{\@locref{hevea_default1527}{18.11}}
+\indexentry{istanza!attributo di}{\@locref{hevea_default1528}{18.11}}
+\indexentry{attributo!di istanza}{\@locref{hevea_default1529}{18.11}}
+\indexentry{impiallacciatura}{\@locref{hevea_default1530}{18.11}}
+\indexentry{ereditarietà}{\@locref{hevea_default1531}{18.11}}
+\indexentry{classe!madre}{\@locref{hevea_default1532}{18.11}}
+\indexentry{classe!figlia}{\@locref{hevea_default1533}{18.11}}
+\indexentry{IS-A, relazione}{\@locref{hevea_default1534}{18.11}}
+\indexentry{HAS-A, relazione}{\@locref{hevea_default1535}{18.11}}
+\indexentry{dipendenza, relazione}{\@locref{hevea_default1536}{18.11}}
+\indexentry{diagramma!di classe}{\@locref{hevea_default1537}{18.11}}
+\indexentry{molteplicità (nel diagramma di classe)}{\@locref{hevea_default1538}{18.11}}
+\indexentry{incapsulamento!dei dati}{\@locref{hevea_default1539}{18.11}}
+\indexentry{tecnica di sviluppo!incapsulamento dei dati}{\@locref{hevea_default1540}{18.11}}
+\indexentry{poker}{\@locref{hevea_default1541}{18.12}}
+\indexentry{condizionale, espressione}{\@locref{hevea_default1542}{19.1}}
+\indexentry{espressione!condizionale}{\@locref{hevea_default1543}{19.1}}
+\indexentry{NaN}{\@locref{hevea_default1544}{19.1}}
+\indexentry{floating-point}{\@locref{hevea_default1545}{19.1}}
+\indexentry{fattoriale}{\@locref{hevea_default1546}{19.1}}
+\indexentry{funzione!fattoriale}{\@locref{hevea_default1547}{19.1}}
+\indexentry{opzionale, argomento}{\@locref{hevea_default1548}{19.1}}
+\indexentry{argomento!opzionale}{\@locref{hevea_default1549}{19.1}}
+\indexentry{condizionale, istruzione}{\@locref{hevea_default1550}{19.1}}
+\indexentry{istruzione!condizionale}{\@locref{hevea_default1551}{19.1}}
+\indexentry{list comprehension}{\@locref{hevea_default1552}{19.2}}
+\indexentry{lista}{\@locref{hevea_default1553}{19.2}}
+\indexentry{for, ciclo}{\@locref{hevea_default1554}{19.2}}
+\indexentry{loop variable}{\@locref{hevea_default1555}{19.2}}
+\indexentry{filtro, schema}{\@locref{hevea_default1556}{19.2}}
+\indexentry{schema!filtro}{\@locref{hevea_default1557}{19.2}}
+\indexentry{debug}{\@locref{hevea_default1558}{19.2}}
+\indexentry{generator expression}{\@locref{hevea_default1559}{19.3}}
+\indexentry{generatore, oggetto}{\@locref{hevea_default1560}{19.3}}
+\indexentry{oggetto!generatore}{\@locref{hevea_default1561}{19.3}}
+\indexentry{StopIteration}{\@locref{hevea_default1562}{19.3}}
+\indexentry{eccezione!StopIteration}{\@locref{hevea_default1563}{19.3}}
+\indexentry{sum, funzione}{\@locref{hevea_default1564}{19.3}}
+\indexentry{funzione!sum}{\@locref{hevea_default1565}{19.3}}
+\indexentry{any, funzione}{\@locref{hevea_default1566}{19.4}}
+\indexentry{funzione!any}{\@locref{hevea_default1567}{19.4}}
+\indexentry{generator expression}{\@locref{hevea_default1568}{19.4}}
+\indexentry{schema di ricerca}{\@locref{hevea_default1569}{19.4}}
+\indexentry{ricerca!schema}{\@locref{hevea_default1570}{19.4}}
+\indexentry{all, funzione}{\@locref{hevea_default1571}{19.4}}
+\indexentry{funzione!all}{\@locref{hevea_default1572}{19.4}}
+\indexentry{sottrazione!di dizionari}{\@locref{hevea_default1573}{19.5}}
+\indexentry{insieme}{\@locref{hevea_default1574}{19.5}}
+\indexentry{oggetto!set}{\@locref{hevea_default1575}{19.5}}
+\indexentry{sottrazione!di insiemi}{\@locref{hevea_default1576}{19.5}}
+\indexentry{duplicato}{\@locref{hevea_default1577}{19.5}}
+\indexentry{sottoinsieme}{\@locref{hevea_default1578}{19.5}}
+\indexentry{contatore}{\@locref{hevea_default1579}{19.6}}
+\indexentry{oggetto!Counter}{\@locref{hevea_default1580}{19.6}}
+\indexentry{multiinsieme}{\@locref{hevea_default1581}{19.6}}
+\indexentry{collections}{\@locref{hevea_default1582}{19.6}}
+\indexentry{modulo!collections}{\@locref{hevea_default1583}{19.6}}
+\indexentry{defaultdict}{\@locref{hevea_default1584}{19.7}}
+\indexentry{oggetto!defaultdict}{\@locref{hevea_default1585}{19.7}}
+\indexentry{collections}{\@locref{hevea_default1586}{19.7}}
+\indexentry{modulo!collections}{\@locref{hevea_default1587}{19.7}}
+\indexentry{factory, funzione}{\@locref{hevea_default1588}{19.7}}
+\indexentry{setdefault}{\@locref{hevea_default1589}{19.7}}
+\indexentry{factory, funzione}{\@locref{hevea_default1590}{19.7}}
+\indexentry{namedtuple}{\@locref{hevea_default1591}{19.8}}
+\indexentry{tupla!con nome}{\@locref{hevea_default1592}{19.8}}
+\indexentry{oggetto!namedtuple}{\@locref{hevea_default1593}{19.8}}
+\indexentry{collections}{\@locref{hevea_default1594}{19.8}}
+\indexentry{modulo!collections}{\@locref{hevea_default1595}{19.8}}
+\indexentry{classe, oggetto}{\@locref{hevea_default1596}{19.8}}
+\indexentry{oggetto!classe}{\@locref{hevea_default1597}{19.8}}
+\indexentry{ereditarietà}{\@locref{hevea_default1598}{19.8}}
+\indexentry{raccolta}{\@locref{hevea_default1599}{19.9}}
+\indexentry{posizionale, argomento}{\@locref{hevea_default1600}{19.9}}
+\indexentry{argomento!posizionale}{\@locref{hevea_default1601}{19.9}}
+\indexentry{argomento!con nome}{\@locref{hevea_default1602}{19.9}}
+\indexentry{spacchettamento}{\@locref{hevea_default1603}{19.9}}
+\indexentry{condizionale, espressione}{\@locref{hevea_default1604}{19.10}}
+\indexentry{espressione!condizionale}{\@locref{hevea_default1605}{19.10}}
+\indexentry{list comprehension}{\@locref{hevea_default1606}{19.10}}
+\indexentry{generator expression}{\@locref{hevea_default1607}{19.10}}
+\indexentry{factory, funzione}{\@locref{hevea_default1608}{19.10}}
+\indexentry{debug}{\@locref{hevea_default1609}{A}}
+\indexentry{sintassi!errore di}{\@locref{hevea_default1610}{A}}
+\indexentry{errore!di sintassi}{\@locref{hevea_default1611}{A}}
+\indexentry{errore!in esecuzione}{\@locref{hevea_default1612}{A}}
+\indexentry{errore!di runtime}{\@locref{hevea_default1613}{A}}
+\indexentry{runtime!errore di}{\@locref{hevea_default1614}{A}}
+\indexentry{eccezione}{\@locref{hevea_default1615}{A}}
+\indexentry{semantica!errore di}{\@locref{hevea_default1616}{A}}
+\indexentry{errore!di semantica}{\@locref{hevea_default1617}{A}}
+\indexentry{errore!messaggio di}{\@locref{hevea_default1618}{A.1}}
+\indexentry{sviluppo incrementale}{\@locref{hevea_default1619}{A.1}}
+\indexentry{tecnica di sviluppo!incrementale}{\@locref{hevea_default1620}{A.1}}
+\indexentry{sintassi}{\@locref{hevea_default1621}{A.1}}
+\indexentry{parola chiave}{\@locref{hevea_default1622}{A.1}}
+\indexentry{intestazione}{\@locref{hevea_default1623}{A.1}}
+\indexentry{due punti}{\@locref{hevea_default1624}{A.1}}
+\indexentry{virgolette}{\@locref{hevea_default1625}{A.1}}
+\indexentry{stringa!a righe multiple}{\@locref{hevea_default1626}{A.1}}
+\indexentry{istruzione!condizionale}{\@locref{hevea_default1627}{A.1}}
+\indexentry{indentazione}{\@locref{hevea_default1628}{A.1}}
+\indexentry{spazi}{\@locref{hevea_default1629}{A.1}}
+\indexentry{modulo!reload}{\@locref{hevea_default1630}{A.1.1}}
+\indexentry{reload, funzione}{\@locref{hevea_default1631}{A.1.1}}
+\indexentry{funzione!reload}{\@locref{hevea_default1632}{A.1.1}}
+\indexentry{ciclo!infinito}{\@locref{hevea_default1633}{A.2.2}}
+\indexentry{ricorsione!infinita}{\@locref{hevea_default1634}{A.2.2}}
+\indexentry{blocco}{\@locref{hevea_default1635}{A.2.2}}
+\indexentry{ciclo!infinito}{\@locref{hevea_default1636}{A.2.2}}
+\indexentry{condizione}{\@locref{hevea_default1637}{A.2.2}}
+\indexentry{ciclo!condizione}{\@locref{hevea_default1638}{A.2.2}}
+\indexentry{ricorsione!infinita}{\@locref{hevea_default1639}{A.2.2}}
+\indexentry{flusso di esecuzione}{\@locref{hevea_default1640}{A.2.2}}
+\indexentry{eccezione}{\@locref{hevea_default1641}{A.2.3}}
+\indexentry{errore!in esecuzione}{\@locref{hevea_default1642}{A.2.3}}
+\indexentry{traceback}{\@locref{hevea_default1643}{A.2.3}}
+\indexentry{NameError}{\@locref{hevea_default1644}{A.2.3}}
+\indexentry{eccezione!NameError}{\@locref{hevea_default1645}{A.2.3}}
+\indexentry{TypeError}{\@locref{hevea_default1646}{A.2.3}}
+\indexentry{eccezione!TypeError}{\@locref{hevea_default1647}{A.2.3}}
+\indexentry{indice}{\@locref{hevea_default1648}{A.2.3}}
+\indexentry{formato!operatore di}{\@locref{hevea_default1649}{A.2.3}}
+\indexentry{operatore!di formato}{\@locref{hevea_default1650}{A.2.3}}
+\indexentry{KeyError}{\@locref{hevea_default1651}{A.2.3}}
+\indexentry{eccezione!KeyError}{\@locref{hevea_default1652}{A.2.3}}
+\indexentry{dizionario}{\@locref{hevea_default1653}{A.2.3}}
+\indexentry{AttributeError}{\@locref{hevea_default1654}{A.2.3}}
+\indexentry{eccezione!AttributeError}{\@locref{hevea_default1655}{A.2.3}}
+\indexentry{IndexError}{\@locref{hevea_default1656}{A.2.3}}
+\indexentry{eccezione!IndexError}{\@locref{hevea_default1657}{A.2.3}}
+\indexentry{debugger (pdb)}{\@locref{hevea_default1658}{A.2.3}}
+\indexentry{pdb (Python debugger)}{\@locref{hevea_default1659}{A.2.3}}
+\indexentry{stampa, istruzione di}{\@locref{hevea_default1660}{A.2.4}}
+\indexentry{istruzione!di stampa}{\@locref{hevea_default1661}{A.2.4}}
+\indexentry{codice morto}{\@locref{hevea_default1662}{A.2.4}}
+\indexentry{test!caso di prova minimo}{\@locref{hevea_default1663}{A.2.4}}
+\indexentry{caso di prova minimo}{\@locref{hevea_default1664}{A.2.4}}
+\indexentry{semantica!errore di}{\@locref{hevea_default1665}{A.3}}
+\indexentry{errore!di semantica}{\@locref{hevea_default1666}{A.3}}
+\indexentry{modello mentale}{\@locref{hevea_default1667}{A.3.1}}
+\indexentry{espressione!grande e complicata}{\@locref{hevea_default1668}{A.3.2}}
+\indexentry{variabile!temporanea}{\@locref{hevea_default1669}{A.3.2}}
+\indexentry{ordine delle operazioni}{\@locref{hevea_default1670}{A.3.2}}
+\indexentry{precedenza}{\@locref{hevea_default1671}{A.3.2}}
+\indexentry{return, istruzione}{\@locref{hevea_default1672}{A.3.3}}
+\indexentry{istruzione!return}{\@locref{hevea_default1673}{A.3.3}}
+\indexentry{frustrazione}{\@locref{hevea_default1674}{A.3.4}}
+\indexentry{rabbia}{\@locref{hevea_default1675}{A.3.4}}
+\indexentry{debug!risposta emotiva}{\@locref{hevea_default1676}{A.3.4}}
+\indexentry{emotività, nel debug}{\@locref{hevea_default1677}{A.3.4}}
+\indexentry{debug!superstizione}{\@locref{hevea_default1678}{A.3.4}}
+\indexentry{programmazione!a tentoni}{\@locref{hevea_default1679}{A.3.4}}
+\indexentry{tecnica di sviluppo!programmazione a tentoni}{\@locref{hevea_default1680}{A.3.4}}
+\indexentry{algoritmo}{\@locref{hevea_default1681}{B}}
+\indexentry{analisi degli algoritmi}{\@locref{hevea_default1682}{B}}
+\indexentry{Obama, Barack}{\@locref{hevea_default1683}{B}}
+\indexentry{Schmidt, Eric}{\@locref{hevea_default1684}{B}}
+\indexentry{bubble sort}{\@locref{hevea_default1685}{B}}
+\indexentry{radix sort}{\@locref{hevea_default1686}{B}}
+\indexentry{confronto di algoritmi}{\@locref{hevea_default1687}{B}}
+\indexentry{modello di macchina}{\@locref{hevea_default1688}{B}}
+\indexentry{caso!peggiore}{\@locref{hevea_default1689}{B}}
+\indexentry{caso!medio}{\@locref{hevea_default1690}{B}}
+\indexentry{complessità!ordine di}{\@locref{hevea_default1691}{B.1}}
+\indexentry{operazione dominante}{\@locref{hevea_default1692}{B.1}}
+\indexentry{esponente}{\@locref{hevea_default1693}{B.1}}
+\indexentry{coefficiente dominante}{\@locref{hevea_default1694}{B.1}}
+\indexentry{punto di intersezione}{\@locref{hevea_default1695}{B.1}}
+\indexentry{O-grande, notazione}{\@locref{hevea_default1696}{B.1}}
+\indexentry{complessità!lineare}{\@locref{hevea_default1697}{B.1}}
+\indexentry{complessità!quadratica}{\@locref{hevea_default1698}{B.1}}
+\indexentry{inefficienza}{\@locref{hevea_default1699}{B.1}}
+\indexentry{complessità!logaritmica}{\@locref{hevea_default1700}{B.1}}
+\indexentry{complessità!esponenziale}{\@locref{hevea_default1701}{B.1}}
+\indexentry{analisi delle primitive}{\@locref{hevea_default1702}{B.2}}
+\indexentry{indicizzazione}{\@locref{hevea_default1703}{B.2}}
+\indexentry{stringa!metodi}{\@locref{hevea_default1704}{B.2}}
+\indexentry{tupla!metodi}{\@locref{hevea_default1705}{B.2}}
+\indexentry{stringa!concatenamento}{\@locref{hevea_default1706}{B.2}}
+\indexentry{join@{\tt join}}{\@locref{hevea_default1707}{B.2}}
+\indexentry{lista!metodi}{\@locref{hevea_default1708}{B.2}}
+\indexentry{ordinamento}{\@locref{hevea_default1709}{B.2}}
+\indexentry{dizionario!metodi}{\@locref{hevea_default1710}{B.2}}
+\indexentry{iteratore}{\@locref{hevea_default1711}{B.2}}
+\indexentry{ordinamento}{\@locref{hevea_default1712}{B.2}}
+\indexentry{comparison sort}{\@locref{hevea_default1713}{B.2}}
+\indexentry{stable sort}{\@locref{hevea_default1714}{B.2}}
+\indexentry{ricerca}{\@locref{hevea_default1715}{B.3}}
+\indexentry{ricerca!lineare}{\@locref{hevea_default1716}{B.3}}
+\indexentry{in, operatore}{\@locref{hevea_default1717}{B.3}}
+\indexentry{ricerca!binaria}{\@locref{hevea_default1718}{B.3}}
+\indexentry{tabella hash}{\@locref{hevea_default1719}{B.4}}
+\indexentry{MappaLineare@{\tt MappaLineare}}{\@locref{hevea_default1720}{B.4}}
+\indexentry{KeyError}{\@locref{hevea_default1721}{B.4}}
+\indexentry{RB-albero}{\@locref{hevea_default1722}{B.4}}
+\indexentry{MappaMigliore@{\tt MappaMigliore}}{\@locref{hevea_default1723}{B.4}}
+\indexentry{hash, funzione}{\@locref{hevea_default1724}{B.4}}
+\indexentry{MappaHash}{\@locref{hevea_default1725}{B.4}}
+\indexentry{rehashing}{\@locref{hevea_default1726}{B.4}}
+\indexentry{tempo costante}{\@locref{hevea_default1727}{B.4}}
+\indexentry{costo medio}{\@locref{hevea_default1728}{B.4}}
+\indexentry{ridimensionamento geometrico}{\@locref{hevea_default1729}{B.4}}
+\indexentry{analisi degli algoritmi}{\@locref{hevea_default1730}{B.5}}
+\indexentry{modello di macchina}{\@locref{hevea_default1731}{B.5}}
+\indexentry{caso peggiore}{\@locref{hevea_default1732}{B.5}}
+\indexentry{operazione dominante}{\@locref{hevea_default1733}{B.5}}
+\indexentry{intersezione, punto di}{\@locref{hevea_default1734}{B.5}}
+\indexentry{complessità, ordine di}{\@locref{hevea_default1735}{B.5}}
+\indexentry{Big-Oh notation}{\@locref{hevea_default1736}{B.5}}
+\indexentry{lineare}{\@locref{hevea_default1737}{B.5}}
+\indexentry{quadratico}{\@locref{hevea_default1738}{B.5}}
+\indexentry{ricerca}{\@locref{hevea_default1739}{B.5}}
+\indexentry{tabella hash}{\@locref{hevea_default1740}{B.5}}

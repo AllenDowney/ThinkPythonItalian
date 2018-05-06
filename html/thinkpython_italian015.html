@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>File</title>
+</head>
+<body>
+<a href="thinkpython_italian014.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian016.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec167">Chapter 14  File</h1>
+<p>Questo capitolo spiega il concetto di programma “persistente”, che mantiene i propri dati in archivi permanenti, e mostra come usare diversi tipi di archivi, come file e database.</p>
+<h2 class="section" id="sec168">14.1  Persistenza</h2>
+<p>
+<a id="hevea_default1124"></a>
+<a id="hevea_default1125"></a>
+<a id="hevea_default1126"></a></p><p>La maggior parte dei programmi che abbiamo visto finora sono transitori, nel senso che vengono eseguiti per breve tempo e producono un risultato, ma quando vengono chiusi i loro dati svaniscono. Se rieseguite il programma, questo ricomincia da zero.</p><p>Altri programmi sono <span class="c009">persistenti</span>: sono eseguiti per un lungo tempo (o di continuo); mantengono almeno una parte dei loro dati archiviati in modo permanente, come su un disco fisso; e se vengono arrestati e riavviati, riprendono il loro lavoro da dove lo avevano lasciato.</p><p>Esempi di programmi persistenti sono i sistemi operativi, eseguiti praticamente ogni volta che un computer viene acceso, e i web server, che lavorano di continuo in attesa di richieste provenienti dalla rete.</p><p>Per i programmi, uno dei modi più semplici di mantenere i loro dati è di leggerli e scriverli su file di testo. Abbiamo già visto qualche programma che legge dei file di testo; in questo capitolo ne vedremo alcuni che li scrivono.</p><p>Un’alternativa è conservare la situazione del programma in un database. In questo capitolo mostrerò un semplice database e un modulo, <span class="c003">pickle</span>, che rende agevole l’archiviazione dei dati.
+<a id="hevea_default1127"></a>
+<a id="hevea_default1128"></a></p>
+<h2 class="section" id="sec169">14.2  Lettura e scrittura</h2>
+<p>
+<a id="hevea_default1129"></a></p><p>Un file di testo è un una sequenza di caratteri salvata su un dispositivo permanente come un disco fisso, una memoria flash o un CD-ROM. Abbiamo già visto come aprire e leggere un file nel Paragrafo <a href="thinkpython_italian010.html#wordlist">9.1</a>.
+<a id="hevea_default1130"></a>
+<a id="hevea_default1131"></a></p><p>Per scrivere un file, lo dovete aprire indicando la modalità <code>'w'</code> come secondo parametro:</p><pre class="verbatim">&gt;&gt;&gt; fout = open('output.txt', 'w')
+</pre><p>
+Se il file esiste già, l’apertura in modalità scrittura lo ripulisce dai vecchi dati e riparte da zero, quindi fate attenzione! Se non esiste, ne viene creato uno nuovo.</p><p><span class="c003">open</span> restituisce un oggetto file che fornisce i metodi per lavorare con il file.</p><p>Il metodo <span class="c003">write</span> inserisce i dati nel file.</p><pre class="verbatim">&gt;&gt;&gt; riga1 = "E questa qui è l'acacia,\n"
+&gt;&gt;&gt; fout.write(riga1)
+25
+</pre><p>
+Il valore di ritorno è il numero di caratteri che sono stati scritti. L’oggetto file tiene traccia di dove si trova, e se invocate ancora il metodo <span class="c003">write</span>, aggiunge i nuovi dati in coda al file.</p><pre class="verbatim">&gt;&gt;&gt; riga2 = "l'emblema della nostra terra.\n"
+&gt;&gt;&gt; fout.write(riga2)
+30
+</pre><p>
+Quando avete finito di scrivere, è opportuno chiudere il file.</p><pre class="verbatim">&gt;&gt;&gt; fout.close()
+</pre><p>
+<a id="hevea_default1132"></a>
+<a id="hevea_default1133"></a></p><p>Se non chiudete il file, viene comunque chiuso automaticamente al termine del programma.</p>
+<h2 class="section" id="sec170">14.3  L’operatore di formato</h2>
+<p>
+<a id="hevea_default1134"></a>
+<a id="hevea_default1135"></a></p><p>L’argomento di <span class="c003">write</span> deve essere una stringa, e se volessimo inserire valori di tipo diverso in un file dovremmo prima convertirli in stringhe. Il metodo più semplice per farlo è usare <span class="c003">str</span>:</p><pre class="verbatim">&gt;&gt;&gt; x = 52
+&gt;&gt;&gt; fout.write(str(x))
+</pre><p>
+Un’alternativa è utilizzare l’<span class="c009">operatore di formato</span>, <span class="c003">%</span>. Quando viene applicato agli interi, <span class="c003">%</span> rappresenta l’operatore modulo. Ma se il primo operando è una stringa, <span class="c003">%</span> diventa l’operatore di formato.
+<a id="hevea_default1136"></a>
+<a id="hevea_default1137"></a></p><p>Il primo operando è detto <span class="c009">stringa di formato</span>, che contiene una o più <span class="c009">sequenze di formato</span>, che specificano il formato del secondo operando. Il risultato è una stringa.
+<a id="hevea_default1138"></a>
+<a id="hevea_default1139"></a></p><p>Per esempio, la sequenza di formato <code>'%d'</code> significa che il secondo operando dovrebbe essere nel formato di numero intero in base decimale:</p><pre class="verbatim">&gt;&gt;&gt; cammelli = 42
+&gt;&gt;&gt; '%d' % cammelli
+'42'
+</pre><p>
+Il risultato è la stringa <code>'42'</code>, che non va confusa con il valore intero <span class="c003">42</span>.</p><p>Una sequenza di formato può comparire dovunque all’interno di una
+stringa, e così possiamo incorporare un valore in una frase:</p><pre class="verbatim">&gt;&gt;&gt; 'Ho contato %d cammelli.' % cammelli
+'Ho contato 42 cammelli.'
+</pre><p>
+Se nella stringa c’è più di una sequenza di formato, il secondo operando deve essere una tupla. Ciascuna sequenza di formato corrisponde a un elemento della tupla, nell’ordine.</p><p>L’esempio che segue usa <code>'%d'</code> per formattare un intero,
+<code>'%g'</code> per formattare un decimale a virgola mobile (floating-point), e <code>'%s'</code> per formattare una stringa:</p><pre class="verbatim">&gt;&gt;&gt; 'In %d anni ho contato %g %s.' % (3, 0.1, 'cammelli')
+'In 3 anni ho contato 0.1 cammelli.'
+</pre><p>
+Naturalmente, il numero degli elementi nella tupla deve essere pari a quello delle sequenze di formato nella stringa, ed i tipi degli elementi devono corrispondere a quelli delle sequenze di formato:
+<a id="hevea_default1140"></a>
+<a id="hevea_default1141"></a></p><pre class="verbatim">&gt;&gt;&gt; '%d %d %d' % (1, 2)
+TypeError: not enough arguments for format string
+&gt;&gt;&gt; '%d' % 'dollari'
+TypeError: %d format: a number is required, not str
+</pre><p>
+Nel primo esempio, non ci sono abbastanza elementi; nel secondo, l’elemento è del tipo sbagliato.</p><p>Per saperne di più sull’operatore di formato: 
+<a href="https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting"><span class="c003">https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting</span></a>. Un’alternativa più potente è il metodo di formato delle stringhe, potete leggerne la documentazione sul sito 
+<a href="https://docs.python.org/3/library/stdtypes.html#str.format"><span class="c003">https://docs.python.org/3/library/stdtypes.html#str.format</span></a>.</p>
+<h2 class="section" id="sec171">14.4  Nomi di file e percorsi</h2>
+<p>
+<a id="paths"></a>
+<a id="hevea_default1142"></a>
+<a id="hevea_default1143"></a>
+<a id="hevea_default1144"></a>
+<a id="hevea_default1145"></a></p><p>Il file sono organizzati in <span class="c009">directory</span> (chiamate anche “cartelle”).
+Ogni programma in esecuzione ha una “directory corrente”, che è la directory predefinita per la maggior parte delle operazioni che compie.
+Ad esempio, quando aprite un file in lettura, Python lo cerca nella sua directory corrente.
+<a id="hevea_default1146"></a>
+<a id="hevea_default1147"></a></p><p>Il modulo <span class="c003">os</span> fornisce delle funzioni per lavorare con file e directory (“os” sta per “sistema operativo”). <span class="c003">os.getcwd</span> restituisce il nome della directory corrente:
+<a id="hevea_default1148"></a>
+<a id="hevea_default1149"></a></p><pre class="verbatim">&gt;&gt;&gt; import os
+&gt;&gt;&gt; cwd = os.getcwd()
+&gt;&gt;&gt; cwd
+'/home/dinsdale'
+</pre><p>
+<span class="c003">cwd</span> sta per “<em>current working directory</em>” (directory di lavoro corrente). 
+Il risultato di questo esempio è <span class="c003">/home/dinsdale</span>, che è la directory home di un utente di nome <span class="c003">dinsdale</span>.
+<a id="hevea_default1150"></a>
+<a id="hevea_default1151"></a></p><p>Una stringa come <code>'/home/dinsdale'</code>, che individua la collocazione di un file o una directory, è chiamata <span class="c009">percorso</span>.</p><p>Un semplice nome di file, come <span class="c003">memo.txt</span> è pure considerato un percorso,
+ma è un <span class="c009">percorso relativo</span> perché si riferisce alla directory corrente. Se la directory corrente è <span class="c003">/home/dinsdale</span>, il nome di file <span class="c003">memo.txt</span> starebbe per <span class="c003">/home/dinsdale/memo.txt</span>.
+<a id="hevea_default1152"></a></p><p>Un percorso che comincia per <span class="c003">/</span> non dipende dalla directory corrente;
+viene chiamato <span class="c009">percorso assoluto</span>. Per trovare il percorso assoluto del file, si può usare <span class="c003">os.path.abspath</span>:
+<a id="hevea_default1153"></a></p><p>I percorsi visti finora sono semplici nomi di file, quindi sono percorsi relativi alla directory corrente. Per avere invece il percorso assoluto, potete usare <span class="c003">os.path.abspath</span>:</p><pre class="verbatim">&gt;&gt;&gt; os.path.abspath('memo.txt')
+'/home/dinsdale/memo.txt'
+</pre><p>
+<span class="c003">os.path</span> fornisce altre funzioni per lavorare con nomi di file e percorsi. Per esempio, <span class="c003">os.path.exists</span> controlla se un file o una cartella esistono:
+<a id="hevea_default1154"></a>
+<a id="hevea_default1155"></a></p><pre class="verbatim">&gt;&gt;&gt; os.path.exists('memo.txt')
+True
+</pre><p>
+Se esiste, <span class="c003">os.path.isdir</span> controlla se è una directory:</p><pre class="verbatim">&gt;&gt;&gt; os.path.isdir('memo.txt')
+False
+&gt;&gt;&gt; os.path.isdir('/home/dinsdale')
+True
+</pre><p>
+Similmente, <span class="c003">os.path.isfile</span> controlla se è un file.</p><p><span class="c003">os.listdir</span> restituisce una lista dei file e delle altre directory nella cartella indicata:</p><pre class="verbatim">&gt;&gt;&gt; os.listdir(cwd)
+['musica', 'immagini', 'memo.txt']
+</pre><p>
+Per dimostrare l’uso di queste funzioni, l’esempio seguente
+“esplora” il contenuto di una directory, stampa il nome di tutti i file e si chiama ricorsivamente su tutte le sottodirectory.
+<a id="hevea_default1156"></a></p><pre class="verbatim">def esplora(dirnome):
+    for nome in os.listdir(dirnome):
+        percorso = os.path.join(dirnome, nome)
+
+        if os.path.isfile(percorso):
+            print(percorso)
+        else:
+            esplora(percorso)
+</pre><p>
+<span class="c003">os.path.join</span> prende il nome di una directory e il nome di un file e li unisce a formare un percorso completo. </p><p>Il modulo <span class="c003">os</span> contiene una funzione di nome <span class="c003">walk</span>
+che è simile a questa ma più versatile. Come esercizio, leggetene la documentazione e usatela per stampare i nomi dei file di una data directory e delle sue sottodirectory. Soluzione: <a href="http://thinkpython2.com/code/walk.py"><span class="c003">http://thinkpython2.com/code/walk.py</span></a>.</p>
+<h2 class="section" id="sec172">14.5  Gestire le eccezioni</h2>
+<p>
+<a id="catch"></a></p><p>Parecchie cose possono andare storte quando si cerca di leggere e scrivere file. Se tentate di aprire un file che non esiste, si verifica un
+<span class="c003">IOError</span>:
+<a id="hevea_default1157"></a>
+<a id="hevea_default1158"></a>
+<a id="hevea_default1159"></a>
+<a id="hevea_default1160"></a></p><pre class="verbatim">&gt;&gt;&gt; fin = open('file_corrotto')
+IOError: [Errno 2] No such file or directory: 'file_corrotto'
+</pre><p>
+Se non avete il permesso di accedere al file:
+<a id="hevea_default1161"></a>
+<a id="hevea_default1162"></a></p><pre class="verbatim">&gt;&gt;&gt; fout = open('/etc/passwd', 'w')
+PermissionError: [Errno 13] Permission denied: '/etc/passwd'
+</pre><p>
+E se cercate di aprire una directory in lettura, ottenete:</p><pre class="verbatim">&gt;&gt;&gt; fin = open('/home')
+IsADirectoryError: [Errno 21] Is a directory: '/home'
+</pre><p>
+Per evitare questi errori, potete usare funzioni come <span class="c003">os.path.exists</span>
+e <span class="c003">os.path.isfile</span>, ma ci vorrebbe molto tempo e molto codice per controllare tutte le possibilità (se “<span class="c003">Errno 21</span>” significa qualcosa, ci sono almeno 21 cose che possono andare male).
+<a id="hevea_default1163"></a>
+<a id="hevea_default1164"></a>
+<a id="hevea_default1165"></a></p><p>È meglio allora andare avanti e provare—e affrontare i problemi quando si presentano—che è proprio quello che fa l’istruzione <span class="c003">try</span>. La sintassi è simile a un’istruzione <span class="c003">if...else</span>:</p><pre class="verbatim">try:    
+    fin = open('file_corrotto')
+except:
+    print('Qualcosa non funziona.')
+</pre><p>
+Python comincia con l’eseguire la clausola <span class="c003">try</span>. Se tutto va bene, tralascia la clausola <span class="c003">except</span> e procede. Se si verifica un’eccezione, salta fuori dalla clausola <span class="c003">try</span> e va ad eseguire la clausola <span class="c003">except</span>.</p><p>Utilizzare in questo modo l’istruzione <span class="c003">try</span> viene detto <span class="c009">gestire</span> un’eccezione. Nell’esempio precedente, la clausola <span class="c003">except</span> stampa un messaggio di errore che non è di grande aiuto. In genere, gestire un’eccezione vi dà la possibilità di sistemare il problema, o riprovare, o per lo meno arrestare il programma in maniera morbida.</p>
+<h2 class="section" id="sec173">14.6  Database</h2>
+<p>
+<a id="hevea_default1166"></a></p><p>Un <span class="c009">database</span> è un file che è progettato per archiviare dati. Molti database sono organizzati come un dizionario, nel senso che fanno una mappatura da chiavi in valori. La grande differenza tra database e dizionari è che i primi risiedono su disco (o altro dispositivo permanente), e persistono quando il programma viene chiuso.
+<a id="hevea_default1167"></a>
+<a id="hevea_default1168"></a></p><p>Il modulo <span class="c003">dbm</span> fornisce un’interfaccia per creare e aggiornare file di database. Come esempio, creerò un database che contiene le didascalie di alcuni file di immagini.
+<a id="hevea_default1169"></a>
+<a id="hevea_default1170"></a></p><p>Un database si apre in modo simile agli altri file:</p><pre class="verbatim">&gt;&gt;&gt; import dbm
+&gt;&gt;&gt; db = dbm.open('didascalie', 'c')
+</pre><p>
+La modalità <code>'c'</code> significa che il database deve essere creato se non esiste già. Il risultato è un oggetto database che può essere utilizzato (per la maggior parte delle operazioni) come un dizionario. 
+<a id="hevea_default1171"></a>
+<a id="hevea_default1172"></a></p><p>Se create un nuovo elemento, <span class="c003">dbm</span> aggiorna il file di database.
+<a id="hevea_default1173"></a></p><pre class="verbatim">&gt;&gt;&gt; db['cleese.png'] = 'Foto di John Cleese.'
+</pre><p>
+Quando accedete a uno degli elementi, <span class="c003">dbm</span> legge il file:</p><pre class="verbatim">&gt;&gt;&gt; db['cleese.png']
+b'Foto di John Cleese.'
+</pre><p>
+Il risultato è un <span class="c009">oggetto bytes</span>, ed è per questo che comincia per <span class="c003">b</span>. Un oggetto bytes è per molti aspetti simile ad una stringa. Quando approfondirete Python la differenza diverrà importante, ma per ora possiamo soprassedere.
+<a id="hevea_default1174"></a>
+<a id="hevea_default1175"></a></p><p>Se fate una nuova assegnazione a una chiave esistente, <span class="c003">dbm</span> sostituisce il vecchio valore:</p><pre class="verbatim">&gt;&gt;&gt; db['cleese.png'] = 'Foto di John Cleese che cammina in modo ridicolo.'
+&gt;&gt;&gt; db['cleese.png']
+b'Foto di John Cleese che cammina in modo ridicolo.'
+</pre><p>
+Certi metodi dei dizionari, come <span class="c003">keys</span> e <span class="c003">items</span>, non funzionano con gli oggetti database, ma funziona l’iterazione con un ciclo <span class="c003">for</span>.
+<a id="hevea_default1176"></a></p><pre class="verbatim">for chiave in db:
+    print(chiave, db[chiave])
+</pre><p>
+Come con gli altri file, dovete chiudere il database quando avete finito:</p><pre class="verbatim">&gt;&gt;&gt; db.close()
+</pre><p>
+<a id="hevea_default1177"></a>
+<a id="hevea_default1178"></a></p>
+<h2 class="section" id="sec174">14.7  Pickling</h2>
+<p>
+<a id="hevea_default1179"></a></p><p>Un limite di <span class="c003">dbm</span> è che le chiavi e i valori devono essere delle stringhe, oppure bytes. Se cercate di utilizzare qualsiasi altro tipo, si verifica un errore.
+<a id="hevea_default1180"></a>
+<a id="hevea_default1181"></a></p><p>Il modulo <span class="c003">pickle</span> può essere di aiuto: trasforma quasi ogni tipo di oggetto in una stringa, adatta per essere inserita in un database, e quindi ritrasforma la stringa in oggetto.</p><p><span class="c003">pickle.dumps</span> accetta un oggetto come parametro e ne restituisce una serializzazione, ovvero una rappresentazione sotto forma di una stringa (<span class="c003">dumps</span> è l’abbreviazione di “dump string”, scarica stringa):</p><pre class="verbatim">&gt;&gt;&gt; import pickle
+&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; pickle.dumps(t)
+b'\x80\x03]q\x00(K\x01K\x02K\x03e.'
+</pre><p>
+Il formato non è immediatamente leggibile: è progettato per essere facile da interpretare da parte di <span class="c003">pickle</span>. In seguito, <span class="c003">pickle.loads</span>
+(“carica stringa”) ricostruisce l’oggetto:</p><pre class="verbatim">&gt;&gt;&gt; t1 = [1, 2, 3]
+&gt;&gt;&gt; s = pickle.dumps(t1)
+&gt;&gt;&gt; t2 = pickle.loads(s)
+&gt;&gt;&gt; t2
+[1, 2, 3]
+</pre><p>
+Sebbene il nuovo oggetto abbia lo stesso valore di quello vecchio, non è in genere lo stesso oggetto:</p><pre class="verbatim">&gt;&gt;&gt; t1 == t2
+True
+&gt;&gt;&gt; t1 is t2
+False
+</pre><p>
+In altre parole, fare una serializzazione con <span class="c003">pickle</span> e poi l’operazione inversa, ha lo stesso effetto di copiare l’oggetto.</p><p>Potete usare <span class="c003">pickle</span> per archiviare in un database tutto ciò che non è una stringa. In effetti, questa combinazione è tanto frequente da essere stata incapsulata in un modulo chiamato <span class="c003">shelve</span>. 
+<a id="hevea_default1182"></a>
+<a id="hevea_default1183"></a></p>
+<h2 class="section" id="sec175">14.8  Pipe</h2>
+<p>
+<a id="hevea_default1184"></a>
+<a id="hevea_default1185"></a></p><p>Molti sistemi operativi forniscono un’interfaccia a riga di comando, nota anche come <span class="c009">shell</span>. Le shell sono dotate di comandi per spostarsi nel file system e per lanciare le applicazioni. Per esempio, in UNIX potete cambiare directory con il comando <span class="c003">cd</span>,
+visualizzarne il contenuto con <span class="c003">ls</span>, e lanciare un web browser scrivendone il nome, per esempio <span class="c003">firefox</span>.
+<a id="hevea_default1186"></a>
+<a id="hevea_default1187"></a></p><p>Qualsiasi programma lanciabile dalla shell può essere lanciato anche da Python usando un <span class="c009">oggetto pipe</span>, che rappresenta un programma in esecuzione.</p><p>Ad esempio, il comando Unix <span class="c003">ls -l</span> di norma mostra il contenuto della cartella attuale (in formato esteso). Potete lanciare <span class="c003">ls</span> anche con <span class="c003">os.popen</span><sup><a id="text1" href="#note1">1</a></sup>:
+<a id="hevea_default1188"></a>
+<a id="hevea_default1189"></a></p><pre class="verbatim">&gt;&gt;&gt; cmd = 'ls -l'
+&gt;&gt;&gt; fp = os.popen(cmd)
+</pre><p>
+L’argomento è una stringa che contiene un comando shell. Il valore di ritorno è un oggetto che si comporta come un file aperto. Potete leggere l’output del processo <span class="c003">ls</span> una riga per volta con <span class="c003">readline</span>, oppure ottenere tutto in una volta con <span class="c003">read</span>:
+<a id="hevea_default1190"></a>
+<a id="hevea_default1191"></a>
+<a id="hevea_default1192"></a>
+<a id="hevea_default1193"></a></p><pre class="verbatim">&gt;&gt;&gt; res = fp.read()
+</pre><p>
+Quando avete finito, chiudete la pipe come se fosse un file:
+<a id="hevea_default1194"></a>
+<a id="hevea_default1195"></a></p><pre class="verbatim">&gt;&gt;&gt; stat = fp.close()
+&gt;&gt;&gt; print(stat)
+None
+</pre><p>
+Il valore di ritorno è lo stato finale del processo <span class="c003">ls</span>;
+<span class="c003">None</span> significa che si è chiuso normalmente (senza errori).</p><p>Altro esempio, in molti sistemi Unix il comando <span class="c003">md5sum</span>
+legge il contenuto di un file e ne calcola una checksum . Per saperne di più: <a href="http://it.wikipedia.org/wiki/MD5"><span class="c003">http://it.wikipedia.org/wiki/MD5</span></a>. Questo comando è un mezzo efficiente per controllare se due file hanno lo stesso contenuto. La probabilità che due diversi contenuti diano la stessa checksum è piccolissima (per intenderci, è improbabile che succeda prima che l’universo collassi).
+<a id="hevea_default1196"></a>
+<a id="hevea_default1197"></a></p><p>Potete allora usare una pipe per eseguire <span class="c003">md5sum</span> da Python e ottenere il risultato:</p><pre class="verbatim">&gt;&gt;&gt; nomefile = 'book.tex'
+&gt;&gt;&gt; cmd = 'md5sum ' + nomefile
+&gt;&gt;&gt; fp = os.popen(cmd)
+&gt;&gt;&gt; res = fp.read()
+&gt;&gt;&gt; stat = fp.close()
+&gt;&gt;&gt; print(res)
+1e0033f0ed0656636de0d75144ba32e0  book.tex
+&gt;&gt;&gt; print(stat)
+None
+</pre>
+<h2 class="section" id="sec176">14.9  Scrivere moduli</h2>
+<p>
+<a id="modules"></a>
+<a id="hevea_default1198"></a>
+<a id="hevea_default1199"></a></p><p>Qualunque file che contenga codice Python può essere importato come modulo. Per esempio, supponiamo di avere un file di nome <span class="c003">wc.py</span> che contiene il codice che segue:</p><pre class="verbatim">def contarighe(nomefile):
+    conta = 0
+    for riga in open(nomefile):
+        conta += 1
+    return conta
+
+print(contarighe('wc.py'))
+</pre><p>
+Se eseguite questo programma, legge se stesso e stampa il numero delle righe nel file, che è 7. Potete anche importare il file in questo modo:</p><pre class="verbatim">&gt;&gt;&gt; import wc
+7
+</pre><p>
+Ora avete un oggetto modulo <span class="c003">wc</span>:
+<a id="hevea_default1200"></a></p><pre class="verbatim">&gt;&gt;&gt; wc
+&lt;module 'wc' from 'wc.py'&gt;
+</pre><p>
+L’oggetto modulo fornisce <code>contarighe</code>:</p><pre class="verbatim">&gt;&gt;&gt; wc.contarighe('wc.py')
+7
+</pre><p>
+Ecco come scrivere moduli in Python.</p><p>L’unico difetto di questo esempio è che quando importate il modulo, esegue anche il codice di prova in fondo. Di solito, invece, un modulo definisce solo delle nuove funzioni ma non le esegue.
+<a id="hevea_default1201"></a>
+<a id="hevea_default1202"></a></p><p>I programmi che verranno importati come moduli usano spesso questo costrutto:</p><pre class="verbatim">if __name__ == '__main__':
+    print(contarighe('wc.py'))
+</pre><p>
+<code>__name__</code> è una variabile predefinita che viene impostata all’avvio del programma. Se questo viene avviato come script,
+<code>__name__</code> ha il valore <code>'__main__'</code>; in quel caso, il codice viene eseguito. Altrimenti, se viene importato come modulo, il codice di prova viene saltato.
+<a id="hevea_default1203"></a>
+<a id="hevea_default1204"></a></p><p>Come esercizio, scrivete questo esempio in un file di nome <span class="c003">wc.py</span> ed eseguitelo come script. Poi avviate l’interprete e scrivete
+<span class="c003">import wc</span>. Che valore ha <code>__name__</code>
+quando il modulo viene importato?</p><p>Attenzione: Se importate un modulo già importato, Python non fa nulla. Non rilegge il file, anche se è cambiato.
+<a id="hevea_default1205"></a>
+<a id="hevea_default1206"></a>
+<a id="hevea_default1207"></a></p><p>Se volete ricaricare un modulo potete usare la funzione <span class="c003">reload</span>, ma potrebbe dare delle noie, quindi la cosa più sicura è riavviare l’interprete e importare nuovamente il modulo.</p>
+<h2 class="section" id="sec177">14.10  Debug</h2>
+<p>
+<a id="hevea_default1208"></a>
+<a id="hevea_default1209"></a></p><p>Quando leggete e scrivete file, è possibile incontrare dei problemi con gli spaziatori. Questi errori sono difficili da correggere perché spazi, tabulazioni e ritorni a capo di solito non sono visibili.</p><pre class="verbatim">&gt;&gt;&gt; s = '1 2\t 3\n 4'
+&gt;&gt;&gt; print(s)
+1 2  3
+ 4
+</pre><p>
+<a id="hevea_default1210"></a>
+<a id="hevea_default1211"></a>
+<a id="hevea_default1212"></a></p><p>La funzione predefinita <span class="c003">repr</span> può essere utile: riceve come argomento qualsiasi oggetto e restituisce una rappresentazione dell’oggetto in forma di stringa. Per le stringhe, essa rappresenta gli spaziatori con delle sequenze con barra inversa:</p><pre class="verbatim">&gt;&gt;&gt; print(repr(s))
+'1 2\t 3\n 4'
+</pre><p>Questa funzione può quindi aiutare nel debug.</p><p>Un altro problema in cui potreste imbattervi è che sistemi diversi usano caratteri diversi per indicare la fine della riga. Alcuni usano il carattere di ritorno a capo, rappresentato da <code>\n</code>. Altri usano quello di ritorno carrello, rappresentato da <code>\r</code>. Alcuni usano entrambi. Se spostate i file da un sistema all’altro, queste incongruenze possono causare errori.
+<a id="hevea_default1213"></a></p><p>Comunque, esistono per ogni sistema delle applicazioni che convertono da un formato a un altro. Potete trovarne (e leggere altro sull’argomento) sul sito <a href="http://it.wikipedia.org/wiki/Ritorno_a_capo"><span class="c003">http://it.wikipedia.org/wiki/Ritorno_a_capo</span></a>. Oppure, naturalmente, potete scriverne una voi.</p>
+<h2 class="section" id="sec178">14.11  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">persistente:</span></dt><dd class="dd-description"> Di un programma eseguito per un tempo indefinito e che memorizza almeno parte dei suoi dati in dispositivi permanenti.
+<a id="hevea_default1214"></a></dd><dt class="dt-description"><span class="c009">operatore di formato:</span></dt><dd class="dd-description"> Operatore indicato da <span class="c003">%</span>, che a partire da una stringa di formato e una tupla produce una stringa che include gli elementi della tupla, ciascuno nel formato specificato dalla stringa di formato.
+<a id="hevea_default1215"></a></dd><dt class="dt-description"><span class="c009">stringa di formato:</span></dt><dd class="dd-description"> Stringa usata con l’operatore di formato e che contiene le sequenze di formato. 
+<a id="hevea_default1216"></a></dd><dt class="dt-description"><span class="c009">sequenza di formato:</span></dt><dd class="dd-description"> Sequenza di caratteri in una stringa di formato, come <span class="c003">%d</span>, che specifica in quale formato deve essere un valore.
+<a id="hevea_default1217"></a></dd><dt class="dt-description"><span class="c009">file di testo:</span></dt><dd class="dd-description"> Sequenza di caratteri salvata in un dispositivo di archiviazione permanente come un disco fisso.
+<a id="hevea_default1218"></a></dd><dt class="dt-description"><span class="c009">directory:</span></dt><dd class="dd-description"> Raccolta di file; è dotata di un nome ed è chiamata anche cartella.
+<a id="hevea_default1219"></a></dd><dt class="dt-description"><span class="c009">percorso:</span></dt><dd class="dd-description"> Stringa che localizza un file.
+<a id="hevea_default1220"></a></dd><dt class="dt-description"><span class="c009">percorso relativo:</span></dt><dd class="dd-description"> Un percorso che parte dalla cartella di lavoro attuale.
+<a id="hevea_default1221"></a></dd><dt class="dt-description"><span class="c009">percorso assoluto:</span></dt><dd class="dd-description"> Un percorso che parte dalla cartella principale del file system.
+<a id="hevea_default1222"></a></dd><dt class="dt-description"><span class="c009">gestire:</span></dt><dd class="dd-description"> Prevenire l’arresto di un programma causato da un errore, mediante le istruzioni <span class="c003">try</span>
+e <span class="c003">except</span>.
+<a id="hevea_default1223"></a></dd><dt class="dt-description"><span class="c009">database:</span></dt><dd class="dd-description"> Un file i cui contenuti sono organizzati come un dizionario, con chiavi che corrispondono a valori.
+<a id="hevea_default1224"></a></dd><dt class="dt-description"><span class="c009">oggetto bytes:</span></dt><dd class="dd-description"> Un oggetto simile ad una stringa.
+<a id="hevea_default1225"></a>
+<a id="hevea_default1226"></a></dd><dt class="dt-description"><span class="c009">shell:</span></dt><dd class="dd-description"> Un programma che permette all’utente di inserire comandi e di eseguirli, avviando altri programmi.
+<a id="hevea_default1227"></a></dd><dt class="dt-description"><span class="c009">oggetto pipe:</span></dt><dd class="dd-description"> Un oggetto che rappresenta un programma in esecuzione e che consente ad un programma Python di eseguire comandi e leggere i risultati.
+<a id="hevea_default1228"></a>
+<a id="hevea_default1229"></a></dd></dl>
+<h2 class="section" id="sec179">14.12  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete una funzione di nome <span class="c003">sed</span> che richieda come argomenti una stringa modello, una stringa di sostituzione, e due nomi di file. La funzione deve leggere il primo file e scriverne il contenuto nel secondo file (creandolo se necessario). Se la stringa modello compare da qualche parte nel testo del file, la funzione deve sostituirla con la seconda stringa.</em></p><p><em>Se si verifica un errore in apertura, lettura, scrittura, chiusura del file, il vostro programma deve gestire l’eccezione, stampare un messaggio di errore e terminare. Soluzione: </em><a href="http://thinkpython2.com/code/sed.py"><em><span class="c003">http://thinkpython2.com/code/sed.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default1230"></a>
+<a id="hevea_default1231"></a><p><em>Se avete scaricato la mia soluzione dell’Esercizio </em><a href="thinkpython_italian013.html#anagrams"><em>2</em></a><em> dal sito
+</em><a href="http://thinkpython2.com/code/anagram_sets.py"><span class="c003"><em>http://thinkpython2.com/code/anagram_sets.py</em></span></a><em>, avrete visto che crea un dizionario che fa corrispondere una stringa ordinata di lettere alla lista di parole che possono essere scritte con quelle lettere. Per esempio, <code>'opst'</code> corrisponde alla lista <code>['opts', 'post', 'pots', 'spot', 'stop', 'tops']</code>.</em></p><p><em>Scrivete un modulo che importi <code>anagram_sets</code> e fornisca due nuove funzioni: <code>arch_anagrammi</code> deve archiviare il dizionario di anagrammi in uno “shelf”; <code>leggi_anagrammi</code> deve cercare una parola e restituire una lista dei suoi anagrammi. Soluzione: </em><a href="http://thinkpython2.com/code/anagram_db.py"><span class="c003"><em>http://thinkpython2.com/code/anagram_db.py</em></span></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="checksum"></a>
+<a id="hevea_default1232"></a><p><em>In una grande raccolta di file MP3 possono esserci più copie della stessa canzone, messe in cartelle diverse o con nomi di file differenti. Scopo di questo esercizio è di ricercare i duplicati.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete un programma che cerchi in una cartella e, ricorsivamente, nelle sue sottocartelle, e restituisca un elenco dei percorsi completi di tutti i file con una stessa estensione (come <span class="c003">.mp3</span>).
+Suggerimento: <span class="c003">os.path</span> contiene alcune funzioni utili per trattare nomi di file e percorsi.
+</em><a id="hevea_default1233"></a>
+<a id="hevea_default1234"></a>
+<a id="hevea_default1235"></a>
+<a id="hevea_default1236"></a></li><li class="li-enumerate"><em>Per riconoscere i duplicati, potete usare <span class="c003">md5sum</span>
+per calcolare la “checksum” di ogni file. Se due file hanno la stessa checksum, significa che con ogni probabilità hanno lo stesso contenuto.
+</em><a id="hevea_default1237"></a></li><li class="li-enumerate"><em>Per effettuare un doppio controllo, usate il comando Unix <span class="c003">diff</span>.
+</em><a id="hevea_default1238"></a></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/find_duplicates.py"><em><span class="c003">http://thinkpython2.com/code/find_duplicates.py</span></em></a><em>.</em></p></div>
+<hr class="footnoterule"><dl class="thefootnotes"><dt class="dt-thefootnotes">
+<a id="note1" href="#text1">1</a></dt><dd class="dd-thefootnotes"><div class="footnotetext"><span class="c003">popen</span> ora è deprecato, cioè siamo invitati a smettere di usarlo e ad iniziare ad usare invece il modulo <span class="c003">subprocess</span>. Ma per i casi semplici, trovo che
+<span class="c003">subprocess</span> sia più complicato del necessario. Pertanto continuerò ad usare <span class="c003">popen</span> finché non verrà rimosso definitivamente.</div></dd></dl>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian014.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian016.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

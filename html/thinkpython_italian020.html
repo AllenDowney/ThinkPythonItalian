@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Ulteriori strumenti</title>
+</head>
+<body>
+<a href="thinkpython_italian019.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian021.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec225">Chapter 19  Ulteriori strumenti</h1>
+<p>Uno degli obiettivi di questo libro è di illustrarvi il minimo indispensabile di Python. Quando esistono due modi diversi di fare qualcosa, preferisco sceglierne uno ed evitare di citare l’altro, oppure inserire il secondo all’interno di un esercizio.</p><p>Ora vorrei tornare a recuperare alcune chicche che avevo tralasciato. Python è dotato di parecchie funzionalità che non sono indispensabili—potete scrivere del buon codice anche senza usarle—ma che in certi casi vi permettono di scrivere del codice più conciso, leggibile, efficiente, o anche tutte e tre le cose insieme.</p>
+<h2 class="section" id="sec226">19.1  Espressioni condizionali</h2>
+<p>Abbiamo visto nel Paragrafo <a href="thinkpython_italian006.html#conditional.execution">5.4</a> le istruzioni condizionali, che vengono usate di frequente per scegliere uno tra due valori alternativi, per esempio:
+<a id="hevea_default1542"></a>
+<a id="hevea_default1543"></a></p><pre class="verbatim">if x &gt; 0:
+    y = math.log(x)
+else:
+    y = float('nan')
+</pre><p>Questa istruzione controlla se <span class="c003">x</span> è positivo. Se lo è, calcola
+<span class="c003">math.log</span>, altrimenti <span class="c003">math.log</span> scatenerebbe un ValueError. Per evitare che il programma si arresti, generiamo un “NaN”, che è un valore a virgola mobile speciale che rappresenta “Not a Number” (Non è un Numero).
+<a id="hevea_default1544"></a>
+<a id="hevea_default1545"></a></p><p>Possiamo scrivere questa condizione in modo più conciso utilizzando un’<span class="c009">espressione condizionale</span>:</p><pre class="verbatim">y = math.log(x) if x &gt; 0 else float('nan')
+</pre><p>Si può quasi leggere questa riga come fosse: “<span class="c003">y</span> diventa log-<span class="c003">x</span>
+se <span class="c003">x</span> è maggiore di 0; altrimenti diventa NaN”.</p><p>A volte, le funzioni ricorsive possono essere riscritte utilizzando le espressioni condizionali. Prendiamo ad esempio una versione ricorsiva di <span class="c003">fattoriale</span>:
+<a id="hevea_default1546"></a>
+<a id="hevea_default1547"></a></p><pre class="verbatim">def fattoriale(n):
+    if n == 0:
+        return 1
+    else:
+        return n * fattoriale(n-1)
+</pre><p>Si può riscrivere così:</p><pre class="verbatim">def fattoriale(n):
+    return 1 if n == 0 else n * fattoriale(n-1)
+</pre><p>Un altro utilizzo delle espressioni condizionali è la gestione degli argomenti opzionali. Per esempio, ecco il metodo init di
+<span class="c003">GoodKangaroo</span> (vedere Esercizio <a href="thinkpython_italian018.html#kangaroo">2</a>):
+<a id="hevea_default1548"></a>
+<a id="hevea_default1549"></a></p><pre class="verbatim">    def __init__(self, nome, contenuti=None):
+        self.nome = nome
+        if contenuti == None:
+        contenuti = []
+        self.contenuto_tasca = contenuti
+</pre><p>Si può riscrivere così:</p><pre class="verbatim">    def __init__(self, nome, contenuti=None):
+        self.nome = nome
+        self.contenuto_tasca = [] if contenuti == None else contenuti 
+</pre><p>In generale, si può sostituire un’istruzione condizionale con un’espressione condizionale se entrambe le ramificazioni contengono semplici espressioni che vengono o ritornate o assegnate alla stessa variabile.
+<a id="hevea_default1550"></a>
+<a id="hevea_default1551"></a></p>
+<h2 class="section" id="sec227">19.2  List comprehension</h2>
+<p>Nel Paragrafo <a href="thinkpython_italian011.html#filter">10.7</a> abbiamo visto gli schemi di mappa e filtro. Per esempio, questa funzione prende una lista di stringhe, mappa il metodo delle stringhe <span class="c003">capitalize</span> negli elementi e restituisce una nuova lista di stringhe:</p><pre class="verbatim">def tutte_maiuscole(t):
+    res = []
+    for s in t:
+        res.append(s.capitalize())
+    return res
+</pre><p>Si può scrivere in modo più conciso utilizzando una <span class="c009">list comprehension</span>:
+<a id="hevea_default1552"></a></p><pre class="verbatim">def tutte_maiuscole(t):
+    return [s.capitalize() for s in t]
+</pre><p>Gli operatori parentesi quadre indicano che stiamo costruendo una nuova lista. L’espressione all’interno delle parentesi specifica gli elementi della lista, e il costrutto <span class="c003">for</span> specifica la sequenza che stiamo attraversando.
+<a id="hevea_default1553"></a>
+<a id="hevea_default1554"></a></p><p>La sintassi di una list comprehension è un po’ sgraziata, perché la variabile del ciclo, <span class="c003">s</span> in questo esempio, compare nell’espressione prima di ottenerne la definizione.
+<a id="hevea_default1555"></a></p><p>Si può usare la list comprehension anche per filtrare. Per esempio, questa funzione seleziona solo gli elementi di <span class="c003">t</span> che sono composti di lettere maiuscole, e restituisce una nuova lista:
+<a id="hevea_default1556"></a>
+<a id="hevea_default1557"></a></p><pre class="verbatim">def solo_maiuscole(t):
+    res = []
+    for s in t:
+        if s.isupper():
+            res.append(s)
+    return res
+</pre><p>Riscriviamola usando una list comprehension:</p><pre class="verbatim">def solo_maiuscole(t):
+    return [s for s in t if s.isupper()]
+</pre><p>Le list comprehension sono concise e leggibili, almeno per le espressioni semplici. E di solito sono più veloci dei cicli <code>for</code> equivalenti, a volte molto più veloci. Capisco quindi se mi state biasimando per non avervene parlato prima.</p><p>La giustificazione è che il debug delle list comprehension è più difficile, perché non potete inserire delle istruzioni di stampa nel ciclo. Vi consiglio di usarle solo se i calcoli sono abbastanza semplici da avere buone probabilità di azzeccarci al primo colpo. Che per un principiante, vuol dire quasi mai.
+<a id="hevea_default1558"></a></p>
+<h2 class="section" id="sec228">19.3  Generator expression</h2>
+<p>Le <span class="c009">generator expression</span> assomigliano sintatticamente a delle list comprehension, ma con parentesi tonde anziché quadre:
+<a id="hevea_default1559"></a></p><pre class="verbatim">&gt;&gt;&gt; g = (x**2 for x in range(5))
+&gt;&gt;&gt; g
+&lt;generator object &lt;genexpr&gt; at 0x7f4c45a786c0&gt;
+</pre><p>
+Il risultato è un oggetto generatore che è in grado di iterare attraverso una sequenza di valori. Ma a differenza di una list comprehension, non calcola i valori tutti in una volta: attende che gli venga chiesto di farlo.
+Con la funzione predefinita <span class="c003">next</span>, si ottiene dal generatore il valore successivo:
+<a id="hevea_default1560"></a>
+<a id="hevea_default1561"></a></p><pre class="verbatim">&gt;&gt;&gt; next(g)
+0
+&gt;&gt;&gt; next(g)
+1
+</pre><p>
+Arrivati alla fine della sequenza, <span class="c003">next</span> solleva un’eccezione
+StopIteration. Si può anche usare un ciclo <span class="c003">for</span> per iterare attraverso i valori:
+<a id="hevea_default1562"></a>
+<a id="hevea_default1563"></a></p><pre class="verbatim">&gt;&gt;&gt; for val in g:
+...     print(val)
+4
+9
+16
+</pre><p>
+L’oggetto generatore mantiene traccia del punto in cui si trova all’interno della sequenza, quindi il ciclo <span class="c003">for</span> riprende da dove <span class="c003">next</span> era rimasto. Una volta che il generatore è esaurito, continua sollevando delle <span class="c003">StopIteration</span>:</p><pre class="verbatim">&gt;&gt;&gt; next(g)
+StopIteration
+</pre><p>Le generator expression vengono usate spesso con funzioni come <span class="c003">sum</span>,
+<span class="c003">max</span>, e <span class="c003">min</span>:
+<a id="hevea_default1564"></a>
+<a id="hevea_default1565"></a></p><pre class="verbatim">&gt;&gt;&gt; sum(x**2 for x in range(5))
+30
+</pre>
+<h2 class="section" id="sec229">19.4  <span class="c003">any</span> e <span class="c003">all</span></h2>
+<p>Python dispone di una funzione predefinita di nome <span class="c003">any</span>, che prende una sequenza di valori booleani e restituisce <span class="c003">True</span> se almeno uno dei valori è <span class="c003">True</span>. Funziona sulle liste:
+<a id="hevea_default1566"></a>
+<a id="hevea_default1567"></a></p><pre class="verbatim">&gt;&gt;&gt; any([False, False, True])
+True
+</pre><p>
+Ma viene usata spesso con le generator expression:
+<a id="hevea_default1568"></a></p><pre class="verbatim">&gt;&gt;&gt; any(lettera == 't' for lettera in 'monty')
+True
+</pre><p>
+Questo esempio non è granché utile, perché fa la stessa cosa dell’operatore <span class="c003">in</span>. Ma possiamo usare <span class="c003">any</span> per riscrivere alcune delle funzioni di ricerca che avevamo scritto nel Paragrafo <a href="thinkpython_italian010.html#search">9.3</a>. Per esempio, avremmo potuto scrivere <span class="c003">evita</span> così:
+<a id="hevea_default1569"></a>
+<a id="hevea_default1570"></a></p><pre class="verbatim">def evita(parola, vietate):
+    return not any(lettera in vietate for lettera in parola)
+</pre><p>
+La funzione si legge quasi come fosse: “la <span class="c003">parola</span> evita le
+<span class="c003">vietate</span> se non c’è alcuna lettera in <span class="c003">vietate</span> per ogni lettera in <span class="c003">parola</span>.”</p><p>L’uso di <span class="c003">any</span> con una generator expression è efficiente, perché si ferma immediatamente se trova un valore <span class="c003">True</span>, senza dover necessariamente verificare tutta la sequenza. </p><p>Python contiene poi un’altra funzione predefinita, <span class="c003">all</span>, che restituisce
+<span class="c003">True</span> se ogni elemento di una sequenza è <span class="c003">True</span>. Come esercizio, usate <span class="c003">all</span> per riscrivere la funzione <code>usa_tutte</code> del Paragrafo <a href="thinkpython_italian010.html#search">9.3</a>.
+<a id="hevea_default1571"></a>
+<a id="hevea_default1572"></a></p>
+<h2 class="section" id="sec230">19.5  Insiemi (set)</h2>
+<p>
+<a id="sets"></a></p><p>Nel Paragrafo <a href="thinkpython_italian014.html#dictsub">13.6</a> avevo utilizzato dei dizionari per trovare le parole che comparivano in un testo, ma non in un elenco di parole. La funzione che avevo scritto prendeva <span class="c003">d1</span>, contenente le parole del testo come chiavi, e <span class="c003">d2</span>, contenente l’elenco di parole. Essa restituiva un dizionario contenente le chiavi di <span class="c003">d1</span> che non comparivano in <span class="c003">d2</span>.</p><pre class="verbatim">def sottrai(d1, d2):
+    res = dict()
+    for chiave in d1:
+        if chiave not in d2:
+            res[chiave] = None
+    return res
+</pre><p>
+In tutti questi dizionari, i valori sono <span class="c003">None</span> perché non sono necessari e non vengono usati. Ma questo spreca dello spazio di memoria.
+<a id="hevea_default1573"></a></p><p>Python dispone di un altro tipo predefinito chiamato <span class="c009">insieme</span> o <span class="c003">set</span>, che si comporta come una raccolta di chiavi di dizionario prive di valori. Aggiungere elementi ad un insieme è rapido, come pure controllare se un elemento appartiene all’insieme. Vengono poi forniti metodi e operatori per eseguire le comuni operazioni sugli insiemi.
+<a id="hevea_default1574"></a>
+<a id="hevea_default1575"></a></p><p>Per esempio, la sottrazione di insiemi è disponibile sotto forma di metodo chiamato <span class="c003">difference</span> oppure come operatore, <span class="c003">-</span>. Possiamo allora riscrivere <span class="c003">sottrai</span> in questo modo:
+<a id="hevea_default1576"></a></p><pre class="verbatim">def sottrai(d1, d2):
+    return set(d1) - set(d2)
+</pre><p>
+Il risultato è un insieme anziché un dizionario, ma per operazioni come l’iterazione il comportamento è identico. </p><p>Alcuni esercizi di questo libro possono essere svolti in modo conciso ed efficiente usando gli insiemi. Per esempio, questa è una soluzione di
+<code>ha_duplicati</code>, dall’Esercizio <a href="thinkpython_italian011.html#duplicate">7</a>, che utilizza un dizionario:</p><pre class="verbatim">def ha_duplicati(t):
+    d = {}
+    for x in t:
+        if x in d:
+            return True
+        d[x] = True
+    return False
+</pre><p>Quando un elemento compare per la prima volta, viene aggiunto al dizionario. Se il medesimo elemento ricompare, la funzione restituisce <span class="c003">True</span>.</p><p>Usando gli insiemi, si può riscrivere la funzione così:</p><pre class="verbatim">def ha_duplicati(t):
+    return len(set(t)) &lt; len(t)
+</pre><p>
+Siccome un elemento può comparire in un insieme solo una volta, se in <span class="c003">t</span> esiste qualche elemento che compare più volte, l’insieme risulterà più piccolo di <span class="c003">t</span>. Se invece non ci sono duplicati, l’insieme avrà la stessa dimensione di <span class="c003">t</span>.
+<a id="hevea_default1577"></a></p><p>Si possono usare gli insiemi anche per risolvere alcuni esercizi del Capitolo <a href="thinkpython_italian010.html#wordplay">9</a>. Per esempio, questa è la versione di
+<code>usa_solo</code> con un ciclo:</p><pre class="verbatim">def usa_solo(parola, valide):
+    for lettera in parola: 
+        if lettera not in valide:
+            return False
+    return True
+</pre><p>
+<code>usa_solo</code> controlla se tutte le lettere in una <span class="c003">word</span> sono tra quelle <span class="c003">valide</span>. La possiamo riscrivere così:</p><pre class="verbatim">def usa_solo(parola, valide):
+    return set(parola) &lt;= set(valide)
+</pre><p>
+L’operatore <code>&lt;=</code> controlla se un insieme è un sottoinsieme di un altro, compresa la possibilità che siano uguali, il che è vero se tutte le lettere nella <span class="c003">parola</span> fanno parte delle <span class="c003">valide</span>.
+<a id="hevea_default1578"></a></p><p>Per esercizio, riscrivete la funzione <code>evita</code> usando gli insiemi.</p>
+<h2 class="section" id="sec231">19.6  Contatori</h2>
+<p>Un contatore è una specie di insieme, tranne per il fatto che se un elemento compare più di una volta, il contatore prende nota di quante volte compare. Se vi è noto il concetto matematico di <span class="c009">multiinsieme</span>, un contatore è un modo immediato per rappresentarlo.
+<a id="hevea_default1579"></a>
+<a id="hevea_default1580"></a>
+<a id="hevea_default1581"></a></p><p>Il contatore è definito all’interno di un modulo standard chiamato <span class="c003">collections</span>, quindi dovete innanzitutto importarlo. Potete inizializzare un contatore con una stringa, lista o qualsiasi altro oggetto che sia iterabile:
+<a id="hevea_default1582"></a>
+<a id="hevea_default1583"></a></p><pre class="verbatim">&gt;&gt;&gt; from collections import Counter
+&gt;&gt;&gt; conta = Counter('parrot')
+&gt;&gt;&gt; conta
+Counter({'r': 2, 't': 1, 'o': 1, 'p': 1, 'a': 1})
+</pre><p>I contatori si comportano per molti versi come i dizionari: fanno corrispondere ciascuna chiave al numero di volte in cui essa compare. Come per i dizionari, le chiavi devono essere idonee all’hashing.</p><p>A differenza dei dizionari, i contatori non sollevano eccezioni in caso di accesso a un elemento che non esiste; invece, restituiscono 0:</p><pre class="verbatim">&gt;&gt;&gt; conta['d']
+0
+</pre><p>Possiamo usare i contatori per riscrivere <code>anagramma</code> dell’Esercizio <a href="thinkpython_italian011.html#anagram">6</a>:</p><pre class="verbatim">def anagramma(parola1, parola2):
+    return Counter(parola1) == Counter(parola2)
+</pre><p>Se due parole sono anagrammi, contengono le stesse lettere, lo stesso numero di volte: pertanto i loro contatori sono equivalenti.</p><p>Anche i contatori sono dotati dei metodi e degli operatori per eseguire le operazioni tipiche degli insiemi, incluse addizione, sottrazione e intersezione. Ed espongono un metodo molto utile, <code>most_common</code>, che
+restituisce una lista di coppie valore-frequenza, in ordine di frequenza decrescente:</p><pre class="verbatim">&gt;&gt;&gt; conta = Counter('parrot')
+&gt;&gt;&gt; for valore, frequenza in count.most_common(3):
+...     print(valore, frequenza)
+r 2
+p 1
+a 1
+</pre>
+<h2 class="section" id="sec232">19.7  defaultdict</h2>
+<p>Il modulo <span class="c003">collections</span> contiene anche <span class="c003">defaultdict</span>, che è simile a un dizionario, con la differenza che quando si tenta di accedere ad una chiave inesistente, può generare al volo un nuovo valore.
+<a id="hevea_default1584"></a>
+<a id="hevea_default1585"></a>
+<a id="hevea_default1586"></a>
+<a id="hevea_default1587"></a></p><p>Nel creare un defaultdict, dovete fornire una funzione che viene usata per creare i nuovi valori. Una funzione usata per creare oggetti viene detta da alcuni <span class="c009">factory</span>. Le funzioni predefinite che creano liste, insiemi e altri tipi, possono essere usate come factory:
+<a id="hevea_default1588"></a></p><pre class="verbatim">&gt;&gt;&gt; from collections import defaultdict
+&gt;&gt;&gt; d = defaultdict(list)
+</pre><p>Notate che l’argomento è <span class="c003">list</span>, che è un oggetto classe, non <span class="c003">list()</span>, che è una nuova lista. La funzione che avete creato viene chiamata soltanto quando tentate di accedere ad una chiave che non esiste.</p><pre class="verbatim">&gt;&gt;&gt; t = d['nuova chiave']
+&gt;&gt;&gt; t
+[]
+</pre><p>La nuova lista, che chiamiamo <span class="c003">t</span>, viene aggiunta al dizionario. Quindi se modifichiamo <span class="c003">t</span>, i cambiamenti compaiono in <span class="c003">d</span>:</p><pre class="verbatim">&gt;&gt;&gt; t.append('nuovo valore')
+&gt;&gt;&gt; d
+defaultdict(&lt;class 'list'&gt;, {'nuova chiave': ['nuovo valore']})
+</pre><p>Se state creando un dizionario di liste, usare <span class="c003">defaultdict</span> permette spesso di scrivere codice più semplice. Nella mia risoluzione dell’Esercizio <a href="thinkpython_italian013.html#anagrams">2</a>, che potete scaricare da
+<a href="http://thinkpython2.com/code/anagram_sets.py"><span class="c003">http://thinkpython2.com/code/anagram_sets.py</span></a>, ho creato un dizionario che mappa da una stringa ordinata di lettere nella lista di parole che si possono comporre con quelle lettere. Per esempio, <span class="c003">’opst’</span> corrisponde alla lista <span class="c003">[’opts’, ’post’, ’pots’, ’spot’, ’stop’, ’tops’]</span>.</p><p>Questo è il codice di partenza:</p><pre class="verbatim">def tutti_anagrammi(nomefile):
+    d = {}
+    for riga in open(nomefile):
+        parola = riga.strip().lower()
+        t = signature(parola)
+        if t not in d:
+            d[t] = [parola]
+        else:
+            d[t].append(parola)
+    return d
+</pre><p>Si può semplificare usando <span class="c003">setdefault</span>, che potreste avere usato nell’Esercizio <a href="thinkpython_italian012.html#setdefault">2</a>:
+<a id="hevea_default1589"></a></p><pre class="verbatim">def tutti_anagrammi(nomefile):
+    d = {}
+    for riga in open(nomefile):
+        parola = riga.strip().lower()
+        t = signature(parola)
+        d.setdefault(t, []).append(parola)
+    return d
+</pre><p>Questa soluzione ha il difetto di creare ogni volta una nuova lista, anche se non è necessario. Non è un grande problema se si tratta di liste, ma se la funzione factory è complessa, può diventarlo.
+<a id="hevea_default1590"></a></p><p>Ma si può evitare il problema e semplificare il codice con un <span class="c003">defaultdict</span>:</p><pre class="verbatim">def tutti_anagrammi(nomefile):
+    d = defaultdict(list)
+    for riga in open(nomefile):
+        parola = riga.strip().lower()
+        t = signature(parola)
+        d[t].append(parola)
+    return d
+</pre><p>La mia risoluzione dell’Esercizio <a href="thinkpython_italian019.html#poker">3</a>, scaricabile da
+<a href="http://thinkpython2.com/code/PokerHandSoln.py"><span class="c003">http://thinkpython2.com/code/PokerHandSoln.py</span></a>,
+usa <span class="c003">setdefault</span> nella funzione
+<code>has_straightflush</code>. Ha il difetto di creare un oggetto <span class="c003">Mano</span> ad ogni ripetizione del ciclo, anche se non serve. Come esercizio, riscrivetela usando un defaultdict.</p>
+<h2 class="section" id="sec233">19.8  Tuple con nome (namedtuple)</h2>
+<p>Molti oggetti semplici sono, fondamentalmente, delle raccolte di valori tra loro correlati. Ad esempio, l’oggetto Punto che abbiamo definito nel Capitolo <a href="thinkpython_italian016.html#clobjects">15</a> contiene due numeri, <span class="c003">x</span> e <span class="c003">y</span>. Nella definizione di una classe come questa, si comincia di solito con un metodo init e un metodo str:</p><pre class="verbatim">class Punto:
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return '(%g, %g)' % (self.x, self.y)
+</pre><p>Qui serve molto codice per trasportare una piccola quantità di informazione. Python dispone di un modo più conciso per dire la stessa cosa:</p><pre class="verbatim">from collections import namedtuple
+Punto = namedtuple('Punto', ['x', 'y'])
+</pre><p>Il primo argomento è il nome della classe che volete creare. Il secondo è una lista degli attributi, come stringhe, che l’oggetto Punto deve avere. Il valore di ritorno da <span class="c003">namedtuple</span> è un oggetto classe:
+<a id="hevea_default1591"></a>
+<a id="hevea_default1592"></a>
+<a id="hevea_default1593"></a>
+<a id="hevea_default1594"></a>
+<a id="hevea_default1595"></a></p><pre class="verbatim">&gt;&gt;&gt; Punto
+&lt;class '__main__.Punto'&gt;
+</pre><p><span class="c003">Punto</span> dispone automaticamente dei metodi <code>__init__</code> e
+<code>__str__</code>, pertanto non occorre scriverli.
+<a id="hevea_default1596"></a>
+<a id="hevea_default1597"></a></p><p>Per creare un oggetto Punto, usate la classe Punto come fosse una funzione:</p><pre class="verbatim">&gt;&gt;&gt; p = Punto(1, 2)
+&gt;&gt;&gt; p
+Punto(x=1, y=2)
+</pre><p>Il metodo init assegna gli argomenti agli attributi usando i nomi che avete specificato. Il metodo str mostra una rappresentazione dell’oggetto Punto e dei suoi attributi. </p><p>Potete accedere agli elementi della namedtuple usando il loro nome:</p><pre class="verbatim">&gt;&gt;&gt; p.x, p.y
+(1, 2)
+</pre><p>Ma potete anche trattare una namedtuple come una tupla, e usare gli indici:</p><pre class="verbatim">&gt;&gt;&gt; p[0], p[1]
+(1, 2)
+
+&gt;&gt;&gt; x, y = p
+&gt;&gt;&gt; x, y
+(1, 2)
+</pre><p>Le tuple con nome offrono un modo rapido per definire delle classi semplici.
+Per contro, le classi semplici non sempre rimangono tali. Si potrebbe decidere in un secondo tempo di voler aggiungere dei metodi a una tupla con nome. In quel caso, occorrerebbe definire una nuova classe che erediti dalla tupla con nome:
+<a id="hevea_default1598"></a></p><pre class="verbatim">class IperPunto(Punto):
+    # aggiungere qui altri metodi
+</pre><p>Oppure si può passare ad una definizione di classe tradizionale.</p>
+<h2 class="section" id="sec234">19.9  Raccolta di argomenti con nome</h2>
+<p>Nel Paragrafo <a href="thinkpython_italian013.html#gather">12.4</a>, avevamo visto come scrivere una funzione che raccoglie in una tupla i suoi argomenti:
+<a id="hevea_default1599"></a></p><pre class="verbatim">def stampatutti(*args):
+    print(args)
+</pre><p>
+Questa funzione può essere chiamata con un numero qualunque di argomenti posizionali (cioè, argomenti che non hanno nome):
+<a id="hevea_default1600"></a>
+<a id="hevea_default1601"></a></p><pre class="verbatim">&gt;&gt;&gt; stampatutti(1, 2.0, '3')
+(1, 2.0, '3')
+</pre><p>
+Tuttavia, l’operatore di raccolta <span class="c003">*</span> non funziona con gli argomenti con nome:
+<a id="hevea_default1602"></a></p><pre class="verbatim">&gt;&gt;&gt; stampatutti(1, 2.0, terzo='3')
+TypeError: stampatutti() got an unexpected keyword argument 'terzo'
+</pre><p>
+Per raccogliere gli argomenti con nome, si usa invece l’operatore <span class="c003">**</span>:</p><pre class="verbatim">def stampatutti(*args, **kwargs):
+    print(args, kwargs)
+</pre><p>
+Si può chiamare il parametro di raccolta come si vuole, ma per prassi si usa
+<span class="c003">kwargs</span>. Il risultato è un dizionario che mappa i nomi nei valori:</p><pre class="verbatim">&gt;&gt;&gt; stampatutti(1, 2.0, terzo='3')
+(1, 2.0) {'terzo': '3'}
+</pre><p>
+Se disponete di un dizionario di nomi e valori, potete usare l’operatore di spacchettamento, <span class="c003">**</span> , per chiamare una funzione:
+<a id="hevea_default1603"></a></p><pre class="verbatim">&gt;&gt;&gt; d = dict(x=1, y=2)
+&gt;&gt;&gt; Punto(**d)
+Punto(x=1, y=2)
+</pre><p>
+Senza l’operatore di spacchettamento, la funzione interpreterebbe <span class="c003">d</span> come un singolo argomento posizionale, assegnandolo a <span class="c003">x</span> e lamentando l’assenza di qualcosa da assegnare a <span class="c003">y</span>:</p><pre class="verbatim">&gt;&gt;&gt; d = dict(x=1, y=2)
+&gt;&gt;&gt; Punto(d)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: __new__() missing 1 required positional argument: 'y'
+</pre><p>
+Quando si lavora con funzioni che hanno parecchi parametri, è una buona idea creare e passare loro dei dizionari che contengono le opzioni di uso più frequente.</p>
+<h2 class="section" id="sec235">19.10  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">espressione condizionale:</span></dt><dd class="dd-description"> Un’espressione che contiene uno tra due alternativi valori, a seconda di una data condizione.
+<a id="hevea_default1604"></a>
+<a id="hevea_default1605"></a></dd><dt class="dt-description"><span class="c009">list comprehension:</span></dt><dd class="dd-description"> Espressione con un ciclo <span class="c003">for</span> tra parentesi quadre che genera una nuova lista.
+<a id="hevea_default1606"></a></dd><dt class="dt-description"><span class="c009">generator expression:</span></dt><dd class="dd-description"> Espressione con un ciclo <span class="c003">for</span> tra parentesi tonde che produce un oggetto generatore. 
+<a id="hevea_default1607"></a></dd><dt class="dt-description"><span class="c009">multiinsieme:</span></dt><dd class="dd-description"> Ente matematico che rappresenta una corrispondenza tra gli elementi di un insieme e il numero di volte in cui compaiono. </dd><dt class="dt-description"><span class="c009">factory:</span></dt><dd class="dd-description"> Funzione, di solito passata come argomento, usata per creare oggetti.
+<a id="hevea_default1608"></a></dd></dl>
+<h2 class="section" id="sec236">19.11  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>La seguente funzione calcola ricorsivamente il coefficiente binomiale:</em></p><pre class="verbatim"><em>def coeff_binomiale(n, k):
+    """Calcola il coefficiente binomiale "n sopra k".
+
+    n: numero di prove
+    k: numero di successi
+
+    ritorna: int
+    """
+    if k == 0:
+        return 1
+    if n == 0:
+        return 0
+
+    res = coeff_binomiale(n-1, k) + coeff_binomiale(n-1, k-1)
+    return res
+</em></pre><p><em>Riscrivete il corpo della funzione usando delle espressioni condizionali nidificate.</em></p><p><em>Nota: questa funzione non è molto efficiente, perché finisce per calcolare continuamente gli stessi valori. Potreste renderla più efficiente con la memoizzazione (vedere Paragrafo </em><a href="thinkpython_italian012.html#memoize"><em>11.6</em></a><em>). Riscontrerete però che è difficile farlo, scrivendola con le espressioni condizionali.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian019.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian021.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

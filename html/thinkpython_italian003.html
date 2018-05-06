@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Variabili, espressioni ed istruzioni</title>
+</head>
+<body>
+<a href="thinkpython_italian002.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian004.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec15">Chapter 2  Variabili, espressioni ed istruzioni</h1>
+<p>Una delle caratteristiche più potenti di un linguaggio di programmazione è la capacità di elaborare delle <span class="c009">variabili</span>. Una variabile è un nome che fa riferimento ad un valore.
+<a id="hevea_default89"></a></p>
+<h2 class="section" id="sec16">2.1  Istruzioni di assegnazione</h2>
+<p>
+<a id="variables"></a>
+<a id="hevea_default90"></a>
+<a id="hevea_default91"></a></p><p>Un’<span class="c009">istruzione di assegnazione</span> serve a creare una nuova variabile, specificandone il nome, e ad assegnarle un valore:</p><pre class="verbatim">&gt;&gt;&gt; messaggio = 'E ora qualcosa di completamente diverso'
+&gt;&gt;&gt; n = 17
+&gt;&gt;&gt; pi = 3.141592653589793
+</pre><p>
+Questo esempio effettua tre assegnazioni. La prima assegna una stringa
+ad una nuova variabile di nome <span class="c003">messaggio</span>; la seconda assegna il numero intero <span class="c003">17</span> alla variabile <span class="c003">n</span>; la terza assegna il valore decimale approssimato di π alla variabile <span class="c003">pi</span>.
+<a id="hevea_default92"></a></p><p>Un modo frequente di raffigurare le variabili è quello di scriverne il nome e disegnare una freccia che punta al loro valore. Questa illustrazione è chiamata <span class="c009">diagramma di stato</span> perché mostra lo stato in cui si trova la variabile. La Figura <a href="#fig.state2">2.1</a> contiene i risultati delle istruzioni di assegnazione dell’esempio precedente.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian001.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 2.1: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.state2"></a>
+<div class="center"><hr class="c019"></div></blockquote>
+<h2 class="section" id="sec17">2.2  Nomi delle variabili</h2>
+<p>
+<a id="hevea_default93"></a></p><p>Generalmente, i programmatori chiamano le variabili con dei nomi significativi, in modo da documentare a cosa servono.</p><p>I nomi possono essere lunghi a piacere e possono contenere sia lettere che numeri, ma non possono iniziare con un numero. È possibile usare anche le lettere maiuscole, ma per i nomi di variabile è convenzione utilizzare solo lettere minuscole. In ogni caso, tenete conto che, per l’interprete, maiuscole e minuscole sono diverse, pertanto <code>spam</code>, <code>Spam</code> e <code>SPAM</code> sono variabili diverse.</p><p>Il trattino basso o <em>underscore</em>, <code>_</code>, può far parte di un nome: è usato spesso in nomi di variabile composti da più parole (per esempio 
+<code>il_tuo_nome</code> o <code>monty_python</code>).
+<a id="hevea_default94"></a></p><p>Se assegnate un nome non valido alla variabile, otterrete un errore di sintassi:</p><pre class="verbatim">&gt;&gt;&gt; 76tromboni = 'grande banda'
+SyntaxError: invalid syntax
+&gt;&gt;&gt; altro@ = 1000000
+SyntaxError: invalid syntax
+&gt;&gt;&gt; class = 'Zymurgy Teorico Avanzato'
+SyntaxError: invalid syntax
+</pre><p>
+<span class="c003">76tromboni</span> non è valido perché non inizia con una lettera.
+<span class="c003">altro@</span> non è valido perché contiene un carattere non ammesso (la chiocciola <span class="c003">@</span>). Ma cosa c’è di sbagliato in <span class="c003">class</span>?</p><p>Succede che <span class="c003">class</span> è una delle <span class="c009">parole chiave riservate</span> di Python. L’interprete utilizza queste parole per riconoscere la struttura del programma, pertanto non è consentito usarle come nomi di variabile.
+<a id="hevea_default95"></a></p><p>Python 3 ha queste parole chiave:</p><pre class="verbatim">False      class      finally    is         return
+None       continue   for        lambda     try
+True       def        from       nonlocal   while
+and        del        global     not        with
+as         elif       if         or         yield
+assert     else       import     pass
+break      except     in         raise
+</pre><p>
+Non occorre imparare a memoria questo elenco. Nella maggior parte degli ambienti di sviluppo, le parole chiave vengono evidenziate con un diverso colore; se cercate di usarne una come nome di variabile, ve ne accorgerete subito.</p>
+<h2 class="section" id="sec18">2.3  Espressioni e istruzioni</h2>
+<p>Un’<span class="c009">espressione</span> è una combinazione di valori, variabili e operatori. Un valore è considerato già di per sé un’espressione, come pure una variabile, per cui quelle che seguono sono tutte delle espressioni valide (supponendo che alla variabile <span class="c003">n</span> sia già stato assegnato un valore):
+<a id="hevea_default96"></a>
+<a id="hevea_default97"></a></p><pre class="verbatim">&gt;&gt;&gt; 42
+42
+&gt;&gt;&gt; n
+17
+&gt;&gt;&gt; n + 25
+42
+</pre><p>Quando scrivete un’espressione al prompt dei comandi, l’interprete la
+<span class="c009">valuta</span>, cioè trova il valore dell’espressione. 
+Nell’esempio di prima, <span class="c003">n</span> ha valore 17 e <span class="c003">n + 25</span> ha valore 42.
+<a id="hevea_default98"></a></p><p>Un’<span class="c009">istruzione</span> è una porzione di codice che l’interprete Python può eseguire e che ha un qualche effetto, come creare una variabile o mostrare un valore.</p><pre class="verbatim">&gt;&gt;&gt; n = 17
+&gt;&gt;&gt; print(n)
+</pre><p>
+La prima riga è un’istruzione di assegnazione che dà un valore alla variabile <span class="c003">n</span>. La seconda è un’istruzione di stampa che mostra a video il valore di <span class="c003">n</span>.</p><p>Quando scrivete un’istruzione, l’interprete la <span class="c009">esegue</span>, cioè fa quello che l’istruzione dice di fare. In linea generale, le istruzioni, a differenza delle espressioni, non contengono valori.
+<a id="hevea_default99"></a></p>
+<h2 class="section" id="sec19">2.4  Modalità script</h2>
+<p>Finora abbiamo avviato Python in <span class="c009">modalità interattiva</span>, detta anche “a riga di comando”, che vuol dire interagire direttamente con l’interprete. La modalità interattiva è un buon modo per iniziare e fare esperimenti, ma se si deve lavorare con più di qualche riga di codice, può diventare in breve tempo un impiccio.</p><p>In alternativa alla riga di comando, si può scrivere e salvare un programma in un file di testo semplice, chiamato <span class="c009">script</span>, ed usare poi l’interprete in <span class="c009">modalità script</span> per eseguirlo. Per convenzione, i file contenenti programmi Python hanno nomi che terminano con l’estensione <span class="c003">.py</span> .
+<a id="hevea_default100"></a>
+<a id="hevea_default101"></a></p><p>Se già sapete come creare e avviare uno script nel vostro computer, siete a cavallo. Altrimenti vi consiglio di nuovo di usare PythonAnywhere. Le istruzioni per l’avvio in modalità script sono pubblicate all’indirizzo
+<a href="http://tinyurl.com/thinkpython2e"><span class="c003">http://tinyurl.com/thinkpython2e</span></a>.</p><p>Poiché Python consente entrambe queste modalità, potete provare dei pezzi di codice in modalità interattiva prima di inserirli in uno script. Ma tra le due modalità, ci sono delle differenze che possono disorientare.
+<a id="hevea_default102"></a>
+<a id="hevea_default103"></a></p><p>Per esempio, usando Python come una calcolatrice, si può scrivere:</p><pre class="verbatim">&gt;&gt;&gt; miglia = 26.2
+&gt;&gt;&gt; miglia * 1.61
+42.182
+</pre><p>La prima riga assegna un valore a <span class="c003">miglia</span>, e non ha alcun effetto visibile. La seconda riga è un’espressione, e l’interprete la valuta e ne mostra il risultato. Vediamo così che una maratona misura circa 42 chilometri.</p><p>Ma se scrivete lo stesso codice in uno script e lo avviate, non otterrete alcun riscontro. In modalità script, un’espressione, di per sé, non ha effetti visibili. In realtà Python valuta l’espressione, ma non ne mostra il risultato finché non gli dite esplicitamente di farlo:</p><pre class="verbatim">miglia = 26.2
+print(miglia * 1.61)
+</pre><p>Questo comportamento inizialmente può confondere.</p><p>Uno script di solito contiene una serie di istruzioni. Se ci sono più istruzioni, i risultati compaiono uno alla volta, man mano che le istruzioni vengono eseguite.</p><p>Per esempio lo script:</p><pre class="verbatim">print(1)
+x = 2
+print(x)
+</pre><p>
+visualizza questo:</p><pre class="verbatim">1
+2
+</pre><p>
+mentre l’istruzione di assegnazione non produce alcun output sullo schermo.</p><p>Per controllare se avete capito tutto, scrivete le seguenti istruzioni nell’interprete Python per vedere quali effetti producono:</p><pre class="verbatim">5
+x = 5
+x + 1
+</pre><p>
+Ora scrivete le stesse istruzioni in uno script ed avviatelo. Qual è il risultato? Modificate lo script trasformando ciascuna espressione in un’istruzione di stampa, ed avviatelo nuovamente.</p>
+<h2 class="section" id="sec20">2.5  Ordine delle operazioni</h2>
+<p>
+<a id="hevea_default104"></a>
+<a id="hevea_default105"></a></p><p>Quando un’espressione contiene più operatori, la successione con cui viene eseguito il calcolo dipende dall’<span class="c009">ordine delle operazioni</span>. Per quelle matematiche, Python segue le stesse regole di precedenza comunemente usate in matematica. L’acronimo <span class="c009">PEMDAS</span> è un modo utile per ricordare le regole:</p><ul class="itemize"><li class="li-itemize"><span class="c009">P</span>arentesi: hanno il livello di precedenza più elevato e possono essere usate per forzare la valutazione di un’espressione secondo qualsiasi ordine si desideri. Dato che le espressioni tra parentesi sono valutate per prime, <span class="c003">2 * (3-1)</span> fa 4, e <span class="c003">(1+1)**(5-2)</span> fa 8. Si possono usare le parentesi anche solo per rendere più leggibile un’espressione, come in <span class="c003">(minuti * 100) / 60</span>, e in questo caso non influiscono sul risultato.</li><li class="li-itemize"><span class="c009">E</span>levamento a potenza: ha la priorità successiva, così
+<span class="c003">1 + 2**3</span> fa 9, e non 27, e <span class="c003">2 * 3**2</span> fa 18, e non 36.</li><li class="li-itemize"><span class="c009">M</span>oltiplicazione e <span class="c009">D</span>ivisione hanno priorità superiore ad <span class="c009">A</span>ddizione e <span class="c009">S</span>ottrazione. Per cui <span class="c003">2*3-1</span> fa 5, e non 4, e <span class="c003">6+4/2</span> fa 8, e non 5.</li><li class="li-itemize">Gli operatori con la stessa priorità vengono valutati da sinistra verso destra (eccetto la potenza), per cui nell’espressione <span class="c003">gradi / 2 * pi</span>, la divisione viene calcolata per prima e il risultato viene moltiplicato per <span class="c003">pi</span>. Per dividere <span class="c003">gradi</span> per 2 π, dovete usare le parentesi o scrivere <span class="c003">gradi / 2 / pi</span>.</li></ul><p>Personalmente, non mi sforzo molto di ricordare la precedenza degli operatori. Se non ne sono certo guardando un’espressione, inserisco le parentesi per fugare ogni dubbio.</p>
+<h2 class="section" id="sec21">2.6  Operazioni sulle stringhe</h2>
+<p>
+<a id="hevea_default106"></a>
+<a id="hevea_default107"></a></p><p>In linea generale non è possibile effettuare operazioni matematiche sulle stringhe, anche se la stringa sembra un numero; quindi gli esempi che seguono non sono validi.</p><pre class="verbatim">'2'-'1'    'uova'/'facili'    'terzo'*'una magia'
+</pre><p>
+Ma ci sono due eccezioni: <span class="c003">+</span> e <span class="c003">*</span>.</p><p>L’operatore <span class="c003">+</span> esegue il <span class="c009">concatenamento</span>, cioè unisce le stringhe collegandole ai due estremi. Per esempio:
+<a id="hevea_default108"></a></p><pre class="verbatim">&gt;&gt;&gt; primo = 'bagno'
+&gt;&gt;&gt; secondo = 'schiuma'
+&gt;&gt;&gt; primo + secondo
+bagnoschiuma
+</pre><p>Anche l’operatore <span class="c003">*</span> funziona sulle stringhe: ne esegue la ripetizione. Per esempio, <code>'Spam'*3</code> dà <code>'SpamSpamSpam'</code>. Uno degli operandi deve essere una stringa, l’altro un numero intero.</p><p>Questo utilizzo di <span class="c003">+</span> e <span class="c003">*</span> è coerente per analogia con l’addizione e la moltiplicazione. Dato che <span class="c003">4*3</span> è equivalente a <span class="c003">4+4+4</span>, ci possiamo aspettare che <code>'Spam'*3</code> sia la stessa cosa di
+<code>'Spam'+'Spam'+'Spam'</code>, ed infatti è così. Tuttavia, concatenamento e ripetizione di stringhe differiscono da addizione e moltiplicazione di interi per un particolare importante. Riuscite a pensare ad una proprietà che ha l’addizione ma che non vale per il concatenamento di stringhe?
+<a id="hevea_default109"></a></p>
+<h2 class="section" id="sec22">2.7  Commenti</h2>
+<p>
+<a id="hevea_default110"></a></p><p>Al crescere delle sue dimensioni e della sua complessità, un programma diventa anche sempre più difficile da leggere. I linguaggi formali sono densi di significato, e spesso non è facile guardare un segmento di codice scritto da altri e capire immediatamente che cosa fa, o perché.</p><p>Per questo motivo, è buona abitudine aggiungere ai vostri programmi delle annotazioni che spiegano in linguaggio naturale ciò che il programma sta facendo. Queste annotazioni si chiamano <span class="c009">commenti</span>, contrassegnati dal simbolo <code>#</code>:</p><pre class="verbatim"># calcola la percentuale di ora trascorsa
+percentuale = (minuti * 100) / 60
+</pre><p>
+In questo caso, il commento si trova su una riga a sé stante, ma potete anche inserire un commento in coda a una riga:</p><pre class="verbatim">percentuale = (minuti * 100) / 60     # percentuale di un'ora
+</pre><p>
+Tutto ciò che viene scritto dopo il simbolo <span class="c003">#</span> e fino alla fine della riga, viene trascurato e non influisce in alcun modo sull’esecuzione del programma. </p><p>I commenti più utili sono quelli che documentano caratteristiche del codice di non immediata comprensione. È ragionevole supporre che chi legge il codice possa capire <em>cosa</em> esso faccia; è più utile spiegare <em>perché</em>.</p><p>Questo commento è ridondante e inutile:</p><pre class="verbatim">v = 5     # assegna 5 a v
+</pre><p>
+Questo commento contiene invece un’informazione utile che non è contenuta nel codice:</p><pre class="verbatim">v = 5     # velocità in metri/secondo 
+</pre><p>
+Dei buoni nomi di variabile possono ridurre la necessità di commenti, ma nomi lunghi possono complicare la lettura, pertanto va trovato un giusto compromesso.</p>
+<h2 class="section" id="sec23">2.8  Debug</h2>
+<p>
+<a id="hevea_default111"></a></p><p>In un programma si possono verificare tre tipi di errori: gli errori di sintassi, gli errori in esecuzione e gli errori di semantica. È utile analizzarli singolarmente per facilitarne l’individuazione.</p>
+<h3 class="subsection" id="sec24">2.8.1  Errori di sintassi</h3>
+<p>
+<a id="hevea_default112"></a>
+<a id="hevea_default113"></a>
+<a id="hevea_default114"></a></p><p>Il termine <span class="c009">sintassi</span> si riferisce alla struttura di un programma e alle regole che la governano. Ad esempio, le parentesi devono essere sempre presenti a coppie corrispondenti, così <span class="c003">(1 + 2)</span> è corretto, ma <span class="c003">8)</span> è un <span class="c009">errore di sintassi</span>.
+<a id="hevea_default115"></a> 
+<a id="hevea_default116"></a></p><p>Se c’è anche un solo errore di sintassi in qualche parte del programma, non sarete in grado di eseguirlo: Python visualizzerà subito un messaggio d’errore e lo terminerà. Nelle prime settimane della vostra carriera di programmatori, dovrete probabilmente dedicare molto tempo a correggere errori di sintassi. Ma con l’esperienza, ne commetterete meno e li troverete più velocemente.</p>
+<h3 class="subsection" id="sec25">2.8.2  Errori in esecuzione</h3>
+<p>
+<a id="runtime"></a></p><p>Il secondo tipo di errore è l’<span class="c009">errore in esecuzione</span> (o di <em>runtime</em>), così chiamato perché non compare fino a quando il programma non viene eseguito. Questi errori sono anche detti <span class="c009">eccezioni</span> perché indicano che è accaduto qualcosa di eccezionale (e di spiacevole) durante l’esecuzione.
+<a id="hevea_default117"></a>
+<a id="hevea_default118"></a>
+<a id="hevea_default119"></a>
+<a id="hevea_default120"></a></p><p>Gli errori di runtime sono molto rari nei programmi semplici, come quelli che vedrete nei primi capitoli di questo libro, e potrebbe passare un po’ di tempo prima di incontrarne uno.</p>
+<h3 class="subsection" id="sec26">2.8.3  Errori di semantica</h3>
+<p>
+<a id="hevea_default121"></a>
+<a id="hevea_default122"></a>
+<a id="hevea_default123"></a>
+<a id="hevea_default124"></a></p><p>Il terzo tipo di errore è l’<span class="c009">errore di semantica</span> (o di logica), che è correlato al significato del programma. In presenza di un errore di semantica, il programma verrà eseguito senza che compaia alcun messaggio di errore, ma non farà la cosa giusta: farà qualcosa di diverso. Nello specifico, farà esattamente ciò che voi gli avete detto di fare, esprimendovi in modo sbagliato.</p><p>Gli errori di semantica sono insidiosi e identificarli può essere complicato, perché occorre lavorare a ritroso, partendo dai risultati dell’esecuzione e cercando di risalire a che cosa non sia andato per il verso giusto.</p>
+<h2 class="section" id="sec27">2.9  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">variabile:</span></dt><dd class="dd-description"> Un nome che fa riferimento ad un valore.
+<a id="hevea_default125"></a></dd><dt class="dt-description"><span class="c009">assegnazione:</span></dt><dd class="dd-description"> Istruzione che assegna un valore ad una variabile.
+<a id="hevea_default126"></a></dd><dt class="dt-description"><span class="c009">diagramma di stato:</span></dt><dd class="dd-description"> Rappresentazione grafica di una serie di variabili e dei valori ai quali esse si riferiscono.
+<a id="hevea_default127"></a></dd><dt class="dt-description"><span class="c009">parola chiave riservata:</span></dt><dd class="dd-description"> Parola chiave destinata esclusivamente all’analisi del programma e che non può essere usata come nome di variabile o di funzione, come <span class="c003">if</span>, <span class="c003">def</span>, e <span class="c003">while</span>.
+<a id="hevea_default128"></a></dd><dt class="dt-description"><span class="c009">operando:</span></dt><dd class="dd-description"> Uno dei valori sui quali si applica un operatore.
+<a id="hevea_default129"></a></dd><dt class="dt-description"><span class="c009">espressione:</span></dt><dd class="dd-description"> Combinazione di variabili, operatori e valori che rappresentano un unico valore risultante.
+<a id="hevea_default130"></a></dd><dt class="dt-description"><span class="c009">valutare:</span></dt><dd class="dd-description"> Semplificare un’espressione eseguendo una serie di operazioni che producono un unico valore.
+<a id="hevea_default131"></a></dd><dt class="dt-description"><span class="c009">istruzione:</span></dt><dd class="dd-description"> Porzione di codice che rappresenta un comando o un’azione, come le istruzioni di assegnazione e di stampa che abbiamo visto finora.
+<a id="hevea_default132"></a></dd><dt class="dt-description"><span class="c009">eseguire:</span></dt><dd class="dd-description"> Dare efficacia a un’istruzione e fare ciò che dice.
+<a id="hevea_default133"></a></dd><dt class="dt-description"><span class="c009">modalità interattiva:</span></dt><dd class="dd-description"> Un modo di usare l’interprete Python, scrivendo del codice al prompt.
+<a id="hevea_default134"></a></dd><dt class="dt-description"><span class="c009">modalità script:</span></dt><dd class="dd-description"> Un modo di usare l’interprete Python, leggendo del codice da uno script ed eseguendolo.
+<a id="hevea_default135"></a></dd><dt class="dt-description"><span class="c009">script:</span></dt><dd class="dd-description"> Un programma scritto e memorizzato in un file di testo.
+<a id="hevea_default136"></a></dd><dt class="dt-description"><span class="c009">ordine delle operazioni:</span></dt><dd class="dd-description"> Regole che stabiliscono l’ordine in cui vengono valutate le espressioni che contengono più operandi ed operatori.
+<a id="hevea_default137"></a></dd><dt class="dt-description"><span class="c009">concatenare:</span></dt><dd class="dd-description"> Unire due stringhe accodando la seconda alla prima.
+<a id="hevea_default138"></a></dd><dt class="dt-description"><span class="c009">commento:</span></dt><dd class="dd-description"> Annotazione in un programma, rivolta ad altri programmatori (o a chi legge il codice sorgente), che non ha effetti sull’esecuzione del programma.
+<a id="hevea_default139"></a></dd><dt class="dt-description"><span class="c009">errore di sintassi:</span></dt><dd class="dd-description"> Errore in un programma che ne rende impossibile l’analisi (il programma non è interpretabile).
+<a id="hevea_default140"></a></dd><dt class="dt-description"><span class="c009">eccezione:</span></dt><dd class="dd-description"> Errore (detto anche di <em>runtime</em>) che si verifica mentre il programma è in esecuzione.
+<a id="hevea_default141"></a></dd><dt class="dt-description"><span class="c009">semantica:</span></dt><dd class="dd-description"> Il significato logico di un programma.
+<a id="hevea_default142"></a></dd><dt class="dt-description"><span class="c009">errore di semantica:</span></dt><dd class="dd-description"> Errore nel programma tale da produrre risultati diversi da quelli che il programmatore si aspettava.
+<a id="hevea_default143"></a></dd></dl>
+<h2 class="section" id="sec28">2.10  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Rinnovo la raccomandazione del capitolo precedente: ogni volta che apprendete qualcosa di nuovo, provatelo in modalità interattiva e fate degli errori di proposito per vedere cosa non funziona.</em></p><ul class="itemize"><li class="li-itemize"><em>Abbiamo visto che <span class="c003">n = 42</span> è valido. E <span class="c003">42 = n</span>?</em></li><li class="li-itemize"><em>E se scrivete <span class="c003">x = y = 1</span>?</em></li><li class="li-itemize"><em>In alcuni linguaggi, ogni istruzione termina con un punto e virgola, <span class="c003">;</span>.
+Cosa succede se mettete un punto e virgola alla fine di un’istruzione in Python?</em></li><li class="li-itemize"><em>E se mettete un punto alla fine di un’istruzione?</em></li><li class="li-itemize"><em>Nella notazione matematica potete indicare la moltiplicazione di </em><span class="c008">x</span><em> per </em><span class="c008">y</span><em> scrivendo: </em><span class="c008">x y</span><em>. 
+Cosa succede scrivendo questo in Python?</em></li></ul></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  <p><em>Fate un po’ di pratica con l’interprete Python usandolo come calcolatrice:
+</em><a id="hevea_default144"></a></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Il volume di una sfera di raggio </em><span class="c008">r</span><em> è </em>4/3 π <span class="c008">r</span><sup>3</sup><em>.
+Che volume ha una sfera di raggio 5?</em></li><li class="li-enumerate"><em>Il prezzo di copertina di un libro è <code>€</code> 24,95, ma una libreria ottiene il 40% di sconto. I costi di spedizione sono <code>€</code> 3 per la prima copia e 75 centesimi per ogni copia aggiuntiva. Qual è il costo totale di 60 copie?</em></li><li class="li-enumerate"><em>Se uscite di casa alle 6:52 di mattina e correte 1 miglio a ritmo blando (8:15 al miglio), poi 3 miglia a ritmo moderato (7:12 al miglio), quindi 1 altro miglio a ritmo blando, a che ora tornate a casa per colazione?
+</em><a id="hevea_default145"></a></li></ol></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian002.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian004.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

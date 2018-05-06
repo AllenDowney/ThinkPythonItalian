@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Dizionari</title>
+</head>
+<body>
+<a href="thinkpython_italian011.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian013.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec132">Chapter 11  Dizionari</h1>
+<p>Questo capitolo illustra un altro tipo predefinito chiamato dizionario. I dizionari sono una delle migliori caratteristiche di Python; sono i mattoni che costituiscono molti eleganti ed efficienti algoritmi.</p>
+<h2 class="section" id="sec133">11.1  Un dizionario è una mappatura</h2>
+<p>
+<a id="hevea_default823"></a>
+<a id="hevea_default824"></a>
+<a id="hevea_default825"></a>
+<a id="hevea_default826"></a>
+<a id="hevea_default827"></a>
+Un <span class="c009">dizionario</span> è simile ad una lista, ma è più generico. Infatti, mentre in una lista gli indici devono essere numeri interi, in un dizionario possono essere (quasi) di ogni tipo.</p><p>Un dizionario contiene una raccolta di indici, chiamati <span class="c009">chiavi</span>, e una raccolta di valori. Ciascuna chiave è associata ad un unico valore. L’associazione tra una chiave e un valore è detta <span class="c009">coppia chiave-valore</span> o anche <span class="c009">elemento</span>.
+<a id="hevea_default828"></a></p><p>In linguaggio matematico, un dizionario rappresenta una relazione di corrispondenza, o <span class="c009">mappatura</span>, da una chiave a un valore, e si può dire pertanto che ogni chiave “mappa in” un valore.</p><p>Come esempio, costruiamo un dizionario che trasforma le parole dall’inglese all’italiano, quindi chiavi e valori saranno tutte delle stringhe.</p><p>La funzione <span class="c003">dict</span> crea un nuovo dizionario privo di elementi. Siccome <span class="c003">dict</span> è il nome di una funzione predefinita, è meglio evitare di usarlo come nome di variabile.
+<a id="hevea_default829"></a>
+<a id="hevea_default830"></a></p><pre class="verbatim">&gt;&gt;&gt; eng2it = dict()
+&gt;&gt;&gt; eng2it
+{}
+</pre><p>Le parentesi graffe, <code>{}</code>, rappresentano un dizionario vuoto. Per aggiungere elementi al dizionario, usate le parentesi quadre:
+<a id="hevea_default831"></a>
+<a id="hevea_default832"></a></p><pre class="verbatim">&gt;&gt;&gt; eng2it['one'] = 'uno'
+</pre><p>
+Questa riga crea un elemento che contiene una corrispondenza dalla chiave
+<code>'one'</code> al valore <code>'uno'</code>. Se stampiamo di nuovo il dizionario, vedremo ora una coppia chiave-valore separati da due punti:</p><pre class="verbatim">&gt;&gt;&gt; eng2it
+{'one': 'uno'}
+</pre><p>
+Questo formato di output può essere anche usato per gli inserimenti. Ad esempio potete creare un nuovo dizionario con tre elementi:</p><pre class="verbatim">&gt;&gt;&gt; eng2it = {'one': 'uno', 'two': 'due', 'three': 'tre'}
+</pre><p>
+Se stampate ancora una volta <span class="c003">eng2it</span>, avrete una sorpresa:</p><pre class="verbatim">&gt;&gt;&gt; eng2it
+{'one': 'uno', 'three': 'tre', 'two': 'due'}
+</pre><p>
+L’ordine delle coppie chiave-valore non è necessariamente lo stesso. Se scrivete lo stesso esempio nel vostro computer, potreste ottenere un altro risultato ancora. In genere, l’ordine degli elementi di un dizionario è imprevedibile.</p><p>Ma questo non è un problema, perché gli elementi di un dizionario non sono indicizzati con degli indici numerici. Infatti, per cercare un valore si usano invece le chiavi:</p><pre class="verbatim">&gt;&gt;&gt; eng2it['two']
+'due'
+</pre><p>
+La chiave <code>'two'</code> corrisponde correttamente al valore <code>'due'</code> e l’ordine degli elementi nel dizionario è ininfluente.</p><p>Se la chiave non è contenuta nel dizionario, viene generato un errore::
+<a id="hevea_default833"></a>
+<a id="hevea_default834"></a></p><pre class="verbatim">&gt;&gt;&gt; print(eng2it['four'])
+KeyError: 'four'
+</pre><p>
+La funzione <span class="c003">len</span> è applicabile ai dizionari, e restituisce il numero di coppie chiave-valore:
+<a id="hevea_default835"></a>
+<a id="hevea_default836"></a></p><pre class="verbatim">&gt;&gt;&gt; len(eng2it)
+3
+</pre><p>
+Anche l’operatore <span class="c003">in</span> funziona con i dizionari: informa se qualcosa compare come <em>chiave</em> nel dizionario (non è condizione sufficiente che sia contenuto come valore).
+<a id="hevea_default837"></a>
+<a id="hevea_default838"></a>
+<a id="hevea_default839"></a></p><pre class="verbatim">&gt;&gt;&gt; 'one' in eng2it
+True
+&gt;&gt;&gt; 'uno' in eng2it
+False
+</pre><p>
+Per controllare invece se qualcosa compare come valore, potete usare il metodo <span class="c003">values</span>, che restituisce una raccolta dei valori, e quindi usare l’operatore <span class="c003">in</span>:
+<a id="hevea_default840"></a>
+<a id="hevea_default841"></a></p><pre class="verbatim">&gt;&gt;&gt; vals = eng2it.values()
+&gt;&gt;&gt; 'uno' in vals
+True
+</pre><p>
+L’operatore <span class="c003">in</span> utilizza algoritmi diversi per liste e dizionari. Per le prime, ne ricerca gli elementi in base all’ordine, come nel Paragrafo <a href="thinkpython_italian009.html#find">8.6</a>. Se la lista si allunga, anche il tempo di ricerca si allunga in proporzione. Per i secondi, Python usa un algoritmo chiamato <span class="c009">tabella hash</span> che ha notevoli proprietà: l’operatore <span class="c003">in</span> impiega sempre circa lo stesso tempo, indipendentemente da quanti elementi contiene il dizionario. Rimando la spiegazione di come ciò sia possibile all’Appendice <a href="thinkpython_italian022.html#hashtable">B.4</a>: per capirla, occorre prima leggere qualche altro capitolo.
+<a id="hevea_default842"></a></p>
+<h2 class="section" id="sec134">11.2  Il dizionario come raccolta di contatori</h2>
+<p>
+<a id="histogram"></a>
+<a id="hevea_default843"></a></p><p>Supponiamo che vi venga data una stringa e che vogliate contare quante volte vi compare ciascuna lettera. Ci sono alcuni modi per farlo:</p><ol class="enumerate" type=1><li class="li-enumerate">Potete creare 26 variabili, una per lettera dell’alfabeto. Quindi, fare un attraversamento della stringa e per ciascun carattere incrementate il contatore corrispondente, magari usando delle condizioni in serie.</li><li class="li-enumerate">Potete creare una lista di 26 elementi, quindi convertire ogni carattere in un numero (usando la funzione predefinita <span class="c003">ord</span>), utilizzare il numero come indice e incrementare il contatore corrispondente.</li><li class="li-enumerate">Potete creare un dizionario con i caratteri come chiavi e i contatori come valore corrispondente. La prima volta che incontrate un carattere, lo aggiungete come elemento al dizionario. Successivamente, incrementerete il valore dell’elemento esistente.</li></ol><p>Ciascuna di queste opzioni esegue lo stesso calcolo, ma lo implementa in modo diverso.
+<a id="hevea_default844"></a></p><p>Un’<span class="c009">implementazione</span> è un modo per effettuare un’elaborazione. Le implementazioni non sono tutte uguali, alcune sono migliori di altre: per esempio, un vantaggio dell’implementazione con il dizionario è che non serve sapere in anticipo quali lettere ci siano nella stringa e quali no, dobbiamo solo fare spazio per le lettere che compariranno effettivamente.</p><p>Ecco come potrebbe essere scritto il codice:</p><pre class="verbatim">def istogramma(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] += 1
+    return d
+</pre><p>
+Il nome di questa funzione è <span class="c003">istogramma</span>, che è un termine statistico per indicare un insieme di contatori (o frequenze).
+<a id="hevea_default845"></a>
+<a id="hevea_default846"></a>
+<a id="hevea_default847"></a></p><p>La prima riga della funzione crea un dizionario vuoto. Il ciclo <span class="c003">for</span> attraversa la stringa. Ad ogni ripetizione, se il carattere <span class="c003">c</span> non compare nel dizionario crea un nuovo elemento di chiave <span class="c003">c</span> e valore iniziale 1 (dato che incontra questa lettera per la prima volta). Se invece <span class="c003">c</span> è già presente, incrementa <span class="c003">d[c]</span> di una unità.
+<a id="hevea_default848"></a></p><p>Vediamo come funziona:</p><pre class="verbatim">&gt;&gt;&gt; h = istogramma('brontosauro')
+&gt;&gt;&gt; h
+{'a': 1, 'b': 1, 'o': 3, 'n': 1, 's': 1, 'r': 2, 'u': 1, 't': 1}
+</pre><p>
+L’istogramma indica che le lettere <code>'a'</code> e <code>'b'</code>
+compaiono una volta, la <code>'o'</code> tre volte e così via.</p><p>I dizionari supportano il metodo <span class="c003">get</span> che richiede una chiave e un valore predefinito. Se la chiave è presente nel dizionario, <span class="c003">get</span> restituisce il suo valore corrispondente, altrimenti restituisce il valore predefinito. Per esempio:
+<a id="hevea_default849"></a>
+<a id="hevea_default850"></a></p><pre class="verbatim">&gt;&gt;&gt; h = istogramma('a')
+&gt;&gt;&gt; h
+{'a': 1}
+&gt;&gt;&gt; h.get('a', 0)
+1
+&gt;&gt;&gt; h.get('b', 0)
+0
+</pre><p>
+Come esercizio, usate <span class="c003">get</span> per scrivere <span class="c003">istogramma</span> in modo più compatto. Dovreste riuscire a fare a meno dell’istruzione <span class="c003">if</span>.</p>
+<h2 class="section" id="sec135">11.3  Cicli e dizionari</h2>
+<p>
+<a id="hevea_default851"></a>
+<a id="hevea_default852"></a>
+<a id="hevea_default853"></a></p><p>Se usate un dizionario in un ciclo <span class="c003">for</span>, quest’ultimo attraversa le chiavi del dizionario. Per esempio, <code>stampa_isto</code> visualizza ciascuna chiave e il valore corrispondente:</p><pre class="verbatim">def stampa_isto(h):
+    for c in h:
+        print(c, h[c])
+</pre><p>
+Ecco come risulta l’output:</p><pre class="verbatim">&gt;&gt;&gt; h = istogramma('parrot')
+&gt;&gt;&gt; stampa_isto(h)
+a 1
+p 1
+r 2
+t 1
+o 1
+</pre><p>
+Di nuovo, le chiavi sono alla rinfusa. Per attraversare le chiavi disponendole
+in ordine, si può utilizzare la funzione predefinita <span class="c003">sorted</span>:
+<a id="hevea_default854"></a>
+<a id="hevea_default855"></a></p><pre class="verbatim">&gt;&gt;&gt; for chiave in sorted(h):
+...     print(chiave, h[chiave])
+a 1
+o 1
+p 1
+r 2
+t 1
+</pre>
+<h2 class="section" id="sec136">11.4  Lookup inverso</h2>
+<p>
+<a id="raise"></a>
+<a id="hevea_default856"></a>
+<a id="hevea_default857"></a>
+<a id="hevea_default858"></a>
+<a id="hevea_default859"></a></p><p>Dato un dizionario <span class="c003">d</span> e una chiave <span class="c003">k</span>, è facile trovare il valore corrispondente alla chiave: <span class="c003">v = d[k]</span>. Questa operazione è chiamata <span class="c009">lookup</span>.</p><p>Ma se invece volete trovare la chiave <span class="c003">k</span> conoscendo il valore <span class="c003">v</span>?
+Avete due problemi: primo, ci possono essere più chiavi che corrispondono al valore <span class="c003">v</span>. A seconda dell’applicazione, potete riuscire a trovarne uno, oppure può essere necessario ricavare una lista che li contenga tutti. Secondo, non c’è una sintassi semplice per fare un <span class="c009">lookup inverso</span>; dovete impostare una ricerca.</p><p>Ecco una funzione che richiede un valore e restituisce la prima chiave a cui corrisponde quel valore:</p><pre class="verbatim">def inverso_lookup(d, v):
+    for k in d:
+        if d[k] == v:
+            return k
+    raise LookupError()
+</pre><p>
+Questa funzione è un altro esempio di schema di ricerca, ma usa un’istruzione che non abbiamo mai visto prima, <span class="c003">raise</span>. L’istruzione <span class="c003">raise</span>
+solleva un’eccezione; in questo caso genera un errore <span class="c003">LookupError</span>, che è un eccezione predefinita usata per indicare che un’operazione di lookup è fallita.
+<a id="hevea_default860"></a>
+<a id="hevea_default861"></a>
+<a id="hevea_default862"></a>
+<a id="hevea_default863"></a>
+<a id="hevea_default864"></a>
+<a id="hevea_default865"></a></p><p>Se arriviamo a fine ciclo, significa che <span class="c003">v</span>
+non compare nel dizionario come valore, per cui solleviamo un’eccezione.</p><p>Ecco un esempio di lookup inverso riuscito:</p><pre class="verbatim">&gt;&gt;&gt; h = istogramma('parrot')
+&gt;&gt;&gt; chiave = inverso_lookup(h, 2)
+&gt;&gt;&gt; chiave
+'r'
+</pre><p>
+E di uno fallito:</p><pre class="verbatim">&gt;&gt;&gt; chiave = inverso_lookup(h, 3)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+  File "&lt;stdin&gt;", line 5, in inverso_lookup
+LookupError
+</pre><p>
+Quando generate un errore, l’effetto è lo stesso di quando lo genera Python: viene stampato un traceback con un messaggio di errore.
+<a id="hevea_default866"></a>
+<a id="hevea_default867"></a></p><p>L’istruzione <span class="c003">raise</span> può ricevere come parametro opzionale un messaggio di errore dettagliato. Per esempio:</p><pre class="verbatim">&gt;&gt;&gt; raise LookupError('il valore non compare nel dizionario')
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+LookupError: il valore non compare nel dizionario
+</pre><p>Un lookup inverso è molto più lento di un lookup; se dovete farlo spesso, o se il dizionario diventa molto grande, le prestazioni del vostro programma potrebbero risentirne.</p>
+<h2 class="section" id="sec137">11.5  Dizionari e liste</h2>
+<p>
+<a id="invert"></a></p><p>Le liste possono comparire come valori in un dizionario. Per esempio, se avete un dizionario che fa corrispondere le lettere alle loro frequenze, potreste volere l’inverso; cioè creare un dizionario che a partire dalle frequenze fa corrispondere le lettere. Poiché ci possono essere più lettere con la stessa frequenza, ogni valore del dizionario inverso dovrebbe essere una lista di lettere.
+<a id="hevea_default868"></a></p><p>Ecco una funzione che inverte un dizionario:</p><pre class="verbatim">def inverti_diz(d):
+    inverso = dict()
+    for chiave in d:
+        valore = d[chiave]
+        if valore not in inverso:
+            inverso[valore] = [chiave]
+        else:
+            inverso[valore].append(chiave)
+    return inverso
+</pre><p>
+Per ogni ripetizione del ciclo, <span class="c003">chiave</span> prende una chiave da <span class="c003">d</span> e 
+<span class="c003">valore</span> assume il corrispondente valore. Se <span class="c003">valore</span> non appartiene a <span class="c003">inverso</span>, vuol dire che non è ancora comparso, per cui creiamo un nuovo elemento e lo inizializziamo con un <span class="c009">singleton</span> (lista che contiene un solo elemento). Altrimenti, se il valore era già apparso, accodiamo la chiave corrispondente alla lista esistente.
+<a id="hevea_default869"></a></p><p>Ecco un esempio:</p><pre class="verbatim">&gt;&gt;&gt; isto = istogramma('parrot')
+&gt;&gt;&gt; isto
+{'a': 1, 'p': 1, 'r': 2, 't': 1, 'o': 1}
+&gt;&gt;&gt; inverso = inverti_diz(isto)
+&gt;&gt;&gt; inverso
+{1: ['a', 'p', 't', 'o'], 2: ['r']}
+</pre><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian016.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 11.1: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.dict1"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>La Figura <a href="#fig.dict1">11.1</a> è un diagramma di stato che mostra <span class="c003">isto</span> e <span class="c003">inverso</span>.
+Un dizionario viene rappresentato come un riquadro con la scritta <span class="c003">dict</span> sopra e le coppie chiave-valore all’interno. Se i valori sono interi, float o stringhe, li raffiguro dentro il riquadro, lascio invece all’esterno le liste per mantenere semplice il diagramma.
+<a id="hevea_default870"></a></p><p>Le liste possono essere valori nel dizionario, come mostra questo esempio, ma non possono essere chiavi. Ecco cosa succede se ci provate:
+<a id="hevea_default871"></a>
+<a id="hevea_default872"></a></p><pre class="verbatim">&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; d = dict()
+&gt;&gt;&gt; d[t] = 'oops'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+TypeError: list objects are unhashable
+</pre><p>
+Ho accennato che i dizionari sono implementati usando una tabella hash, e questo implica che alle chiavi deve poter essere applicato un <span class="c009">hash</span>.
+<a id="hevea_default873"></a>
+<a id="hevea_default874"></a></p><p>Un <span class="c009">hash</span> è una funzione che prende un valore (di qualsiasi tipo) e restituisce un intero. I dizionari usano questi interi, chiamati valori hash, per conservare e consultare le coppie chiave-valore.
+<a id="hevea_default875"></a></p><p>Questo sistema funziona se le chiavi sono immutabili; ma se sono mutabili, come le liste, succedono disastri. Per esempio, nel creare una coppia chiave-valore, Python fa l’hashing della chiave e la immagazzina nello spazio corrispondente. Se modificate la chiave e quindi viene nuovamente calcolato l’hash, si collocherebbe in un altro spazio. In quel caso potreste avere due voci della stessa chiave, oppure non riuscire a trovare una chiave. In ogni caso il dizionario non funzionerà correttamente.</p><p>Ecco perché le chiavi devono essere idonee all’hashing, e quelle mutabili come le liste non lo sono. Il modo più semplice per aggirare questo limite è usare le tuple, che vedremo nel prossimo capitolo.</p><p>Dato che i dizionari sono mutabili, non possono essere usati come chiavi ma <em>possono</em> essere usati come valori.</p>
+<h2 class="section" id="sec138">11.6  Memoizzazione</h2>
+<p>
+<a id="memoize"></a></p><p>Se vi siete sbizzarriti con la funzione <span class="c003">fibonacci</span> del Paragrafo <a href="thinkpython_italian007.html#one.more.example">6.7</a>, avrete notato che più grande è l’argomento che passate, maggiore è il tempo necessario per l’esecuzione della funzione. Inoltre, il tempo di elaborazione cresce rapidamente.
+<a id="hevea_default876"></a>
+<a id="hevea_default877"></a></p><p>Per capire il motivo, confrontate la Figura <a href="#fig.fibonacci">11.2</a>, che mostra il <span class="c009">grafico di chiamata</span> di <span class="c003">fibonacci</span> con <span class="c003">n=4</span>:</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian017.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 11.2: Grafico di chiamata.</td></tr>
+</table></div>
+<a id="fig.fibonacci"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Un grafico di chiamata mostra l’insieme dei frame della funzione, con linee che collegano ciascun frame ai frame delle funzioni che chiama a sua volta. In cima al grafico, <span class="c003">fibonacci</span> con <span class="c003">n=4</span> chiama <span class="c003">fibonacci</span> con <span class="c003">n=3</span> e <span class="c003">n=2</span>. A sua volta, <span class="c003">fibonacci</span> con <span class="c003">n=3</span> chiama
+<span class="c003">fibonacci</span> con <span class="c003">n=2</span> e <span class="c003">n=1</span>. E così via.
+<a id="hevea_default878"></a>
+<a id="hevea_default879"></a>
+<a id="hevea_default880"></a></p><p>Provate a contare quante volte vengono chiamate <span class="c003">fibonacci(0)</span> e <span class="c003">fibonacci(1)</span>. Questa è una soluzione inefficiente del problema, che peggiora ulteriormente al crescere dell’argomento.
+<a id="hevea_default881"></a></p><p>Una soluzione migliore è tenere da parte i valori che sono già stati calcolati, conservandoli in un dizionario. La tecnica di conservare per un uso successivo un valore già calcolato, così da non doverlo ricalcolare ogni volta, viene detta <span class="c009">memoizzazione</span>. Ecco una versione di <span class="c003">fibonacci</span> che usa la memoizzazione:</p><pre class="verbatim">memo = {0:0, 1:1}
+
+def fibonacci(n):
+    if n in memo:
+        return memo[n]
+
+    res = fibonacci(n-1) + fibonacci(n-2)
+    memo[n] = res
+    return res
+</pre><p>
+<span class="c003">memo</span> è un dizionario che conserva i numeri di Fibonacci già conosciuti. Parte con due elementi: 0 che corrisponde a 0, e 1 che corrisponde a 1.</p><p>Ogni volta che <span class="c003">fibonacci</span> viene chiamata, controlla innanzitutto <span class="c003">memo</span>.
+Se quest’ultimo contiene già il risultato, ritorna immediatamente. Altrimenti deve calcolare il nuovo valore, lo aggiunge al dizionario e lo restituisce.</p><p>Provate ad eseguire questa versione di <span class="c003">fibonacci</span> e a confrontarla con l’originale: troverete che è molto più veloce.</p>
+<h2 class="section" id="sec139">11.7  Variabili globali</h2>
+<p>
+<a id="hevea_default882"></a></p><p>Nell’esempio precedente, <span class="c003">memo</span> viene creato esternamente alla funzione, pertanto appartiene al frame speciale chiamato <code>__main__</code>.
+Le variabili di <code>__main__</code> sono dette anche <span class="c009">globali</span>
+perché ad esse possono accedere tutte le funzioni. A differenza delle variabili locali, che sono distrutte una volta terminata l’esecuzione della loro funzione, quelle globali persistono tra una chiamata di funzione e l’altra.
+<a id="hevea_default883"></a>
+<a id="hevea_default884"></a></p><p>Di frequente le variabili globali vengono usate come controlli o <span class="c009">flag</span>; vale a dire, variabili booleane che indicano quando una certa condizione è soddisfatta (True). Per esempio, alcuni programmi usano un flag di nome <span class="c003">verbose</span> per controllare che livello di dettaglio dare ad un output:</p><pre class="verbatim">verbose = True
+
+def esempio1():
+    if verbose:
+        print('esempio1 in esecuzione')
+</pre><p>
+Se cercate di riassegnare una variabile globale, potreste avere una sorpresa. L’esempio seguente vorrebbe controllare se una funzione è stata chiamata:
+<a id="hevea_default885"></a></p><pre class="verbatim">stata_chiamata = False
+
+def esempio2():
+    stata_chiamata = True         # SBAGLIATO
+</pre><p>
+Ma se la eseguite vedrete che il valore di <code>stata_chiamata</code>
+non cambia. Il motivo è che la funzione <span class="c003">esempio2</span> crea una nuova variabile di nome <code>stata_chiamata</code>, che è locale, viene distrutta al termine della funzione e non ha effetti sulla variabile globale.
+<a id="hevea_default886"></a>
+<a id="hevea_default887"></a>
+<a id="hevea_default888"></a></p><p>Per riassegnare una variabile globale dall’interno di una funzione, dovete
+<span class="c009">dichiarare</span> la variabile globale prima di usarla:</p><pre class="verbatim">stata_chiamata = False
+
+def esempio2():
+    global stata_chiamata 
+    stata_chiamata = True
+</pre><p>
+L’istruzione <span class="c003">global</span> dice all’interprete una cosa del genere: “In questa funzione, quando dico <code>stata_chiamata</code>, intendo la variabile globale: non crearne una locale”.
+<a id="hevea_default889"></a>
+<a id="hevea_default890"></a></p><p>Ecco un altro esempio che cerca di aggiornare una variabile globale:</p><pre class="verbatim">conta = 0
+
+def esempio3():
+    conta = conta + 1          # SBAGLIATO
+</pre><p>
+Se lo eseguite, ottenete:
+<a id="hevea_default891"></a>
+<a id="hevea_default892"></a></p><pre class="verbatim">UnboundLocalError: local variable 'conta' referenced before assignment
+</pre><p>
+Python presume che <span class="c003">conta</span> all’interno della funzione sia una variabile locale, e con questa premessa significa che state usando la variabile prima di averla inizializzata. La soluzione è ancora quella di dichiarare <span class="c003">conta</span> globale.
+<a id="hevea_default893"></a></p><pre class="verbatim">def esempio3():
+    global conta
+    conta += 1
+</pre><p>
+Se una variabile globale fa riferimento ad un valore mutabile, potete modificare il valore senza dichiarare la variabile:
+<a id="hevea_default894"></a></p><pre class="verbatim">noto = {0:0, 1:1}
+
+def esempio4():
+    noto[2] = 1
+</pre><p>
+Pertanto, potete aggiungere, rimuovere e sostituire elementi di una lista o dizionario globali; tuttavia, se volete riassegnare la variabile, occorre dichiararla:</p><pre class="verbatim">def esempio5():
+    global noto
+    noto = dict()
+</pre><p>
+Le variabili globali possono risultare utili, ma se ce ne sono molte e le modificate di frequente, possono rendere difficile il debug del programma. </p>
+<h2 class="section" id="sec140">11.8  Debug</h2>
+<p>
+<a id="hevea_default895"></a></p><p>Se lavorate con banche dati di grosse dimensioni, può diventare oneroso fare il debug stampando e controllando i risultati di output manualmente. Ecco allora alcuni suggerimenti per fare il debug in queste situazioni:</p><dl class="description"><dt class="dt-description"><span class="c009">Ridurre l’input:</span></dt><dd class="dd-description"> Se possibile, riducete le dimensioni della banca dati. Per esempio, se il programma legge un file di testo, cominciate con le sole prime 10 righe o con il più piccolo campione che riuscite a trovare. Potete anche adattare i file stessi, o (meglio) modificare il programma, in modo che legga solo le prime <span class="c003">n</span> righe.<p>Se c’è un errore, potete ridurre <span class="c003">n</span> al più piccolo valore per il quale si manifesta l’errore, poi aumentarlo gradualmente finché non trovate e correggete l’errore.</p></dd><dt class="dt-description"><span class="c009">Controllare riassunti e tipi:</span></dt><dd class="dd-description"> Invece di stampare e controllare l’intera banca dati, prendete in considerazione di stampare riassunti dei dati: ad esempio il numero di elementi in un dizionario o la sommatoria di una lista di numeri.<p>Una causa frequente di errori in esecuzione è un valore che non è del tipo giusto. Per fare il debug di questo tipo di errori basta spesso stampare il tipo di un valore.</p></dd><dt class="dt-description"><span class="c009">Scrivere controlli automatici:</span></dt><dd class="dd-description"> Talvolta è utile scrivere del codice per controllare automaticamente gli errori. Per esempio, se dovete calcolare la media di una lista di numeri, potete controllare che il risultato non sia maggiore dell’elemento più grande della lista e non sia minore del più piccolo. Questo è detto “controllo di congruenza” perché mira a trovare i risultati “incongruenti”.
+<a id="hevea_default896"></a>
+<a id="hevea_default897"></a><p>Un altro tipo di controllo confronta i risultati di due calcoli per vedere se collimano. Questo è chiamato “controllo di coerenza”.</p></dd><dt class="dt-description"><span class="c009">Stampare gli output in bella copia:</span></dt><dd class="dd-description"> Una buona presentazione dei risultati di debug rende più facile trovare un errore. Abbiamo visto un esempio nel Paragrafo <a href="thinkpython_italian007.html#factdebug">6.9</a>. Uno strumento utile è il modulo <span class="c003">pprint</span>: esso contiene la funzione <span class="c003">pprint</span> che mostra i tipi predefiniti in un formato più leggibile (pprint infatti sta per “pretty print”).
+<a id="hevea_default898"></a>
+<a id="hevea_default899"></a>
+<a id="hevea_default900"></a></dd></dl><p>Ancora, il tempo che impiegate a scrivere del codice temporaneo può essere ripagato dalla riduzione del tempo di debug.
+<a id="hevea_default901"></a></p>
+<h2 class="section" id="sec141">11.9  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">mappatura:</span></dt><dd class="dd-description"> Relazione per cui a ciascun elemento di un insieme corrisponde un elemento di un altro insieme.
+<a id="hevea_default902"></a></dd><dt class="dt-description"><span class="c009">dizionario:</span></dt><dd class="dd-description"> Una mappatura da chiavi nei loro valori corrispondenti.
+<a id="hevea_default903"></a></dd><dt class="dt-description"><span class="c009">coppia chiave-valore:</span></dt><dd class="dd-description"> Rappresentazione della mappatura da una chiave in un valore.
+<a id="hevea_default904"></a></dd><dt class="dt-description"><span class="c009">elemento:</span></dt><dd class="dd-description"> In un dizionario, altro nome della coppia chiave-valore.
+<a id="hevea_default905"></a></dd><dt class="dt-description"><span class="c009">chiave:</span></dt><dd class="dd-description"> Oggetto che compare in un dizionario come prima voce di una coppia chiave-valore.
+<a id="hevea_default906"></a></dd><dt class="dt-description"><span class="c009">valore:</span></dt><dd class="dd-description"> Oggetto che compare in un dizionario come seconda voce di una coppia chiave-valore. È più specifico dell’utilizzo del termine “valore” fatto sinora.
+<a id="hevea_default907"></a></dd><dt class="dt-description"><span class="c009">implementazione:</span></dt><dd class="dd-description"> Un modo per effettuare un’elaborazione.
+<a id="hevea_default908"></a></dd><dt class="dt-description"><span class="c009">tabella hash:</span></dt><dd class="dd-description"> Algoritmo usato per implementare i dizionari in Python.
+<a id="hevea_default909"></a></dd><dt class="dt-description"><span class="c009">funzione hash:</span></dt><dd class="dd-description"> Funzione usata da una tabella hash per calcolare la collocazione di una chiave.
+<a id="hevea_default910"></a></dd><dt class="dt-description"><span class="c009">hash-abile:</span></dt><dd class="dd-description"> Un tipo a cui si può applicare la funzione hash. I tipi immutabili come interi, float e stringhe lo sono; i tipi mutabili come liste e dizionari no.
+<a id="hevea_default911"></a></dd><dt class="dt-description"><span class="c009">lookup:</span></dt><dd class="dd-description"> Operazione su un dizionario che trova il valore corrispondente a una data chiave.
+<a id="hevea_default912"></a></dd><dt class="dt-description"><span class="c009">lookup inverso:</span></dt><dd class="dd-description"> Operazione su un dizionario che trova una o più chiavi alle quali è associato un dato valore.
+<a id="hevea_default913"></a></dd><dt class="dt-description"><span class="c009">singleton:</span></dt><dd class="dd-description"> Lista (o altra sequenza) con un singolo elemento.
+<a id="hevea_default914"></a></dd><dt class="dt-description"><span class="c009">grafico di chiamata:</span></dt><dd class="dd-description"> Diagramma che mostra tutti i frame creati durante l’esecuzione di un programma, con frecce che collegano ciascun chiamante ad ogni chiamata.
+<a id="hevea_default915"></a>
+<a id="hevea_default916"></a></dd><dt class="dt-description"><span class="c009">memoizzazione:</span></dt><dd class="dd-description"> Conservare un valore calcolato per evitarne il successivo ricalcolo.
+<a id="hevea_default917"></a></dd><dt class="dt-description"><span class="c009">variabile globale:</span></dt><dd class="dd-description"> Variabile definita al di fuori di una funzione, alla quale ogni funzione può accedere.
+<a id="hevea_default918"></a></dd><dt class="dt-description"><span class="c009">istruzione global:</span></dt><dd class="dd-description"> Istruzione che dichiara globale il nome di una variabile.
+<a id="hevea_default919"></a>
+<a id="hevea_default920"></a></dd><dt class="dt-description"><span class="c009">controllo o flag:</span></dt><dd class="dd-description"> Variabile booleana usata per indicare se una condizione è soddisfatta.
+<a id="hevea_default921"></a></dd><dt class="dt-description"><span class="c009">dichiarazione:</span></dt><dd class="dd-description"> Istruzione come <span class="c003">global</span>, che comunica all’interprete un’informazione su una variabile.
+<a id="hevea_default922"></a></dd></dl>
+<h2 class="section" id="sec142">11.10  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  
+<a id="wordlist2"></a>
+<a id="hevea_default923"></a>
+<a id="hevea_default924"></a><p><em>Scrivete una funzione che legga le parole in <span class="c003">words.txt</span> e le inserisca come chiavi in un dizionario. I valori non hanno importanza. Usate poi l’operatore <span class="c003">in</span> come modo rapido per controllare se una stringa è contenuta nel dizionario.</em></p><p><em>Se avete svolto l’Esercizio </em><a href="thinkpython_italian011.html#wordlist1"><em>10</em></a><em>, potete confrontare la velocità di questa implementazione con l’operatore <span class="c003">in</span> applicato alla lista e la ricerca binaria.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="setdefault"></a><p><em>Leggete la documentazione del metodo dei dizionari <span class="c003">setdefault</span>
+e usatelo per scrivere una versione più concisa di <code>inverti_diz</code>.
+Soluzione: </em><a href="http://thinkpython2.com/code/invert_dict.py"><span class="c003"><em>http://thinkpython2.com/code/invert_dict.py</em></span></a><em>.
+</em><a id="hevea_default925"></a>
+<a id="hevea_default926"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  <p><em>Applicate la memoizzazione alla funzione di Ackermann dell’Esercizio </em><a href="thinkpython_italian007.html#ackermann"><em>2</em></a><em> e provate a vedere se questa tecnica rende possibile il calcolo della funzione con argomenti più grandi. Suggerimento: no.
+Soluzione: </em><a href="http://thinkpython2.com/code/ackermann_memo.py"><span class="c003"><em>http://thinkpython2.com/code/ackermann_memo.py</em></span></a><em>.
+</em><a id="hevea_default927"></a>
+<a id="hevea_default928"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  
+<a id="hevea_default929"></a><p><em>Se avete svolto l’Esercizio </em><a href="thinkpython_italian011.html#duplicate"><em>7</em></a><em>, avete già una funzione di nome <code>ha_duplicati</code> che richiede come parametro una lista e restituisce <span class="c003">True</span> se ci sono oggetti ripetuti all’interno della lista.</em></p><p><em>Usate un dizionario per scrivere una versione più rapida e semplice di
+<code>ha_duplicati</code>. 
+Soluzione: </em><a href="http://thinkpython2.com/code/has_duplicates.py"><span class="c003"><em>http://thinkpython2.com/code/has_duplicates.py</em></span></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  
+<a id="exrotatepairs"></a>
+<a id="hevea_default930"></a>
+<a id="hevea_default931"></a><p><em>Due parole sono “ruotabili” se potete far ruotare le lettere dell’una per ottenere l’altra (vedere <code>ruota_parola</code> nell’Esercizio </em><a href="thinkpython_italian009.html#exrotate"><em>5</em></a><em>).</em></p><p><em>Scrivete un programma che legga un elenco di parole e trovi tutte le coppie di parole ruotabili. Soluzione: </em><a href="http://thinkpython2.com/code/rotate_pairs.py"><em><span class="c003">http://thinkpython2.com/code/rotate_pairs.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 6</span>  
+<a id="hevea_default932"></a>
+<a id="hevea_default933"></a><p><em>Ecco un altro quesito tratto da </em>Car Talk<em> (</em><a href="http://www.cartalk.com/content/puzzlers"><em><span class="c003">http://www.cartalk.com/content/puzzlers</span></em></a><em>):</em></p><blockquote class="quote"><em>
+“Questo ci è stato mandato da un amico di nome Dan O’Leary. Si è recentemente imbattuto in una parola inglese di una sillaba e cinque lettere che ha questa singolare proprietà: se togliete la prima lettera, le lettere restanti formano un omofono della prima parola, cioè un’altra parola che pronunciata suona allo stesso modo. Se poi rimettete la prima lettera e togliete la seconda, ottenete ancora un altro omofono della parola di origine. Qual è questa parola?”</em><p><em>“Facciamo un esempio che non funziona del tutto. Prendiamo la parola ’wrack’; togliendo la prima lettera resta ’rack’, che è un’altra parola ma è un perfetto omofono. Se però rimettete la prima lettera e togliete la seconda, ottenete ’wack’ che pure esiste ma non è un omofono delle altre due parole.”</em></p><p><em>“Esiste comunque almeno una parola, che Dan e noi conosciamo, che dà due parole omofone di quattro lettere, sia che togliate la prima oppure la seconda lettera.”
+</em></p></blockquote><p>
+<a id="hevea_default934"></a>
+<a id="hevea_default935"></a>
+<a id="hevea_default936"></a></p><p><em>Potete usare il dizionario dell’Esercizio </em><a href="#wordlist2"><em>1</em></a><em> per controllare se esiste una tale stringa nell’elenco di parole.</em></p><p><em>Per controllare se due parole sono omofone, potete usare il CMU Pronouncing Dictionary, scaricabile da
+</em><a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict"><span class="c003"><em>http://www.speech.cs.cmu.edu/cgi-bin/cmudict</em></span></a><em> oppure da
+</em><a href="http://thinkpython2.com/code/c06d"><span class="c003"><em>http://thinkpython2.com/code/c06d</em></span></a><em> e potete anche procurarvi
+</em><a href="http://thinkpython2.com/code/pronounce.py"><span class="c003"><em>http://thinkpython2.com/code/pronounce.py</em></span></a><em>, che fornisce una funzione di nome <code>read_dictionary</code> che legge il dizionario delle pronunce e restituisce un dizionario Python in cui a ciascuna parola corrisponde la stringa che ne descrive la pronuncia.</em></p><p><em>Scrivete un programma che elenchi tutte le parole che risolvono il quesito. Soluzione: </em><a href="http://thinkpython2.com/code/homophone.py"><em><span class="c003">http://thinkpython2.com/code/homophone.py</span></em></a><em>.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian011.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian013.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

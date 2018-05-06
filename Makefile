@@ -17,40 +17,36 @@ PDFFLAGS = -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress \
 	ps2pdf $(PDFFLAGS) $<
 
 all:	book.tex
+	pdflatex book
 	makeindex book.idx
 	pdflatex book
-	mv book.pdf thinkpython2.pdf
-	evince thinkpython2.pdf
+	mv book.pdf thinkpython_italian.pdf
 
 hevea:	book.tex header.html footer.html
 	# replace the pdfs with eps
-	sed s/.pdf/.eps/g book.tex > thinkpython2.tex
-	latex thinkpython2
+	sed s/.pdf/.eps/g book.tex > thinkpython_italian.tex
+	latex thinkpython_italian
 	rm -rf html
 	mkdir html
-	hevea -fix -O -e latexonly htmlonly thinkpython2
+	hevea -fix -O -e latexonly htmlonly thinkpython_italian
 # the following greps are a kludge to prevent imagen from seeing
 # the definitions in latexonly, and to avoid headers on the images
-	grep -v latexonly thinkpython2.image.tex > a; mv a thinkpython2.image.tex
-	grep -v fancyhdr thinkpython2.image.tex > a; mv a thinkpython2.image.tex
-	imagen -png thinkpython2
-	hacha thinkpython2.html
+	grep -v latexonly thinkpython_italian.image.tex > a; mv a thinkpython_italian.image.tex
+	sed s/\\\\usepackage{fancyhdr}// < thinkpython_italian.image.tex > a; mv a thinkpython_italian.image.tex
+	imagen -png thinkpython_italian
+	hacha thinkpython_italian.html
 	cp up.png next.png back.png html
-	mv index.html thinkpython2.css thinkpython2*.html thinkpython2*.png *motif.gif html
+	mv index.html thinkpython_italian.css thinkpython_italian*.html thinkpython_italian*.png *motif.gif html
 
-DEST = /home/downey/public_html/greent/thinkpython2
+DEST = /home/downey/public_html/greent/thinkpython_italian
 
 epub:
-	cd html; ebook-convert index.html thinkpython2.epub
+	cd html; ebook-convert index.html thinkpython_italian.epub
 
 distrib:
 	rm -rf dist
 	mkdir dist dist/tex dist/tex/figs
-	rsync -a thinkpython2.pdf html dist
-	rsync -a Makefile book.tex latexonly htmlonly dist/tex
-	rsync -a figs/*.fig figs/*.pdf dist/tex/figs
-	cd dist; zip -r thinkpython2.tex.zip tex
-	cd dist; zip -r thinkpython2.html.zip html
+	rsync -a thinkpython_italian.pdf html dist
 	rsync -a dist/* $(DEST)
 	chmod -R o+r $(DEST)/*
 	cd $(DEST)/..; sh back
@@ -61,20 +57,20 @@ plastex:
 	# Before running plastex, we need the current directory in PYTHONPATH
 	# export PYTHONPATH=$PYTHONPATH:.
 	python Filist.py book.tex > book.plastex
-	rm -rf /home/downey/thinkpython2/trunk/book
+	rm -rf /home/downey/thinkpython_italian/trunk/book
 	plastex --renderer=DocBook --theme=book --image-resolution=300 --filename=book.xml book.plastex
-	rm -rf /home/downey/thinkpython2/trunk/book/.svn
+	rm -rf /home/downey/thinkpython_italian/trunk/book/.svn
 
 plastest:
 	# Before running plastex, we need the current directory in PYTHONPATH
 	# export PYTHONPATH=$PYTHONPATH:.
 	python Filist.py test.tex > test.plastex
-	rm -rf /home/downey/thinkpython2/trunk/test
+	rm -rf /home/downey/thinkpython_italian/trunk/test
 	plastex --renderer=DocBook --theme=test --filename=test.xml test.plastex
-	rm -rf /home/downey/thinkpython2/trunk/test/.svn
+	rm -rf /home/downey/thinkpython_italian/trunk/test/.svn
 
 xxe:
-	xmlcopyeditor ~/ThinkDSP/book/book/book.xml &
+	xmlcopyeditor ~/ThinkPython2/book/book/book.xml &
 
 lint:
 	xmllint -noout book/book.xml

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Lo scopo del programma</title>
+</head>
+<body>
+<a href="thinkpython_italian001.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian003.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec5">Chapter 1  Lo scopo del programma</h1>
+<p>Lo scopo di questo libro è di insegnarvi a pensare da informatici. Si tratta di un modo di pensare che riassume in sé alcuni validi aspetti della matematica, dell’ingegneria e delle scienze naturali. Come i matematici, gli informatici si avvalgono di linguaggi formali per esprimere dei concetti (più precisamente, dei calcoli). Come gli ingegneri, gli informatici progettano svariate cose, compongono singole parti in sistemi e valutano costi e benefici tra varie alternative. Come i naturalisti, gli informatici osservano come si comportano dei sistemi complessi, formulano delle ipotesi e verificano le loro previsioni.
+<a id="hevea_default10"></a></p><p>La risoluzione di problemi è la principale qualità di un informatico: risolvere problemi comporta la capacità di formularli, di pensare in maniera creativa alle possibili soluzioni, e di esprimere una soluzione in modo chiaro ed accurato. Imparare a programmare è quindi un ottimo modo di mettere alla prova la propria bravura nel risolvere problemi. Ecco perché questo capitolo è chiamato “Lo scopo del programma”.</p><p>Da un lato, imparerete a programmare, che è già di per sé molto utile. Da un altro, userete la programmazione come un mezzo per raggiungere uno scopo. Man mano che procederemo, quello scopo vi diventerà più chiaro.</p>
+<h2 class="section" id="sec6">1.1  Che cos’è un programma?</h2>
+<p>Un <span class="c009">programma</span> consiste in una serie di istruzioni che spiegano come effettuare un calcolo. Quest’ultimo può essere sia di tipo matematico, come la soluzione di un sistema di equazioni o la ricerca delle radici di un polinomio, sia di tipo simbolico, come la ricerca e la sostituzione di una parola in un documento, o ancora operazioni grafiche come l’elaborazione di un’immagine o la riproduzione di un filmato.
+<a id="hevea_default11"></a></p><p>I dettagli operativi variano a seconda del linguaggio di programmazione che si usa, ma quasi tutti i linguaggi condividono un piccolo insieme di istruzioni fondamentali:</p><dl class="description"><dt class="dt-description"><span class="c009">input:</span></dt><dd class="dd-description"> Ricevimento di dati dalla tastiera, da un file, dalla rete o da un altro dispositivo.</dd><dt class="dt-description"><span class="c009">output:</span></dt><dd class="dd-description"> Invio di dati allo schermo, loro salvataggio su un file, o trasmissione verso la rete, ecc.</dd><dt class="dt-description"><span class="c009">matematiche:</span></dt><dd class="dd-description"> Esecuzione di operazioni matematiche fondamentali, come l’addizione e la moltiplicazione.</dd><dt class="dt-description"><span class="c009">condizionali:</span></dt><dd class="dd-description"> Controllo di determinate condizioni ed esecuzione del blocco di istruzioni appropriato.</dd><dt class="dt-description"><span class="c009">ripetizioni:</span></dt><dd class="dd-description"> Esecuzione ripetuta di una certa azione, di solito con qualche variazione.</dd></dl><p>Che ci crediate o no, questo è più o meno tutto ciò che serve. Qualunque programma abbiate usato, non importa quanto complesso, è fatto di istruzioni simili a queste. Potete pensare alla programmazione come ad un procedimento di suddivisione di un compito grande e complesso in una serie di compiti sempre più piccoli, fino a quando non risultano abbastanza semplici da essere eseguiti da una di queste istruzioni.
+<a id="hevea_default12"></a></p>
+<h2 class="section" id="sec7">1.2  Avviare Python</h2>
+<p>Un possibile scoglio nell’iniziare ad usare Python, il linguaggio di programmazione che adotteremo, è quello di doverlo installare, con il software correlato, nel vostro computer. Se siete già pratici del vostro sistema operativo, e soprattutto se ve la cavate con l’interfaccia a riga di comando, non avrete nessun problema ad installare Python. Ma per i meno esperti, può risultare faticoso dover imparare contemporaneamente l’amministrazione del sistema e la programmazione.
+<a id="hevea_default13"></a>
+<a id="hevea_default14"></a></p><p>A chi dovesse trovare difficoltà, suggerisco per il momento di avviare Python all’interno di un browser web. Più avanti, una volta presa confidenza con Python, fornirò dei suggerimenti per l’installazione.
+<a id="hevea_default15"></a></p><p>Esistono alcuni siti web che permettono di usare Python senza doverlo installare. Se avete già dimestichezza con uno di questi siti, usate pure quello. Altrimenti, vi consiglio PythonAnywhere. Trovate le istruzioni dettagliate per iniziare all’indirizzo <a href="http://tinyurl.com/thinkpython2e"><span class="c003">http://tinyurl.com/thinkpython2e</span></a>.
+<a id="hevea_default16"></a></p><p>Ci sono due versioni di Python, chiamate Python 2 e Python 3. Sono molto simili, pertanto imparandone una non è difficile passare poi all’altra. Di fatto, ai primi livelli di apprendimento le differenze tra le due versioni sono poche. 
+Questo libro fa riferimento alla più recente versione Python 3, ma troverete anche alcune annotazioni su Python 2.
+<a id="hevea_default17"></a></p><p>L’<span class="c009">interprete</span> di Python è un programma che legge ed esegue il codice Python. A seconda del vostro ambiente di lavoro, lo potete avviare facendo click su un’icona, oppure digitando <span class="c003">python</span> in una riga di comando. In alcune installazioni di Python, è compreso anche un ambiente di sviluppo di base chiamato IDLE.
+All’avvio, dovreste vedere un output simile a questo:
+<a id="hevea_default18"></a></p><pre class="verbatim">Python 3.4.0 (default, Jun 19 2015, 14:20:21)
+[GCC 4.8.2] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre><p>
+Le prime tre righe contengono informazioni sull’interprete e il sistema operativo in cui viene eseguito, per cui nel vostro caso concreto potrebbero essere diverse. Ma occhio al numero di versione, che in questo esempio è 
+<span class="c003">3.4.0</span>: comincia con 3, il che significa che state usando Python 3. Se cominciasse con 2, vorrebbe dire che state usando (avete indovinato!) Python 2.</p><p>L’ultima riga è un <span class="c009">prompt</span>, che comunica che l’interprete è pronto a ricevere il codice che inserirete. Se scrivete una riga di codice e poi premete Invio, l’interprete elabora immediatamente il risultato:
+<a id="hevea_default19"></a></p><pre class="verbatim">&gt;&gt;&gt; 1 + 1
+2
+</pre><p>
+Ora siete pronti per iniziare. D’ora in poi, darò per scontato che sappiate come avviare l’interprete di Python ed eseguire del codice.</p>
+<h2 class="section" id="sec8">1.3  Il primo programma</h2>
+<p>
+<a id="hello"></a>
+<a id="hevea_default20"></a></p><p>Per consuetudine, il primo programma che si scrive quando si affronta un nuovo linguaggio si chiama “Ciao, Mondo!”, perché non fa altro che mostrare a video le parole “Ciao, Mondo!”, e niente di più. In Python questo programma si scrive semplicemente così:</p><pre class="verbatim">print('Ciao, Mondo!')
+</pre><p>
+Questo è un esempio di <span class="c009">istruzione di stampa</span>, che a dispetto del nome non stampa nulla su carta: visualizza solo un risultato sullo schermo. In questo caso il risultato sono le parole:</p><pre class="verbatim">Ciao, Mondo!
+</pre><p>
+Gli apici nell’istruzione segnalano l’inizio e la fine del testo che deve essere visualizzato, e non fanno parte del risultato finale.
+<a id="hevea_default21"></a>
+<a id="hevea_default22"></a>
+<a id="hevea_default23"></a></p><p>Le parentesi indicano che <span class="c003">print</span> è una funzione. Torneremo a parlare di funzioni nel Capitolo <a href="thinkpython_italian004.html#funcchap">3</a>.
+<a id="hevea_default24"></a> 
+<a id="hevea_default25"></a> </p><p>In Python 2, l’istruzione di stampa è leggermente diversa: non è una funzione, per cui non si usano le parentesi.
+<a id="hevea_default26"></a>
+</p><pre class="verbatim">&gt;&gt;&gt; print 'Ciao, Mondo!'
+</pre><p>
+La differenza sarà presto chiarita meglio, ma questo ci basta per cominciare.</p>
+<h2 class="section" id="sec9">1.4  Operatori aritmetici</h2>
+<p>
+<a id="hevea_default27"></a>
+<a id="hevea_default28"></a></p><p>Dopo il classico “Ciao, Mondo!”, passiamo all’aritmetica. Python dispone di
+<span class="c009">operatori</span>, che sono simboli speciali che rappresentano i calcoli fondamentali, come l’addizione e la moltiplicazione.</p><p>Gli operatori <span class="c003">+</span>, <span class="c003">-</span>, e <span class="c003">*</span> eseguono nell’ordine addizione, sottrazione e moltiplicazione, come illustrato negli esempi seguenti:</p><pre class="verbatim">&gt;&gt;&gt; 40 + 2
+42
+&gt;&gt;&gt; 43 - 1
+42
+&gt;&gt;&gt; 6 * 7
+42
+</pre><p>
+L’operatore <span class="c003">/</span> esegue la divisione:</p><pre class="verbatim">&gt;&gt;&gt; 84 / 2
+42.0
+</pre><p>
+Vi chiederete come mai il risultato è <span class="c003">42.0</span> anziché <span class="c003">42</span>.
+Lo vedremo nel prossimo paragrafo.</p><p>Infine, l’operatore <span class="c003">**</span> esegue l’elevamento a potenza; ovvero, calcola la potenza di un numero:</p><pre class="verbatim">&gt;&gt;&gt; 6**2 + 6
+42
+</pre><p>
+In altri linguaggi viene usato il simbolo <code>^</code> per le potenze, ma in Python questo è un operatore bitwise chiamato XOR. Se non siete pratici di questi operatori, il risultato vi lascerà sorpresi:</p><pre class="verbatim">&gt;&gt;&gt; 6 ^ 2
+4
+</pre><p>
+Non tratteremo gli operatori bitwise in questo libro, ma se volete approfondire l’argomento andate sul sito <a href="http://wiki.python.org/moin/BitwiseOperators"><span class="c003">http://wiki.python.org/moin/BitwiseOperators</span></a>.
+<a id="hevea_default29"></a>
+<a id="hevea_default30"></a></p>
+<h2 class="section" id="sec10">1.5  Valori e tipi</h2>
+<p>
+<a id="hevea_default31"></a>
+<a id="hevea_default32"></a>
+<a id="hevea_default33"></a></p><p>Un <span class="c009">valore</span> è uno degli elementi di base che un programma è in grado di elaborare, come ad esempio una lettera oppure un numero. Tra i valori che abbiamo visto finora: 
+<span class="c003">2</span>, <span class="c003">42.0</span>, e <code>'Ciao, Mondo!'</code>.</p><p>Questi valori appartengono a <span class="c009">tipi</span> diversi:
+<span class="c003">2</span> è un numero <span class="c009">intero</span>, <span class="c003">42.0</span> è un numero decimale, detto anche “a virgola mobile” o <span class="c009">floating-point</span>, e <code>'Ciao, Mondo!'</code> è una <span class="c009">stringa</span>, in quanto costituita da una sequenza di singoli caratteri collegati (dal verbo inglese <code>to string</code>, che ha anche il significato di “legare insieme”).
+<a id="hevea_default34"></a>
+<a id="hevea_default35"></a>
+<a id="hevea_default36"></a></p><p>Per sapere a quale tipo appartiene un dato valore, basta chiederlo all’interprete:</p><pre class="verbatim">&gt;&gt;&gt; type(2)
+&lt;class 'int'&gt;
+&gt;&gt;&gt; type(42.0)
+&lt;class 'float'&gt;
+&gt;&gt;&gt; type('Ciao, Mondo!')
+&lt;class 'str'&gt;
+</pre><p>Nei responsi, la parola “class” (classe) viene usata nel senso di categoria; un tipo è una categoria di valori.
+<a id="hevea_default37"></a></p><p>Alle stringhe corrisponde il tipo <span class="c003">str</span>, agli interi il
+tipo <span class="c003">int</span>, ai numeri con parte decimale il tipo <span class="c003">float</span>.
+<a id="hevea_default38"></a>
+<a id="hevea_default39"></a>
+<a id="hevea_default40"></a>
+<a id="hevea_default41"></a>
+<a id="hevea_default42"></a>
+<a id="hevea_default43"></a>
+<a id="hevea_default44"></a></p><p>Di che tipo sono valori come <code>'2'</code> e <code>'42.0'</code>?
+Sembrerebbero a prima vista dei numeri, ma notate che sono racchiusi tra apici come le stringhe. 
+<a id="hevea_default45"></a></p><pre class="verbatim">&gt;&gt;&gt; type('2')
+&lt;class 'str'&gt;
+&gt;&gt;&gt; type('42.0')
+&lt;class 'str'&gt;
+</pre><p>
+E infatti si tratta di stringhe.</p><p>Quando scrivete numeri grandi, potrebbe venirvi in mente di usare delle virgole per delimitare i gruppi di tre cifre, come in <span class="c003">1,000,000</span>. [Python utilizza la notazione anglosassone, per cui i separatori delle migliaia sono le virgole, mentre il punto è usato per separare le cifre decimali, NdT]. Questo non è un numero <em>intero</em> valido in Python, ma è comunque un qualcosa di consentito:</p><pre class="verbatim">&gt;&gt;&gt; 1,000,000
+(1, 0, 0)
+</pre><p>
+Ma non è affatto quello che ci aspettavamo! Python in questo caso interpreta 1,000,000 come una sequenza di tre interi separati da virgole. Approfondiremo meglio questo tipo di sequenza più avanti.
+<a id="hevea_default46"></a></p>
+<h2 class="section" id="sec11">1.6  Linguaggi formali e linguaggi naturali</h2>
+<p>
+<a id="hevea_default47"></a>
+<a id="hevea_default48"></a></p><p>I <span class="c009">linguaggi naturali</span> sono le lingue parlate, come l’inglese, il francese, l’italiano. Non sono opera di qualcuno, benché le persone cerchino di imporre loro un ordine razionale, e si sono evoluti naturalmente.</p><p>I <span class="c009">linguaggi formali</span> sono linguaggi appositamente creati per specifiche applicazioni. Ad esempio, la notazione usata dai matematici è un linguaggio formale particolarmente indicato per esprimere le relazioni tra numeri e simboli; i chimici utilizzano un linguaggio formale per descrivere la struttura chimica delle molecole; e, soprattutto, </p><blockquote class="quote">
+<span class="c009">I linguaggi di programmazione sono linguaggi formali progettati per esprimere dei calcoli.</span>
+</blockquote><p>I linguaggi formali hanno delle rigide regole sintattiche che governano la struttura di ciò che devono esprimere. Per esempio,
+3 + 3 = 6 è un’espressione matematica dalla sintassi corretta, ma
+3 += 3 $ 6 non lo è.
+In chimica, <span class="c008">H</span><sub>2</sub><span class="c008">O</span> è sintatticamente corretto, a differenza di <sub>2</sub><span class="c008">Zz</span> .</p><p>Le regole sintattiche hanno due aspetti, che riguardano i <span class="c009">simboli</span> e la
+<span class="c009">struttura</span>. I simboli (in inglese <em>token</em>) sono gli elementi di base del linguaggio, come le parole, i numeri, gli elementi chimici. Un problema dell’espressione 3 += 3 $ 6 è che  $  non è un simbolo valido in matematica (almeno per quanto mi risulta). Allo stesso modo, in chimica <sub>2</sub><span class="c008">Zz</span> non è valido perché non esiste un elemento di simbolo <span class="c008">Zz</span>.
+<a id="hevea_default49"></a>
+<a id="hevea_default50"></a>
+<a id="hevea_default51"></a></p><p>Il secondo tipo di regola sintattica, la struttura, riguarda il modo in cui sono disposti i simboli. L’espressione 3 += 3 non è strutturalmente valida perché, anche se + e = sono dei simboli validi, non è possibile che uno segua immediatamente l’altro. Allo stesso modo, il pedice numerico nelle formule chimiche deve essere scritto dopo il simbolo dell’elemento chimico, e non prima.</p><p>Questa è un@ frase ben $trutturata in italiano che conti<code>&amp;</code>ne simb*li non validi.<br>
+Frase questa simboli validi tutti ha, ma struttura non valida con.</p><p>Quando leggete una frase in italiano o un’espressione in un linguaggio formale, dovete analizzare quale sia la struttura della frase (in un linguaggio naturale, questa operazione viene effettuata subconsciamente). Questo processo di analisi è chiamato <span class="c009">parsing</span>.
+<a id="hevea_default52"></a></p><p>Sebbene i linguaggi formali e quelli naturali abbiano molte caratteristiche in comune (simboli, struttura, sintassi e semantica), ci sono delle differenze:
+<a id="hevea_default53"></a>
+<a id="hevea_default54"></a>
+<a id="hevea_default55"></a></p><dl class="description"><dt class="dt-description"><span class="c009">ambiguità:</span></dt><dd class="dd-description"> I linguaggi naturali ne sono pieni, e le persone riescono a risolverla mediante indizi contestuali ed altre informazioni. I linguaggi formali sono invece progettati per essere quasi o completamente privi di ambiguità: ciascuna dichiarazione ha un unico significato, indipendente dal contesto.</dd><dt class="dt-description"><span class="c009">ridondanza:</span></dt><dd class="dd-description"> Per risolvere l’ambiguità e ridurre le incomprensioni, i linguaggi naturali impiegano molta ridondanza, ovvero sono spesso prolissi. I linguaggi formali sono meno ridondanti e più concisi.</dd><dt class="dt-description"><span class="c009">letteralità:</span></dt><dd class="dd-description"> i linguaggi naturali sono pieni di frasi idiomatiche e metafore. Se dico: “Mangiare la foglia”, presumibilmente non c’è nessuna foglia e nessuno che la mangi (è un modo di dire di una persona che si rende conto di come stanno realmente le cose). I linguaggi formali invece significano esattamente quello che dicono.</dd></dl><p>Dato che tutti noi siamo cresciuti parlando dei linguaggi naturali, possiamo trovare difficoltà ad adattarci ai linguaggi formali. La differenza tra linguaggi naturali e formali può essere paragonata a quella tra poesia e prosa, ma non solo:
+<a id="hevea_default56"></a>
+<a id="hevea_default57"></a></p><dl class="description"><dt class="dt-description"><span class="c009">Poesia:</span></dt><dd class="dd-description"> Le parole sono usate sia per il loro suono che per il loro significato, e l’intero componimento poetico crea complessivamente un effetto o una risposta emotiva. L’ambiguità non solo è frequente, ma spesso voluta.</dd><dt class="dt-description"><span class="c009">Prosa:</span></dt><dd class="dd-description"> Il significato letterale delle parole assume più importanza, e la struttura contribuisce a generare un maggiore significato. La prosa è più assoggettabile all’analisi della poesia, ma spesso è ancora ambigua.</dd><dt class="dt-description"><span class="c009">Programmi:</span></dt><dd class="dd-description"> Il significato di un programma per computer è letterale e privo di ambiguità, e può essere completamente interpretato mediante l’analisi dei simboli e della struttura.</dd></dl><p>I linguaggi formali sono molto più densi di significato di quelli naturali, e per questo è necessario più tempo per leggerli. Inoltre, la struttura è importante, e non sempre è bene leggere dall’alto in basso e da sinistra a destra; i programmi vanno analizzati nella propria testa, identificando i simboli e comprendendo la struttura. Infine, i dettagli contano molto: piccoli errori di ortografia e punteggiatura che sono trascurabili nei linguaggi naturali, possono diventare gravi in quelli formali.</p>
+<h2 class="section" id="sec12">1.7  Debug</h2>
+<p>
+<a id="hevea_default58"></a></p><p>Inevitabilmente, i programmatori commettono errori. Per ragioni storiche curiose, gli errori di programmazione sono detti <span class="c009">bug</span>, ed il procedimento della loro ricerca e correzione è chiamato <span class="c009">debug</span>.
+<a id="hevea_default59"></a>
+<a id="hevea_default60"></a></p><p>La programmazione, e specialmente il debug, a volte fanno emergere emozioni forti. Se siete alle prese con un bug impegnativo, vi può capitare di sentirvi arrabbiati, scoraggiati o in difficoltà.</p><p>Ci sono studi secondo i quali le persone tendono naturalmente a rapportarsi con i computer come se fossero esseri umani. Se funzionano bene, li pensiamo come compagni di squadra, e quando sono ostinati o rudi, li trattiamo come trattiamo la gente rude o ostinata (Reeves and Nass, <span class="c008">The Media Equation: How People Treat Computers, Television, and New Media Like Real People and Places</span>).
+<a id="hevea_default61"></a>
+<a id="hevea_default62"></a></p><p>Prepararsi a simili reazioni può aiutare ad affrontarle. Un possibile approccio è quello di pensare al computer come ad un impiegato con alcuni punti di forza, come velocità e precisione, e particolari debolezze, come mancanza di empatia e incapacità di cogliere il quadro generale.</p><p>Il vostro compito è di essere un buon manager: trovare il modo di trarre vantaggio dai pregi e mitigare i difetti. E trovare il modo di usare le vostre emozioni per affrontare i problemi, senza lasciare che le vostre reazioni interferiscano con la vostra capacità di lavorare in modo efficace.</p><p>Imparare a dare la caccia agli errori può essere noioso, ma è un’abilità preziosa, utile anche per tante altre attività oltre alla programmazione. Alla fine di ogni capitolo troverete un paragrafo dedicato al debug, come questo, con le mie riflessioni in merito. Spero vi siano di aiuto!</p>
+<h2 class="section" id="sec13">1.8  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">soluzione di problemi:</span></dt><dd class="dd-description"> Procedura che consiste nel formulare un problema, trovare una soluzione ed esprimerla.
+<a id="hevea_default63"></a></dd><dt class="dt-description"><span class="c009">linguaggio di alto livello:</span></dt><dd class="dd-description"> Un linguaggio di programmazione come Python, progettato per essere facile da leggere e scrivere per le persone.
+<a id="hevea_default64"></a></dd><dt class="dt-description"><span class="c009">linguaggio di basso livello:</span></dt><dd class="dd-description"> Un linguaggio di programmazione progettato per essere facilmente eseguibile da un computer; è detto anche “linguaggio macchina” o “linguaggio assembly”.
+<a id="hevea_default65"></a></dd><dt class="dt-description"><span class="c009">portabilità:</span></dt><dd class="dd-description"> Proprietà di un programma di poter essere eseguito su computer di tipo diverso.
+<a id="hevea_default66"></a></dd><dt class="dt-description"><span class="c009">interprete:</span></dt><dd class="dd-description"> Un programma che legge un altro programma e lo esegue.
+<a id="hevea_default67"></a></dd><dt class="dt-description"><span class="c009">prompt:</span></dt><dd class="dd-description"> Sequenza di caratteri mostrati dall’interprete per indicare la disponibilità a ricevere input dall’utente.
+<a id="hevea_default68"></a></dd><dt class="dt-description"><span class="c009">programma:</span></dt><dd class="dd-description"> Serie di istruzioni che specifica come effettuare un calcolo.
+<a id="hevea_default69"></a></dd><dt class="dt-description"><span class="c009">istruzione di stampa:</span></dt><dd class="dd-description"> Istruzione per la quale l’interprete Python visualizza un valore sullo schermo.
+<a id="hevea_default70"></a>
+<a id="hevea_default71"></a></dd><dt class="dt-description"><span class="c009">operatore:</span></dt><dd class="dd-description"> Simbolo speciale che rappresenta un calcolo semplice come l’addizione, la moltiplicazione o il concatenamento di stringhe.
+<a id="hevea_default72"></a></dd><dt class="dt-description"><span class="c009">valore:</span></dt><dd class="dd-description"> Una unità fondamentale di dati, come un numero o una stringa, che un programma elabora.
+<a id="hevea_default73"></a></dd><dt class="dt-description"><span class="c009">tipo:</span></dt><dd class="dd-description"> Una categoria di valori. I tipi visti finora sono gli interi (tipo <span class="c003">int</span>), numeri a virgola mobile o floating-point (tipo <span class="c003">float</span>), e stringhe (tipo <span class="c003">str</span>).
+<a id="hevea_default74"></a></dd><dt class="dt-description"><span class="c009">intero:</span></dt><dd class="dd-description"> Tipo che rappresenta i numeri interi.
+<a id="hevea_default75"></a></dd><dt class="dt-description"><span class="c009">floating-point:</span></dt><dd class="dd-description"> Tipo che rappresenta i numeri con parte decimale.
+<a id="hevea_default76"></a></dd><dt class="dt-description"><span class="c009">stringa:</span></dt><dd class="dd-description"> Tipo che rappresenta sequenze di caratteri.
+<a id="hevea_default77"></a></dd><dt class="dt-description"><span class="c009">linguaggio naturale:</span></dt><dd class="dd-description"> Qualunque linguaggio parlato che si è evoluto spontaneamente nel tempo.
+<a id="hevea_default78"></a></dd><dt class="dt-description"><span class="c009">linguaggio formale:</span></dt><dd class="dd-description"> Qualunque linguaggio creato per scopi particolari, come l’espressione di concetti matematici o di programmi per computer. Tutti i linguaggi di programmazione sono linguaggi formali.
+<a id="hevea_default79"></a></dd><dt class="dt-description"><span class="c009">simbolo o <em>token</em>:</span></dt><dd class="dd-description"> Uno degli elementi di base della struttura sintattica di un programma, analogo a una parola nei linguaggi naturali.
+<a id="hevea_default80"></a>
+<a id="hevea_default81"></a></dd><dt class="dt-description"><span class="c009">sintassi:</span></dt><dd class="dd-description"> Le regole che governano la struttura di un programma.
+<a id="hevea_default82"></a></dd><dt class="dt-description"><span class="c009">parsing:</span></dt><dd class="dd-description"> L’esame e l’analisi della struttura sintattica di un programma.
+<a id="hevea_default83"></a></dd><dt class="dt-description"><span class="c009">bug:</span></dt><dd class="dd-description"> Un errore in un programma.
+<a id="hevea_default84"></a></dd><dt class="dt-description"><span class="c009">debug:</span></dt><dd class="dd-description"> L’operazione di ricerca e correzione degli errori di programmazione.
+<a id="hevea_default85"></a></dd></dl>
+<h2 class="section" id="sec14">1.9  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>È opportuno leggere questo libro davanti al computer, in modo da poter provare gli esempi man mano che procedete nella lettura.</em></p><p><em>Ogni volta che sperimentate una nuova caratteristica, dovreste provare ad inserire degli errori. Ad esempio, nel programma “Ciao, mondo!”, cosa succede se dimenticate uno dei due apici? O entrambi? O se scrivete sbagliato <span class="c003">print</span>?
+</em><a id="hevea_default86"></a></p><p><em>Esperimenti di questo tipo aiutano a ricordare quello che avete letto; aiutano anche nella programmazione, perché in questo modo imparate a conoscere il significato dei messaggi di errore. È meglio fare errori ora e di proposito, che più avanti e accidentalmente.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>In un’istruzione di stampa, cosa succede se dimenticate una delle parentesi, o entrambe?</em></li><li class="li-enumerate"><em>Se state cercando di stampare una stringa, cosa succede se dimenticate uno degli apici, o entrambi?</em></li><li class="li-enumerate"><em>Per rendere negativo un numero, gli si antepone un segno meno, come in 
+<span class="c003">-2</span>. Cosa succede se anteponete un segno più ad un numero?
+E nel caso di <span class="c003">2++2</span>?</em></li><li class="li-enumerate"><em>Nella notazione matematica, gli zeri iniziali sono ammessi, come in <span class="c003">02</span>. In questo caso, cosa succede in Python?</em></li><li class="li-enumerate"><em>Cosa succede se scrivete due valori, senza inserire in mezzo un operatore?</em></li></ol></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  <p><em>Avviate l’interprete di Python e utilizzatelo come calcolatrice. </em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Quanti secondi ci sono in 42 minuti e 42 secondi?</em></li><li class="li-enumerate"><em>Quante miglia ci sono in 10 chilometri? Suggerimento: un miglio equivale a 1,61 km.</em></li><li class="li-enumerate"><em>Se correte una gara di 10 chilometri in 42 minuti e 42 secondi, qual è la vostra cadenza media (tempo per miglio in minuti e secondi)? Qual è la vostra velocità media, in miglia all’ora?</em><p><a id="hevea_default87"></a>
+<a id="hevea_default88"></a></p></li></ol></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian001.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian003.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

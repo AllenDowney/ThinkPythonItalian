@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Classi e metodi</title>
+</head>
+<body>
+<a href="thinkpython_italian017.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian019.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec198">Chapter 17  Classi e metodi</h1>
+<p>Anche se abbiamo usato alcune delle caratteristiche <em>object-oriented</em> di Python, i programmi degli ultimi due capitoli non sono del tutto orientati agli oggetti, perché non mettono in evidenza le relazioni che esistono tra i tipi personalizzati e le funzioni che operano su di essi. Il passo successivo è di trasformare queste funzioni in metodi, in modo da rendere esplicite queste relazioni.</p><p>Il codice degli esempi di questo capitolo è scaricabile dal sito
+<a href="http://thinkpython2.com/code/Time2.py"><span class="c003">http://thinkpython2.com/code/Time2.py</span></a>, e le soluzioni degli esercizi da <a href="http://thinkpython2.com/code/Point2_soln.py"><span class="c003">http://thinkpython2.com/code/Point2_soln.py</span></a>.</p>
+<h2 class="section" id="sec199">17.1  Funzionalità orientate agli oggetti</h2>
+<p>
+<a id="hevea_default1356"></a></p><p>Python è un <span class="c009">linguaggio di programmazione orientato agli oggetti</span>, in altre parole contiene delle funzionalità a supporto della programmazione orientata agli oggetti, che ha le seguenti caratteristiche distintive:</p><ul class="itemize"><li class="li-itemize">I programmi includono definizioni di classi e metodi. </li><li class="li-itemize">Buona parte dell’elaborazione è espressa in termini di operazioni sugli oggetti.</li><li class="li-itemize">Gli oggetti corrispondono spesso ad un oggetto o concetto del mondo reale, mentre i metodi che operano sugli oggetti corrispondono spesso al modo in cui gli oggetti interagiscono tra loro nella realtà quotidiana.</li></ul><p>Per esempio, la classe <span class="c003">Tempo</span> definita nel Capitolo <a href="thinkpython_italian017.html#time">16</a>
+corrisponde al modo in cui le persone pensano alle ore del giorno, e le funzioni che abbiamo definite corrispondono al tipo di operazioni che le persone fanno con il tempo. Allo stesso modo, le classi <span class="c003">Punto</span> e <span class="c003">Rettangolo</span> nel Capitolo <a href="thinkpython_italian016.html#clobjects">15</a> corrispondono ai rispettivi concetti matematici.</p><p>Finora, non abbiamo tratto vantaggio dalle capacità di supporto della programmazione orientata agli oggetti fornite da Python. A dire il vero, queste funzionalità non sono indispensabili; piuttosto, forniscono una sintassi alternativa per fare le cose che abbiamo già fatto. Ma in molti casi questa alternativa è più concisa e si adatta in modo più accurato alla struttura del programma.</p><p>Ad esempio, nel programma <span class="c003">Time1.py</span> non c’è una chiara connessione tra la definizione della classe e le definizioni di funzione che seguono. A un esame più attento, è però evidente che tutte queste funzioni ricevono almeno un oggetto <span class="c003">Tempo</span> come argomento.
+<a id="hevea_default1357"></a>
+<a id="hevea_default1358"></a></p><p>Questa osservazione giustifica l’esistenza dei <span class="c009">metodi</span>; un metodo è una funzione associata ad una particolare classe. Abbiamo già visto qualche metodo per le stringhe, le liste, i dizionari e le tuple. In questo capitolo, definiremo dei metodi per i tipi personalizzati.
+<a id="hevea_default1359"></a>
+<a id="hevea_default1360"></a>
+<a id="hevea_default1361"></a></p><p>Da un punto di vista logico, i metodi sono la stessa cosa delle funzioni, ma con due differenze sintattiche:</p><ul class="itemize"><li class="li-itemize">I metodi sono definiti all’interno di una definizione di classe, per rendere esplicita la relazione tra la classe stessa ed il metodo.</li><li class="li-itemize">La sintassi per invocare un metodo è diversa da quella usata per chiamare una funzione.</li></ul><p>Nei prossimi paragrafi prenderemo le funzioni scritte nei due capitoli precedenti e le trasformeremo in metodi. Questa trasformazione è puramente meccanica e si fa seguendo una serie di passi: se siete in grado di convertire da funzione a metodo e viceversa, riuscirete anche a scegliere la forma migliore, qualsiasi cosa dobbiate fare.</p>
+<h2 class="section" id="sec200">17.2  Stampa di oggetti</h2>
+<p>
+<a id="hevea_default1362"></a></p><p>Nel Capitolo <a href="thinkpython_italian017.html#time">16</a>, abbiamo definito una classe chiamata
+<span class="c003">Tempo</span>, e nel Paragrafo <a href="thinkpython_italian017.html#isafter">16.1</a>, avete scritto una funzione di nome <code>stampa_tempo</code>:</p><pre class="verbatim">class Tempo:
+    """Rappresenta un'ora del giorno."""
+
+def stampa_tempo(tempo):
+    print('%.2d:%.2d:%.2d' % (tempo.ora, tempo.minuto, tempo.secondo))
+</pre><p>
+Per chiamare questa funzione occorre passare un oggetto <span class="c003">Tempo</span> come argomento:</p><pre class="verbatim">&gt;&gt;&gt; inizio = Tempo()
+&gt;&gt;&gt; inizio.ora = 9
+&gt;&gt;&gt; inizio.minuto = 45
+&gt;&gt;&gt; inizio.secondo = 00
+&gt;&gt;&gt; stampa_tempo(inizio)
+09:45:00
+</pre><p>
+Per trasformare <code>stampa_tempo</code> in un metodo, tutto quello che dobbiamo fare è spostare la definizione della funzione all’interno della definizione della classe. Notate bene la modifica nell’indentazione.
+<a id="hevea_default1363"></a></p><pre class="verbatim">class Tempo:
+    def stampa_tempo(tempo):
+        print('%.2d:%.2d:%.2d' % (tempo.ora, tempo.minuto, tempo.secondo))
+</pre><p>
+Ora ci sono due modi di chiamare <code>stampa_tempo</code>. Il primo (e meno usato) è utilizzare la sintassi delle funzioni:
+<a id="hevea_default1364"></a>
+<a id="hevea_default1365"></a></p><pre class="verbatim">&gt;&gt;&gt; Tempo.stampa_tempo(inizio)
+09:45:00
+</pre><p>
+In questo uso della notazione a punto, <span class="c003">Tempo</span> è il nome della classe e
+<code>stampa_tempo</code> è il nome del metodo. <span class="c003">inizio</span> è passato come parametro.</p><p>Il secondo modo, più conciso, è usare la sintassi dei metodi:
+<a id="hevea_default1366"></a></p><pre class="verbatim">&gt;&gt;&gt; inizio.stampa_tempo()
+09:45:00
+</pre><p>
+Sempre usando la <em>dot notation</em>, <code>stampa_tempo</code> è ancora il nome del metodo, mentre <span class="c003">inizio</span> è l’oggetto sul quale il metodo è invocato, che è chiamato il <span class="c009">soggetto</span>. Come il soggetto di una frase è ciò a cui si riferisce la frase, il soggetto del metodo è ciò a cui si applica l’invocazione del metodo.
+<a id="hevea_default1367"></a></p><p>All’interno del metodo, il soggetto viene assegnato al primo dei parametri: in questo caso, <span class="c003">inizio</span> viene assegnato a <span class="c003">tempo</span>.
+<a id="hevea_default1368"></a>
+<a id="hevea_default1369"></a></p><p>Per convenzione, il primo parametro di un metodo viene chiamato <span class="c003">self</span>, di conseguenza è bene riscrivere <code>stampa_tempo</code> così:</p><pre class="verbatim">class Tempo:
+    def stampa_tempo(self):
+        print('%.2d:%.2d:%.2d' % (self.ora, self.minuto, self.secondo))
+</pre><p>
+La ragione di questa convenzione è una metafora implicita:
+<a id="hevea_default1370"></a></p><ul class="itemize"><li class="li-itemize">La sintassi di una chiamata di funzione, <code>stampa_tempo(inizio)</code>,
+suggerisce che la funzione è la parte attiva, che dice qualcosa del tipo: “Ehi, <code>stampa_tempo</code>! Ti passo un oggetto da stampare!”</li><li class="li-itemize">Nella programmazione orientata agli oggetti, la parte attiva sono gli oggetti. L’invocazione di un metodo come <code>inizio.stampa_tempo()</code> dice:
+“Ehi, <span class="c003">inizio</span>! Stampa te stesso!”</li></ul><p>Questo cambio di prospettiva sarà anche più elegante, ma cogliere la sua utilità non è immediato. Nei semplici esempi che abbiamo visto finora, può non esserlo. Ma in altri casi, spostare la responsabilità dalle funzioni agli oggetti rende possibile scrivere funzioni (o metodi) più versatili e rende più facile mantenere e riusare il codice.</p><p>Come esercizio, riscrivete <code>tempo_in_int</code> (vedere Paragrafo <a href="thinkpython_italian017.html#prototype">16.4</a>) come metodo.
+Potreste pensare di riscrivere anche <code>int_in_tempo</code> come metodo, ma non avrebbe molto senso: non vi sarebbe alcun oggetto sul quale invocarlo.</p>
+<h2 class="section" id="sec201">17.3  Un altro esempio</h2>
+<p>
+<a id="hevea_default1371"></a></p><p>Ecco una versione di <span class="c003">incremento</span> (vedere Paragrafo <a href="thinkpython_italian017.html#increment">16.3</a>),
+riscritto come metodo:</p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def incremento(self, secondi):
+        secondi += self.tempo_in_int()
+        return int_in_tempo(secondi)
+</pre><p>
+Questa versione presuppone che <code>tempo_in_int</code> sia stato scritto come metodo. Notate anche che si tratta di una funzione pura e non un modificatore.</p><p>Ecco come invocare <span class="c003">incremento</span>:</p><pre class="verbatim">&gt;&gt;&gt; inizio.stampa_tempo()
+09:45:00
+&gt;&gt;&gt; fine = inizio.incremento(1337)
+&gt;&gt;&gt; fine.stampa_tempo()
+10:07:17
+</pre><p>
+Il soggetto, <span class="c003">inizio</span>, viene assegnato quale primo parametro, a
+<span class="c003">self</span>. L’argomento, <span class="c003">1337</span>, viene assegnato quale secondo parametro, a <span class="c003">secondi</span>.</p><p>Questo meccanismo può confondere le idee, specie se commettete qualche errore. Per esempio, se invocate <span class="c003">incremento</span> con due argomenti ottenete:
+<a id="hevea_default1372"></a>
+<a id="hevea_default1373"></a></p><pre class="verbatim">&gt;&gt;&gt; fine = inizio.incremento(1337, 460)
+TypeError: incremento() takes 2 positional arguments but 3 were given
+</pre><p>
+Il messaggio di errore a prima vista non è chiaro, perché ci sono solo due argomenti tra parentesi. Ma bisogna tener conto che anche il soggetto è considerato un argomento, ecco perché in totale fanno tre.</p><p>Tra parentesi, un <span class="c009">argomento posizionale</span> è un argomento privo di nome di un parametro; cioè, non è un argomento con nome. In questa chiamata di funzione:
+<a id="hevea_default1374"></a>
+<a id="hevea_default1375"></a></p><pre class="verbatim">sketch(pappagallo, gabbia, morto=True)
+</pre><p><span class="c003">pappagallo</span> e <span class="c003">gabbia</span> sono argomenti posizionali, e <span class="c003">morto</span> è un argomento con nome.</p>
+<h2 class="section" id="sec202">17.4  Un esempio più complesso</h2>
+<p><code>viene_dopo</code> (vedere Paragrafo <a href="thinkpython_italian017.html#isafter">16.1</a>) è leggermente più complesso da riscrivere come metodo, perché richiede come parametri due oggetti Tempo. In questo caso, la convenzione prevede di denominare il primo parametro <span class="c003">self</span> e il secondo <span class="c003">other</span>:
+<a id="hevea_default1376"></a>
+<a id="hevea_default1377"></a></p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def viene_dopo(self, other):
+        return self.tempo_in_int() &gt; other.tempo_in_int()
+</pre><p>
+Per usare questo metodo, lo dovete invocare su un oggetto e passare l’altro come argomento:</p><pre class="verbatim">&gt;&gt;&gt; fine.viene_dopo(inizio)
+True
+</pre><p>
+Una particolarità di questa sintassi è che si legge quasi come in italiano:
+“fine viene dopo inizio?”</p>
+<h2 class="section" id="sec203">17.5  Il metodo speciale init</h2>
+<p>
+<a id="hevea_default1378"></a>
+<a id="hevea_default1379"></a></p><p>Il metodo init (abbreviazione di <em>initialization</em>, ovvero inizializzazione) è un metodo speciale che viene invocato quando un oggetto viene istanziato. Il suo nome completo è <code>__init__</code> (due caratteri underscore, 
+seguiti da <span class="c003">init</span>, e da altri due underscore). Un metodo init per la classe <span class="c003">Tempo</span> può essere il seguente:</p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def __init__(self, ora=0, minuto=0, secondo=0):
+        self.ora = ora
+        self.minuto = minuto
+        self.secondo = secondo
+</pre><p>
+È prassi che i parametri di <code>__init__</code> abbiano gli stessi nomi degli attributi. L’istruzione</p><pre class="verbatim">        self.ora = ora
+</pre><p>
+memorizza il valore del parametro <span class="c003">ora</span> come attributo di <span class="c003">self</span>.
+<a id="hevea_default1380"></a>
+<a id="hevea_default1381"></a>
+<a id="hevea_default1382"></a></p><p>I parametri sono opzionali, quindi se chiamate <span class="c003">Tempo</span> senza argomenti, ottenete i valori di default.</p><pre class="verbatim">&gt;&gt;&gt; tempo = Tempo()
+&gt;&gt;&gt; tempo.stampa_tempo()
+00:00:00
+</pre><p>
+Se fornite un argomento, esso va a sovrascrivere <span class="c003">ora</span>:</p><pre class="verbatim">&gt;&gt;&gt; tempo = Tempo (9)
+&gt;&gt;&gt; tempo.stampa_tempo()
+09:00:00
+</pre><p>
+Se ne fornite due, sovrascrivono <span class="c003">ora</span> e <span class="c003">minuto</span>.</p><pre class="verbatim">&gt;&gt;&gt; tempo = Tempo(9, 45)
+&gt;&gt;&gt; tempo.stampa_tempo()
+09:45:00
+</pre><p>
+E se ne fornite tre, sovrascrivono tutti e tre i valori di default.</p><p>Per esercizio, scrivete un metodo init per la classe <span class="c003">Punto</span> che prenda <span class="c003">x</span> e <span class="c003">y</span> come parametri opzionali e li assegni agli attributi corrispondenti.
+<a id="hevea_default1383"></a>
+<a id="hevea_default1384"></a></p>
+<h2 class="section" id="sec204">17.6  Il metodo speciale <span class="c003">__str__</span></h2>
+<p>
+<a id="hevea_default1385"></a>
+<a id="hevea_default1386"></a></p><p><code>__str__</code> è un altro metodo speciale, come <code>__init__</code>,
+che ha lo scopo di restituire una rappresentazione di un oggetto in forma di stringa.
+<a id="hevea_default1387"></a></p><p>Ecco ad esempio un metodo <span class="c003">str</span> per un oggetto Tempo:</p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def __str__(self):
+        return '%.2d:%.2d:%.2d' % (self.ora, self.minuto, self.secondo)
+</pre><p>
+Quando stampate un oggetto con l’istruzione di stampa, Python invoca il metodo <span class="c003">str</span>:
+<a id="hevea_default1388"></a>
+<a id="hevea_default1389"></a></p><pre class="verbatim">&gt;&gt;&gt; tempo = Tempo(9, 45)
+&gt;&gt;&gt; print(tempo)
+09:45:00
+</pre><p>
+Personalmente, quando scrivo una nuova classe, quasi sempre inizio con lo scrivere <code>__init__</code>, che rende più facile istanziare un oggetto, e 
+<code>__str__</code>, che è utile per il debugging.</p><p>Come esercizio, scrivete un metodo <span class="c003">str</span> per la classe <span class="c003">Punto</span>. Create un oggetto Punto e stampatelo.</p>
+<h2 class="section" id="sec205">17.7  Operator overloading</h2>
+<p>
+<a id="operator.overloading"></a></p><p>Nei tipi personalizzati, avete la possibilità di adattare il comportamento degli operatori attraverso la definizione di altri appositi metodi speciali. Per esempio se definite il metodo speciale di nome <code>__add__</code> per la classe <span class="c003">Tempo</span>, potete poi usare l’operatore <span class="c003">+</span> sugli oggetti Tempo.
+<a id="hevea_default1390"></a></p><p>Ecco come potrebbe essere scritta la definizione:
+<a id="hevea_default1391"></a>
+<a id="hevea_default1392"></a></p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def __add__(self, other):
+        secondi = self.tempo_in_int() + other.tempo_in_int()
+        return int_in_tempo(secondi)
+</pre><p>
+Ed ecco come può essere usata:</p><pre class="verbatim">&gt;&gt;&gt; inizio = Tempo(9, 45)
+&gt;&gt;&gt; durata = Tempo(1, 35)
+&gt;&gt;&gt; print(inizio + durata)
+11:20:00
+</pre><p>
+Quando applicate l’operatore <span class="c003">+</span> agli oggetti Tempo, Python invoca
+<code>__add__</code>. Quando stampate il risultato, Python invoca 
+<code>__str__</code>. Accadono parecchie cose, dietro le quinte!
+<a id="hevea_default1393"></a></p><p>Cambiare il comportamento degli operatori in modo che funzionino con i tipi personalizzati è chiamato <span class="c009">operator overloading</span> (letteralmente, sovraccarico degli operatori). In Python, per ogni operatore esiste un corrispondente metodo speciale, come
+<code>__add__</code>. Per ulteriori dettagli consultate
+<a href="http://docs.python.org/2/reference/datamodel.html#specialnames"><span class="c003">http://docs.python.org/2/reference/datamodel.html#specialnames</span></a>.</p><p>Esercitatevi scrivendo un metodo <span class="c003">add</span> per la classe Punto. </p>
+<h2 class="section" id="sec206">17.8  Smistamento in base al tipo</h2>
+<p>Nel Paragrafo precedente abbiamo sommato due oggetti Tempo, ma potrebbe anche capitare di voler aggiungere un numero intero a un oggetto Tempo. Quella che segue è una versione di <code>__add__</code>
+che controlla il tipo di <span class="c003">other</span> e, a seconda dei casi, invoca o
+<code>somma_tempo</code> o <span class="c003">incremento</span>:</p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def __add__(self, other):
+        if isinstance(other, Tempo):
+            return self.somma_tempo(other)
+        else:
+            return self.incremento(other)
+
+    def somma_tempo(self, other):
+        secondi = self.tempo_in_int() + other.tempo_in_int()
+        return int_in_tempo(secondi)
+
+    def incremento(self, secondi):
+        secondi += self.tempo_in_int()
+        return int_in_tempo(secondi)
+</pre><p>
+La funzione predefinita <span class="c003">isinstance</span> prende un valore e un oggetto classe, e restiutisce <span class="c003">True</span> se il valore è un’istanza della classe.
+<a id="hevea_default1394"></a>
+<a id="hevea_default1395"></a></p><p>Quindi, se <span class="c003">other</span> è un oggetto Tempo, <code>__add__</code> invoca
+<code>somma_tempo</code>. Altrimenti, considera che il parametro sia un numero, e invoca <span class="c003">incremento</span>. Questa operazione è detta <span class="c009">smistamento in base al tipo</span>, perché invia il calcolo a metodi diversi a seconda del tipo di argomento.
+<a id="hevea_default1396"></a></p><p>Ecco degli esempi che usano l’operatore <span class="c003">+</span> con tipi diversi:</p><pre class="verbatim">&gt;&gt;&gt; inizio = Tempo(9, 45)
+&gt;&gt;&gt; durata = Tempo(1, 35)
+&gt;&gt;&gt; print(inizio + durata)
+11:20:00
+&gt;&gt;&gt; print(inizio + 1337)
+10:07:17
+</pre><p>
+Sfortunatamente, questa implementazione di addizione non è commutativa. Se l’intero è il primo operando vi risulterà infatti:
+<a id="hevea_default1397"></a></p><pre class="verbatim">&gt;&gt;&gt; print(1337 + inizio)
+TypeError: unsupported operand type(s) for +: 'int' and 'instance'
+</pre><p>
+Il problema è che, invece di chiedere all’oggetto Tempo di aggiungere un intero, Python chiede all’intero di aggiungere un oggetto Tempo, ma l’intero non ha la minima idea di come farlo. Ma a questo c’è una soluzione intelligente: il metodo speciale <code>__radd__</code>, che sta per <em>right-side add</em> (“addizione lato destro”).
+Questo metodo viene invocato quando un oggetto Tempo compare sul lato destro dell’operatore <span class="c003">+</span>. Eccone la definizione:
+<a id="hevea_default1398"></a>
+<a id="hevea_default1399"></a></p><pre class="verbatim"># all'interno della classe Tempo:
+
+    def __radd__(self, other):
+        return self.__add__(other)
+</pre><p>
+Ed eccolo in azione:</p><pre class="verbatim">&gt;&gt;&gt; print(1337 + inizio)
+10:07:17
+</pre><p>Come esercizio, scrivete un metodo <span class="c003">add</span> per i Punti che possa funzionare sia con un oggetto Punto che con una tupla: </p><ul class="itemize"><li class="li-itemize">Se il secondo operando è un Punto, il metodo deve restituire un nuovo Punto la cui coordinata <span class="c008">x</span> sia la somma delle coordinate <span class="c008">x</span> degli operandi, e lo stesso per le coordinate <span class="c008">y</span>.</li><li class="li-itemize">Se il secondo operando è una tupla, il metodo deve aggiungere il primo elemento della tupla alla coordinata <span class="c008">x</span> e il secondo elemento alla coordinata <span class="c008">y</span>, e restituire un nuovo Punto con le coordinate risultanti.</li></ul>
+<h2 class="section" id="sec207">17.9  Polimorfismo</h2>
+<p>
+<a id="polymorphism"></a></p><p>Lo smistamento in base al tipo è utile all’occorrenza, ma (fortunatamente) non è sempre necessario. Spesso potete evitarlo scrivendo le funzioni in modo che operino correttamente con argomenti di tipo diverso.
+<a id="hevea_default1400"></a></p><p>Molte delle funzioni che abbiamo scritto per le stringhe, funzioneranno anche con qualsiasi altro tipo di sequenza.
+Per esempio, nel Paragrafo <a href="thinkpython_italian012.html#histogram">11.2</a>
+abbiamo usato <span class="c003">istogramma</span> per contare quante volte ciascuna lettera appare in una parola.</p><pre class="verbatim">def istogramma(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] = d[c]+1
+    return d
+</pre><p>
+Questa funzione è applicabile anche a liste, tuple e perfino dizionari, a condizione che gli elementi di <span class="c003">s</span> siano idonei all’hashing, in modo da poter essere usati come chiavi in <span class="c003">d</span>.</p><pre class="verbatim">&gt;&gt;&gt; t = ['spam', 'uovo', 'spam', 'spam', 'bacon', 'spam']
+&gt;&gt;&gt; istogramma(t)
+{'bacon': 1, 'uovo': 1, 'spam': 4}
+</pre><p>
+Le funzioni che sono in grado di operare con tipi diversi sono dette <span class="c009">polimorfiche</span>.
+Il polimorfismo facilita il riuso del codice. Ad esempio, la funzione predefinita <span class="c003">sum</span>, che addiziona gli elementi di una sequenza, funziona alla sola condizione che gli elementi della sequenza siano addizionabili.
+<a id="hevea_default1401"></a></p><p>Dato che agli oggetti Tempo abbiamo fornito un metodo <span class="c003">add</span>, funzionano con
+<span class="c003">sum</span>:</p><pre class="verbatim">&gt;&gt;&gt; t1 = Tempo(7, 43)
+&gt;&gt;&gt; t2 = Tempo(7, 41)
+&gt;&gt;&gt; t3 = Tempo(7, 37)
+&gt;&gt;&gt; totale = sum([t1, t2, t3])
+&gt;&gt;&gt; print(totale)
+23:01:00
+</pre><p>
+In linea generale, se tutte le operazioni all’interno di una funzione si possono applicare ad un dato tipo, la funzione può operare con quel tipo.</p><p>Il miglior genere di polimorfismo è quello involontario, quando scoprite che una funzione che avete già scritto può essere applicata anche ad un tipo che non avevate previsto.</p>
+<h2 class="section" id="sec208">17.10  Debug</h2>
+<p>
+<a id="hevea_default1402"></a></p><p>È consentito aggiungere attributi in qualsiasi momento dell’esecuzione di un programma, ma se avete oggetti dello stesso tipo che non hanno gli stessi attributi, è facile generare errori. Inizializzare tutti gli attributi di un oggetto nel metodo init è considerata una prassi migliore.
+<a id="hevea_default1403"></a>
+<a id="hevea_default1404"></a></p><p>Se non siete certi che un oggetto abbia un particolare attributo, potete usare la funzione predefinita <span class="c003">hasattr</span> (vedere Paragrafo <a href="thinkpython_italian016.html#hasattr">15.7</a>).
+<a id="hevea_default1405"></a>
+<a id="hevea_default1406"></a>
+<a id="hevea_default1407"></a>
+<a id="hevea_default1408"></a></p><p>Un altro modo di accedere agli attributi è la funzione predefinita <span class="c003">vars</span>, che prende un oggetto e restituisce un dizionario che fa corrispondere nomi degli attributi (come stringhe) e i relativi valori:</p><pre class="verbatim">&gt;&gt;&gt; p = Punto(3, 4)
+&gt;&gt;&gt; vars(p)
+{'y': 4, 'x': 3}
+</pre><p>
+Per gli scopi del debug, può essere utile tenere questa funzione a portata di mano:</p><pre class="verbatim">def stampa_attributi(oggetto):
+    for attr in vars(oggetto):
+        print(attr, getattr(oggetto, attr))
+</pre><p>
+<code>stampa_attributi</code> attraversa il dizionario e stampa ciascun nome di attributo con il suo valore.
+<a id="hevea_default1409"></a>
+<a id="hevea_default1410"></a></p><p>La funzione predefinita <span class="c003">getattr</span> prende un oggetto e un nome di attributo (come stringa) e restituisce il valore dell’attributo.
+<a id="hevea_default1411"></a>
+<a id="hevea_default1412"></a></p>
+<h2 class="section" id="sec209">17.11  Interfaccia e implementazione</h2>
+<p>Uno degli scopi della progettazione orientata agli oggetti è di rendere più agevole la manutenzione del software, che significa poter mantenere il programma funzionante quando altre parti del sistema vengono cambiate e poter modificare il programma per adeguarlo a dei nuovi requisiti.
+<a id="hevea_default1413"></a>
+<a id="hevea_default1414"></a>
+<a id="hevea_default1415"></a>
+<a id="hevea_default1416"></a></p><p>Un principio di progettazione che aiuta a raggiungere questo obiettivo è di tenere le interfacce separate dalle implementazioni.
+Per gli oggetti, significa che i metodi esposti da una classe non devono dipendere da come vengono rappresentati gli attributi.
+<a id="hevea_default1417"></a></p><p>Per esempio, in questo capitolo abbiamo sviluppato una classe che rappresenta un’ora del giorno. I metodi esposti da questa classe comprendono
+<code>tempo_in_int</code>, <code>viene_dopo</code>, e <code>somma_tempo</code>.</p><p>Quei metodi possono essere implementati in diversi modi. I dettagli dell’implementazione dipendono da come rappresentiamo il tempo. In questo capitolo, gli attributi di un oggetto <span class="c003">Tempo</span> sono <span class="c003">ora</span>, <span class="c003">minuto</span>, e <span class="c003">secondo</span>.</p><p>Come alternativa, avremmo potuto sostituire quegli attributi con un singolo numero intero, come secondi trascorsi dalla mezzanotte. Con questa implementazione, alcuni metodi come <code>viene_dopo</code>, sarebbero diventati più facili da scrivere, ma altri più difficili.</p><p>Dopo aver sviluppato una nuova classe, potreste scoprire una implementazione migliore. Se altre parti del programma usano quella classe, cambiare l’interfaccia può essere dispendioso in termini di tempo e fonte di errori. </p><p>Ma se avete progettato l’interfaccia accuratamente, potete cambiare l’implementazione senza cambiare l’interfaccia, che significa che non occorre cambiare altre parti del programma.</p>
+<h2 class="section" id="sec210">17.12  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">linguaggio orientato agli oggetti:</span></dt><dd class="dd-description"> Linguaggio che possiede delle caratteristiche, come tipi personalizzati e metodi, che facilitano la programmazione orientata agli oggetti. 
+<a id="hevea_default1418"></a></dd><dt class="dt-description"><span class="c009">programmazione orientata agli oggetti:</span></dt><dd class="dd-description"> Paradigma di programmazione in cui i dati e le operazioni sui dati vengono organizzati in classi e metodi.
+<a id="hevea_default1419"></a></dd><dt class="dt-description"><span class="c009">metodo:</span></dt><dd class="dd-description"> Funzione definita all’interno di una definizione di classe e che viene invocata su istanze di quella classe.
+<a id="hevea_default1420"></a></dd><dt class="dt-description"><span class="c009">soggetto:</span></dt><dd class="dd-description"> L’oggetto sul quale viene invocato un metodo.
+<a id="hevea_default1421"></a></dd><dt class="dt-description"><span class="c009">argomento posizionale:</span></dt><dd class="dd-description"> Un argomento che non include il nome di un
+parametro, ovvero non è un argomento con nome.
+<a id="hevea_default1422"></a>
+<a id="hevea_default1423"></a></dd><dt class="dt-description"><span class="c009">operator overloading:</span></dt><dd class="dd-description"> Cambiare il comportamento di un operatore come
+<span class="c003">+</span> in modo che funzioni con un tipo personalizzato.
+<a id="hevea_default1424"></a>
+<a id="hevea_default1425"></a></dd><dt class="dt-description"><span class="c009">smistamento in base al tipo:</span></dt><dd class="dd-description"> Schema di programmazione che controlla il tipo di un operando e invoca funzioni diverse in base ai diversi tipi.
+<a id="hevea_default1426"></a></dd><dt class="dt-description"><span class="c009">polimorfico:</span></dt><dd class="dd-description"> Di una funzione che può operare con più di un tipo di dati.
+<a id="hevea_default1427"></a></dd><dt class="dt-description"><span class="c009">information hiding:</span></dt><dd class="dd-description"> Principio per cui l’interfaccia di un oggetto non deve dipendere dalla sua implementazione, con particolare riferimento alla rappresentazione dei suoi attributi.
+<a id="hevea_default1428"></a></dd></dl>
+<h2 class="section" id="sec211">17.13  Esercizi</h2>
+<p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scaricate il codice degli esempi di questo capitolo
+(</em><a href="http://thinkpython2.com/code/Time2.py"><span class="c003"><em>http://thinkpython2.com/code/Time2.py</em></span></a><em>). Cambiate gli attributi di <span class="c003">Tempo</span> con un singolo intero che rappresenta i secondi dalla mezzanotte. Quindi modificate i metodi (e la funzione <code>int_in_tempo</code>) in modo che funzionino con la nuova implementazione. Non dovete cambiare il codice di prova in <span class="c003">main</span>. Quando avete finito, l’output dovrebbe essere lo stesso di prima. Soluzione: </em><a href="http://thinkpython2.com/code/Time2_soln.py"><span class="c003"><em>http://thinkpython2.com/code/Time2_soln.py</em></span></a><em>.
+</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="kangaroo"></a>
+<a id="hevea_default1429"></a>
+<a id="hevea_default1430"></a>
+<a id="hevea_default1431"></a>
+<a id="hevea_default1432"></a>
+<a id="hevea_default1433"></a>
+<a id="hevea_default1434"></a><p><em>Questo esercizio è un aneddoto monitorio su uno degli errori più comuni e difficili da trovare in Python. Scrivete una definizione di una classe di nome <span class="c003">Canguro</span> con i metodi seguenti:</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Un metodo <code>__init__</code> che inizializza un attributo di nome
+<code>contenuto_tasca</code> ad una lista vuota.</em></li><li class="li-enumerate"><em>Un metodo di nome <code>intasca</code> che prende un oggetto di qualsiasi tipo e lo inserisce in <code>contenuto_tasca</code>.</em></li><li class="li-enumerate"><em>Un metodo <code>__str__</code> che restituisce una stringa di rappresentazione dell’oggetto Canguro e dei contenuti della tasca.</em></li></ol><p><em>
+Provate il codice creando due oggetti <span class="c003">Canguro</span>, assegnandoli a variabili di nome <span class="c003">can</span> e <span class="c003">guro</span>, e aggiungendo poi <span class="c003">guro</span> al contenuto della tasca di <span class="c003">can</span>.</em></p><p><em>Scaricate </em><a href="http://thinkpython2.com/code/BadKangaroo.py"><em><span class="c003">http://thinkpython2.com/code/BadKangaroo.py</span></em></a><em>. Contiene una soluzione al problema precedente, ma con un grande e serio errore. Trovatelo e sistematelo. </em></p><p><em>Se vi bloccate, potete scaricare
+</em><a href="http://thinkpython2.com/code/GoodKangaroo.py"><span class="c003"><em>http://thinkpython2.com/code/GoodKangaroo.py</em></span></a><em>, che spiega il problema e illustra una soluzione.
+</em><a id="hevea_default1435"></a>
+<a id="hevea_default1436"></a>
+<a id="hevea_default1437"></a></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian017.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian019.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Analisi degli Algoritmi</title>
+</head>
+<body>
+<a href="thinkpython_italian021.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian023.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec254">Appendix B  Analisi degli Algoritmi</h1>
+<p>
+<a id="algorithms"></a></p><blockquote class="quote">
+Questa Appendice è un estratto adattato da <span class="c008">Think Complexity</span>, di
+Allen B. Downey, pure pubblicato da O’Reilly Media (2012). Quando avete finito questo libro, vi invito a prenderlo in considerazione.
+</blockquote><p>L’<span class="c009">analisi degli algoritmi</span> è una branca dell’informatica che studia le prestazioni degli algoritmi, in particolare il tempo di esecuzione e i requisiti di memoria. Vedere anche
+<a href="http://en.wikipedia.org/wiki/Analysis_of_algorithms"><span class="c003">http://en.wikipedia.org/wiki/Analysis_of_algorithms</span></a>.
+<a id="hevea_default1681"></a> <a id="hevea_default1682"></a></p><p>L’obiettivo pratico dell’analisi degli algoritmi è predire le prestazioni di algoritmi diversi in modo da orientare le scelte di progettazione.</p><p>Durante la campagna elettorale per le Presidenziali degli Stati Uniti del 2008, al candidato Barack Obama fu chiesto di fare un’analisi estemporanea in occasione della sua visita a Google. Il direttore esecutivo Eric Schmidt gli chiese scherzosamente “il modo più efficiente di ordinare un milione di interi a 32-bit”.
+Obama era stato presumibilmente messo sull’avviso, poiché replicò subito: “Credo che un ordinamento a bolle sarebbe il modo sbagliato di procedere”.
+Vedere <a href="http://www.youtube.com/watch?v=k4RRi_ntQc8"><span class="c003">http://www.youtube.com/watch?v=k4RRi_ntQc8</span></a>.
+<a id="hevea_default1683"></a>
+<a id="hevea_default1684"></a>
+<a id="hevea_default1685"></a></p><p>È vero: l’ordinamento a bolle, o “bubble sort”, è concettualmente semplice ma è lento per grandi insiemi di dati. La risposta che Schmidt probabilmente si aspettava era “radix sort” (<a href="http://it.wikipedia.org/wiki/Radix_sort"><span class="c003">http://it.wikipedia.org/wiki/Radix_sort</span></a>)<sup><a id="text2" href="#note2">1</a></sup>.
+<a id="hevea_default1686"></a></p><p>Scopo dell’analisi degli algoritmi è fare dei confronti significativi tra algoritmi, ma occorre tener conto di alcuni problemi:
+<a id="hevea_default1687"></a></p><ul class="itemize"><li class="li-itemize">L’efficienza relativa degli algoritmi può dipendere dalle caratteristiche dell’hardware, per cui un algoritmo può essere più veloce sulla Macchina A, un altro sulla Macchina B. La soluzione in genere è specificare un
+<span class="c009">modello di macchina</span> e quindi analizzare il numero di passi, o operazioni, che un algoritmo richiede su quel dato modello.
+<a id="hevea_default1688"></a></li><li class="li-itemize">L’efficienza relativa può dipendere da alcuni dettagli dell’insieme di dati, Per esempio, alcuni algoritmi di ordinamento sono più veloci se i dati sono già parzialmente ordinati; altri in casi simili sono più lenti. Un modo di affrontare il problema è di analizzare lo scenario del <span class="c009">caso peggiore</span>. Talvolta è utile anche analizzare le prestazioni del caso medio, ma questo comporta più difficoltà e può non essere facile stabilire quale insieme di dati mediare.
+<a id="hevea_default1689"></a>
+<a id="hevea_default1690"></a></li><li class="li-itemize">L’efficienza relativa dipende anche dalle dimensioni del problema. Un algoritmo di ordinamento che è veloce per liste corte può diventare lento su liste lunghe. La soluzione più comune è di esprimere il tempo di esecuzione (o il numero di operazioni) in funzione delle dimensioni del problema, e raggruppare le funzioni in categorie a seconda di quanto velocemente crescono al crescere delle dimensioni del problema.</li></ul><p>Il lato buono di questo tipo di confronto è che conduce a una semplice classificazione degli algoritmi. Ad esempio, se sappiamo che il tempo di esecuzione dell’algoritmo A tende ad essere proporzionale alle dimensioni dell’input, <span class="c008">n</span>, e l’algoritmo B tende ad essere proporzionale a <span class="c008">n</span><sup>2</sup>, allora possiamo attenderci che A sia più veloce di B, almeno per grandi valori di <span class="c008">n</span>.</p><p>Questo tipo di analisi ha alcune avvertenze, ma ci torneremo più avanti.</p>
+<h2 class="section" id="sec255">B.1  Ordine di complessità</h2>
+<p>Supponiamo che abbiate analizzato due algoritmi esprimendo i loro tempi di esecuzione in funzione delle dimensioni dell’input: l’Algoritmo A impiega 100<span class="c008">n</span>+1 operazioni per risolvere un problema di dimensione <span class="c008">n</span>; l’Algoritmo B impiega <span class="c008">n</span><sup>2</sup> + <span class="c008">n</span> + 1 operazioni.
+<a id="hevea_default1691"></a></p><p>La tabella seguente mostra il tempo di esecuzione di questi algoritmi per diverse dimensioni del problema:</p><table class="c000 cellpadding1" border=1><tr><td class="c013">Dimensione</td><td class="c013">Tempo</td><td class="c013">Tempo </td></tr>
+<tr><td class="c013">dell’input	</td><td class="c013">Algoritmo A</td><td class="c013">Algoritmo B </td></tr>
+<tr><td class="c013">10</td><td class="c013">1 001</td><td class="c013">111 </td></tr>
+<tr><td class="c013">100</td><td class="c013">10 001</td><td class="c013">10 101 </td></tr>
+<tr><td class="c013">1 000</td><td class="c013">100 001</td><td class="c013">1 001 001 </td></tr>
+<tr><td class="c013">10 000</td><td class="c013">1 000 001</td><td class="c013">&gt; 10<sup>10</sup> </td></tr>
+</table><p>Per <span class="c008">n</span>=10, l’Algoritmo A si comporta piuttosto male: impiega quasi 10 volte il tempo dell’Algoritmo B. Ma per <span class="c008">n</span>=100 sono circa equivalenti, e per grandi valori A è molto migliore.</p><p>Il motivo fondamentale è che, per grandi valori di n, ogni funzione che contiene un termine <span class="c008">n</span><sup>2</sup> crescerà più rapidamente di una che ha come termine dominante <span class="c008">n</span>. L’<span class="c009">operazione dominante</span> è quella relativa al termine con il più alto esponente.
+<a id="hevea_default1692"></a>
+<a id="hevea_default1693"></a></p><p>Per l’algoritmo A, l’operazione dominante ha un grande coefficiente, 100, ed è per questo che B è migliore di A per piccoli valori di <span class="c008">n</span>. Ma indipendentemente dal coefficiente, esisterà un valore di <span class="c008">n</span> a partire dal quale
+<span class="c008">a n</span><sup>2</sup> &gt; <span class="c008">b n</span>, qualunque siano i valori di <span class="c008">a</span> e <span class="c008">b</span>.
+<a id="hevea_default1694"></a></p><p>Stesso discorso vale per i termini secondari. Anche se il tempo di esecuzione dell’Algoritmo A fosse <span class="c008">n</span>+1000000, sarebbe sempre migliore di B per valori sufficientemente grandi di <span class="c008">n</span>.</p><p>In genere, possiamo aspettarci che un algoritmo con piccola operazione dominante sia migliore per problemi di dimensione maggiore, ma per quelli di minori dimensioni può esistere un <span class="c009">punto di intersezione</span> dove un altro algoritmo diventa migliore. Questo punto dipende dai dettagli dell’algoritmo, dai dati di input e dall’hardware, quindi di solito è trascurato per gli scopi dell’analisi degli algoritmi. Ma non significa che dobbiate scordarvene.
+<a id="hevea_default1695"></a></p><p>Se due algoritmi hanno l’operazione dominante dello stesso ordine, è difficile stabilire quale sia migliore; ancora, la risposta dipende dai dettagli. Per l’analisi degli algoritmi, le funzioni dello stesso ordine sono considerate equivalenti, anche se hanno coefficienti diversi.</p><p>Un <span class="c009">ordine di complessità</span> è dato da un insieme di funzioni il cui comportamento di crescita è considerato equivalente. Per esempio, 2<span class="c008">n</span>, 100<span class="c008">n</span> e <span class="c008">n</span>+1 appartengono allo stesso ordine di complessità, che si scrive <span class="c008">O</span>(<span class="c008">n</span>) nella <span class="c009">notazione O-grande</span> e viene chiamato <span class="c009">lineare</span> perché tutte le funzioni dell’insieme crescono in maniera lineare al crescere di <span class="c008">n</span>.
+<a id="hevea_default1696"></a>
+<a id="hevea_default1697"></a></p><p>Tutte le funzioni con operazione dominante <span class="c008">n</span><sup>2</sup> appartengono a <span class="c008">O</span>(<span class="c008">n</span><sup>2</sup>) e sono dette <span class="c009">quadratiche</span>.
+<a id="hevea_default1698"></a></p><p>La tabella seguente mostra alcuni degli ordini di complessità più comuni nell’analisi degli algoritmi, in ordine crescente di inefficienza.
+<a id="hevea_default1699"></a></p><table class="c000 cellpadding1" border=1><tr><td class="c013">Ordine di</td><td class="c013">Nome </td></tr>
+<tr><td class="c013">complessità</td><td class="c013">&nbsp;</td></tr>
+<tr><td class="c013"><span class="c008">O</span>(1)</td><td class="c013">costante </td></tr>
+<tr><td class="c013"><span class="c008">O</span>(log<sub><span class="c008">b</span></sub> <span class="c008">n</span>)</td><td class="c013">logaritmico (per qualunque <span class="c008">b</span>) </td></tr>
+<tr><td class="c013"><span class="c008">O</span>(<span class="c008">n</span>)</td><td class="c013">lineare </td></tr>
+<tr><td class="c013"><span class="c008">O</span>(<span class="c008">n</span> log<sub><span class="c008">b</span></sub> <span class="c008">n</span>)</td><td class="c013">linearitmico </td></tr>
+<tr><td class="c013"><span class="c008">O</span>(<span class="c008">n</span><sup>2</sup>)</td><td class="c013">quadratico </td></tr>
+<tr><td class="c013"><span class="c008">O</span>(<span class="c008">n</span><sup>3</sup>)</td><td class="c013">cubico </td></tr>
+<tr><td class="c013"><span class="c008">O</span>(<span class="c008">c</span><sup><span class="c008">n</span></sup>)</td><td class="c013">esponenziale (per qualunque <span class="c008">c</span>) </td></tr>
+</table><p>Per i termini logaritmici, la base del logaritmo non ha importanza; cambiare base equivale a moltiplicare per una costante, il che non modifica l’ordine di complessità. Allo stesso modo, tutte le funzioni esponenziali appartengono allo stesso ordine indipendentemente dalla base. Dato che le funzioni esponenziali crescono molto velocemente, gli algoritmi esponenziali sono utili solo per problemi di piccole dimensioni.
+<a id="hevea_default1700"></a>
+<a id="hevea_default1701"></a></p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Leggete la pagina di Wikipedia sulla notazione O-grande: 
+</em><a href="http://it.wikipedia.org/wiki/O-grande"><em><span class="c003">http://it.wikipedia.org/wiki/O-grande</span></em></a><em> e rispondete alle seguenti domande:</em></p><ol class="enumerate" type=1><li class="li-enumerate">
+<em>Qual è l’ordine di complessità di </em><span class="c008">n</span><sup>3</sup> + <span class="c008">n</span><sup>2</sup><em>?
+E di </em>1000000 <span class="c008">n</span><sup>3</sup> + <span class="c008">n</span><sup>2</sup><em>?
+E di </em><span class="c008">n</span><sup>3</sup> + 1000000 <span class="c008">n</span><sup>2</sup><em>?</em></li><li class="li-enumerate"><em>Qual è l’ordine di complessità </em>(<span class="c008">n</span><sup>2</sup> + <span class="c008">n</span>) · (<span class="c008">n</span> + 1)<em>? Prima di iniziare a moltiplicare, ricordate che vi interessa solo l’operazione dominante.</em></li><li class="li-enumerate"><em>Se </em><span class="c008">f</span><em> appartiene a </em><span class="c008">O</span>(<span class="c008">g</span>)<em>, per una non specificata funzione </em><span class="c008">g</span><em>, cosa possiamo dire di </em><span class="c008">af</span>+<span class="c008">b</span><em>?</em></li><li class="li-enumerate"><em>Se </em><span class="c008">f</span><sub>1</sub><em> e </em><span class="c008">f</span><sub>2</sub><em> appartengono a </em><span class="c008">O</span>(<span class="c008">g</span>)<em>, cosa possiamo dire di </em><span class="c008">f</span><sub>1</sub> + <span class="c008">f</span><sub>2</sub><em>?</em></li><li class="li-enumerate"><em>Se </em><span class="c008">f</span><sub>1</sub><em> appartiene a </em><span class="c008">O</span>(<span class="c008">g</span>)<em>
+e </em><span class="c008">f</span><sub>2</sub><em> appartiene a </em><span class="c008">O</span>(<span class="c008">h</span>)<em>,
+cosa possiamo dire di </em><span class="c008">f</span><sub>1</sub> + <span class="c008">f</span><sub>2</sub><em>?</em></li><li class="li-enumerate"><em>Se </em><span class="c008">f</span><sub>1</sub><em> appartiene a </em><span class="c008">O</span>(<span class="c008">g</span>)<em> e </em><span class="c008">f</span><sub>2</sub><em> appartiene a </em><span class="c008">O</span>(<span class="c008">h</span>)<em>,
+cosa possiamo dire di </em><span class="c008">f</span><sub>1</sub> · <span class="c008">f</span><sub>2</sub><em>?
+</em></li></ol></div><p>I programmatori attenti alle prestazioni sono spesso critici su questo tipo di analisi. Ne hanno un motivo: a volte i coefficienti e i termini secondari fanno davvero differenza. E a volte i dettagli dell’hardware, del linguaggio di programmazione, e delle caratteristiche dell’input fanno una grande differenza. E per i piccoli problemi, l’analisi asintotica è irrilevante.</p><p>Ma tenute presenti queste avvertenze, l’analisi degli algoritmi è uno strumento utile. Almeno per i grandi problemi, l’algoritmo “migliore” è effettivamente migliore, e a volte <em>molto</em> migliore. La differenza tra due algoritmi dello stesso ordine di solito è un fattore costante, ma la differenza tra un buon algoritmo e uno cattivo è illimitata!</p>
+<h2 class="section" id="sec256">B.2  Analisi delle operazioni fondamentali di Python</h2>
+<p>In Python, molte operazioni aritmetiche sono a tempo costante: di solito la moltiplicazione impiega più tempo di addizione e sottrazione, e la divisione impiega ancora di più, ma i tempi di esecuzione sono indipendenti dalla grandezza degli operandi. Fanno eccezione gli interi molto grandi: in tal caso il tempo di elaborazione cresce al crescere del numero delle cifre.
+<a id="hevea_default1702"></a></p><p>Le operazioni di indicizzazione—lettura e scrittura di elementi di una sequenza o dizionario—sono anch’esse a tempo costante, indipendentemente dalle dimensioni della struttura di dati.
+<a id="hevea_default1703"></a></p><p>Un ciclo <span class="c003">for</span> che attraversa una sequenza o un dizionario è di solito lineare, a patto che tutte le operazioni nel corpo del ciclo siano a tempo costante. Per esempio, la sommatoria degli elementi di una lista è lineare:</p><pre class="verbatim">    totale = 0
+    for x in t:
+        totale += x
+</pre><p>La funzione predefinita <span class="c003">sum</span> è pure lineare, visto che fa la stessa cosa, ma tende ad essere più rapida perché è un’implementazione più efficiente: nel linguaggio dell’analisi degli algoritmi, ha un coefficiente dell’operazione dominante più piccolo.</p><p>Come regola di massima, se il corpo di un ciclo appartiene a <span class="c008">O</span>(<span class="c008">n</span><sup><span class="c008">a</span></sup>) allora il ciclo nel suo complesso appartiene a <span class="c008">O</span>(<span class="c008">n</span><sup><span class="c008">a</span>+1</sup>). Fa eccezione il caso in cui il ciclo esce dopo un numero di iterazioni costante. Se un ciclo viene eseguito per <span class="c008">k</span> volte indipendentemente da <span class="c008">n</span>, allora il ciclo appartiene a <span class="c008">O</span>(<span class="c008">n</span><sup><span class="c008">a</span></sup>), anche per grandi valori di <span class="c008">k</span>.</p><p>Moltiplicare per <span class="c008">k</span> non cambia l’ordine di complessità, ma nemmeno dividere. Pertanto se il corpo del ciclo appartiene <span class="c008">O</span>(<span class="c008">n</span><sup><span class="c008">a</span></sup>) e viene eseguito
+<span class="c008">n</span>/<span class="c008">k</span> volte, il ciclo appartiene a <span class="c008">O</span>(<span class="c008">n</span><sup><span class="c008">a</span>+1</sup>), anche per grandi valori di <span class="c008">k</span>.</p><p>La maggioranza delle operazioni su stringhe e tuple sono lineari, eccetto l’indicizzazione e <span class="c003">len</span>, che sono a tempo costante. Le funzioni predefinite <span class="c003">min</span> e <span class="c003">max</span> sono lineari. Il tempo di esecuzione dello slicing è proporzionale alla lunghezza del risultato, ma indipendente dalle dimensioni del dato di partenza.
+<a id="hevea_default1704"></a>
+<a id="hevea_default1705"></a></p><p>Il concatenamento di stringhe è lineare. Il tempo di esecuzione dipende dalla somma delle lunghezze degli operandi.
+<a id="hevea_default1706"></a></p><p>Tutti i metodi delle stringhe sono lineari, ma se le lunghezze delle stringhe sono limitate da una costante—ad esempio operazioni su singoli caratteri—sono considerati a tempo costante.
+Il metodo delle stringhe <span class="c003">join</span> è lineare, e il tempo di esecuzione dipende dalla lunghezza totale delle stringhe.
+<a id="hevea_default1707"></a></p><p>La maggior parte dei metodi delle liste sono lineari, con alcune eccezioni:
+<a id="hevea_default1708"></a></p><ul class="itemize"><li class="li-itemize">L’aggiunta di un elemento alla fine di una lista è mediamente a tempo costante; quando si supera lo spazio disponibile, occasionalmente la lista viene copiata in uno spazio più ampio, ma il tempo totale per <span class="c008">n</span> operazioni è <span class="c008">O</span>(<span class="c008">n</span>), quindi il tempo medio di ciascuna operazione è <span class="c008">O</span>(1).</li><li class="li-itemize">La rimozione di un elemento dalla fine della lista è a tempo costante.</li><li class="li-itemize">L’ordinamento appartiene a <span class="c008">O</span>(<span class="c008">n</span> log<span class="c008">n</span>).
+<a id="hevea_default1709"></a></li></ul><p>La maggior parte delle operazioni e dei metodi dei dizionari sono lineari, con alcune eccezioni:
+<a id="hevea_default1710"></a></p><ul class="itemize"><li class="li-itemize">Il tempo di esecuzione di <span class="c003">update</span> è proporzionale alle dimensioni del dizionario passato come parametro, non del dizionario che viene aggiornato.</li><li class="li-itemize"><span class="c003">keys</span>, <span class="c003">values</span> e <span class="c003">items</span> sono a tempo costante perché restituiscono iteratori. Ma se attraversate con un ciclo un iteratore, il ciclo sarà lineare.
+<a id="hevea_default1711"></a></li></ul><p>Le prestazioni dei dizionari sono uno dei piccoli miracoli dell’informatica. Vedremo come funzionano nel Paragrafo <a href="#hashtable">B.4</a>.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  <p><em>Leggete la pagina di Wikipedia sugli algoritmi di ordinamento:
+</em><a href="http://it.wikipedia.org/wiki/Algoritmo_di_ordinamento"><em><span class="c003">http://it.wikipedia.org/wiki/Algoritmo_di_ordinamento</span></em></a><em> e rispondete alle seguenti domande:
+</em><a id="hevea_default1712"></a></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Che cos’è un ordinamento per confronto (“comparison sort”)? Qual è l’ordine di complessità minimo, nel peggiore dei casi, per un ordinamento per confronto? Qual è l’ordine di complessità minimo, nel peggiore dei casi, per qualsiasi algoritmo di ordinamento?
+</em><a id="hevea_default1713"></a></li><li class="li-enumerate"><em>Qual è l’ordine di complessità dell’ordinamento a bolle (o bubblesort), e perché Barack Obama pensa che sia “il modo sbagliato di procedere”?</em></li><li class="li-enumerate"><em>Qual è l’ordine di complessità del radix sort? Quali precondizioni devono essere soddisfatte per poterlo usare?</em></li><li class="li-enumerate"><em>Che cos’è un ordinamento stabile (“stable sort”) e perché è interessante in pratica?
+</em><a id="hevea_default1714"></a></li><li class="li-enumerate"><em>Qual è il peggior algoritmo di ordinamento (tra quelli che hanno un nome)?</em></li><li class="li-enumerate"><em>Quale algoritmo di ordinamento usa la libreria C? Quale usa Python? Questi algoritmi sono stabili? Eventualmente fate alcune ricerche sul web per trovare le risposte.</em></li><li class="li-enumerate"><em>Molti degli ordinamenti che non operano per confronto sono lineari, allora perché Python usa un ordinamento per confronto di tipo </em><span class="c008">O</span>(<span class="c008">n</span> log<span class="c008">n</span>)<em> ?</em></li></ol></div>
+<h2 class="section" id="sec257">B.3  Analisi degli algoritmi di ricerca</h2>
+<p>Una <span class="c009">ricerca</span> è un algoritmo che, data una raccolta e un elemento, determina se l’elemento appartiene alla raccolta, restituendo di solito il suo indice.
+<a id="hevea_default1715"></a></p><p>Il più semplice algoritmo di ricerca è una “ricerca lineare”, che attraversa gli elementi della raccolta nel loro ordine, fermandosi se trova quello che cerca. Nel caso peggiore, dovrà attraversare tutta la raccolta, quindi il tempo di esecuzione è lineare.
+<a id="hevea_default1716"></a></p><p>L’operatore <span class="c003">in</span> delle sequenze usa una ricerca lineare, come pure i metodi delle stringhe <span class="c003">find</span> e <span class="c003">count</span>.
+<a id="hevea_default1717"></a></p><p>Se gli elementi della sequenza sono ordinati, potete usare una <span class="c009">ricerca binaria</span>, che appartiene a <span class="c008">O</span>(log<span class="c008">n</span>). È simile all’algoritmo che usate per cercare una voce quando consultate un vocabolario. Invece di partire dall’inizio e controllare ogni voce nell’ordine, cominciate con un elemento nel mezzo e controllate se quello che cercate viene prima o dopo. Se viene prima, cercate nella prima metà della sequenza, altrimenti nella seconda metà. In ogni caso, dimezzate il numero di elementi rimanenti.
+<a id="hevea_default1718"></a></p><p>Se una sequenza ha 1.000.000 di elementi, ci vorranno al massimo una ventina di passaggi per trovare la parola o concludere che non esiste. Quindi è circa 50.000 volte più veloce di una ricerca lineare.</p><p>La ricerca binaria può essere molto più veloce di quella lineare, ma richiede che la sequenza sia ordinata, il che può comportare del lavoro supplementare.</p><p>Esiste un’altra struttura di dati, chiamata <span class="c009">tabella hash</span>, che è ancora più veloce—è in grado di effettuare una ricerca a tempo costante—e non richiede che gli elementi siano ordinati. I dizionari di Python sono implementati usando tabelle hash, e questo è il motivo per cui la maggior parte delle operazioni sui dizionari, incluso l’operatore <span class="c003">in</span>, sono a tempo costante.</p>
+<h2 class="section" id="sec258">B.4  Tabelle hash</h2>
+<p>
+<a id="hashtable"></a></p><p>Per spiegare come funzionano le tabelle hash e perché le loro prestazioni sono così buone, inizierò con un’implementazione semplice di una mappatura e la migliorerò gradualmente fino a farla diventare una tabella hash.
+<a id="hevea_default1719"></a></p><p>Per illustrare questa implementazione userò Python, ma in pratica non scriverete mai codice del genere in Python: userete semplicemente un dizionario! Pertanto, per il resto di questo capitolo immaginate che i dizionari non esistano, e di voler implementare una struttura di dati che fa corrispondere delle chiavi a dei valori. Le operazioni che bisogna implementare sono:</p><dl class="description"><dt class="dt-description"><span class="c009"><span class="c003">add(k, v)</span>:</span></dt><dd class="dd-description"> Aggiunge un nuovo elemento che fa corrispondere la chiave <span class="c003">k</span> al valore <span class="c003">v</span>. Con un dizionario Python, <span class="c003">d</span>, questa operazione si scrive <span class="c003">d[k] = v</span>.</dd><dt class="dt-description"><span class="c009"><span class="c003">get(k)</span>:</span></dt><dd class="dd-description"> Cerca e restituisce il valore corrispondente alla chiave <span class="c003">k</span>. Con un dizionario Python, <span class="c003">d</span>, questa operazione si scrive <span class="c003">d[k]</span> oppure <span class="c003">d.get(k)</span>.</dd></dl><p>Per ora, supponiamo che ogni chiave compaia solo una volta. L’implementazione più semplice di questa interfaccia usa una lista di tuple, dove ogni tupla è una coppia chiave-valore.
+<a id="hevea_default1720"></a></p><pre class="verbatim">class MappaLineare:
+
+    def __init__(self):
+        self.items = []
+
+    def add(self, k, v):
+        self.items.append((k, v))
+
+    def get(self, k):
+        for chiave, valore in self.items:
+            if chiave == k:
+                return valore
+        raise KeyError
+</pre><p><span class="c003">add</span> accoda una tupla chiave-valore alla lista di elementi, operazione che è a tempo costante.</p><p><span class="c003">get</span> usa un ciclo <span class="c003">for</span> per ricercare nella lista: se trova la chiave target restituisce il corrispondente valore, altrimenti solleva un <span class="c003">KeyError</span>. Quindi <span class="c003">get</span> è lineare.
+<a id="hevea_default1721"></a></p><p>Un’alternativa è mantenere la lista ordinata per chiavi. Allora, <span class="c003">get</span>
+potrebbe usare una ricerca binaria, che appartiene a <span class="c008">O</span>(log<span class="c008">n</span>). Ma l’inserimento di un nuovo elemento in mezzo a una lista è lineare, quindi questa potrebbe non essere l’opzione migliore. Esistono altre strutture di dati in grado di implementare <span class="c003">add</span> e <span class="c003">get</span> in tempo logaritmico, ma non va ancora così bene come il tempo costante, quindi andiamo avanti.</p><p><a id="hevea_default1722"></a></p><p>Un modo di migliorare <span class="c003">MappaLineare</span> è di spezzare la lista di coppie chiave-valore in liste più piccole. Ecco un’implementazione chiamata
+<span class="c003">MappaMigliore</span>, che è una lista di 100 MappeLineari. Vedremo in un istante che l’ordine di complessità di <span class="c003">get</span> è sempre lineare, ma <span class="c003">MappaMigliore</span> è un passo in direzione delle tabelle hash:
+<a id="hevea_default1723"></a></p><pre class="verbatim">class MappaMigliore:
+
+    def __init__(self, n=100):
+        self.maps = []
+        for i in range(n):
+            self.maps.append(MappaLineare())
+
+    def trova_mappa(self, k):
+        indice = hash(k) % len(self.maps)
+        return self.maps[indice]
+
+    def add(self, k, v):
+        m = self.trova_mappa(k)
+        m.add(k, v)
+
+    def get(self, k):
+        m = self.trova_mappa(k)
+        return m.get(k)
+</pre><p><code>__init__</code> crea una lista di <span class="c003">n</span> <span class="c003">MappeLineari</span>.</p><p><code>trova_mappa</code> è usata da
+<span class="c003">add</span> e <span class="c003">get</span> per capire in quale mappatura inserire il nuovo elemento o in quale mappatura ricercare.</p><p><code>trova_mappa</code> usa la funzione predefinita <span class="c003">hash</span>, che accetta pressoché qualunque oggetto Python e restituisce un intero. Un limite di questa implementazione è che funziona solo con chiavi a cui è applicabile un hash, e i tipi mutabili come liste e dizionari non lo sono.
+<a id="hevea_default1724"></a></p><p>Gli oggetti hash-abili che vengono considerati equivalenti restituiscono lo stesso valore hash, ma l’inverso non è necessariamente vero: due oggetti con valori diversi possono restituire lo stesso valore hash.</p><p><code>trova_mappa</code> usa l’operatore modulo per inglobare i valori hash nell’intervallo da 0 a <span class="c003">len(self.maps)</span>, in modo che il risultato sia un indice valido per la lista. Naturalmente, ciò significa che molti valori hash diversi saranno inglobati nello stesso indice. Ma se la funzione hash distribuisce le cose abbastanza uniformemente (che è quello per cui le funzioni hash sono progettate), possiamo attenderci <span class="c008">n</span>/100 elementi per MappaLineare.</p><p>Siccome il tempo di esecuzione di <span class="c003">MappaLineare.get</span> è proporzionale al numero di elementi, possiamo attenderci che MappaMigliore sia circa 100 volte più veloce di MappaLineare. L’ordine di complessità è sempre lineare, ma il coefficiente dell’operazione dominante è più piccolo. Risultato discreto, ma non ancora come una tabella hash.</p><p>Ed ecco (finalmente) il punto cruciale che rende veloci le tabelle hash: se riuscite a mantenere limitata la lunghezza massima delle MappeLineari, <span class="c003">MappaLineare.get</span> diventa a tempo costante. Quello che bisogna fare è tenere conto del numero di elementi, e quando questo numero per MappaLineare eccede una soglia, ridimensionare la tabella hash aggiungendo altre MappeLineari.</p><p>Ecco un’implementazione di una tabella hash:
+<a id="hevea_default1725"></a></p><pre class="verbatim">class MappaHash:
+
+    def __init__(self):
+        self.maps = MappaMigliore(2)
+        self.num = 0
+
+    def get(self, k):
+        return self.maps.get(k)
+
+    def add(self, k, v):
+        if self.num == len(self.maps.maps):
+            self.resize()
+
+        self.maps.add(k, v)
+        self.num += 1
+
+    def ridimensiona(self):
+        new_maps = MappaMigliore(self.num * 2)
+
+        for m in self.maps.maps:
+            for k, v in m.items:
+                new_maps.add(k, v)
+
+        self.maps = new_maps
+</pre><p>Ogni <span class="c003">MappaHash</span> contiene una <span class="c003">MappaMigliore</span>; <code>__init__</code> comincia con sole 2 MappeLineari e inizializza <span class="c003">num</span>, che tiene il conto del numero di elementi.</p><p><span class="c003">get</span> rinvia semplicemente a <span class="c003">MappaMigliore</span>. Il lavoro vero si svolge in <span class="c003">add</span>, che controlla il numero di elementi e le dimensioni di
+<span class="c003">MappaMigliore</span>: se sono uguali, il numero medio di elementi per MappaLineare è 1, quindi chiama <span class="c003">ridimensiona</span>.</p><p><span class="c003">ridimensiona</span> crea una nuova <span class="c003">MappaMigliore</span>, di capienza doppia della precedente, e ricalcola l’hash degli elementi dalla vecchia mappatura alla nuova.</p><p>Il ricalcolo è necessario perché cambiare il numero di MappeLineari cambia il denominatore dell’operatore modulo in <code>trova_mappa</code>. Ciò significa che alcuni oggetti che erano hashati nella stessa MappaLineare saranno separati (che era quello che volevamo, no?).
+<a id="hevea_default1726"></a></p><p>Il ricalcolo dell’hash è lineare, quindi <span class="c003">ridimensiona</span> è lineare, il che può sembrare negativo dato che mi ripromettevo che <span class="c003">add</span> diventasse a tempo costante. Ma ricordate che non dobbiamo ridimensionare ogni volta, quindi <span class="c003">add</span> è di norma costante e solo qualche volta lineare. Il lavoro complessivo per eseguire <span class="c003">add</span> <span class="c008">n</span> volte è proporzionale a <span class="c008">n</span>, quindi il tempo medio di ogni <span class="c003">add</span> è costante!
+<a id="hevea_default1727"></a></p><p>Per capire come funziona, supponiamo di iniziare con una tabella hash vuota e aggiungere una sequenza di elementi. Iniziamo con 2 MappeLineari, quindi le prime 2 aggiunte saranno veloci (nessun ridimensionamento richiesto). Diciamo che richiedono una unità lavoro ciascuna. L’aggiunta successiva richiede il ridimensionamento, e dobbiamo ricalcolare l’hash dei primi due elementi (diciamo 2 unità lavoro in più), quindi aggiungere il terzo elemento (1 altra unità). Aggiungere l’elemento successivo costa 1 unità, e in totale fanno 6 unità lavoro per 4 elementi.</p><p>Il successivo <span class="c003">add</span> costa 5 unità, ma i tre successivi solo 1 unità ciascuno, in totale 14 unità per 8 aggiunte.</p><p>L’aggiunta successiva costa 9 unità, ma poi possiamo aggiungerne altre 7 prima del ridimensionamento successivo, per un totale di 30 unità lavoro per le prime 16 aggiunte.</p><p>Dopo 32 aggiunte, il costo totale è 62 unità, e spero stiate cominciando ad avere chiaro lo schema. Dopo <span class="c008">n</span> aggiunte, con <span class="c008">n</span> potenza di 2, il costo totale è 2<span class="c008">n</span>−2 unità, per cui il lavoro medio per aggiunta è poco meno di 2 unità. Con <span class="c008">n</span> potenza di 2 si ha il caso migliore; per altri valori di <span class="c008">n</span> il lavoro medio è leggermente più alto, ma non in modo importante. La cosa importante è che sia
+<span class="c008">O</span>(1).
+<a id="hevea_default1728"></a></p><p>La Figura <a href="#fig.hash">B.1</a> illustra graficamente il funzionamento. Ogni quadrato è una unità di lavoro. Le colonne mostrano il lavoro totale per ogni aggiunta nell’ordine da sinistra verso destra: le prime due aggiunte costano 1 unità, la terza 3, ecc.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian026.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure B.1: Costo delle aggiunte a una Tabella Hash.<a id="fig.hash"></a></td></tr>
+</table></div>
+<div class="center"><hr class="c019"></div></blockquote><p>Il lavoro supplementare di ricalcolo appare come una sequenza di torri sempre più alte e con spazi sempre più ampi tra due torri successive. Ora, se abbattete le torri, spalmando il costo del ridimensionamento su tutte le aggiunte, potete vedere graficamente che il costo del lavoro totale dopo <span class="c008">n</span> aggiunte è 2<span class="c008">n</span> − 2.</p><p>Una caratteristica importante di questo algoritmo è che quando ridimensioniamo la tabella hash, cresce geometricamente, cioè moltiplichiamo la dimensione per una costante. Se incrementaste le dimensioni aritmeticamente, aggiungendo ogni volta un numero fisso, il tempo medio per aggiunta sarebbe lineare.
+<a id="hevea_default1729"></a></p><p>Potete scaricare la mia implementazione di MappaHash da
+<a href="http://thinkpython2/code/Map.py"><span class="c003">http://thinkpython2/code/Map.py</span></a>, ma ricordate che non c’è alcuna buona ragione per usarla. Piuttosto, se dovete fare una mappatura, usate un dizionario di Python.</p>
+<h2 class="section" id="sec259">B.5  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">analisi degli algoritmi:</span></dt><dd class="dd-description"> Un modo di confrontare gli algoritmi in termini di tempo di esecuzione e/o requisiti di memoria.
+<a id="hevea_default1730"></a></dd><dt class="dt-description"><span class="c009">modello di macchina:</span></dt><dd class="dd-description"> Rappresentazione semplificata di un computer usato per analizzare il comportamento degli algoritmi.
+<a id="hevea_default1731"></a></dd><dt class="dt-description"><span class="c009">caso peggiore:</span></dt><dd class="dd-description"> L’input che, con riferimento ad un algoritmo, lo rende più lento nell’esecuzione o richiede più spazio di memoria.
+<a id="hevea_default1732"></a></dd><dt class="dt-description"><span class="c009">operazione dominante:</span></dt><dd class="dd-description"> In un polinomio, il termine con il più alto esponente.
+<a id="hevea_default1733"></a></dd><dt class="dt-description"><span class="c009">punto di intersezione:</span></dt><dd class="dd-description"> La dimensione del problema per cui due diversi algoritmi richiedono lo stesso tempo di esecuzione o lo stesso spazio di memoria.
+<a id="hevea_default1734"></a></dd><dt class="dt-description"><span class="c009">ordine di complessità:</span></dt><dd class="dd-description"> Insieme di funzioni che, per gli scopi dell’analisi degli algoritmi, crescono in maniera equivalente. Per esempio, tutte le funzioni con incremento lineare appartengono allo stesso ordine di complessità.
+<a id="hevea_default1735"></a></dd><dt class="dt-description"><span class="c009">Notazione O-grande:</span></dt><dd class="dd-description"> Notazione per rappresentare l’ordine di complessità;
+ad esempio, <span class="c008">O</span>(<span class="c008">n</span>) rappresenta l’insieme delle funzioni con incremento lineare.
+<a id="hevea_default1736"></a></dd><dt class="dt-description"><span class="c009">lineare:</span></dt><dd class="dd-description"> Un algoritmo il cui tempo di esecuzione è proporzionale alle dimensioni del problema, almeno per i problemi di grandi dimensioni.
+<a id="hevea_default1737"></a></dd><dt class="dt-description"><span class="c009">quadratico:</span></dt><dd class="dd-description"> Un algoritmo il cui tempo di esecuzione è proporzionale a
+<span class="c008">n</span><sup>2</sup>, dove <span class="c008">n</span> è una misura delle dimensioni del problema.
+<a id="hevea_default1738"></a></dd><dt class="dt-description"><span class="c009">ricerca:</span></dt><dd class="dd-description"> Il problema di rintracciare un elemento in un insieme (come una lista o un dizionario) oppure stabilire che non è presente.
+<a id="hevea_default1739"></a></dd><dt class="dt-description"><span class="c009">tabella hash:</span></dt><dd class="dd-description"> Struttura di dati che rappresenta una raccolta di coppie chiave-valore e ne esegue la ricerca a tempo costante.
+<a id="hevea_default1740"></a></dd></dl><hr class="footnoterule"><dl class="thefootnotes"><dt class="dt-thefootnotes">
+<a id="note2" href="#text2">1</a></dt><dd class="dd-thefootnotes"><div class="footnotetext">Ma se vi capita una domanda come questa in un’intervista, ritengo che una risposta migliore sarebbe: “Il modo più rapido di ordinare un milione di interi è usare una qualsiasi funzione di ordinamento di cui dispone il linguaggio di programmazione che uso. Il suo rendimento sarà abbastanza buono per la maggior parte delle applicazioni, ma se proprio capitasse che la mia fosse troppo lenta, userei un profiler per controllare dove viene impiegato il tempo. Se risultasse che un algoritmo di ordinamento più rapido avrebbe un impatto significativo sulle prestazioni, cercherei una buona implementazione del radix sort”.</div></dd></dl>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian021.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian023.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

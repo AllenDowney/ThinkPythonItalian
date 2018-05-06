@@ -1,0 +1,49 @@
+.c000{border-spacing:0;}
+.c001{border-spacing:6px;border-collapse:separate;}
+.c002{border:0;border-spacing:1;border-collapse:separate;}
+.c003{font-family:monospace}
+.c004{font-family:monospace;font-weight:bold}
+.c005{font-family:sans-serif}
+.c006{font-size:small}
+.c007{font-size:x-large}
+.c008{font-style:italic}
+.c009{font-weight:bold}
+.c010{text-align:center}
+.c011{text-align:center;white-space:nowrap}
+.c012{text-align:left;white-space:nowrap}
+.c013{text-align:right;border:solid 1px;white-space:nowrap}
+.c014{text-align:right;white-space:nowrap}
+.c015{text-decoration:overline}
+.c016{vertical-align:middle}
+.c017{vertical-align:top;text-align:left;}
+.c018{width:120px;height:240px;}
+.c019{width:80%;height:2}
+.li-itemize{margin:1ex 0ex;}
+.li-enumerate{margin:1ex 0ex;}
+.dd-description{margin:0ex 0ex 1ex 4ex;}
+.dt-description{margin:0ex;}
+.footnotetext{margin:0ex; padding:0ex;}
+div.footnotetext P{margin:0px; text-indent:1em;}
+.thefootnotes{text-align:left;margin:0ex;}
+.dt-thefootnotes{margin:0em;}
+.dd-thefootnotes{margin:0em 0em 0em 2em;}
+.footnoterule{margin:1em auto 1em 0px;width:50%;}
+.caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+div table{margin-left:inherit;margin-right:inherit;margin-bottom:2px;margin-top:2px}
+td table{margin:auto;}
+table{border-collapse:collapse;}
+td{padding:0;}
+.cellpadding0 tr td{padding:0;}
+.cellpadding1 tr td{padding:1px;}
+pre{text-align:left;margin-left:0ex;margin-right:auto;}
+blockquote{margin-left:4ex;margin-right:4ex;text-align:left;}
+td p{margin:0px;}
+.hbar{border:none;height:2px;width:100%;background-color:black;}
+.display{border-collapse:separate;border-spacing:2px;width:auto; border:none;}
+.dcell{white-space:nowrap;padding:0px; border:none;}
+.dcenter{margin:0ex auto;}
+.theorem{text-align:left;margin:1ex auto 1ex 0ex;}
+a:link{color:black;}
+p+p{margin-top:1em;margin-bottom:1em}
+img{border:0px}

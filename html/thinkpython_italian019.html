@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Ereditarietà</title>
+</head>
+<body>
+<a href="thinkpython_italian018.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian020.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec212">Chapter 18  Ereditarietà</h1>
+<p>La caratteristica più frequentemente associata alla programmazione orientata agli oggetti è l’<span class="c009">ereditarietà</span>, che è la capacità di definire una nuova classe come versione modificata di una classe già esistente.
+In questo capitolo illustrerò l’ereditarietà usando delle classi che rappresentano carte da gioco, mazzi di carte e mani di poker. </p><p>Se non giocate a poker, potete leggere qualcosa in proposito sul sito <a href="http://it.wikipedia.org/wiki/Poker"><span class="c003">http://it.wikipedia.org/wiki/Poker</span></a>, ma non è un obbligo: vi spiegherò quello che serve.
+<a id="hevea_default1438"></a>
+<a id="hevea_default1439"></a>
+<a id="hevea_default1440"></a></p><p>Il codice degli esempi di questo capitolo è scaricabile da
+<a href="http://thinkpython2.com/code/Card.py"><span class="c003">http://thinkpython2.com/code/Card.py</span></a>.</p>
+<h2 class="section" id="sec213">18.1  Oggetti Carta</h2>
+<p>In un mazzo ci sono 52 carte, e ciascuna appartiene a uno tra quattro semi e a uno tra tredici valori. I semi sono Picche, Cuori, Quadri e Fiori (in ordine decrescente nel gioco del bridge). I valori sono Asso, 2, 3, 4, 5, 6, 7, 8, 9, 10, Fante, Regina e Re. A seconda del gioco, l’Asso può essere superiore al Re o inferiore al 2.
+<a id="hevea_default1441"></a>
+<a id="hevea_default1442"></a></p><p>Se vogliamo definire un nuovo oggetto che rappresenti una carta da gioco, è evidente quali attributi dovrebbe avere: <span class="c003">valore</span> e
+<span class="c003">seme</span>. È meno evidente stabilire di che tipo devono essere questi attributi. Una possibilità è usare stringhe contenenti parole come
+<code>'Picche'</code> per i semi e <code>'Regina'</code> per i valori. Ma un problema di questa implementazione è che non è facile confrontare le carte per vedere quale abbia un seme o un valore superiore.
+<a id="hevea_default1443"></a>
+<a id="hevea_default1444"></a>
+<a id="hevea_default1445"></a>
+<a id="hevea_default1446"></a></p><p>Un’alternativa è usare degli interi per <span class="c009">codificare</span> valori e semi.
+In questo contesto, “codificare” significa determinare una corrispondenza tra numeri e semi o numeri e valori. Non significa che debba essere un segreto (quello è “criptare”).</p><p>Per esempio, questa tabella mostra i semi e i corrispondenti codici interi:</p><table class="c001 cellpading0"><tr><td class="c012">Picche</td><td class="c011">↦</td><td class="c012">3 </td></tr>
+<tr><td class="c012">Cuori</td><td class="c011">↦</td><td class="c012">2 </td></tr>
+<tr><td class="c012">Quadri</td><td class="c011">↦</td><td class="c012">1 </td></tr>
+<tr><td class="c012">Fiori</td><td class="c011">↦</td><td class="c012">0
+</td></tr>
+</table><p>In questo modo, diventa facile confrontare le carte: siccome ai semi più alti corrispondono numeri più alti, si possono confrontare i semi confrontando i loro codici corrispondenti.</p><p>Nel caso dei valori, la corrispondenza è abbastanza immediata: ogni valore numerico corrisponde al rispettivo intero, mentre per le figure:</p><table class="c001 cellpading0"><tr><td class="c012">Fante</td><td class="c011">↦</td><td class="c012">11 </td></tr>
+<tr><td class="c012">Regina</td><td class="c011">↦</td><td class="c012">12 </td></tr>
+<tr><td class="c012">Re</td><td class="c011">↦</td><td class="c012">13 </td></tr>
+</table><p>Uso il simbolo ↦ per chiarire che queste corrispondenze non fanno parte del programma Python. Fanno parte del progetto del programma, ma non compaiono esplicitamente nel codice.
+<a id="hevea_default1447"></a>
+<a id="hevea_default1448"></a></p><p>Ecco come si può presentare la definizione di classe per <span class="c003">Carta</span>:</p><pre class="verbatim">class Carta:
+    """Rappresenta una carta da gioco standard."""
+
+    def __init__(self, seme=0, valore=2):
+        self.seme = seme
+        self.valore = valore
+</pre><p>
+Come al solito, il metodo init prevede un parametro opzionale per ciascun attributo. La carta di default è il 2 di fiori.
+<a id="hevea_default1449"></a>
+<a id="hevea_default1450"></a></p><p>Per creare una carta, si chiama la classe <span class="c003">Carta</span> con il seme e il valore desiderati.</p><pre class="verbatim">regina_di_quadri = Carta(1, 12)
+</pre>
+<h2 class="section" id="sec214">18.2  Attributi di classe</h2>
+<p>
+<a id="class.attribute"></a>
+<a id="hevea_default1451"></a>
+<a id="hevea_default1452"></a></p><p>Per stampare gli oggetti Carta in un modo comprensibile agli utenti, occorre stabilire una corrispondenza dai codici interi ai relativi semi e valori. Un modo naturale per farlo è usare delle liste di stringhe, che assegneremo a degli <span class="c009">attributi di classe</span>:</p><pre class="verbatim"># all'interno della classe Carta:
+
+    nomi_semi = ['Fiori', 'Quadri', 'Cuori', 'Picche']
+    nomi_valori = [None, 'Asso', '2', '3', '4', '5', '6', '7', 
+              '8', '9', '10', 'Fante', 'Regina', 'Re']
+
+    def __str__(self):
+        return '%s di %s' % (Carta.nomi_valori[self.valore],
+                             Carta.nomi_semi[self.seme])
+</pre><p>
+Variabili come <code>nomi_semi</code> e <code>nomi_valori</code>, che sono definite dentro la classe ma esternamente a ogni metodo, sono chiamate attributi di classe perché sono associati all’oggetto classe <span class="c003">Carta</span>.
+<a id="hevea_default1453"></a>
+<a id="hevea_default1454"></a></p><p>Questo termine li distingue da variabili come <span class="c003">seme</span> e <span class="c003">valore</span>, che sono chiamati <span class="c009">attributi di istanza</span> perché sono associati ad una specifica istanza.
+<a id="hevea_default1455"></a></p><p>Ad entrambi i tipi si accede usando la notazione a punto. Per esempio in <code>__str__</code>, <span class="c003">self</span> è un oggetto carta e <span class="c003">self.valore</span> è il suo valore. Allo stesso modo, <span class="c003">Carta</span> è un oggetto classe, e <code>Carta.nomi_valori</code> è una lista di stringhe associata alla classe.</p><p>Ogni carta ha i suoi propri <span class="c003">seme</span> e <span class="c003">valore</span>, ma esiste una sola copia di <code>nomi_semi</code> e <code>nomi_valori</code>.</p><p>Mettendo insieme il tutto, l’espressione
+<code>Carta.nomi_valori[self.valore]</code> significa “usa l’attributo <span class="c003">valore</span> dell’oggetto <span class="c003">self</span> come indice nella lista <code>nomi_valori</code>
+dalla classe <span class="c003">Carta</span>, e seleziona la stringa corrispondente.”</p><p>Il primo elemento della lista <code>nomi_valori</code> è <span class="c003">None</span> perché non esiste una carta di valore zero. Includendo <span class="c003">None</span> come segnaposto, otteniamo una corrispondenza corretta per cui all’indice 2 corrisponde la stringa <code>'2'</code>, e così via. Per evitare questo trucco, avremmo potuto usare un dizionario al posto di una lista.</p><p>Con i metodi che abbiamo visto fin qui, possiamo creare e stampare i nomi delle carte:</p><pre class="verbatim">&gt;&gt;&gt; carta1 = Carta(2, 11)
+&gt;&gt;&gt; print(carta1)
+Fante di Cuori
+</pre><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian024.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 18.1: Diagramma di oggetto.</td></tr>
+</table></div>
+<a id="fig.card1"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>La Figura <a href="#fig.card1">18.1</a> è un diagramma dell’oggetto classe <span class="c003">Carta</span> e di una Carta, sua istanza.
+<span class="c003">Carta</span> è un oggetto classe, quindi è di tipo <span class="c003">type</span>. <span class="c003">carta1</span> invece è di tipo <span class="c003">Carta</span>. (Per motivi di spazio ho omesso i contenuti di <code>nomi_semi</code> e <code>nomi_valori</code>).
+<a id="hevea_default1456"></a>
+<a id="hevea_default1457"></a></p>
+<h2 class="section" id="sec215">18.3  Confrontare le carte</h2>
+<p>
+<a id="comparecard"></a>
+<a id="hevea_default1458"></a></p><p>Per i tipi predefiniti, esistono gli operatori relazionali
+(<span class="c003">&lt;</span>, <span class="c003">&gt;</span>, <span class="c003">==</span>, etc.)
+che permettono di confrontare i valori e determinare quale è maggiore, minore o uguale a un altro. Per i tipi personalizzati, possiamo sovrascrivere il comportamento degli operatori predefiniti grazie a un metodo speciale chiamato
+<code>__lt__</code>, che sta per “<em>less than</em>”. 
+<a id="hevea_default1459"></a></p><p><code>__lt__</code> richiede due parametri, <span class="c003">self</span> e <span class="c003">other</span>,
+e restituisce <span class="c003">True</span> se <span class="c003">self</span> è minore di <span class="c003">other</span>.
+<a id="hevea_default1460"></a>
+<a id="hevea_default1461"></a></p><p>L’ordinamento corretto delle carte da gioco non è immediato. Per esempio, tra il 3 di Fiori e il 2 di Quadri, quale è più grande? Una carta ha un valore maggiore, ma l’altra ha un seme superiore. Per confrontare le carte, bisogna prima stabilire se è più importante il seme oppure il valore.</p><p>La risposta dipenderà dalle regole del gioco a cui stiamo giocando, ma per semplificare supponiamo che sia più importante il seme, per cui le carte di Picche sovrastano tutte quelle di Quadri, e così via.
+<a id="hevea_default1462"></a>
+<a id="hevea_default1463"></a></p><p>Deciso questo, possiamo scrivere <code>__lt__</code>:</p><pre class="verbatim"># all'interno della classe Carta:
+
+    def __lt__(self, other):
+        # controlla i semi
+        if self.seme &lt; other.seme: return True
+        if self.seme &gt; other.seme: return False
+
+        # semi uguali... controlla i valori
+        return self.valore &lt; other.valore
+
+</pre><p>
+Potete scriverlo anche in modo più compatto, usando un confronto di tuple:
+<a id="hevea_default1464"></a>
+<a id="hevea_default1465"></a></p><pre class="verbatim"># all'interno della classe Carta:
+
+    def __lt__(self, other):
+        t1 = self.seme, self.valore
+        t2 = other.seme, other.valore
+        return t1 &lt; t2
+</pre><p>Come esercizio, scrivete un metodo <code>__lt__</code> per gli oggetti Tempo. Potete usare un confronto di tuple, ma anche prendere in considerazione di confrontare degli interi.</p>
+<h2 class="section" id="sec216">18.4  Mazzi di carte</h2>
+<p>
+<a id="hevea_default1466"></a>
+<a id="hevea_default1467"></a></p><p>Ora che abbiamo le carte, il prossimo passo è definire i Mazzi. Dato che un mazzo è composto di carte, è ovvio che ogni Mazzo contenga una lista di carte come attributo.
+<a id="hevea_default1468"></a>
+<a id="hevea_default1469"></a></p><p>Quella che segue è una definizione di classe di <span class="c003">Mazzo</span>. Il metodo init crea l’attributo <span class="c003">carte</span> e genera l’insieme standard di 52 carte:
+<a id="hevea_default1470"></a>
+<a id="hevea_default1471"></a>
+<a id="hevea_default1472"></a>
+<a id="hevea_default1473"></a></p><pre class="verbatim">class Mazzo:
+
+    def __init__(self):
+        self.carte = []
+        for seme in range(4):
+            for valore in range(1, 14):
+                carta = Carta(seme, valore)
+                self.carte.append(carta)
+</pre><p>
+Il modo più facile di popolare il mazzo è quello di usare un ciclo nidificato. Il ciclo più esterno enumera i semi da 0 a 3; quello interno enumera i valori da 1 a 13. Ogni iterazione crea una nuova carta del seme e valore correnti e la accoda nella lista <span class="c003">self.carte</span>.
+<a id="hevea_default1474"></a>
+<a id="hevea_default1475"></a></p>
+<h2 class="section" id="sec217">18.5  Stampare il mazzo</h2>
+<p>
+<a id="printdeck"></a>
+<a id="hevea_default1476"></a>
+<a id="hevea_default1477"></a></p><p>Ecco un metodo <code>__str__</code> per <span class="c003">Mazzo</span>:</p><pre class="verbatim">#all'interno della classe Mazzo:
+
+    def __str__(self):
+        res = []
+        for carta in self.carte:
+            res.append(str(carta))
+        return '\n'.join(res)
+</pre><p>
+Questo metodo illustra un modo efficiente di accumulare una stringa lunga: costruire una lista di stringhe e poi usare il metodo delle stringhe <span class="c003">join</span>.
+La funzione predefinita <span class="c003">str</span> invoca il metodo <code>__str__</code>
+su ciascuna carta e restituisce la rappresentazione della stringa.
+<a id="hevea_default1478"></a>
+<a id="hevea_default1479"></a>
+<a id="hevea_default1480"></a>
+<a id="hevea_default1481"></a>
+<a id="hevea_default1482"></a></p><p>Dato che invochiamo <span class="c003">join</span> su un carattere di ritorno a capo, le carte sono stampate su righe separate. Ed ecco quello che risulta:</p><pre class="verbatim">&gt;&gt;&gt; mazzo = Mazzo()
+&gt;&gt;&gt; print(mazzo)
+Asso di Fiori
+2 di Fiori
+3 di Fiori
+...
+10 di Picche
+Fante di Picche
+Regina di Picche
+Re di Picche
+</pre><p>
+Anche se il risultato viene visualizzato su 52 righe, si tratta di un’unica lunga stringa che contiene caratteri di ritorno a capo.</p>
+<h2 class="section" id="sec218">18.6  Aggiungere, togliere, mescolare e ordinare</h2>
+<p>Per distribuire le carte, ci serve un metodo che tolga una carta dal mazzo e la restituisca. Il metodo delle liste <span class="c003">pop</span> è adatto allo scopo:
+<a id="hevea_default1483"></a>
+<a id="hevea_default1484"></a></p><pre class="verbatim">#all'interno della classe Mazzo:
+
+    def togli_carta(self):
+        return self.carte.pop()
+</pre><p>
+Siccome <span class="c003">pop</span> rimuove <em>l’ultima</em> carta della lista, è come se distribuissimo le carte dal fondo del mazzo.
+<a id="hevea_default1485"></a>
+<a id="hevea_default1486"></a></p><p>Per aggiungere una carta, usiamo il metodo delle liste <span class="c003">append</span>:</p><pre class="verbatim">#all'interno della classe Mazzo:
+
+    def aggiungi_carta(self, carta):
+        self.carte.append(carta)
+</pre><p>
+Un metodo come questo, che usa in realtà un altro metodo senza fare molto di più, da alcuni viene chiamato <span class="c009">impiallacciatura</span>. Questa metafora deriva dall’industria del legno: l’impiallaciatura consiste nell’incollare un sottile strato di legno di buona qualità sulla superficie di un pannello economico, per migliorarne l’aspetto.
+<a id="hevea_default1487"></a></p><p>In questo caso, <code>aggiungi_carta</code> è un metodo “sottile” che esprime un’operazione su una lista, in una forma appropriata per i mazzi di carte. Esso migliora l’aspetto, ovvero l’interfaccia, dell’implementazione.</p><p>Per fare un altro esempio, scriviamo anche un metodo per un Mazzo di nome <span class="c003">mescola</span>, usando la funzione <span class="c003">shuffle</span> contenuta nel modulo <span class="c003">random</span>:
+<a id="hevea_default1488"></a>
+<a id="hevea_default1489"></a>
+<a id="hevea_default1490"></a>
+<a id="hevea_default1491"></a></p><pre class="verbatim"># all'interno della classe Mazzo:
+            
+    def mescola(self):
+        random.shuffle(self.carte)
+</pre><p>
+Non scordate di importare <span class="c003">random</span>.</p><p>Come esercizio, scrivete un metodo per Mazzo di nome <span class="c003">ordina</span> che usi il metodo delle liste <span class="c003">sort</span> per ordinare le carte in un <span class="c003">Mazzo</span>. Per determinare il criterio di ordinamento, <span class="c003">sort</span> utilizza il metodo <code>__lt__</code> che abbiamo definito.
+<a id="hevea_default1492"></a> <a id="hevea_default1493"></a></p>
+<h2 class="section" id="sec219">18.7  Ereditarietà</h2>
+<p>
+<a id="hevea_default1494"></a>
+<a id="hevea_default1495"></a></p><p>L’ereditarietà è la capacità di definire una nuova classe come versione modificata di una classe già esistente.</p><p>Come esempio, supponiamo di voler creare una classe che rappresenti una “mano” di carte, vale a dire un gruppo di carte distribuite a un giocatore. Una mano è simile a un mazzo: entrambi sono fatti di carte, ed entrambi richiedono operazioni come l’aggiunta e la rimozione di carte.</p><p>D’altra parte, ci sono altre operazioni che servono per la mano ma che non hanno senso per il mazzo. Nel poker, ad esempio, dobbiamo confrontare due mani per vedere quale vince. Nel bridge, è utile calcolare il punteggio della mano per decidere la dichiarazione.</p><p>Questo tipo di relazione tra classi—simili, ma non uguali—porta all’ereditarietà.</p><p>Per definire una nuova classe che eredita da una classe esistente, basta scrivere tra parentesi il nome della classe esistente:
+<a id="hevea_default1496"></a>
+<a id="hevea_default1497"></a>
+<a id="hevea_default1498"></a></p><pre class="verbatim">class Mano(Mazzo):
+    """Rappresenta una mano di carte da gioco."""
+</pre><p>
+Questa definizione indica che <span class="c003">Mano</span> eredita da <span class="c003">Mazzo</span>;
+ciò comporta che per Mano possiamo utilizzare i metodi di Mazzo come <code>togli_carta</code> e <code>aggiungi_carta</code>.</p><p>Quando un nuova classe eredita da una esistente, quest’ultima è chiamata <span class="c009">madre</span> (o superclasse) e quella nuova è chiamata <span class="c009">figlia</span> (o sottoclasse).
+<a id="hevea_default1499"></a>
+<a id="hevea_default1500"></a>
+<a id="hevea_default1501"></a>
+<a id="hevea_default1502"></a></p><p>In questo esempio, <span class="c003">Mano</span> eredita <code>__init__</code> da <span class="c003">Mazzo</span>, ma in questo caso il metodo non fa la cosa giusta: invece di popolare la mano con 52 nuove carte, il metodo init di Mano dovrebbe inizializzare <span class="c003">carte</span> con una lista vuota.
+<a id="hevea_default1503"></a>
+<a id="hevea_default1504"></a>
+<a id="hevea_default1505"></a></p><p>Ma se noi specifichiamo un nuovo metodo init nella classe <span class="c003">Mano</span>, esso andrà a sovrascrivere quello della classe madre <span class="c003">Mazzo</span>:</p><pre class="verbatim"># all'interno della classe Mano:
+
+    def __init__(self, label=''):
+        self.carte = []
+        self.label = label
+</pre><p>
+Allora, quando si crea una Mano, Python invoca questo metodo init specifico e non quello di <span class="c003">Mazzo</span>:</p><pre class="verbatim">&gt;&gt;&gt; mano = Mano('nuova mano')
+&gt;&gt;&gt; mano.carte
+[]
+&gt;&gt;&gt; mano.label
+'nuova mano'
+</pre><p>
+Gli altri metodi vengono ereditati da <span class="c003">Mazzo</span>, pertanto possiamo usare <code>togli_carta</code> e <code>aggiungi_carta</code> per distribuire una carta:</p><pre class="verbatim">&gt;&gt;&gt; mazzo = Mazzo()
+&gt;&gt;&gt; carta = mazzo.togli_carta()
+&gt;&gt;&gt; mano.aggiungi_carta(carta)
+&gt;&gt;&gt; print(mano)
+Re di Picche
+</pre><p>
+Viene poi spontaneo incapsulare questo codice in un metodo di nome <code>sposta_carte</code>:
+<a id="hevea_default1506"></a></p><pre class="verbatim"># all'interno della classe Mazzo:
+
+    def sposta_carte(self, mano, num):
+        for i in range(num):
+            mano.aggiungi_carta(self.togli_carta())
+</pre><p>
+<code>sposta_carte</code> prende come argomenti un oggetto Mano e il numero di carte da distribuire. Modifica sia <span class="c003">self</span> che <span class="c003">mano</span>, e restituisce <span class="c003">None</span>.</p><p>In alcuni giochi, le carte si spostano da una mano all’altra, o da una mano di nuovo al mazzo. Potete usare <code>sposta_carte</code> per qualsiasi di queste operazioni: <span class="c003">self</span> può essere sia un Mazzo che una Mano, e <span class="c003">mano</span>, a dispetto del nome, può anche essere un <span class="c003">Mazzo</span>.</p><p>L’ereditarietà è una caratteristica utile. Certi programmi che sarebbero ripetitivi senza ereditarietà, possono invece essere scritti in modo più elegante. Facilita il riuso del codice, poiché potete personalizzare il comportamento delle superclassi senza doverle modificare. In certi casi, la struttura dell’ereditarietà rispecchia quella del problema, il che rende il programma più facile da capire.</p><p>D’altra parte, l’ereditarietà può rendere il programma difficile da leggere. Quando viene invocato un metodo, a volte non è chiaro dove trovare la sua definizione. Il codice rilevante può essere sparso tra moduli diversi. Inoltre, molte cose che possono essere fatte usando l’ereditarietà si possono fare anche, o talvolta pure meglio, senza di essa. </p>
+<h2 class="section" id="sec220">18.8  Diagrammi di classe</h2>
+<p>
+<a id="class.diagram"></a></p><p>Sinora abbiamo visto i diagrammi di stack, che illustrano lo stato del programma, e i diagrammi di oggetto, che mostrano gli attributi di un oggetto e i loro valori. Questi diagrammi rappresentano una istantanea nell’esecuzione del programma, e quindi cambiano nel corso del programma.</p><p>Sono anche molto dettagliati, per alcuni scopi anche troppo. Un diagramma di classe è una rappresentazione più astratta della struttura di un programma. Invece di mostrare singoli oggetti, mostra le classi e le relazioni che sussistono tra le classi.</p><p>Ci sono alcuni tipi diversi di relazioni tra classi:</p><ul class="itemize"><li class="li-itemize">Oggetti in una classe possono contenere riferimenti a oggetti in un’altra classe. Per esempio, ogni Rettangolo contiene un riferimento a un Punto, e ogni Mazzo contiene riferimenti a molte Carte. Questo tipo di relazione è chiamata <span class="c009">HAS-A</span> (ha-un), come in: “un Rettangolo ha un Punto”.</li><li class="li-itemize">Una classe può ereditare da un’altra. Questa relazione è detta <span class="c009">IS-A</span> (è-un), come in: “una Mano è un tipo di Mazzo”.</li><li class="li-itemize">Una classe può dipendere da un altra, nel senso che oggetti di una classe possono prendere come parametri oggetti di una seconda classe oppure usarli per svolgere parte delle elaborazioni. Una relazione di questo tipo è detta <span class="c009">dipendenza</span>. </li></ul><p>
+<a id="hevea_default1507"></a>
+<a id="hevea_default1508"></a>
+<a id="hevea_default1509"></a></p><p>Un <span class="c009">diagramma di classe</span> è una rappresentazione grafica di queste relazioni. Per esempio, la Figura <a href="#fig.class1">18.2</a> mostra le relazioni tra <span class="c003">Carta</span>, <span class="c003">Mazzo</span> e <span class="c003">Mano</span>.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian025.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 18.2: Diagramma di classe.</td></tr>
+</table></div>
+<a id="fig.class1"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>La freccia con un triangolo vuoto rappresenta la relazione IS-A: in questo caso indica che Mano eredita da Mazzo.</p><p>La freccia standard rappresenta la relazione HAS-A; in questo caso un Mazzo ha riferimenti agli oggetti Carta.
+<a id="hevea_default1510"></a></p><p>L’asterisco (<span class="c003">*</span>) vicino alla testa della freccia indica una
+<span class="c009">molteplicità</span>, cioè quante Carte ha un Mazzo. Una molteplicità può essere un numero semplice, come <span class="c003">52</span>, un intervallo come <span class="c003">5..7</span>, o un asterisco che indica che un Mazzo può contenere un numero qualsiasi di Carte.</p><p>In questo diagramma non vi sono dipendenze. In genere, verrebbero illustrate con delle frecce tratteggiate. Se vi sono parecchie dipendenze, talvolta vengono omesse.</p><p>Un diagramma più dettagliato dovrebbe evidenziare che un Mazzo contiene in realtà una <em>lista</em> di Carte, ma i tipi predefiniti come liste e dizionari di solito non vengono inclusi in questi diagrammi.</p>
+<h2 class="section" id="sec221">18.9  Debug</h2>
+<p>
+<a id="hevea_default1511"></a></p><p>L’ereditarietà può rendere il debug difficoltoso, perché quando invocate un metodo su un oggetto, può risultare laborioso capire esattamente quale sia il metodo che viene invocato.
+<a id="hevea_default1512"></a></p><p>Supponiamo che stiate scrivendo una funzione che lavori su oggetti Mano. Vorreste che fosse valida per Mani di tutti i tipi come ManiDiPoker, ManiDiBridge ecc. Se invocate un metodo come
+<span class="c003">mescola</span>, potrebbe essere quello definito in <span class="c003">Mazzo</span>,
+ma se qualcuna delle sottoclassi sovrascrive il metodo, avrete invece quella diversa versione. Questo comportamento è appropriato, ma a volte può confondere.</p><p>Quando siete incerti sul flusso di esecuzione del vostro programma, la soluzione più semplice è aggiungere istruzioni di stampa all’inizio di ogni metodo importante. Se <span class="c003">Mazzo.mescola</span> stampa un messaggio come <span class="c003">Sto eseguendo Mazzo.mescola</span>, allora il programma traccia il flusso di esecuzione mentre viene eseguito.
+<a id="hevea_default1513"></a></p><p>In alternativa, potete usare la funzione seguente, che richiede un oggetto e un nome di metodo (come stringa) e restituisce la classe che contiene la definizione del metodo:</p><pre class="verbatim">def trova_classe_def(obj, nome_metodo):
+    for ty in type(obj).mro():
+        if nome_metodo in ty.__dict__:
+            return ty
+</pre><p>
+Ecco un esempio:</p><pre class="verbatim">&gt;&gt;&gt; mano = Mano()
+&gt;&gt;&gt; trova_classe_def(mano, 'mescola')
+&lt;class 'Carta.Mazzo'&gt;
+</pre><p>
+Quindi il metodo <span class="c003">mescola</span> di questa Mano è quello definito in<span class="c003">Mazzo</span>.
+<a id="hevea_default1514"></a>
+<a id="hevea_default1515"></a>
+<a id="hevea_default1516"></a></p><p><code>trova_classe_def</code> usa il metodo <span class="c003">mro</span> per ricavare la lista degli oggetti classe (tipi) in cui verrà effettuata la ricerca dei metodi. “MRO” sta per <em>Method Resolution Order</em> (ordine di risoluzione dei metodi), che è la sequenza di classi che Python ricerca per “risolvere” un nome di metodo.</p><p>Un consiglio per la progettazione di un programma: quando sovrascrivete un metodo, l’interfaccia del nuovo metodo dovrebbe essere la stessa di quello sostituito: deve richiedere gli stessi parametri, restituire lo stesso tipo, rispettare le stesse precondizioni e postcondizioni. Se rispettate questa regola, vedrete che ogni funzione progettata per un’istanza di una superclasse, come Mazzo, funzionerà anche con le istanze delle sottoclassi come Mano e ManoDiPoker.
+<a id="hevea_default1517"></a>
+<a id="hevea_default1518"></a>
+<a id="hevea_default1519"></a>
+<a id="hevea_default1520"></a></p><p>Se violate questa regola, conosciuta come “principio di sostituzione di Liskov”, il vostro codice crollerà come (perdonatemi) un castello di carte.
+<a id="hevea_default1521"></a></p>
+<h2 class="section" id="sec222">18.10  Incapsulamento dei dati</h2>
+<p>Il capitolo precedente ha illustrato una tecnica di sviluppo detta
+“progettazione orientata agli oggetti”. Abbiamo identificato gli oggetti che ci servivano—come <span class="c003">Tempo</span>, <span class="c003">Punto</span> e <span class="c003">Rettangolo</span>—e definito le classi per rappresentarli. Per ciascuno c’è un’evidente corrispondenza tra l’oggetto e una qualche entità del mondo reale (o per lo meno del mondo della matematica).
+<a id="hevea_default1522"></a></p><p>Ma altre volte la scelta degli oggetti e del modo in cui interagiscono è meno ovvia. In questo caso serve una tecnica di sviluppo diversa. Nella stessa maniera in cui abbiamo scoperto le interfacce delle funzioni per mezzo dell’incapsulamento e della generalizzazione, scopriamo ora le interfacce delle classi tramite l’<span class="c009">incapsulamento dei dati</span>.
+<a id="hevea_default1523"></a></p><p>L’analisi di Markov, vista nel Paragrafo <a href="thinkpython_italian014.html#markov">13.8</a>, è un buon esempio. Se scaricate il mio codice dal sito <a href="http://thinkpython2.com/code/markov.py"><span class="c003">http://thinkpython2.com/code/markov.py</span></a>, vi accorgerete che usa due variabili globali—<code>suffix_map</code> e <code>prefix</code>—che vengono lette e scritte da più funzioni.</p><pre class="verbatim">suffix_map = {}        
+prefix = ()            
+</pre><p>Siccome queste variabili sono globali, possiamo eseguire una sola analisi alla volta. Se leggessimo due testi contemporaneamente, i loro prefissi e suffissi verrebbero aggiunti nella stessa struttura di dati (il che produce comunque alcuni interessanti testi generati).</p><p>Per eseguire analisi multiple mantenendole separate, possiamo incapsulare lo stato di ciascuna analisi in un oggetto. Ecco come si presenta:</p><pre class="verbatim">class Markov:
+
+    def __init__(self):
+        self.suffix_map = {}
+        self.prefix = ()    
+</pre><p>Poi, trasformiamo le funzioni in metodi. Ecco per esempio <code>elabora_parola</code>:</p><pre class="verbatim">    def elabora_parola(self, parola, ordine=2):
+        if len(self.prefix) &lt; ordine:
+            self.prefix += (parola,)
+            return
+
+        try:
+            self.suffix_map[self.prefix].append(parola)
+        except KeyError:
+            # se non c'e' una voce per questo prefisso, creane una
+            self.suffix_map[self.prefix] = [parola]
+
+        self.prefix = shift(self.prefix, parola)        
+</pre><p>Questa trasformazione di un programma—cambiarne la forma senza cambiarne il comportamento—è un altro esempio di refactoring (vedi Paragrafo <a href="thinkpython_italian005.html#refactoring">4.7</a>).
+<a id="hevea_default1524"></a></p><p>L’esempio suggerisce una tecnica di sviluppo per progettare oggetti e metodi:</p><ol class="enumerate" type=1><li class="li-enumerate">Cominciare scrivendo funzioni che leggono e scrivono variabili globali (dove necessario)</li><li class="li-enumerate">Una volta ottenuto un programma funzionante, cercare le associazioni tra le variabili globali e le funzioni che le usano.</li><li class="li-enumerate">Incapsulare le variabili correlate come attributi di un oggetto.</li><li class="li-enumerate">Trasformare le funzioni associate in metodi della nuova classe.</li></ol><p>Come esercizio, scaricate il mio codice da
+(<a href="http://thinkpython2.com/code/markov.py"><span class="c003">http://thinkpython2.com/code/markov.py</span></a>), e seguite i passi appena descritti per incapsulare le varibili globali come attributi di una nuova classe chiamata <span class="c003">Markov</span>. Soluzione: <a href="http://thinkpython2.com/code/Markov.py"><span class="c003">http://thinkpython2.com/code/Markov.py</span></a> (notare la M maiuscola).</p>
+<h2 class="section" id="sec223">18.11  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">codificare:</span></dt><dd class="dd-description"> Rappresentare un insieme di valori usando un altro insieme di valori e costruendo una mappatura tra di essi.
+<a id="hevea_default1525"></a></dd><dt class="dt-description"><span class="c009">attributo di classe:</span></dt><dd class="dd-description"> Attributo associato ad un oggetto classe. Gli attributi di classe sono definiti all’interno di una definizione di classe ma esternamente ad ogni metodo.
+<a id="hevea_default1526"></a>
+<a id="hevea_default1527"></a></dd><dt class="dt-description"><span class="c009">attributo di istanza:</span></dt><dd class="dd-description"> Attributo associato ad un’istanza di una classe.
+<a id="hevea_default1528"></a>
+<a id="hevea_default1529"></a></dd><dt class="dt-description"><span class="c009">impiallacciatura:</span></dt><dd class="dd-description"> Metodo o funzione che fornisce un’interfaccia diversa a un’altra funzione, senza effettuare ulteriori calcoli.
+<a id="hevea_default1530"></a></dd><dt class="dt-description"><span class="c009">ereditarietà:</span></dt><dd class="dd-description"> Capacità di definire una classe come versione modificata di una classe già definita in precedenza.
+<a id="hevea_default1531"></a></dd><dt class="dt-description"><span class="c009">classe madre o superclasse:</span></dt><dd class="dd-description"> Classe dalla quale una classe figlia eredita.
+<a id="hevea_default1532"></a></dd><dt class="dt-description"><span class="c009">classe figlia o sottoclasse:</span></dt><dd class="dd-description"> Nuova classe creata ereditando da una classe esistente.
+<a id="hevea_default1533"></a></dd><dt class="dt-description"><span class="c009">relazione IS-A:</span></dt><dd class="dd-description"> Relazione tra una classe figlia e la sua classe madre.
+<a id="hevea_default1534"></a></dd><dt class="dt-description"><span class="c009">relazione HAS-A:</span></dt><dd class="dd-description"> Relazione tra due classi dove le istanze di una classe contengono riferimenti alle istanze dell’altra classe.
+<a id="hevea_default1535"></a></dd><dt class="dt-description"><span class="c009">dipendenza:</span></dt><dd class="dd-description"> Relazione tra due classi dove istanze di una classe utilizzano istanze dell’altra classe, ma senza conservarle sotto forma di attributi.
+<a id="hevea_default1536"></a></dd><dt class="dt-description"><span class="c009">diagramma di classe:</span></dt><dd class="dd-description"> Diagramma che illustra le classi di un programma e le relazioni tra di esse.
+<a id="hevea_default1537"></a></dd><dt class="dt-description"><span class="c009">molteplicità:</span></dt><dd class="dd-description"> Notazione in un diagramma di classe che mostra, per una relazione HAS-A, quanti riferimenti ad istanze di un’altra classe ci sono.
+<a id="hevea_default1538"></a></dd><dt class="dt-description"><span class="c009">incapsulamento dei dati:</span></dt><dd class="dd-description"> Tecnica di sviluppo che prevede un prototipo che usa variabili globali e una versione finale in cui le variabili globali vengono trasformate in attributi di istanza.
+<a id="hevea_default1539"></a>
+<a id="hevea_default1540"></a></dd></dl>
+<h2 class="section" id="sec224">18.12  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <em>
+Dato il seguente programma, disegnate un diagramma di classe UML (</em>Unified Modeling Language<em>) che illustri queste classi e le relazioni che intercorrono tra esse.</em><pre class="verbatim"><em>class PingPongMadre:
+    pass
+
+class Ping(PingPongMadre):
+    def __init__(self, pong):
+        self.pong = pong
+
+
+class Pong(PingPongMadre):
+    def __init__(self, pings=None):
+        if pings is None:
+            self.pings = []
+        else:
+            self.pings = pings
+
+    def add_ping(self, ping):
+        self.pings.append(ping)
+
+pong = Pong()
+ping = Ping(pong)
+pong.add_ping(ping)
+</em></pre></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  <p><em>Scrivete un metodo per Mazzo di nome <code>dai_mani</code> che prenda come parametri il numero di mani e il numero di carte da dare a ciascuna mano, e crei il numero stabilito di oggetti Mano, distribuisca il numero prefissato di carte a ogni mano e restituisca una lista delle Mani.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="poker"></a><p><em>Quelle che seguono sono le possibili combinazioni nel gioco del poker, in ordine crescente di valore e decrescente di probabilità:
+</em><a id="hevea_default1541"></a></p><dl class="description"><dt class="dt-description"><em><span class="c009">coppia:</span></em></dt><dd class="dd-description"><em> due carte dello stesso valore
+</em></dd><dt class="dt-description"><span class="c009"><em>doppia coppia:</em></span></dt><dd class="dd-description"><em> due coppie di carte dello stesso valore
+</em></dd><dt class="dt-description"><span class="c009"><em>tris:</em></span></dt><dd class="dd-description"><em> tre carte dello stesso valore
+</em></dd><dt class="dt-description"><span class="c009"><em>scala:</em></span></dt><dd class="dd-description"><em> cinque carte con valori in sequenza (gli assi possono essere sia la carta di valore inferiore che quella di valore superiore, per cui <span class="c003">Asso-2-3-4-5</span> è una scala, e anche <span class="c003">10-Fante-Regina-Re-Asso</span>, ma non <span class="c003">Regina-Re-Asso-2-3</span>).
+</em></dd><dt class="dt-description"><span class="c009"><em>colore:</em></span></dt><dd class="dd-description"><em> cinque carte dello stesso seme
+</em></dd><dt class="dt-description"><span class="c009"><em>full:</em></span></dt><dd class="dd-description"><em> tre carte dello stesso valore più una coppia di carte dello stesso valore
+</em></dd><dt class="dt-description"><span class="c009"><em>poker:</em></span></dt><dd class="dd-description"><em> quattro carte dello stesso valore
+</em></dd><dt class="dt-description"><span class="c009"><em>scala reale:</em></span></dt><dd class="dd-description"><em> cinque carte dello stesso seme in scala (definita come sopra)
+</em></dd></dl><p><em>
+Scopo di questo esercizio è stimare la probabilità di avere servita una di queste combinazioni.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scaricate i file seguenti da </em><a href="http://thinkpython2.com/code"><em><span class="c003">http://thinkpython2.com/code</span></em></a><em>:</em><dl class="description"><dt class="dt-description"><span class="c004"><em>Card.py</em></span></dt><dd class="dd-description"><em>: Versione completa delle classi <span class="c003">Carta</span>,
+<span class="c003">Mazzo</span> e <span class="c003">Mano</span> di questo capitolo.</em></dd><dt class="dt-description"><span class="c004"><em>PokerHand.py</em></span></dt><dd class="dd-description"><em>: Implementazione incompleta di una classe che rappresenta una mano di poker con del codice di prova.</em></dd></dl></li><li class="li-enumerate"><em>Se eseguite <span class="c003">PokerHand.py</span>, serve delle mani di sette carte e controlla se qualcuna contenga un colore. Leggete attentamente il codice prima di proseguire.</em></li><li class="li-enumerate"><em>Aggiungete dei metodi a <span class="c003">PokerHand.py</span> di nome <code>ha_coppia</code>,
+<code>ha_doppiacoppia</code>, ecc. che restituiscano True o False a seconda che le mani soddisfino o meno il rispettivo criterio. Il codice deve funzionare indipendentemente dal numero di carte che contiene la mano (5 e 7 carte sono i casi più comuni).</em></li><li class="li-enumerate"><em>Scrivete un metodo di nome <span class="c003">classifica</span> che riconosca la combinazione più elevata in una mano e imposta di conseguenza l’attributo
+<span class="c003">label</span>. Per esempio, una mano di 7 carte può contenere un colore e una coppia; deve essere etichettata “colore”.</em></li><li class="li-enumerate"><em>Quando siete sicuri che i vostri metodi di classificazione funzionano, il passo successivo è stimare la probabilità delle varie mani. Scrivete una funzione in <span class="c003">PokerHand.py</span> che mescoli un mazzo di carte, lo divida in mani, le classifichi e conti quante volte compare ciascuna combinazione.</em></li><li class="li-enumerate"><em>Stampate una tabella delle combinazioni con le rispettive probabilità. Eseguite il vostro programma con numeri sempre più grandi di mani finché i valori ottenuti convergono ad un ragionevole grado di accuratezza. Confrontate i vostri risultati con i valori pubblicati su </em><a href="http://en.wikipedia.org/wiki/Hand_rankings"><span class="c003"><em>http://en.wikipedia.org/wiki/Hand_rankings</em></span></a><em>.</em></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/PokerHandSoln.py"><em><span class="c003">http://thinkpython2.com/code/PokerHandSoln.py</span></em></a><em>.
+</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian018.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian020.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

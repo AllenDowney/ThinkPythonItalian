@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Esercitazione: Scelta della struttura di dati</title>
+</head>
+<body>
+<a href="thinkpython_italian013.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian015.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec154">Chapter 13  Esercitazione: Scelta della struttura di dati</h1>
+<p>Giunti a questo punto, avete conosciuto le principali strutture di dati di Python, e avete visto alcuni algoritmi che le utilizzano. Se vi interessa saperne di più sugli algoritmi, potrebbe essere un buon momento per leggere l’Appendice <a href="thinkpython_italian022.html#algorithms">B</a>.
+Non è però necessario per proseguire la lettura: fatelo quando vi pare opportuno.</p><p>L’esercitazione di questo capitolo vi aiutèrà ad impratichirvi nella scelta e nell’uso delle strutture di dati.</p>
+<h2 class="section" id="sec155">13.1  Analisi di frequenza delle parole</h2>
+<p>
+<a id="analysis"></a></p><p>Come al solito, tentate almeno di risolvere gli esercizi prima di guardare le mie risoluzioni.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete un programma che legga un file di testo, separi da ogni riga le singole parole, scarti gli spazi bianchi e la punteggiatura dalle parole, e converta tutto in lettere minuscole.
+</em><a id="hevea_default1059"></a>
+<a id="hevea_default1060"></a></p><p><em>Suggerimento: il modulo <span class="c003">string</span> fornisce una stringa chiamata <span class="c003">whitespace</span>, che contiene i caratteri spaziatori come spazio, tabulazione, a capo ecc., e una di nome <span class="c003">punctuation</span> che contiene i caratteri di punteggiatura. Vediamo se Python ce lo conferma:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; import string
+&gt;&gt;&gt; string.punctuation
+'!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~'
+</em></pre><p><em>
+Potete anche fare uso dei metodi delle stringhe <span class="c003">strip</span>,
+<span class="c003">replace</span> e <span class="c003">translate</span>.
+</em><a id="hevea_default1061"></a>
+<a id="hevea_default1062"></a>
+<a id="hevea_default1063"></a>
+<a id="hevea_default1064"></a>
+<a id="hevea_default1065"></a>
+<a id="hevea_default1066"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default1067"></a><p><em>Andate sul sito del Progetto Gutenberg (</em><a href="http://gutenberg.org"><em><span class="c003">http://gutenberg.org</span></em></a><em>) e scaricate il libro fuori copyright che preferite, in formato di testo semplice.
+</em><a id="hevea_default1068"></a></p><p><em>Modificate il programma dell’esercizio precedente in modo che legga il libro da voi scaricato, salti le informazioni di intestazione all’inizio del file, ed elabori il resto come sopra.</em></p><p><em>Quindi modificate il programma in modo che conti il numero di parole totale del libro, e quante volte è usata ciascuna parola.
+</em><a id="hevea_default1069"></a>
+<a id="hevea_default1070"></a></p><p><em>Visualizzate il numero di parole diverse usate nel libro. Confrontate libri diversi di diversi autori, scritti in epoche diverse. Quale autore usa il vocabolario più ricco?
+</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  <p><em>Modificate il programma dell’esercizio precedente in modo da visualizzare le 20 parole più usate nel libro.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  <p><em>Modificate il programma precedente in modo che acquisisca un elenco di parole (vedi Paragrafo </em><a href="thinkpython_italian010.html#wordlist"><em>9.1</em></a><em>) e quindi stampi l’elenco delle parole contenute nel libro che non sono presenti nell’elenco di parole. Quante di esse sono errori di stampa? Quante sono parole comuni che </em>dovrebbero<em> essere nell’elenco, e quante sono del tutto oscure?</em></p></div>
+<h2 class="section" id="sec156">13.2  Numeri casuali</h2>
+<p>
+<a id="hevea_default1071"></a>
+<a id="hevea_default1072"></a>
+<a id="hevea_default1073"></a></p><p>A parità di dati in ingresso, la maggior parte dei programmi genera gli stessi risultati ad ogni esecuzione, e per questo motivo sono detti deterministici. Di solito il determinismo è una cosa giusta, poiché è ovvio attendersi che gli stessi dati producano gli stessi risultati. Per certe applicazioni, tuttavia, è richiesto che l’elaboratore sia imprevedibile: i videogiochi sono un classico esempio, ma ce ne sono anche altri.</p><p>Creare un programma realmente non-deterministico è una cosa piuttosto difficile, ma ci sono dei sistemi per renderlo almeno apparentemente non-deterministico. Uno di questi è utilizzare degli algoritmi che generano dei numeri <span class="c009">pseudocasuali</span>. Questi numeri non sono veri numeri casuali, dato che sono generati da un elaboratore deterministico, ma a prima vista è praticamente impossibile distinguerli da numeri casuali.
+<a id="hevea_default1074"></a>
+<a id="hevea_default1075"></a></p><p>Il modulo <span class="c003">random</span> contiene delle funzioni che generano numeri pseudocasuali (d’ora in avanti chiamati “casuali” per semplicità).
+<a id="hevea_default1076"></a>
+<a id="hevea_default1077"></a></p><p>La funzione <span class="c003">random</span> restituisce un numero casuale in virgola mobile compreso nell’intervallo tra 0.0 e 1.0 (incluso 0.0 ma escluso 1.0). Ad ogni chiamata di <span class="c003">random</span>, si ottiene il numero successivo di una lunga serie di numeri casuali. Per vedere un esempio provate ad eseguire questo ciclo:</p><pre class="verbatim">import random
+
+for i in range(10):
+    x = random.random()
+    print(x)
+</pre><p>
+La funzione <span class="c003">randint</span> richiede due parametri interi, uno <span class="c003">inferiore</span> e uno <span class="c003">superiore</span>, e restituisce un intero casuale nell’intervallo tra i due parametri (entrambi compresi)
+<a id="hevea_default1078"></a>
+<a id="hevea_default1079"></a></p><pre class="verbatim">&gt;&gt;&gt; random.randint(5, 10)
+5
+&gt;&gt;&gt; random.randint(5, 10)
+9
+</pre><p>
+Per estrarre un elemento a caso da una sequenza, potete usare
+<span class="c003">choice</span>:
+<a id="hevea_default1080"></a>
+<a id="hevea_default1081"></a></p><pre class="verbatim">&gt;&gt;&gt; t = [1, 2, 3]
+&gt;&gt;&gt; random.choice(t)
+2
+&gt;&gt;&gt; random.choice(t)
+3
+</pre><p>
+Il modulo <span class="c003">random</span> contiene anche delle funzioni per generare valori pseudocasuali da distribuzioni continue, incluse gaussiane, esponenziali, gamma, e alcune altre.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  
+<a id="hevea_default1082"></a><p><em>Scrivete una funzione di nome <code>estrai_da_isto</code> che prenda un istogramma come definito nel Paragrafo </em><a href="thinkpython_italian012.html#histogram"><em>11.2</em></a><em> e restituisca un valore casuale dall’istogramma, scelto in modo che la probabilità sia proporzionale alla frequenza. Per esempio, dato questo istogramma:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; t = ['a', 'a', 'b']
+&gt;&gt;&gt; isto = istogramma(t)
+&gt;&gt;&gt; isto
+{'a': 2, 'b': 1}
+</em></pre><p><em>
+la vostra funzione dovrebbe restituire <code>'a'</code> con probabilità </em>2/3<em> e <code>'b'</code> con probabilità </em>1/3<em>.
+</em></p></div>
+<h2 class="section" id="sec157">13.3  Istogramma di parole</h2>
+<p>Provate a risolvere gli esercizi precedenti prima di procedere oltre. Le soluzioni sono scaricabili da
+<a href="http://thinkpython2.com/code/analyze_book1.py"><span class="c003">http://thinkpython2.com/code/analyze_book1.py</span></a>. Vi servirà anche <a href="http://thinkpython2.com/code/emma.txt"><span class="c003">http://thinkpython2.com/code/emma.txt</span></a>.</p><p>Ecco un programma che legge un file e costruisce un istogramma della parole in esso contenute:
+<a id="hevea_default1083"></a></p><pre class="verbatim">import string
+
+def elabora_file(nomefile):
+    isto = dict()
+    fp = open(nomefile)
+    for riga in fp:
+        elabora_riga(riga, isto)
+    return isto
+
+def elabora_riga(riga, isto):
+    riga = riga.replace('-', ' ')
+    
+    for parola in riga.split():
+        parola = parola.strip(string.punctuation + string.whitespace)
+        parola = parola.lower()
+        isto[parola] = isto.get(parola, 0) + 1
+
+isto = elabora_file('emma.txt')
+</pre><p>
+Questo programma legge il file <span class="c003">emma.txt</span>, che contiene il testo di <em>Emma</em> di Jane Austen.
+<a id="hevea_default1084"></a></p><p><code>elabora_file</code> legge ciclicamente le righe del file, passandole una per volta a <code>elabora_riga</code>. L’istogramma <span class="c003">isto</span> viene usato come un accumulatore.
+<a id="hevea_default1085"></a>
+<a id="hevea_default1086"></a></p><p><code>elabora_riga</code> usa il metodo delle stringhe <span class="c003">replace</span> per sostituire i trattini con gli spazi, prima di usare <span class="c003">split</span> per suddividere la riga in una lista di stringhe. Attraversa poi la lista di parole e usa <span class="c003">strip</span>
+e <span class="c003">lower</span> per togliere la punteggiatura e convertire in lettere minuscole. (Diciamo per semplicità che le stringhe sono “convertite”: essendo queste immutabili, i metodi come <span class="c003">strip</span> e <span class="c003">lower</span> in realtà restituiscono nuove stringhe).</p><p>Infine, <code>elabora_riga</code> aggiorna l’istogramma creando un nuovo elemento o incrementandone uno esistente.
+<a id="hevea_default1087"></a></p><p>Per contare il numero di parole totali, possiamo aggiungere le frequenze nell’istogramma:</p><pre class="verbatim">def parole_totali(isto):
+    return sum(isto.values())
+</pre><p>
+Il numero di parole diverse è semplicemente il numero di elementi nel dizionario:</p><pre class="verbatim">def parole_diverse(isto):
+    return len(isto)
+</pre><p>
+Ed ecco del codice per stampare i risultati:</p><pre class="verbatim">print('Numero totale di parole:', parole_totali(isto))
+print('Numero di parole diverse:', parole_diverse(isto))
+</pre><p>
+E i relativi risultati:</p><pre class="verbatim">Numero totale di parole: 161080
+Numero di parole diverse: 7214
+</pre>
+<h2 class="section" id="sec158">13.4  Parole più comuni</h2>
+<p>Per trovare le parole più comuni, possiamo creare una lista di tuple, in cui ciascuna tupla contiene una parola e la sua frequenza, ed ordinarle:</p><p>La funzione seguente prende un istogramma e restituisce una lista di tuple parola-frequenza:</p><pre class="verbatim">def piu_comuni(isto):
+    t = []
+    for chiave, valore in isto.items():
+        t.append((valore, chiave))
+
+    t.sort(reverse=True)
+    return t
+</pre><p>
+In ogni tupla, la frequenza compare per prima, quindi la lista risultante è ordinata per frequenza. Ecco un ciclo che stampa le dieci parole più comuni:</p><pre class="verbatim">t = piu_comuni(hist)
+print('Le parole più comuni sono:')
+for freq, parola in t[:10]:
+    print(parola, freq, sep='\t')
+</pre><p>
+Ho usato l’argomento con nome <span class="c003">sep</span> per dire a <span class="c003">print</span> di usare un carattere di tabulazione come “separatore”, anziché uno spazio, in modo che la seconda colonna risulti allineata.
+E questi sono i risultati nel caso di <em>Emma</em>:</p><pre class="verbatim">Le parole più comuni sono:
+to      5242
+the     5205
+and     4897
+of      4295
+i       3191
+a       3130
+it      2529
+her     2483
+was     2400
+she     2364
+</pre><p>
+Si potrebbe semplificare il codice utilizzando il parametro <span class="c003">key</span> della funzione <span class="c003">sort</span>. Se vi incuriosisce, leggete
+<a href="https://wiki.python.org/moin/HowTo/Sorting"><span class="c003">https://wiki.python.org/moin/HowTo/Sorting</span></a>.</p>
+<h2 class="section" id="sec159">13.5  Parametri opzionali</h2>
+<p>
+<a id="hevea_default1088"></a></p><p>Abbiamo già visto funzioni predefinite e metodi che ricevono argomenti opzionali. È possibile anche scrivere funzioni personalizzate con degli argomenti opzionali. Ad esempio, questa è una funzione che stampa le parole più comuni in un istogramma:
+<a id="hevea_default1089"></a></p><pre class="verbatim">def stampa_piu_comuni(isto, num=10):
+    t = piu_comuni(isto)
+    print('Le parole più comuni sono:')
+    for freq, parola in t[:num]:
+        print(parola, freq, sep='\t')
+</pre><p>Il primo parametro è obbligatorio; il secondo è opzionale. Il <span class="c009">valore di default</span> di <span class="c003">num</span> è 10.
+<a id="hevea_default1090"></a></p><p>Se passate un solo argomento:</p><pre class="verbatim">stampa_piu_comuni(isto)
+</pre><p><span class="c003">num</span> assume il valore predefinito. Se ne passate due:</p><pre class="verbatim">stampa_piu_comuni(isto, 20)
+</pre><p><span class="c003">num</span> assume il valore che avete specificato. In altre parole, l’argomento opzionale <span class="c009">sovrascrive</span> il valore predefinito.
+<a id="hevea_default1091"></a></p><p>Se una funzione ha sia parametri obbligatori che opzionali, tutti quelli obbligatori devono essere scritti per primi, seguiti da quelli opzionali.</p>
+<h2 class="section" id="sec160">13.6  Sottrazione di dizionari</h2>
+<p>
+<a id="dictsub"></a>
+<a id="hevea_default1092"></a>
+<a id="hevea_default1093"></a></p><p>Trovare le parole del libro non comprese nell’elenco <span class="c003">words.txt</span> è un problema che possiamo classificare come sottrazione di insiemi, cioè occorre trovare le parole appartenenti a un insieme (le parole contenute nel libro) che non si trovano nell’altro insieme (l’elenco).</p><p><span class="c003">sottrai</span> prende i dizionari <span class="c003">d1</span> e <span class="c003">d2</span> e ne restituisce uno nuovo che contiene tutte le chiavi di <span class="c003">d1</span> che non si trovano in <span class="c003">d2</span>. Siccome non ci interessano affatto i valori, li impostiamo tutti a None.</p><pre class="verbatim">def sottrai(d1, d2):
+    res = dict()
+    for chiave in d1:
+        if chiave not in d2:
+            res[chiave] = None
+    return res
+</pre><p>
+Quindi usiamo <code>elabora_file</code> per costruire un istogramma di
+<span class="c003">words.txt</span>, per poi sottrarre:</p><pre class="verbatim">parole = elabora_file('words.txt')
+diff = sottrai(isto, parole)
+
+print('Parole del libro che non si trovano nell'elenco:')
+for parola in diff:
+    print(parola, end=' ')
+</pre><p>
+Ecco alcuni risultati per <em>Emma</em>:</p><pre class="verbatim">Parole del libro che non si trovano nell'elenco:
+ rencontre jane's blanche woodhouses disingenuousness 
+friend's venice apartment ...
+</pre><p>
+Alcune parole sono nomi propri e possessivi. Altre come “rencontre” sono desuete. Ma qualcuna è davvero una parola comune che nell’elenco dovrebbe esserci!</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 6</span>  
+<a id="hevea_default1094"></a>
+<a id="hevea_default1095"></a><p><em>Python dispone di una struttura di dati chiamata <span class="c003">set</span>, o insieme, che fornisce molte operazioni comuni sugli insiemi. Al riguardo, potete leggere il Paragrafo </em><a href="thinkpython_italian020.html#sets"><em>19.5</em></a><em> o la documentazione sul sito 
+</em><a href="http://docs.python.org/3/library/stdtypes.html#types-set"><span class="c003"><em>http://docs.python.org/3/library/stdtypes.html#types-set</em></span></a><em>. </em></p><p><em>Scrivete un programma che usi la sottrazione di insiemi per trovare le parole del libro che non sono nell’elenco. Soluzione:
+</em><a href="http://thinkpython2.com/code/analyze_book2.py"><em><span class="c003">http://thinkpython2.com/code/analyze_book2.py</span></em></a><em>.</em></p></div>
+<h2 class="section" id="sec161">13.7  Parole a caso</h2>
+<p>
+<a id="randomwords"></a>
+<a id="hevea_default1096"></a></p><p>Per scegliere una parola a caso dall’istogramma, l’algoritmo più semplice è costruire una lista che contiene più copie di ciascuna parola, secondo la frequenza osservata, e poi estrarre a caso da questa lista:</p><pre class="verbatim">def parola_caso(h):
+    t = []
+    for parola, freq in h.items():
+        t.extend([parola] * freq)
+
+    return random.choice(t)
+</pre><p>
+L’espressione <span class="c003">[parola] * freq</span> crea una lista con <span class="c003">freq</span>
+copie della stringa <span class="c003">parola</span>. Il metodo <span class="c003">extend</span>
+è simile a <span class="c003">append</span>, con la differenza che l’argomento è una sequenza.</p><p>Questo algoritmo funziona, ma non è molto efficiente: ogni volta che estraete una parola, ricostruisce la lista, che è grande come il libro originale. Un ovvio miglioramento è di costruire la lista una sola volta e poi fare estrazioni multiple, ma la lista è ancora grande.</p><p>Un’alternativa è:</p><ol class="enumerate" type=1><li class="li-enumerate">Usare <span class="c003">keys</span> per ottenere una lista delle parole del libro.</li><li class="li-enumerate">Costruire una lista che contiene la somma cumulativa delle frequenze delle parole (vedere l’Esercizio <a href="thinkpython_italian011.html#cumulative">2</a>). L’ultimo elemento della lista è il numero totale delle parole nel libro, <span class="c008">n</span>.</li><li class="li-enumerate">Scegliere un numero a caso da 1 a <span class="c008">n</span>. Usare una ricerca binaria
+(vedere l’Esercizio <a href="thinkpython_italian011.html#bisection">10</a>) per trovare l’indice dove il numero casuale si inserirebbe nella somma cumulativa.</li><li class="li-enumerate">Usare l’indice per trovare la parola corrispondente nella lista di parole.</li></ol><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 7</span>  
+<a id="randhist"></a>
+<a id="hevea_default1097"></a><p><em>Scrivete un programma che usi questo algoritmo per scegliere una parola a caso dal libro. Soluzione: </em><a href="http://thinkpython2.com/code/analyze_book3.py"><em><span class="c003">http://thinkpython2.com/code/analyze_book3.py</span></em></a><em>.</em></p></div>
+<h2 class="section" id="sec162">13.8  Analisi di Markov</h2>
+<p>
+<a id="markov"></a>
+<a id="hevea_default1098"></a></p><p>Scegliendo a caso delle parole dal libro, potete avere un’idea del vocabolario usato dall’autore, ma difficilmente otterrete una frase di senso compiuto:</p><pre class="verbatim">this the small regard harriet which knightley's it most things
+</pre><p>
+Una serie di parole estratte a caso raramente hanno senso, perché non esistono relazioni tra parole successive. In una frase, per esempio, è prevedibile che ad un articolo come “il” segua un aggettivo o un sostantivo, ma non un verbo o un avverbio.</p><p>Un modo per misurare questo tipo di relazioni è l’analisi di Markov che, per una data sequenza di parole, descrive la probabilità della parola che potrebbe seguire. Prendiamo la canzone dei Monty Python <em>Eric, the Half a Bee</em> che comincia così:</p><blockquote class="quote">
+Half a bee, philosophically, <br>
+Must, ipso facto, half not be. <br>
+But half the bee has got to be <br>
+Vis a vis, its entity. D’you see? <br>
+<br>
+But can a bee be said to be <br>
+Or not to be an entire bee <br>
+When half the bee is not a bee <br>
+Due to some ancient injury? <br>
+</blockquote><p>
+In questo testo, la frase “half the” è sempre seguita dalla parola “bee,”
+ma la frase “the bee” può essere seguita sia da
+“has” che da “is”.
+<a id="hevea_default1099"></a>
+<a id="hevea_default1100"></a>
+<a id="hevea_default1101"></a></p><p>Il risultato dell’analisi di Markov è una mappatura da ciascun prefisso
+(come “half the” e “the bee”) in tutti i possibili suffissi (come “has” e “is”).
+<a id="hevea_default1102"></a></p><p>Eseguita questa mappatura, potete generare un testo casuale partendo da qualunque prefisso e scegliendo a caso uno dei possibili suffissi. Poi, potete combinare la fine del prefisso e il nuovo suffisso per formare il successivo prefisso, e ripetere l’operazione.</p><p>Ad esempio, se partite con il prefisso “Half a,” la parola successiva sarà senz’altro “bee,” perché il prefisso compare solo una volta nel testo. Il prefisso successivo sarà “a bee,” quindi il suffisso successivo potrà essere “philosophically”, “be” oppure “due”.</p><p>In questo esempio, la lunghezza del prefisso è sempre di due parole, ma potete fare l’analisi di Markov con prefissi di qualunque lunghezza.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 8</span>  <p><em>Analisi di Markov:</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete un programma che legga un testo da un file ed esegua l’analisi di Markov. Il risultato dovrebbe essere un dizionario che fa corrispondere i prefissi a una raccolta di possibili suffissi. La raccolta può essere una lista, tupla o dizionario: a voi valutare la scelta più appropriata. Potete testare il vostro programma con una lunghezza del prefisso di due parole, ma dovreste scrivere il programma in modo da poter provare facilmente anche lunghezze superiori.</em></li><li class="li-enumerate"><em>Aggiungete una funzione al programma precedente per generare un testo casuale basato sull’analisi di Markov. Ecco un esempio tratto da </em>Emma<em> con prefisso di lunghezza 2: </em><blockquote class="quote"><em>
+He was very clever, be it sweetness or be angry, ashamed or only
+amused, at such a stroke. She had never thought of Hannah till you
+were never meant for me?" "I cannot make speeches, Emma:" he soon cut
+it all himself.
+</em></blockquote><p><em>In questo esempio, ho lasciato la punteggiatura attaccata alle parole. Il risultato sintatticamente è quasi accettabile, ma non del tutto. Semanticamente, è quasi sensato, ma non del tutto.</em></p><p><em>Cosa succede se aumentate la lunghezza del prefisso? Il testo casuale è più sensato?</em></p></li><li class="li-enumerate"><em>Ottenuto un programma funzionante, potete tentare un “minestrone”: se combinate testi presi da due o più libri, il testo generato mescolerà il vocabolario e le frasi dei sorgenti in modi interessanti.
+</em><a id="hevea_default1103"></a></li></ol><p><em>Fonte: Questa esercitazione è tratta da un esempio in Kernighan e
+Pike, </em>The Practice of Programming<em>, Addison-Wesley, 1999.</em></p></div><p>Cercate di svolgere questo esercizio prima di andare oltre; poi potete scaricare la mia soluzione dal sito <a href="http://thinkpython2.com/code/markov.py"><span class="c003">http://thinkpython2.com/code/markov.py</span></a>. Vi servirà anche <a href="http://thinkpython2.com/code/emma.txt"><span class="c003">http://thinkpython2.com/code/emma.txt</span></a>.</p>
+<h2 class="section" id="sec163">13.9  Strutture di dati</h2>
+<p>
+<a id="hevea_default1104"></a></p><p>Utilizzare l’analisi di Markov per generare testi casuali è divertente, ma c’è anche un obiettivo in questo esercizio: la scelta della struttura di dati. Per risolverlo, dovevate infatti scegliere:</p><ul class="itemize"><li class="li-itemize">Come rappresentare i prefissi.</li><li class="li-itemize">Come rappresentare la raccolta di possibili suffissi.</li><li class="li-itemize">Come rappresentare la mappatura da ciascun prefisso nella raccolta di suffissi.</li></ul><p>L’ultima è facile: un dizionario è la scelta scontata per mappare da chiavi nei corrispondenti valori.</p><p>Per i prefissi, le possibili scelte sono: stringa, lista di stringhe o tuple di stringhe. Per i suffissi, un’opzione è una lista, l’altra è un istogramma (cioè un dizionario).
+<a id="hevea_default1105"></a></p><p>Quale scegliere? Per prima cosa dovete chiedervi quali tipi di operazione dovete implementare per ciascuna struttura di dati. Per i prefissi, ci serve poter rimuovere le parole all’inizio e aggiungerne in coda. Per esempio, se il prefisso attuale è “Half a,” e la parola successiva è “bee,” dobbiamo essere in grado di formare il prefisso successivo, “a bee”.
+<a id="hevea_default1106"></a></p><p>La prima ipotesi allora potrebbe essere una lista, dato che permette di aggiungere e rimuovere elementi in modo semplice, tuttavia abbiamo anche bisogno di usare i prefissi come chiavi di un dizionario, cosa che esclude le liste. Con le tuple non possiamo aggiungere o rimuovere, ma possiamo sempre usare l’operatore di addizione per formare una nuova tupla:</p><pre class="verbatim">def cambia(prefisso, parola):
+    return prefisso[1:] + (parola,)
+</pre><p>
+<span class="c003">cambia</span> prende una tupla di parole, <span class="c003">prefisso</span>, e una stringa, 
+<span class="c003">parola</span>, e forma una nuova tupla che comprende tutte le parole
+in <span class="c003">prefisso</span> tranne la prima, e <span class="c003">parola</span> aggiunta alla fine.</p><p>Per la raccolta di suffissi, le operazioni che dobbiamo eseguire comprendono l’aggiunta di un nuovo suffisso (o l’incremento della frequenza di un suffisso esistente) e l’estrazione di un elemento a caso.</p><p>Aggiungere un nuovo suffisso è ugualmente semplice sia nel caso di implementazione di una lista sia di un istogramma. Estrarre un elemento da una lista è facile, da un istogramma difficile da fare in modo efficiente (vedere Esercizio <a href="#randhist">7</a>).</p><p>Sinora abbiamo considerato soprattutto la facilità di implementazione, ma ci sono altri fattori da tenere in considerazione nella scelta delle strutture di dati. Una è il tempo di esecuzione. A volte ci sono ragioni teoriche per attendersi che una struttura sia più veloce di un’altra; per esempio ho già accennato che l’operatore <span class="c003">in</span> è più rapido nei dizionari che non nelle liste, almeno in presenza di un gran numero di elementi.</p><p>Ma spesso non è possibile sapere <em>a priori</em> quale implementazione sarà più veloce. Una scelta possibile è implementarle entrambe e provare quale si comporta meglio. Questo approccio è detto <span class="c009">benchmarking</span>. Un’alternativa pratica è quella di scegliere la struttura di dati più facile da implementare e vedere se è abbastanza veloce per quell’applicazione. Se è così, non c’è bisogno di andare oltre. Altrimenti, ci sono strumenti, come il modulo <span class="c003">profile</span> che è in grado di segnalare i punti in cui il programma impiega la maggior parte del tempo.
+<a id="hevea_default1107"></a>
+<a id="hevea_default1108"></a>
+<a id="hevea_default1109"></a></p><p>Altro fattore da considerare è lo spazio di archiviazione. Ad esempio, usare un istogramma per la raccolta di suffissi può richiedere meno spazio, perché è necessario memorizzare ogni parola solo una volta, indipendentemente da quante volte compaia nel testo. In qualche caso, risparmiare spazio significa avere un programma più veloce; in casi estremi, il programma può non funzionare affatto se provoca l’esaurimento della memoria. Ma per molte applicazioni, lo spazio è di secondaria importanza rispetto al tempo di esecuzione.</p><p>Un’ultima considerazione: in questa discussione, era sottointeso che avremmo dovuto usare una stessa struttura di dati sia per l’analisi che per la generazione. Ma siccome sono fasi separate, nulla vieta di usare un tipo di struttura per l’analisi e poi convertirlo in un’altra struttura per la generazione. Sarebbe un guadagno, se il tempo risparmiato durante la generazione superasse quello impiegato nella conversione.</p>
+<h2 class="section" id="sec164">13.10  Debug</h2>
+<p>
+<a id="hevea_default1110"></a></p><p>Quando fate il debug di un programma, e specialmente se state affrontando un bug ostico, ci sono cinque cose da provare:</p><dl class="description"><dt class="dt-description"><span class="c009">Leggere:</span></dt><dd class="dd-description"> Esaminate il vostro codice, rileggetelo e controllate che esprima esattamente quello che voi intendete dire.</dd><dt class="dt-description"><span class="c009">Eseguire:</span></dt><dd class="dd-description"> Sperimentate facendo modifiche ed eseguendo le diverse versioni. Spesso, se visualizzate la cosa giusta al posto giusto all’interno del programma, il problema diventa evidente; magari occorre spendere un po’ di tempo per inserire qualche “impalcatura”.</dd><dt class="dt-description"><span class="c009">Rimuginare:</span></dt><dd class="dd-description"> Prendetevi il tempo per pensarci su! Che tipo di errore è: di sintassi, di runtime o di semantica? Che informazioni si traggono dal messaggio di errore o dall’output del programma? Che tipo di errore potrebbe causare il problema che vedete? Quali modifiche avete fatto prima che si verificasse il problema?</dd><dt class="dt-description"><span class="c009">Parlare a una papera di gomma:</span></dt><dd class="dd-description"> Spiegando il problema a qualcun altro, talvolta si trova la risposta ancor prima di finire di formulare la domanda. Ma spesso non serve nemmeno un’altra persona: potete semplicemente parlare ad una papera di gomma. E da qui nasce la nota tecnica chiamata <span class="c009">debug con la papera di gomma</span>. Non me lo sono inventato: date un’occhiata a 
+<a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging"><span class="c003">https://en.wikipedia.org/wiki/Rubber_duck_debugging</span></a>.</dd><dt class="dt-description"><span class="c009">Tornare indietro:</span></dt><dd class="dd-description"> A un certo punto, la cosa migliore da fare è tornare sui vostri passi, annullare le ultime modifiche, fino a riottenere un programma funzionante e comprensibile. Poi rifate da capo.</dd></dl><p>I programmatori principianti a volte si fissano su uno di questi punti e tralasciano gli altri. Ciascuno di essi ha dei punti deboli.
+<a id="hevea_default1111"></a></p><p>Per esempio, leggere il codice va bene se il problema è un errore di battitura, ma non se c’è un fraintendimento concettuale. Se non capite cosa fa il vostro programma, potete leggerlo 100 volte senza riuscire a trovare l’errore, perché l’errore sta nella vostra testa.
+<a id="hevea_default1112"></a></p><p>Fare esperimenti va bene, specie se si tratta di piccoli, semplici test. Ma se fate esperimenti senza pensare o leggere il codice, potete cascare in uno schema che io chiamo “programmare a tentoni”, che significa fare tentativi a casaccio finché il programma non fa la cosa giusta. Inutile dirlo, questo può richiedere un sacco di tempo.
+<a id="hevea_default1113"></a></p><p>Dovete prendervi il tempo di riflettere. Il debug è come una scienza sperimentale. Dovete avere almeno un’ipotesi di quale sia il problema. Se ci sono due o più possibilità, provate a elaborare un test che ne elimini una.</p><p>Ma anche le migliori tecniche di debug falliranno se ci sono troppi errori o se il codice che state cercando di sistemare è troppo grande e complesso. Allora l’opzione migliore è di tornare indietro e semplificare il programma, fino ad ottenere qualcosa di funzionante e che riuscite a capire.</p><p>I principianti spesso sono riluttanti a tornare sui loro passi e si spaventano all’idea di cancellare anche una singola riga di codice (anche se è sbagliata). Se vi fa sentire meglio, copiate il programma in un altro file prima di sfrondarlo, potrete così ripristinare i pezzi di codice uno alla volta.</p><p>Trovare un bug difficile richiede lettura, esecuzione, rimuginazione e a volte ritornare sui propri passi. Se rimanete bloccati su una di queste attività, provate le altre.</p>
+<h2 class="section" id="sec165">13.11  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">deterministico:</span></dt><dd class="dd-description"> Qualità di un programma di fare le stesse cose ogni volte che viene eseguito, a parità di dati di input.
+<a id="hevea_default1114"></a></dd><dt class="dt-description"><span class="c009">pseudocasuale:</span></dt><dd class="dd-description"> Detto di una sequenza di numeri che sembrano casuali, ma sono generati da un programma deterministico.
+<a id="hevea_default1115"></a></dd><dt class="dt-description"><span class="c009">valore di default:</span></dt><dd class="dd-description"> Il valore predefinito di un parametro opzionale quando non viene specificato altrimenti.
+<a id="hevea_default1116"></a></dd><dt class="dt-description"><span class="c009">sovrascrivere:</span></dt><dd class="dd-description"> Sostituire un valore di default con un argomento.
+<a id="hevea_default1117"></a></dd><dt class="dt-description"><span class="c009">benchmarking:</span></dt><dd class="dd-description"> Procedura di scelta tra strutture di dati di vario tipo, implementando le alternative e provandole su un campione di possibili input.
+<a id="hevea_default1118"></a></dd><dt class="dt-description"><span class="c009">debug con la papera di gomma:</span></dt><dd class="dd-description"> Fare il debug spiegando il problema ad un oggetto inanimato, come una papera di gomma. Articolare un problema può aiutare a risolverlo, nonostante la papera di gomma non sappia nulla di Python. 
+<a id="hevea_default1119"></a></dd></dl>
+<h2 class="section" id="sec166">13.12  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 9</span>  
+<a id="hevea_default1120"></a>
+<a id="hevea_default1121"></a><p><em>Il “rango” di una parola è la sua posizione in un elenco di parole ordinate in base alla frequenza: la parola più comune ha rango 1, la seconda più comune rango 2, ecc.</em></p><p><em>La legge di Zipf descrive una relazione tra rango e frequenza delle parole nei linguaggi naturali
+(</em><a href="http://it.wikipedia.org/wiki/Legge_di_Zipf"><em><span class="c003">http://it.wikipedia.org/wiki/Legge_di_Zipf</span></em></a><em>), in particolare predice che la frequenza, </em><span class="c008">f</span><em>, della parola di rango </em><span class="c008">r</span><em> è:</em></p><table class="display dcenter"><tr class="c016"><td class="dcell"><span class="c008">f</span> = <span class="c008">c</span> <span class="c008">r</span><sup>−<span class="c008">s</span></sup> </td></tr>
+</table><p><em>
+dove </em><span class="c008">s</span><em> e </em><span class="c008">c</span><em> sono parametri che dipendono dal linguaggio e dal testo. Logaritmizzando ambo i lati dell’equazione, si ottiene:
+</em><a id="hevea_default1122"></a></p><table class="display dcenter"><tr class="c016"><td class="dcell">log<span class="c008">f</span> = log<span class="c008">c</span> − <span class="c008">s</span> log<span class="c008">r</span> </td></tr>
+</table><p><em>
+che rappresentata su un grafico con log </em><span class="c008">r</span><em> in ascissa e log </em><span class="c008">f</span><em> in ordinata, è una retta di coefficiente angolare </em>−<span class="c008">s</span><em> e termine noto log </em><span class="c008">c</span><em>.</em></p><p><em>Scrivete un programma che legga un testo da un file, conti le frequenza delle parole e stampi una riga per ogni parola, in ordine decrescente di frequenza, con i valori di log </em><span class="c008">f</span><em> e log </em><span class="c008">r</span><em>. Usate un programma a vostra scelta per costruire il grafico dei risultati e controllare se formano una retta. Riuscite a stimare il valore di </em><span class="c008">s</span><em>?</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/zipf.py"><span class="c003"><em>http://thinkpython2.com/code/zipf.py</em></span></a><em>. Per avviare la mia risoluzione serve il modulo di plotting <span class="c003">matplotlib</span>.
+Se avete installato Anaconda, avete già <span class="c003">matplotlib</span>; altrimenti potrebbe essere necessario installarlo.
+</em><a id="hevea_default1123"></a></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian013.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian015.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

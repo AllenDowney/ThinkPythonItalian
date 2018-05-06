@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Debug</title>
+</head>
+<body>
+<a href="thinkpython_italian020.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian022.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec237">Appendix A  Debug</h1>
+<p><a id="hevea_default1609"></a>
+Nell’operazione di rimozione degli errori da un programma, è opportuno distinguere i vari tipi di errore in modo da poterli rintracciare più velocemente:</p><ul class="itemize"><li class="li-itemize">Gli errori di sintassi vengono scoperti dall’interprete quando traduce il codice sorgente in codice macchina. Indicano che c’è qualcosa di sbagliato nella struttura del programma. Esempio: omettere i due punti alla fine di una istruzione <span class="c003">def</span> genera il messaggio, un po’ ridondante, <span class="c003">SyntaxError: invalid syntax</span>.
+<a id="hevea_default1610"></a>
+<a id="hevea_default1611"></a></li><li class="li-itemize">Gli errori di runtime sono prodotti dall’interprete se qualcosa va storto durante l’esecuzione del programma. Nella maggior parte dei casi, il messaggio di errore specifica dove si è verificato l’errore e quali funzioni erano in esecuzione. Esempio: una ricorsione infinita causa un errore di runtime “<span class="c003">maximum recursion depth exceeded</span>”.
+<a id="hevea_default1612"></a>
+<a id="hevea_default1613"></a>
+<a id="hevea_default1614"></a>
+<a id="hevea_default1615"></a></li><li class="li-itemize">Gli errori di semantica sono dei problemi con un programma che viene eseguito senza produrre messaggi di errore, ma che non fa le cose nel modo giusto. Esempio: un’espressione può essere valutata secondo un ordine diverso da quello che si intendeva, generando un risultato non corretto.
+<a id="hevea_default1616"></a>
+<a id="hevea_default1617"></a>
+</li></ul><p>La prima cosa da fare nel debug è capire con che tipo di errore abbiamo a che fare. Anche se i paragrafi che seguono sono organizzati per tipo di errore, alcune tecniche sono applicabili in più di una situazione.</p>
+<h2 class="section" id="sec238">A.1  Errori di sintassi</h2>
+<p>
+<a id="hevea_default1618"></a></p><p>Gli errori di sintassi sono in genere facili da sistemare, una volta capito in cosa consistono. Purtroppo, il messaggio di errore spesso è poco utile. Quelli più comuni sono: <span class="c003">SyntaxError: invalid syntax</span> e
+<span class="c003">SyntaxError: invalid token</span>, nessuno dei quali è molto esplicativo.</p><p>In compenso, il messaggio comunica il punto del programma dove si è verificato il problema. Più precisamente, dice dove Python ha notato il problema, che non è necessariamente il punto in cui si trova l’errore.
+A volte l’errore è prima del punto indicato dal messaggio, spesso nella riga precedente.
+<a id="hevea_default1619"></a>
+<a id="hevea_default1620"></a></p><p>Se state costruendo il programma in modo incrementale, è molto probabile che l’errore sia nell’ultima riga che avete aggiunto.</p><p>Se state copiando il codice da un libro, cominciate confrontando attentamente il vostro codice con quello del libro. Controllate ogni carattere. Ricordate però che anche il libro può essere sbagliato, e se vedete qualcosa che somiglia a un errore di sintassi, potrebbe esserlo.</p><p>Ecco alcuni modi di evitare i più comuni errori di sintassi:
+<a id="hevea_default1621"></a></p><ol class="enumerate" type=1><li class="li-enumerate">Accertatevi di non usare parole chiave di Python come nomi di variabile.
+<a id="hevea_default1622"></a></li><li class="li-enumerate">Controllate che ci siano i due punti alla fine di ogni intestazione di tutte le istruzioni composte, inclusi <span class="c003">for</span>, <span class="c003">while</span>,
+<span class="c003">if</span>, e le istruzioni <span class="c003">def</span>.
+<a id="hevea_default1623"></a>
+<a id="hevea_default1624"></a></li><li class="li-enumerate">Accertatevi che ogni stringa nel codice sia racchiusa da una coppia di virgolette o apici, e che questi siano di tipo indifferenziato e non “tipografici”.
+<a id="hevea_default1625"></a></li><li class="li-enumerate">Se avete stringhe a righe multiple con triple virgolette, accertatevi di averle chiuse in modo appropriato. Una stringa non chiusa può causare un errore di <span class="c003">invalid token</span> al termine del programma, oppure può trattare la parte che segue del programma come fosse una stringa, finché non incontra la stringa successiva. Nel secondo caso, potrebbe anche non produrre affatto un messaggio di errore!
+<a id="hevea_default1626"></a></li><li class="li-enumerate">Un operatore di apertura non chiuso—<code>(</code>, <code>{</code>, o
+<code>[</code>—fa sì che Python consideri la riga successiva come parte dell’istruzione corrente. In genere, si verifica un errore nella riga immediatamente successiva.</li><li class="li-enumerate">Controllate che non ci sia il classico <span class="c003">=</span> al posto di <span class="c003">==</span> all’interno di un’istruzione condizionale.
+<a id="hevea_default1627"></a></li><li class="li-enumerate">Controllate l’indentazione per assicurarvi che il codice sia allineato nel modo corretto. Python può gestire sia spazi che tabulazioni, ma se li mescolate possono esserci problemi. Il modo migliore di evitarli è usare un editor di testo appositamente realizzato per Python, che gestisca l’indentazione in modo coerente.
+<a id="hevea_default1628"></a>
+<a id="hevea_default1629"></a></li><li class="li-enumerate">Se nel codice (compresi stringhe e commenti) ci sono caratteri non-ASCII, tipo le lettere accentate, potrebbero causare problemi, anche se Python 3 gestisce abbastanza bene questi caratteri. Fate attenzione, se copiate e incollate del testo da una pagina web o da altre fonti.</li></ol><p>Se nulla di tutto questo funziona, continuate con il paragrafo seguente...</p>
+<h3 class="subsection" id="sec239">A.1.1  Continuo a fare modifiche ma non cambia nulla.</h3>
+<p>Se l’interprete dice che c’è un errore ma non lo trovate, può essere che voi e l’interprete non stiate guardando lo stesso codice. Controllate il vostro ambiente di programmazione per assicurarvi che il programma che state modificando sia proprio quello che Python sta tentando di eseguire.</p><p>Se non ne siete certi, provate a mettere deliberatamente un evidente errore di sintassi all’inizio del programma e rieseguitelo. Se l’interprete non trova l’errore, non state eseguendo il nuovo codice.</p><p>Alcune cause possibili:</p><ul class="itemize"><li class="li-itemize">Avete modificato il file e dimenticato di salvare le modifiche prima dell’esecuzione. Alcuni ambienti di programmazione lo fanno automaticamente, ma altri no.</li><li class="li-itemize">Avete cambiato il nome del file, ma state eseguendo ancora quello con il vecchio nome.</li><li class="li-itemize">Qualcosa nel vostro ambiente di sviluppo non è configurato correttamente.</li><li class="li-itemize">Se state scrivendo un modulo usando <span class="c003">import</span>, accertatevi di non dare al vostro modulo lo stesso nome di uno dei moduli standard di Python.</li><li class="li-itemize">Se state usando <span class="c003">import</span> per leggere un modulo, ricordatevi che dovete riavviare l’interprete o usare <span class="c003">reload</span> per leggere un file modificato. Se importate nuovamente il modulo, non succederà nulla.
+<a id="hevea_default1630"></a>
+<a id="hevea_default1631"></a>
+<a id="hevea_default1632"></a></li></ul><p>Se vi bloccate e non riuscite a capire cosa sta succedendo, un’alternativa è ripartire con un nuovo programma come “Ciao, mondo!”, e accertarvi di avere un programma ben conosciuto da eseguire. Quindi, aggiungete gradualmente i pezzi del programma originale a quello nuovo.</p>
+<h2 class="section" id="sec240">A.2  Errori di runtime</h2>
+<p>Una volta che il programma è sintatticamente corretto, Python può leggerlo e quantomeno cominciare ad eseguirlo. Cosa può succedere di spiacevole?</p>
+<h3 class="subsection" id="sec241">A.2.1  Il programma non fa assolutamente nulla.</h3>
+<p>È il problema più frequente se il vostro file consiste di funzioni e classi, ma in realtà non invoca alcuna funzione per avviare l’esecuzione. Può essere una cosa intenzionale, se intendete utilizzarlo solo come modulo da importare allo scopo di fornire le classi e le funzioni.</p><p>Se non è questo il caso, assicuratevi che nel programma ci sia una chiamata di funzione e che il flusso di esecuzione la raggiunga (vedete anche il paragrafo “Flusso di esecuzione” più avanti).</p>
+<h3 class="subsection" id="sec242">A.2.2  Il programma si blocca.</h3>
+<p>
+<a id="hevea_default1633"></a>
+<a id="hevea_default1634"></a>
+<a id="hevea_default1635"></a></p><p>Se un programma si blocca e pare che non stia succedendo nulla, spesso vuol dire che è incappato in un ciclo infinito o in una ricorsione infinita.</p><ul class="itemize"><li class="li-itemize">Se c’è un ciclo particolare dove sospettate che stia il problema, aggiungete un’istruzione di stampa immediatamente prima del ciclo che dice:
+“Sto entrando nel ciclo” e una immediatamente dopo che dice:
+“Sto uscendo dal ciclo”.<p>Avviate il programma. Se viene visualizzato il primo messaggio ma non il secondo, c’è un ciclo infinito. Proseguite con il Paragrafo “Ciclo infinito” più sotto.</p></li><li class="li-itemize">Il più delle volte, in presenza di una ricorsione infinita, il programma funziona per qualche tempo per poi produrre un errore <span class="c003">RuntimeError: Maximum
+recursion depth exceeded</span>. Se succede questo, andate al Paragrafo
+“Ricorsione infinita”.<p>Se non ottenete questo errore ma sospettate che ci sia un problema con un metodo o funzione ricorsivi, potete usare ugualmente le tecniche illustrate nel Paragrafo “Ricorsione infinita”.</p></li><li class="li-itemize">Se nessuno di questi punti funziona, fate delle prove su altri cicli o funzioni e metodi ricorsivi.</li><li class="li-itemize">Se ancora non funziona, forse non avete ben chiaro il flusso di esecuzione del vostro programma. Andate al relativo Paragrafo.</li></ul>
+<h4 class="subsubsection" id="sec243">Ciclo infinito</h4>
+<p>
+<a id="hevea_default1636"></a>
+<a id="hevea_default1637"></a>
+<a id="hevea_default1638"></a></p><p>Se sospettate che vi sia un ciclo infinito e di sapere quale ciclo in particolare stia causando il problema, aggiungete un’istruzione di stampa alla fine del ciclo in modo da visualizzare il valore delle variabili nella condizione e il valore della condizione.</p><p>Per esempio:</p><pre class="verbatim">while x &gt; 0 and y &lt; 0 :
+    # fa qualcosa con x
+    # fa qualcosa con y
+
+    print('x: ', x)
+    print('y: ', y)
+    print('condizione: ', (x &gt; 0 and y &lt; 0))
+</pre><p>
+Ora, eseguendo il programma, vedrete tre righe di output per ogni ripetizione del ciclo. All’ultimo passaggio, la condizione dovrebbe risultare <span class="c003">False</span>. Se il ciclo continua, vedrete comunque i valori di <span class="c003">x</span> e <span class="c003">y</span>, e potrete capire meglio il motivo per cui non vengono aggiornati correttamente.</p>
+<h4 class="subsubsection" id="sec244">Ricorsione infinita</h4>
+<p>
+<a id="hevea_default1639"></a></p><p>Il più delle volte, una ricorsione infinita provoca un errore di <span class="c003">Maximum recursion depth exceeded</span>, dopo che il programma è stato in esecuzione per qualche istante.</p><p>Se sospettate che una funzione stia provocando una ricorsione infinita, controllate innanzitutto che esista un caso base. Deve esistere un qualche tipo di condizione che provoca il ritorno della funzione senza generare un’altra chiamata ricorsiva. Se no, occorre ripensare l’algoritmo e stabilire un caso base.</p><p>Se il caso base c’è ma sembra che il programma non lo raggiunga mai, aggiungete un’istruzione di stampa all’inizio della funzione, in modo da visualizzare i parametri. Ora, eseguendo il programma vedrete alcune righe di output con i valori dei parametri per ogni chiamata della funzione. Se i parametri non tendono verso il caso base, avrete qualche spunto per capire il perché.</p>
+<h4 class="subsubsection" id="sec245">Flusso di esecuzione</h4>
+<p>
+<a id="hevea_default1640"></a></p><p>Se non siete sicuri di come il flusso di esecuzione si muova dentro il vostro programma, aggiungete delle istruzioni di stampa all’inizio di ogni funzione con un messaggio del tipo “sto eseguendo la funzione <span class="c003">pippo</span>”, dove
+<span class="c003">pippo</span> è il nome della funzione.</p><p>Ora, eseguendo il programma, verrà stampata una traccia di ogni funzione che viene invocata.</p>
+<h3 class="subsection" id="sec246">A.2.3  Quando eseguo il programma è sollevata un’eccezione.</h3>
+<p>
+<a id="hevea_default1641"></a>
+<a id="hevea_default1642"></a></p><p>Se qualcosa non va durante l’esecuzione, Python stampa un messaggio che include il nome dell’eccezione, la riga del programma dove il problema si è verificato, ed un traceback.
+<a id="hevea_default1643"></a></p><p>Il traceback identifica la funzione che era in esecuzione, quella che l’aveva chiamata, quella che <em>a sua volta</em> l’aveva chiamata e così via. In altre parole, traccia la sequenza di chiamate di funzione che hanno condotto alla situazione attuale. Include anche il numero di riga del file dove è avvenuta ciascuna chiamata.</p><p>Innanzitutto bisogna esaminare il punto del programma dove è emerso l’errore e vedere se si riesce a capire cosa è successo. Questi sono alcuni dei più comuni errori in esecuzione:</p><dl class="description"><dt class="dt-description"><span class="c009">NameError:</span></dt><dd class="dd-description"> State cercando di usare una variabile che non esiste nell’ambiente attuale. Controllate che il nome sia scritto esattamente e che sia coerente. Ricordate anche che le variabili locali sono, per l’appunto, locali: non potete fare loro riferimento dall’esterno della funzione in cui sono definite.
+<a id="hevea_default1644"></a>
+<a id="hevea_default1645"></a></dd><dt class="dt-description"><span class="c009">TypeError:</span></dt><dd class="dd-description"> Ci sono alcune possibili cause:
+<a id="hevea_default1646"></a>
+<a id="hevea_default1647"></a><ul class="itemize"><li class="li-itemize">State cercando di usare un valore in modo improprio. Esempio: indicizzare una stringa, lista o tupla con qualcosa di diverso da un numero intero. 
+<a id="hevea_default1648"></a></li><li class="li-itemize">C’è una mancata corrispondenza tra gli elementi in una stringa di formato e gli elementi passati per la conversione. Succede se il numero degli elementi non corrisponde o se viene tentata una conversione non valida.
+<a id="hevea_default1649"></a>
+<a id="hevea_default1650"></a></li><li class="li-itemize">State passando a una funzione un numero sbagliato di argomenti. Per i metodi, guardatetene la definizione e controllate che il primo parametro sia <span class="c003">self</span>. Quindi guardate l’invocazione: assicuratevi di invocare il metodo su un oggetto con il giusto tipo e di fornire correttamente gli altri argomenti.</li></ul></dd><dt class="dt-description"><span class="c009">KeyError:</span></dt><dd class="dd-description"> State tentando di accedere a un elemento di un dizionario usando una chiave che nel dizionario non esiste. Se le chiavi sono delle stringhe, ricordate che c’è differenza tra lettere maiuscole e minuscole.
+<a id="hevea_default1651"></a>
+<a id="hevea_default1652"></a>
+<a id="hevea_default1653"></a></dd><dt class="dt-description"><span class="c009">AttributeError:</span></dt><dd class="dd-description"> State tentando di accedere a un attributo o a un metodo che non esiste. Controllate se è scritto giusto! Potete usare la funzione predefinita <span class="c003">vars</span> per elencare gli attributi esistenti.<p>Se un AttributeError indica che un oggetto è di tipo <span class="c003">NoneType</span>,
+vuol dire che è <span class="c003">None</span>. Il problema non è il nome dell’attributo, ma l’oggetto. la ragione per cui un oggetto è <span class="c003">None</span> può essere dimenticare di ritornare un valore da una funzione: se arrivate in fondo a una funzione senza intercettare un’istruzione <span class="c003">return</span>, questa restituisce <span class="c003">None</span>. Un’altra causa frequente è usare il risultato di un metodo di una lista, come <span class="c003">sort</span>, che restituisce <span class="c003">None</span>.
+<a id="hevea_default1654"></a>
+<a id="hevea_default1655"></a></p></dd><dt class="dt-description"><span class="c009">IndexError:</span></dt><dd class="dd-description"> L’indice che state usando per accedere a una lista, stringa o tupla è maggiore della lunghezza della sequenza meno uno. Immediatamente prima dell’ubicazione dell’errore aggiungete un’istruzione di stampa che mostri il valore dell’indice e la lunghezza della struttura. Quest’ultima è della lunghezza esatta? E l’indice ha il valore corretto?
+<a id="hevea_default1656"></a>
+<a id="hevea_default1657"></a></dd></dl><p>Il debugger Python (<span class="c003">pdb</span>) è utile per catturare le eccezioni, perché vi permette di esaminare lo stato del programma immediatamente prima dell’errore. Potete leggere approfondimenti su <span class="c003">pdb</span> sul sito <a href="https://docs.python.org/3/library/pdb.html"><span class="c003">https://docs.python.org/3/library/pdb.html</span></a>.
+<a id="hevea_default1658"></a>
+<a id="hevea_default1659"></a></p>
+<h3 class="subsection" id="sec247">A.2.4  Ho aggiunto talmente tante istruzioni di stampa che sono sommerso di output.</h3>
+<p>
+<a id="hevea_default1660"></a>
+<a id="hevea_default1661"></a></p><p>Una controindicazione delle istruzioni di stampa nel debugging è che si rischia di essere inondati di messaggi. Ci sono due modi di procedere: o semplificate l’output o semplificate il programma.</p><p>Per semplificare l’output, potete rimuovere o commentare le istruzioni di stampa superflue, o accorparle, o dare all’output un formato più leggibile.</p><p>Per semplificare il programma, ci sono diverse opzioni. Primo, riducete il problema che il programma sta affrontando. Per esempio, se state cercando una lista, cercatene una <em>piccola</em>. Se il programma riceve input dall’utente, dategli il dato più semplice che causa il problema.
+<a id="hevea_default1662"></a></p><p>Secondo, ripulite il programma. Togliete il codice inutile e riorganizzate il programma in modo da renderlo il più facile possibile da leggere. Per esempio, se sospettate che l’errore sia in una parte profondamente nidificata del programma, cercate di riscrivere quella parte con una struttura più semplice. Se sospettate di una corposa funzione, provate a suddividerla in funzioni più piccole e a testarle separatamente.
+<a id="hevea_default1663"></a>
+<a id="hevea_default1664"></a></p><p>Spesso, il procedimento di ricercare il caso di prova più circoscritto porta a trovare l’errore. Se riscontrate che il programma funziona in un caso ma non in un altro, questo vi dà una chiave di lettura di quello che sta succedendo.</p><p>Allo stesso modo, riscrivere un pezzo di codice vi può aiutare a trovare errori insidiosi. Una modifica che pensavate ininfluente sul programma, e che invece influisce, può farvi trovare il bandolo della matassa.</p>
+<h2 class="section" id="sec248">A.3  Errori di semantica</h2>
+<p>Gli errori di semantica sono i più difficili da affrontare, perché l’interprete non fornisce informazioni su ciò che non va. Sapete per certo solo quello che il programma dovrebbe fare, ma non fa.
+<a id="hevea_default1665"></a>
+<a id="hevea_default1666"></a></p><p>Innanzitutto occorre stabilire una connessione logica tra il testo del programma e il comportamento che vedete. Vi serve un’ipotesi di cosa sta facendo in realtà il programma. Quello che rende difficili le cose è che i computer eseguono le operazioni in tempi rapidissimi. </p><p>Vi capiterà di desiderare di poter rallentare il programma ad una velocità umana, e in effetti con alcuni strumenti di debug potete farlo. Ma il tempo che ci vuole per inserire alcune istruzioni di stampa ben calibrate è spesso più breve di quello necessario a impostare il debugger, inserire e togliere i punti di interruzione, ed eseguire i passi per portare il programma dove si verifica l’errore .</p>
+<h3 class="subsection" id="sec249">A.3.1  Il mio programma non funziona.</h3>
+<p>Dovreste porvi queste domande:</p><ul class="itemize"><li class="li-itemize">C’è qualcosa che il programma dovrebbe fare ma che non sembra accadere? Trovate la parte del codice che esegue quella funzione e assicuratevi che sia effettivamente eseguita quando ritenete che dovrebbe esserlo.</li><li class="li-itemize">Sta succedendo qualcosa che non dovrebbe succedere? Trovate il codice che genera quella funzione e controllate se viene eseguita quando invece non dovrebbe esserlo.</li><li class="li-itemize">Una porzione di codice sta producendo effetti inattesi? Assicuratevi di capire il codice in questione, specie se coinvolge funzioni o metodi in altri moduli Python. Leggete la documentazione delle funzioni che chiamate. Provatele scrivendo semplici test e controllando i risultati.</li></ul><p>Per programmare, vi serve un modello mentale di come funziona il programma. Se scrivete un programma che non fa quello che volete, spesso il problema non è nel programma ma nel vostro modello mentale.
+<a id="hevea_default1667"></a></p><p>Il modo migliore per correggere il vostro modello mentale è spezzare il programma nei suoi componenti (di solito funzioni e metodi) e provare indipendentemente ogni singolo componente.
+Quando avrete trovato la discrepanza tra il vostro modello e la realtà, potrete risolvere il problema.</p><p>Naturalmente, dovreste costruire e provare i componenti mentre state sviluppando il programma. Così, se vi imbattete in un problema, dovrebbe esserci solo una piccola quantità di codice di cui occorre verificare l’esattezza.</p>
+<h3 class="subsection" id="sec250">A.3.2  Ho una grande e complicata espressione che non fa quello che voglio.</h3>
+<p>
+<a id="hevea_default1668"></a></p><p>Scrivere espressioni complesse va bene fino a quando restano leggibili, ma poi possono diventare difficili da correggere. Un buon consiglio è di spezzare un’espressione complessa in una serie di assegnazioni a variabili temporanee.</p><p>Per esempio:</p><pre class="verbatim">self.mani[i].aggiungiCarta(self.mani[self.trovaVicino(i)].togliCarta())
+</pre><p>
+Può essere riscritta così:</p><pre class="verbatim">vicino = self.trovaVicino(i)
+cartaScelta = self.mani[vicino].togliCarta()
+self.mani[i].aggiungiCarta(cartaScelta)
+</pre><p>
+La versione esplicita è più leggibile perché i nomi delle variabili aggiungono informazione, ed è più facile da correggere perché potete controllare i tipi delle variabili intermedie e visualizzare il loro valore.
+<a id="hevea_default1669"></a></p><p>Un altro problema che si verifica con le grandi espressioni è che l’ordine di valutazione delle operazioni può essere diverso da quello che pensate.
+Per esempio, nel tradurre in Python l’espressione
+<span class="c008">x</span>/2 π, potreste scrivere:</p><pre class="verbatim">y = x / 2 * math.pi
+</pre><p>
+È sbagliato, perché moltiplicazione e divisione hanno la stessa priorità e vengono calcolate da sinistra verso destra; quindi quell’espressione calcola <span class="c008">x</span> π / 2.
+<a id="hevea_default1670"></a>
+<a id="hevea_default1671"></a></p><p>Un buon modo di fare il debug delle espressioni è aggiungere delle parentesi per rendere esplicito l’ordine delle operazioni.</p><pre class="verbatim"> y = x / (2 * math.pi)
+</pre><p>
+Usate le parentesi ogni volta che non siete certi dell’ordine delle operazioni. Non solo il programma sarà corretto (nel senso che farà quello che volete), sarà anche più leggibile da altre persone che non hanno imparato a memoria l’ordine delle operazioni</p>
+<h3 class="subsection" id="sec251">A.3.3  Ho una funzione che non restituisce quello che voglio.</h3>
+<p>
+<a id="hevea_default1672"></a>
+<a id="hevea_default1673"></a></p><p>Se avete un’istruzione <span class="c003">return</span> associata ad un’espressione complessa, non avete modo di stampare il risultato prima del ritorno. Di nuovo, usate una variabile temporanea. Per esempio, anziché:</p><pre class="verbatim">return self.mani[i].togliUguali()
+</pre><p>
+potete scrivere:</p><pre class="verbatim">conta = self.mani[i].togliUguali()
+return conta
+</pre><p>
+Ora potete stampare il valore di <span class="c003">conta</span> prima che sia restituito.</p>
+<h3 class="subsection" id="sec252">A.3.4  Sono proprio bloccato e mi serve aiuto.</h3>
+<p>Per prima cosa, staccatevi dal computer per qualche minuto. I computer emettono onde che influenzano il cervello, causando questi sintomi:</p><ul class="itemize"><li class="li-itemize">Frustrazione e rabbia.
+<a id="hevea_default1674"></a>
+<a id="hevea_default1675"></a>
+<a id="hevea_default1676"></a>
+<a id="hevea_default1677"></a></li><li class="li-itemize">Credenze superstiziose (“il computer mi odia”) e influssi magici (“il programma funziona solo quando indosso il berretto all’indietro”).
+<a id="hevea_default1678"></a></li><li class="li-itemize">Programmazione a tentoni (il tentativo di programmare scrivendo ogni possibile programma e prendendo quello che funziona).
+<a id="hevea_default1679"></a>
+<a id="hevea_default1680"></a></li></ul><p>Se accusate qualcuno di questi sintomi, alzatevi e andate a fare una passeggiata. Quando vi siete calmati, ripensate al programma. Cosa sta facendo? Quali sono le possibili cause del suo comportamento? Quand’era l’ultima volta che avete avuto un programma funzionante, e cosa avete fatto dopo?</p><p>A volte per trovare un bug è richiesto solo del tempo. Io trovo spesso bug mentre non sono al computer e distraggo la mente. Tra i posti migliori per trovare bug: in treno; sotto la doccia; a letto appena prima di addormentarsi.</p>
+<h3 class="subsection" id="sec253">A.3.5  No, ho davvero bisogno di aiuto.</h3>
+<p>Capita. Anche i migliori programmatori a volte si bloccano. Magari avete lavorato talmente a lungo sul programma da non riuscire a vedere un errore. Un paio di occhi freschi sono quello che ci vuole.</p><p>Prima di rivolgervi a qualcun altro, dovete fare dei preparativi. Il vostro programma dovrebbe essere il più semplice possibile, e dovete fare in modo di lavorare sul più circoscritto input che causa l’errore.
+Dovete posizionare delle istruzioni di stampa nei posti adatti (e l’output che producono deve essere comprensibile). Il problema va compreso abbastanza bene da poterlo descrivere in poche parole.</p><p>Quando portate qualcuno ad aiutarvi, assicuratevi di dargli tutte le informazioni che servono:</p><ul class="itemize"><li class="li-itemize">Se c’è un messaggio di errore, di cosa si tratta e quale parte del programma indica?</li><li class="li-itemize">Qual è l’ultima cosa che avete fatto prima della comparsa dell’errore? Quali erano le ultime righe di codice che avevate scritto, oppure il nuovo caso di prova che non è riuscito?</li><li class="li-itemize">Cosa avete provato a fare finora, e cosa avete appreso dai tentativi?</li></ul><p>Quando trovate l’errore, prendetevi un attimo di tempo per pensare cosa avreste potuto fare per trovarlo più velocemente: la prossima volta che incontrerete qualcosa di simile, vi sarà più facile scoprire l’errore.</p><p>Ricordate che lo scopo non è solo far funzionare il programma, ma imparare a farlo funzionare.</p>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian020.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian022.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

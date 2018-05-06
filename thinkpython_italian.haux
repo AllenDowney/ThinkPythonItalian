@@ -1,0 +1,493 @@
+\@@addtocsec{htoc}{sec1}{-1}{\@print{Chapter 0}\quad{}Prefazione{}}
+\@@addtocsec{htoc}{sec5}{-1}{\@print{Chapter 1}\quad{}Lo scopo del programma{}}
+\@@addtocsec{htoc}{sec6}{0}{\@print{1.1}\quad{}Che cos'è un programma?{}}
+\@@addtocsec{htoc}{sec7}{0}{\@print{1.2}\quad{}Avviare Python{}}
+\@@addtocsec{htoc}{sec8}{0}{\@print{1.3}\quad{}Il primo programma{}}
+\newlabel{hello}{{1.3}{X}}
+\@deflabeltype{hello}{section}
+\@@addtocsec{htoc}{sec9}{0}{\@print{1.4}\quad{}Operatori aritmetici{}}
+\@@addtocsec{htoc}{sec10}{0}{\@print{1.5}\quad{}Valori e tipi{}}
+\@@addtocsec{htoc}{sec11}{0}{\@print{1.6}\quad{}Linguaggi formali e linguaggi naturali{}}
+\@@addtocsec{htoc}{sec12}{0}{\@print{1.7}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec13}{0}{\@print{1.8}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec14}{0}{\@print{1.9}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec15}{-1}{\@print{Chapter 2}\quad{}Variabili, espressioni ed istruzioni{}}
+\@@addtocsec{htoc}{sec16}{0}{\@print{2.1}\quad{}Istruzioni di assegnazione{}}
+\newlabel{variables}{{2.1}{X}}
+\@deflabeltype{variables}{section}
+\newlabel{fig.state2}{{2.1}{X}}
+\@deflabeltype{fig.state2}{figure}
+\@@addtocsec{htoc}{sec17}{0}{\@print{2.2}\quad{}Nomi delle variabili{}}
+\@@addtocsec{htoc}{sec18}{0}{\@print{2.3}\quad{}Espressioni e istruzioni{}}
+\@@addtocsec{htoc}{sec19}{0}{\@print{2.4}\quad{}Modalità script{}}
+\@@addtocsec{htoc}{sec20}{0}{\@print{2.5}\quad{}Ordine delle operazioni{}}
+\@@addtocsec{htoc}{sec21}{0}{\@print{2.6}\quad{}Operazioni sulle stringhe{}}
+\@@addtocsec{htoc}{sec22}{0}{\@print{2.7}\quad{}Commenti{}}
+\@@addtocsec{htoc}{sec23}{0}{\@print{2.8}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec24}{1}{\@print{2.8.1}\quad{}Errori di sintassi{}}
+\@@addtocsec{htoc}{sec25}{1}{\@print{2.8.2}\quad{}Errori in esecuzione{}}
+\newlabel{runtime}{{2.8.2}{X}}
+\@deflabeltype{runtime}{subsection}
+\@@addtocsec{htoc}{sec26}{1}{\@print{2.8.3}\quad{}Errori di semantica{}}
+\@@addtocsec{htoc}{sec27}{0}{\@print{2.9}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec28}{0}{\@print{2.10}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec29}{-1}{\@print{Chapter 3}\quad{}Funzioni{}}
+\newlabel{funcchap}{{3}{X}}
+\@deflabeltype{funcchap}{chapter}
+\@@addtocsec{htoc}{sec30}{0}{\@print{3.1}\quad{}Chiamate di funzione{}}
+\newlabel{functionchap}{{3.1}{X}}
+\@deflabeltype{functionchap}{section}
+\@@addtocsec{htoc}{sec31}{0}{\@print{3.2}\quad{}Funzioni matematiche{}}
+\@@addtocsec{htoc}{sec32}{0}{\@print{3.3}\quad{}Composizione{}}
+\@@addtocsec{htoc}{sec33}{0}{\@print{3.4}\quad{}Aggiungere nuove funzioni{}}
+\@@addtocsec{htoc}{sec34}{0}{\@print{3.5}\quad{}Definizioni e loro utilizzo{}}
+\@@addtocsec{htoc}{sec35}{0}{\@print{3.6}\quad{}Flusso di esecuzione{}}
+\@@addtocsec{htoc}{sec36}{0}{\@print{3.7}\quad{}Parametri e argomenti{}}
+\newlabel{parametri}{{3.7}{X}}
+\@deflabeltype{parametri}{section}
+\@@addtocsec{htoc}{sec37}{0}{\@print{3.8}\quad{}Variabili e parametri sono locali{}}
+\@@addtocsec{htoc}{sec38}{0}{\@print{3.9}\quad{}Diagrammi di stack{}}
+\newlabel{stackdiagram}{{3.9}{X}}
+\@deflabeltype{stackdiagram}{section}
+\newlabel{fig.stack}{{3.1}{X}}
+\@deflabeltype{fig.stack}{figure}
+\@@addtocsec{htoc}{sec39}{0}{\@print{3.10}\quad{}Funzioni ``produttive'' e funzioni ``vuote''{}}
+\@@addtocsec{htoc}{sec40}{0}{\@print{3.11}\quad{}Perché usare le funzioni?{}}
+\@@addtocsec{htoc}{sec41}{0}{\@print{3.12}\quad{}Debug{}}
+\newlabel{editor}{{3.12}{X}}
+\@deflabeltype{editor}{section}
+\@@addtocsec{htoc}{sec42}{0}{\@print{3.13}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec43}{0}{\@print{3.14}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec44}{-1}{\@print{Chapter 4}\quad{}Esercitazione: Progettazione dell'interfaccia{}}
+\newlabel{turtlechap}{{4}{X}}
+\@deflabeltype{turtlechap}{chapter}
+\@@addtocsec{htoc}{sec45}{0}{\@print{4.1}\quad{}Il modulo turtle{}}
+\newlabel{turtle}{{4.1}{X}}
+\@deflabeltype{turtle}{section}
+\@@addtocsec{htoc}{sec46}{0}{\@print{4.2}\quad{}Ripetizione semplice{}}
+\newlabel{repetition}{{4.2}{X}}
+\@deflabeltype{repetition}{section}
+\@@addtocsec{htoc}{sec47}{0}{\@print{4.3}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec48}{0}{\@print{4.4}\quad{}Incapsulamento{}}
+\@@addtocsec{htoc}{sec49}{0}{\@print{4.5}\quad{}Generalizzazione{}}
+\@@addtocsec{htoc}{sec50}{0}{\@print{4.6}\quad{}Progettazione dell'interfaccia{}}
+\@@addtocsec{htoc}{sec51}{0}{\@print{4.7}\quad{}Refactoring{}}
+\newlabel{refactoring}{{4.7}{X}}
+\@deflabeltype{refactoring}{section}
+\@@addtocsec{htoc}{sec52}{0}{\@print{4.8}\quad{}Tecnica di sviluppo{}}
+\@@addtocsec{htoc}{sec53}{0}{\@print{4.9}\quad{}Stringa di documentazione{}}
+\newlabel{docstring}{{4.9}{X}}
+\@deflabeltype{docstring}{section}
+\@@addtocsec{htoc}{sec54}{0}{\@print{4.10}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec55}{0}{\@print{4.11}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec56}{0}{\@print{4.12}\quad{}Esercizi{}}
+\newlabel{fig.flowers}{{4.1}{X}}
+\@deflabeltype{fig.flowers}{figure}
+\newlabel{fig.pies}{{4.2}{X}}
+\@deflabeltype{fig.pies}{figure}
+\@@addtocsec{htoc}{sec57}{-1}{\@print{Chapter 5}\quad{}Istruzioni condizionali e ricorsione{}}
+\@@addtocsec{htoc}{sec58}{0}{\@print{5.1}\quad{}Divisione intera e modulo{}}
+\@@addtocsec{htoc}{sec59}{0}{\@print{5.2}\quad{}Espressioni booleane{}}
+\@@addtocsec{htoc}{sec60}{0}{\@print{5.3}\quad{}Operatori logici{}}
+\@@addtocsec{htoc}{sec61}{0}{\@print{5.4}\quad{}Esecuzione condizionale{}}
+\newlabel{conditional.execution}{{5.4}{X}}
+\@deflabeltype{conditional.execution}{section}
+\@@addtocsec{htoc}{sec62}{0}{\@print{5.5}\quad{}Esecuzione alternativa{}}
+\newlabel{alternative.execution}{{5.5}{X}}
+\@deflabeltype{alternative.execution}{section}
+\@@addtocsec{htoc}{sec63}{0}{\@print{5.6}\quad{}Condizioni in serie{}}
+\@@addtocsec{htoc}{sec64}{0}{\@print{5.7}\quad{}Condizioni nidificate{}}
+\@@addtocsec{htoc}{sec65}{0}{\@print{5.8}\quad{}Ricorsione{}}
+\newlabel{recursion}{{5.8}{X}}
+\@deflabeltype{recursion}{section}
+\@@addtocsec{htoc}{sec66}{0}{\@print{5.9}\quad{}Diagrammi di stack delle funzioni ricorsive{}}
+\newlabel{recursive.stack}{{5.9}{X}}
+\@deflabeltype{recursive.stack}{section}
+\newlabel{fig.stack2}{{5.1}{X}}
+\@deflabeltype{fig.stack2}{figure}
+\@@addtocsec{htoc}{sec67}{0}{\@print{5.10}\quad{}Ricorsione infinita{}}
+\@@addtocsec{htoc}{sec68}{0}{\@print{5.11}\quad{}Input da tastiera{}}
+\@@addtocsec{htoc}{sec69}{0}{\@print{5.12}\quad{}Debug{}}
+\newlabel{whitespace}{{5.12}{X}}
+\@deflabeltype{whitespace}{section}
+\@@addtocsec{htoc}{sec70}{0}{\@print{5.13}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec71}{0}{\@print{5.14}\quad{}Esercizi{}}
+\newlabel{fig.koch}{{5.2}{X}}
+\@deflabeltype{fig.koch}{figure}
+\@@addtocsec{htoc}{sec72}{-1}{\@print{Chapter 6}\quad{}Funzioni produttive{}}
+\newlabel{fruitchap}{{6}{X}}
+\@deflabeltype{fruitchap}{chapter}
+\@@addtocsec{htoc}{sec73}{0}{\@print{6.1}\quad{}Valori di ritorno{}}
+\@@addtocsec{htoc}{sec74}{0}{\@print{6.2}\quad{}Sviluppo incrementale{}}
+\newlabel{incremental.development}{{6.2}{X}}
+\@deflabeltype{incremental.development}{section}
+\@@addtocsec{htoc}{sec75}{0}{\@print{6.3}\quad{}Composizione{}}
+\@@addtocsec{htoc}{sec76}{0}{\@print{6.4}\quad{}Funzioni booleane{}}
+\newlabel{boolean}{{6.4}{X}}
+\@deflabeltype{boolean}{section}
+\@@addtocsec{htoc}{sec77}{0}{\@print{6.5}\quad{}Altro sulla ricorsione{}}
+\newlabel{more.recursion}{{6.5}{X}}
+\@deflabeltype{more.recursion}{section}
+\newlabel{fig.stack3}{{6.1}{X}}
+\@deflabeltype{fig.stack3}{figure}
+\@@addtocsec{htoc}{sec78}{0}{\@print{6.6}\quad{}Salto sulla fiducia{}}
+\@@addtocsec{htoc}{sec79}{0}{\@print{6.7}\quad{}Un altro esempio{}}
+\newlabel{one.more.example}{{6.7}{X}}
+\@deflabeltype{one.more.example}{section}
+\@@addtocsec{htoc}{sec80}{0}{\@print{6.8}\quad{}Controllo dei tipi{}}
+\newlabel{guardian}{{6.8}{X}}
+\@deflabeltype{guardian}{section}
+\@@addtocsec{htoc}{sec81}{0}{\@print{6.9}\quad{}Debug{}}
+\newlabel{factdebug}{{6.9}{X}}
+\@deflabeltype{factdebug}{section}
+\@@addtocsec{htoc}{sec82}{0}{\@print{6.10}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec83}{0}{\@print{6.11}\quad{}Esercizi{}}
+\newlabel{ackermann}{{2}{X}}
+<em>\@deflabeltype{ackermann}{exercise}
+</em>\newlabel{palindrome}{{3}{X}}
+<em>\@deflabeltype{palindrome}{exercise}
+</em>\@@addtocsec{htoc}{sec84}{-1}{\@print{Chapter 7}\quad{}Iterazione{}}
+\@@addtocsec{htoc}{sec85}{0}{\@print{7.1}\quad{}Riassegnazione{}}
+\newlabel{fig.assign2}{{7.1}{X}}
+\@deflabeltype{fig.assign2}{figure}
+\@@addtocsec{htoc}{sec86}{0}{\@print{7.2}\quad{}Aggiornare le variabili{}}
+\newlabel{update}{{7.2}{X}}
+\@deflabeltype{update}{section}
+\@@addtocsec{htoc}{sec87}{0}{\@print{7.3}\quad{}L'istruzione {\tt while}{}}
+\@@addtocsec{htoc}{sec88}{0}{\@print{7.4}\quad{}{\tt break}{}}
+\@@addtocsec{htoc}{sec89}{0}{\@print{7.5}\quad{}Radici quadrate{}}
+\newlabel{squareroot}{{7.5}{X}}
+\@deflabeltype{squareroot}{section}
+\@@addtocsec{htoc}{sec90}{0}{\@print{7.6}\quad{}Algoritmi{}}
+\@@addtocsec{htoc}{sec91}{0}{\@print{7.7}\quad{}Debug{}}
+\newlabel{bisectbug}{{7.7}{X}}
+\@deflabeltype{bisectbug}{section}
+\@@addtocsec{htoc}{sec92}{0}{\@print{7.8}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec93}{0}{\@print{7.9}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec94}{-1}{\@print{Chapter 8}\quad{}Stringhe{}}
+\newlabel{strings}{{8}{X}}
+\@deflabeltype{strings}{chapter}
+\@@addtocsec{htoc}{sec95}{0}{\@print{8.1}\quad{}Una stringa è una sequenza{}}
+\@@addtocsec{htoc}{sec96}{0}{\@print{8.2}\quad{}{\tt len}{}}
+\@@addtocsec{htoc}{sec97}{0}{\@print{8.3}\quad{}Attraversamento con un ciclo {\tt for}{}}
+\newlabel{for}{{8.3}{X}}
+\@deflabeltype{for}{section}
+\@@addtocsec{htoc}{sec98}{0}{\@print{8.4}\quad{}Slicing{}}
+\newlabel{slice}{{8.4}{X}}
+\@deflabeltype{slice}{section}
+\newlabel{fig.banana}{{8.1}{X}}
+\@deflabeltype{fig.banana}{figure}
+\@@addtocsec{htoc}{sec99}{0}{\@print{8.5}\quad{}Le stringhe sono immutabili{}}
+\@@addtocsec{htoc}{sec100}{0}{\@print{8.6}\quad{}Ricerca{}}
+\newlabel{find}{{8.6}{X}}
+\@deflabeltype{find}{section}
+\@@addtocsec{htoc}{sec101}{0}{\@print{8.7}\quad{}Cicli e contatori{}}
+\newlabel{counter}{{8.7}{X}}
+\@deflabeltype{counter}{section}
+\@@addtocsec{htoc}{sec102}{0}{\@print{8.8}\quad{}Metodi delle stringhe{}}
+\newlabel{optional}{{8.8}{X}}
+\@deflabeltype{optional}{section}
+\@@addtocsec{htoc}{sec103}{0}{\@print{8.9}\quad{}L'operatore {\tt in}{}}
+\newlabel{inboth}{{8.9}{X}}
+\@deflabeltype{inboth}{section}
+\@@addtocsec{htoc}{sec104}{0}{\@print{8.10}\quad{}Confronto di stringhe{}}
+\@@addtocsec{htoc}{sec105}{0}{\@print{8.11}\quad{}Debug{}}
+\newlabel{fig.state4}{{8.2}{X}}
+\@deflabeltype{fig.state4}{figure}
+\newlabel{isreverse}{{8.11}{X}}
+\@deflabeltype{isreverse}{section}
+\@@addtocsec{htoc}{sec106}{0}{\@print{8.12}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec107}{0}{\@print{8.13}\quad{}Esercizi{}}
+\newlabel{exrotate}{{5}{X}}
+<em>\@deflabeltype{exrotate}{exercise}
+</em>\@@addtocsec{htoc}{sec108}{-1}{\@print{Chapter 9}\quad{}Esercitazione: Giochi con le parole{}}
+\newlabel{wordplay}{{9}{X}}
+\@deflabeltype{wordplay}{chapter}
+\@@addtocsec{htoc}{sec109}{0}{\@print{9.1}\quad{}Leggere elenchi di parole{}}
+\newlabel{wordlist}{{9.1}{X}}
+\@deflabeltype{wordlist}{section}
+\@@addtocsec{htoc}{sec110}{0}{\@print{9.2}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec111}{0}{\@print{9.3}\quad{}Ricerca{}}
+\newlabel{search}{{9.3}{X}}
+\@deflabeltype{search}{section}
+\@@addtocsec{htoc}{sec112}{0}{\@print{9.4}\quad{}Cicli con gli indici{}}
+\@@addtocsec{htoc}{sec113}{0}{\@print{9.5}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec114}{0}{\@print{9.6}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec115}{0}{\@print{9.7}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec116}{-1}{\@print{Chapter 10}\quad{}Liste{}}
+\@@addtocsec{htoc}{sec117}{0}{\@print{10.1}\quad{}Una lista è una sequenza{}}
+\newlabel{sequence}{{10.1}{X}}
+\@deflabeltype{sequence}{section}
+\@@addtocsec{htoc}{sec118}{0}{\@print{10.2}\quad{}Le liste sono mutabili{}}
+\newlabel{mutable}{{10.2}{X}}
+\@deflabeltype{mutable}{section}
+\newlabel{fig.liststate}{{10.1}{X}}
+\@deflabeltype{fig.liststate}{figure}
+\@@addtocsec{htoc}{sec119}{0}{\@print{10.3}\quad{}Attraversamento di una lista{}}
+\@@addtocsec{htoc}{sec120}{0}{\@print{10.4}\quad{}Operazioni sulle liste{}}
+\@@addtocsec{htoc}{sec121}{0}{\@print{10.5}\quad{}Slicing delle liste{}}
+\@@addtocsec{htoc}{sec122}{0}{\@print{10.6}\quad{}Metodi delle liste{}}
+\@@addtocsec{htoc}{sec123}{0}{\@print{10.7}\quad{}Mappare, filtrare e ridurre{}}
+\newlabel{filter}{{10.7}{X}}
+\@deflabeltype{filter}{section}
+\@@addtocsec{htoc}{sec124}{0}{\@print{10.8}\quad{}Cancellare elementi{}}
+\@@addtocsec{htoc}{sec125}{0}{\@print{10.9}\quad{}Liste e stringhe{}}
+\@@addtocsec{htoc}{sec126}{0}{\@print{10.10}\quad{}Oggetti e valori{}}
+\newlabel{equivalence}{{10.10}{X}}
+\@deflabeltype{equivalence}{section}
+\newlabel{fig.list1}{{10.2}{X}}
+\@deflabeltype{fig.list1}{figure}
+\newlabel{fig.list2}{{10.3}{X}}
+\@deflabeltype{fig.list2}{figure}
+\@@addtocsec{htoc}{sec127}{0}{\@print{10.11}\quad{}Alias{}}
+\newlabel{fig.list3}{{10.4}{X}}
+\@deflabeltype{fig.list3}{figure}
+\@@addtocsec{htoc}{sec128}{0}{\@print{10.12}\quad{}Liste come argomenti{}}
+\newlabel{list.arguments}{{10.12}{X}}
+\@deflabeltype{list.arguments}{section}
+\newlabel{fig.stack5}{{10.5}{X}}
+\@deflabeltype{fig.stack5}{figure}
+\@@addtocsec{htoc}{sec129}{0}{\@print{10.13}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec130}{0}{\@print{10.14}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec131}{0}{\@print{10.15}\quad{}Esercizi{}}
+\newlabel{cumulative}{{2}{X}}
+<em>\@deflabeltype{cumulative}{exercise}
+</em>\newlabel{anagram}{{6}{X}}
+<em>\@deflabeltype{anagram}{exercise}
+</em>\newlabel{duplicate}{{7}{X}}
+<em>\@deflabeltype{duplicate}{exercise}
+</em>\newlabel{wordlist1}{{10}{X}}
+<em>\@deflabeltype{wordlist1}{exercise}
+</em>\newlabel{bisection}{{10}{X}}
+<em>\@deflabeltype{bisection}{exercise}
+</em>\@@addtocsec{htoc}{sec132}{-1}{\@print{Chapter 11}\quad{}Dizionari{}}
+\@@addtocsec{htoc}{sec133}{0}{\@print{11.1}\quad{}Un dizionario è una mappatura{}}
+\@@addtocsec{htoc}{sec134}{0}{\@print{11.2}\quad{}Il dizionario come raccolta di contatori{}}
+\newlabel{histogram}{{11.2}{X}}
+\@deflabeltype{histogram}{section}
+\@@addtocsec{htoc}{sec135}{0}{\@print{11.3}\quad{}Cicli e dizionari{}}
+\@@addtocsec{htoc}{sec136}{0}{\@print{11.4}\quad{}Lookup inverso{}}
+\newlabel{raise}{{11.4}{X}}
+\@deflabeltype{raise}{section}
+\@@addtocsec{htoc}{sec137}{0}{\@print{11.5}\quad{}Dizionari e liste{}}
+\newlabel{invert}{{11.5}{X}}
+\@deflabeltype{invert}{section}
+\newlabel{fig.dict1}{{11.1}{X}}
+\@deflabeltype{fig.dict1}{figure}
+\@@addtocsec{htoc}{sec138}{0}{\@print{11.6}\quad{}Memoizzazione{}}
+\newlabel{memoize}{{11.6}{X}}
+\@deflabeltype{memoize}{section}
+\newlabel{fig.fibonacci}{{11.2}{X}}
+\@deflabeltype{fig.fibonacci}{figure}
+\@@addtocsec{htoc}{sec139}{0}{\@print{11.7}\quad{}Variabili globali{}}
+\@@addtocsec{htoc}{sec140}{0}{\@print{11.8}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec141}{0}{\@print{11.9}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec142}{0}{\@print{11.10}\quad{}Esercizi{}}
+\newlabel{wordlist2}{{1}{X}}
+<em>\@deflabeltype{wordlist2}{exercise}
+</em>\newlabel{setdefault}{{2}{X}}
+<em>\@deflabeltype{setdefault}{exercise}
+</em>\newlabel{exrotatepairs}{{5}{X}}
+<em>\@deflabeltype{exrotatepairs}{exercise}
+</em>\@@addtocsec{htoc}{sec143}{-1}{\@print{Chapter 12}\quad{}Tuple{}}
+\newlabel{tuplechap}{{12}{X}}
+\@deflabeltype{tuplechap}{chapter}
+\@@addtocsec{htoc}{sec144}{0}{\@print{12.1}\quad{}Le tuple sono immutabili{}}
+\@@addtocsec{htoc}{sec145}{0}{\@print{12.2}\quad{}Assegnazione di tupla{}}
+\newlabel{tuple.assignment}{{12.2}{X}}
+\@deflabeltype{tuple.assignment}{section}
+\@@addtocsec{htoc}{sec146}{0}{\@print{12.3}\quad{}Tuple come valori di ritorno{}}
+\@@addtocsec{htoc}{sec147}{0}{\@print{12.4}\quad{}Tuple di argomenti a lunghezza variabile{}}
+\newlabel{gather}{{12.4}{X}}
+\@deflabeltype{gather}{section}
+\@@addtocsec{htoc}{sec148}{0}{\@print{12.5}\quad{}Liste e tuple{}}
+\@@addtocsec{htoc}{sec149}{0}{\@print{12.6}\quad{}Dizionari e tuple{}}
+\newlabel{dictuple}{{12.6}{X}}
+\@deflabeltype{dictuple}{section}
+\newlabel{fig.tuple1}{{12.1}{X}}
+\@deflabeltype{fig.tuple1}{figure}
+\newlabel{fig.dict2}{{12.2}{X}}
+\@deflabeltype{fig.dict2}{figure}
+\@@addtocsec{htoc}{sec150}{0}{\@print{12.7}\quad{}Sequenze di sequenze{}}
+\@@addtocsec{htoc}{sec151}{0}{\@print{12.8}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec152}{0}{\@print{12.9}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec153}{0}{\@print{12.10}\quad{}Esercizi{}}
+\newlabel{anagrams}{{2}{X}}
+<em>\@deflabeltype{anagrams}{exercise}
+</em>\@@addtocsec{htoc}{sec154}{-1}{\@print{Chapter 13}\quad{}Esercitazione: Scelta della struttura di dati{}}
+\@@addtocsec{htoc}{sec155}{0}{\@print{13.1}\quad{}Analisi di frequenza delle parole{}}
+\newlabel{analysis}{{13.1}{X}}
+\@deflabeltype{analysis}{section}
+\@@addtocsec{htoc}{sec156}{0}{\@print{13.2}\quad{}Numeri casuali{}}
+\@@addtocsec{htoc}{sec157}{0}{\@print{13.3}\quad{}Istogramma di parole{}}
+\@@addtocsec{htoc}{sec158}{0}{\@print{13.4}\quad{}Parole più comuni{}}
+\@@addtocsec{htoc}{sec159}{0}{\@print{13.5}\quad{}Parametri opzionali{}}
+\@@addtocsec{htoc}{sec160}{0}{\@print{13.6}\quad{}Sottrazione di dizionari{}}
+\newlabel{dictsub}{{13.6}{X}}
+\@deflabeltype{dictsub}{section}
+\@@addtocsec{htoc}{sec161}{0}{\@print{13.7}\quad{}Parole a caso{}}
+\newlabel{randomwords}{{13.7}{X}}
+\@deflabeltype{randomwords}{section}
+\newlabel{randhist}{{7}{X}}
+<em>\@deflabeltype{randhist}{exercise}
+</em>\@@addtocsec{htoc}{sec162}{0}{\@print{13.8}\quad{}Analisi di Markov{}}
+\newlabel{markov}{{13.8}{X}}
+\@deflabeltype{markov}{section}
+\@@addtocsec{htoc}{sec163}{0}{\@print{13.9}\quad{}Strutture di dati{}}
+\@@addtocsec{htoc}{sec164}{0}{\@print{13.10}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec165}{0}{\@print{13.11}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec166}{0}{\@print{13.12}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec167}{-1}{\@print{Chapter 14}\quad{}File{}}
+\@@addtocsec{htoc}{sec168}{0}{\@print{14.1}\quad{}Persistenza{}}
+\@@addtocsec{htoc}{sec169}{0}{\@print{14.2}\quad{}Lettura e scrittura{}}
+\@@addtocsec{htoc}{sec170}{0}{\@print{14.3}\quad{}L'operatore di formato{}}
+\@@addtocsec{htoc}{sec171}{0}{\@print{14.4}\quad{}Nomi di file e percorsi{}}
+\newlabel{paths}{{14.4}{X}}
+\@deflabeltype{paths}{section}
+\@@addtocsec{htoc}{sec172}{0}{\@print{14.5}\quad{}Gestire le eccezioni{}}
+\newlabel{catch}{{14.5}{X}}
+\@deflabeltype{catch}{section}
+\@@addtocsec{htoc}{sec173}{0}{\@print{14.6}\quad{}Database{}}
+\@@addtocsec{htoc}{sec174}{0}{\@print{14.7}\quad{}Pickling{}}
+\@@addtocsec{htoc}{sec175}{0}{\@print{14.8}\quad{}Pipe{}}
+\@@addtocsec{htoc}{sec176}{0}{\@print{14.9}\quad{}Scrivere moduli{}}
+\newlabel{modules}{{14.9}{X}}
+\@deflabeltype{modules}{section}
+\@@addtocsec{htoc}{sec177}{0}{\@print{14.10}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec178}{0}{\@print{14.11}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec179}{0}{\@print{14.12}\quad{}Esercizi{}}
+\newlabel{checksum}{{3}{X}}
+<em>\@deflabeltype{checksum}{exercise}
+</em>\@@addtocsec{htoc}{sec180}{-1}{\@print{Chapter 15}\quad{}Classi e oggetti{}}
+\newlabel{clobjects}{{15}{X}}
+\@deflabeltype{clobjects}{chapter}
+\@@addtocsec{htoc}{sec181}{0}{\@print{15.1}\quad{}Tipi personalizzati{}}
+\newlabel{point}{{15.1}{X}}
+\@deflabeltype{point}{section}
+\@@addtocsec{htoc}{sec182}{0}{\@print{15.2}\quad{}Attributi{}}
+\newlabel{attributes}{{15.2}{X}}
+\@deflabeltype{attributes}{section}
+\newlabel{fig.point}{{15.1}{X}}
+\@deflabeltype{fig.point}{figure}
+\@@addtocsec{htoc}{sec183}{0}{\@print{15.3}\quad{}Rettangoli{}}
+\newlabel{rectangles}{{15.3}{X}}
+\@deflabeltype{rectangles}{section}
+\newlabel{fig.rectangle}{{15.2}{X}}
+\@deflabeltype{fig.rectangle}{figure}
+\@@addtocsec{htoc}{sec184}{0}{\@print{15.4}\quad{}Istanze come valori di ritorno{}}
+\@@addtocsec{htoc}{sec185}{0}{\@print{15.5}\quad{}Gli oggetti sono mutabili{}}
+\@@addtocsec{htoc}{sec186}{0}{\@print{15.6}\quad{}Copia{}}
+\newlabel{copying}{{15.6}{X}}
+\@deflabeltype{copying}{section}
+\newlabel{fig.rectangle2}{{15.3}{X}}
+\@deflabeltype{fig.rectangle2}{figure}
+\@@addtocsec{htoc}{sec187}{0}{\@print{15.7}\quad{}Debug{}}
+\newlabel{hasattr}{{15.7}{X}}
+\@deflabeltype{hasattr}{section}
+\@@addtocsec{htoc}{sec188}{0}{\@print{15.8}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec189}{0}{\@print{15.9}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec190}{-1}{\@print{Chapter 16}\quad{}Classi e funzioni{}}
+\newlabel{time}{{16}{X}}
+\@deflabeltype{time}{chapter}
+\@@addtocsec{htoc}{sec191}{0}{\@print{16.1}\quad{}Tempo{}}
+\newlabel{isafter}{{16.1}{X}}
+\@deflabeltype{isafter}{section}
+\newlabel{fig.time}{{16.1}{X}}
+\@deflabeltype{fig.time}{figure}
+\@@addtocsec{htoc}{sec192}{0}{\@print{16.2}\quad{}Funzioni pure{}}
+\@@addtocsec{htoc}{sec193}{0}{\@print{16.3}\quad{}Modificatori{}}
+\newlabel{increment}{{16.3}{X}}
+\@deflabeltype{increment}{section}
+\@@addtocsec{htoc}{sec194}{0}{\@print{16.4}\quad{}Sviluppo prototipale e Sviluppo pianificato{}}
+\newlabel{prototype}{{16.4}{X}}
+\@deflabeltype{prototype}{section}
+\@@addtocsec{htoc}{sec195}{0}{\@print{16.5}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec196}{0}{\@print{16.6}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec197}{0}{\@print{16.7}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec198}{-1}{\@print{Chapter 17}\quad{}Classi e metodi{}}
+\@@addtocsec{htoc}{sec199}{0}{\@print{17.1}\quad{}Funzionalità orientate agli oggetti{}}
+\@@addtocsec{htoc}{sec200}{0}{\@print{17.2}\quad{}Stampa di oggetti{}}
+\@@addtocsec{htoc}{sec201}{0}{\@print{17.3}\quad{}Un altro esempio{}}
+\@@addtocsec{htoc}{sec202}{0}{\@print{17.4}\quad{}Un esempio più complesso{}}
+\@@addtocsec{htoc}{sec203}{0}{\@print{17.5}\quad{}Il metodo speciale init{}}
+\@@addtocsec{htoc}{sec204}{0}{\@print{17.6}\quad{}Il metodo speciale {\tt \_\_str\_\_}{}}
+\@@addtocsec{htoc}{sec205}{0}{\@print{17.7}\quad{}Operator overloading{}}
+\newlabel{operator.overloading}{{17.7}{X}}
+\@deflabeltype{operator.overloading}{section}
+\@@addtocsec{htoc}{sec206}{0}{\@print{17.8}\quad{}Smistamento in base al tipo{}}
+\@@addtocsec{htoc}{sec207}{0}{\@print{17.9}\quad{}Polimorfismo{}}
+\newlabel{polymorphism}{{17.9}{X}}
+\@deflabeltype{polymorphism}{section}
+\@@addtocsec{htoc}{sec208}{0}{\@print{17.10}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec209}{0}{\@print{17.11}\quad{}Interfaccia e implementazione{}}
+\@@addtocsec{htoc}{sec210}{0}{\@print{17.12}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec211}{0}{\@print{17.13}\quad{}Esercizi{}}
+\newlabel{kangaroo}{{2}{X}}
+<em>\@deflabeltype{kangaroo}{exercise}
+</em>\@@addtocsec{htoc}{sec212}{-1}{\@print{Chapter 18}\quad{}Ereditarietà{}}
+\@@addtocsec{htoc}{sec213}{0}{\@print{18.1}\quad{}Oggetti Carta{}}
+\@@addtocsec{htoc}{sec214}{0}{\@print{18.2}\quad{}Attributi di classe{}}
+\newlabel{class.attribute}{{18.2}{X}}
+\@deflabeltype{class.attribute}{section}
+\newlabel{fig.card1}{{18.1}{X}}
+\@deflabeltype{fig.card1}{figure}
+\@@addtocsec{htoc}{sec215}{0}{\@print{18.3}\quad{}Confrontare le carte{}}
+\newlabel{comparecard}{{18.3}{X}}
+\@deflabeltype{comparecard}{section}
+\@@addtocsec{htoc}{sec216}{0}{\@print{18.4}\quad{}Mazzi di carte{}}
+\@@addtocsec{htoc}{sec217}{0}{\@print{18.5}\quad{}Stampare il mazzo{}}
+\newlabel{printdeck}{{18.5}{X}}
+\@deflabeltype{printdeck}{section}
+\@@addtocsec{htoc}{sec218}{0}{\@print{18.6}\quad{}Aggiungere, togliere, mescolare e ordinare{}}
+\@@addtocsec{htoc}{sec219}{0}{\@print{18.7}\quad{}Ereditarietà{}}
+\@@addtocsec{htoc}{sec220}{0}{\@print{18.8}\quad{}Diagrammi di classe{}}
+\newlabel{class.diagram}{{18.8}{X}}
+\@deflabeltype{class.diagram}{section}
+\newlabel{fig.class1}{{18.2}{X}}
+\@deflabeltype{fig.class1}{figure}
+\@@addtocsec{htoc}{sec221}{0}{\@print{18.9}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec222}{0}{\@print{18.10}\quad{}Incapsulamento dei dati{}}
+\@@addtocsec{htoc}{sec223}{0}{\@print{18.11}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec224}{0}{\@print{18.12}\quad{}Esercizi{}}
+\newlabel{poker}{{3}{X}}
+<em>\@deflabeltype{poker}{exercise}
+</em>\@@addtocsec{htoc}{sec225}{-1}{\@print{Chapter 19}\quad{}Ulteriori strumenti{}}
+\@@addtocsec{htoc}{sec226}{0}{\@print{19.1}\quad{}Espressioni condizionali{}}
+\@@addtocsec{htoc}{sec227}{0}{\@print{19.2}\quad{}List comprehension{}}
+\@@addtocsec{htoc}{sec228}{0}{\@print{19.3}\quad{}Generator expression{}}
+\@@addtocsec{htoc}{sec229}{0}{\@print{19.4}\quad{}{\tt any} e {\tt all}{}}
+\@@addtocsec{htoc}{sec230}{0}{\@print{19.5}\quad{}Insiemi (set){}}
+\newlabel{sets}{{19.5}{X}}
+\@deflabeltype{sets}{section}
+\@@addtocsec{htoc}{sec231}{0}{\@print{19.6}\quad{}Contatori{}}
+\@@addtocsec{htoc}{sec232}{0}{\@print{19.7}\quad{}defaultdict{}}
+\@@addtocsec{htoc}{sec233}{0}{\@print{19.8}\quad{}Tuple con nome (namedtuple){}}
+\@@addtocsec{htoc}{sec234}{0}{\@print{19.9}\quad{}Raccolta di argomenti con nome{}}
+\@@addtocsec{htoc}{sec235}{0}{\@print{19.10}\quad{}Glossario{}}
+\@@addtocsec{htoc}{sec236}{0}{\@print{19.11}\quad{}Esercizi{}}
+\@@addtocsec{htoc}{sec237}{-1}{\@print{Appendix A}\quad{}Debug{}}
+\@@addtocsec{htoc}{sec238}{0}{\@print{A.1}\quad{}Errori di sintassi{}}
+\@@addtocsec{htoc}{sec239}{1}{\@print{A.1.1}\quad{}Continuo a fare modifiche ma non cambia nulla.{}}
+\@@addtocsec{htoc}{sec240}{0}{\@print{A.2}\quad{}Errori di runtime{}}
+\@@addtocsec{htoc}{sec241}{1}{\@print{A.2.1}\quad{}Il programma non fa assolutamente nulla.{}}
+\@@addtocsec{htoc}{sec242}{1}{\@print{A.2.2}\quad{}Il programma si blocca.{}}
+\@@addtocsec{htoc}{sec246}{1}{\@print{A.2.3}\quad{}Quando eseguo il programma è sollevata un'eccezione.{}}
+\@@addtocsec{htoc}{sec247}{1}{\@print{A.2.4}\quad{}Ho aggiunto talmente tante istruzioni di stampa che sono sommerso di output.{}}
+\@@addtocsec{htoc}{sec248}{0}{\@print{A.3}\quad{}Errori di semantica{}}
+\@@addtocsec{htoc}{sec249}{1}{\@print{A.3.1}\quad{}Il mio programma non funziona.{}}
+\@@addtocsec{htoc}{sec250}{1}{\@print{A.3.2}\quad{}Ho una grande e complicata espressione che non fa quello che voglio.{}}
+\@@addtocsec{htoc}{sec251}{1}{\@print{A.3.3}\quad{}Ho una funzione che non restituisce quello che voglio.{}}
+\@@addtocsec{htoc}{sec252}{1}{\@print{A.3.4}\quad{}Sono proprio bloccato e mi serve aiuto.{}}
+\@@addtocsec{htoc}{sec253}{1}{\@print{A.3.5}\quad{}No, ho davvero bisogno di aiuto.{}}
+\@@addtocsec{htoc}{sec254}{-1}{\@print{Appendix B}\quad{}Analisi degli Algoritmi{}}
+\newlabel{algorithms}{{B}{X}}
+\@deflabeltype{algorithms}{chapter}
+\@@addtocsec{htoc}{sec255}{0}{\@print{B.1}\quad{}Ordine di complessità{}}
+\@@addtocsec{htoc}{sec256}{0}{\@print{B.2}\quad{}Analisi delle operazioni fondamentali di Python{}}
+\@@addtocsec{htoc}{sec257}{0}{\@print{B.3}\quad{}Analisi degli algoritmi di ricerca{}}
+\@@addtocsec{htoc}{sec258}{0}{\@print{B.4}\quad{}Tabelle hash{}}
+\newlabel{hashtable}{{B.4}{X}}
+\@deflabeltype{hashtable}{section}
+\newlabel{fig.hash}{{B.1}{X}}
+\@deflabeltype{fig.hash}{figure}
+\@@addtocsec{htoc}{sec259}{0}{\@print{B.5}\quad{}Glossario{}}

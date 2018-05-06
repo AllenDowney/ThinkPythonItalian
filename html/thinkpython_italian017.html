@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Classi e funzioni</title>
+</head>
+<body>
+<a href="thinkpython_italian016.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian018.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec190">Chapter 16  Classi e funzioni</h1>
+<p>
+<a id="time"></a></p><p>Ora che sappiamo come creare dei nuovi tipi, il passo successivo è scrivere delle funzioni che prendano i tipi personalizzati come parametri e restituiscano dei risultati. In questo capitolo presenterò anche lo “stile di programmazione funzionale” e due nuove tecniche di sviluppo.</p><p>Il codice degli esempi di questo capitolo è scaricabile dal sito
+<a href="http://thinkpython2.com/code/Time1.py"><span class="c003">http://thinkpython2.com/code/Time1.py</span></a>.
+Le soluzioni degli esercizi si trovano qui:
+<a href="http://thinkpython2.com/code/Time1_soln.py"><span class="c003">http://thinkpython2.com/code/Time1_soln.py</span></a>.</p>
+<h2 class="section" id="sec191">16.1  Tempo</h2>
+<p>
+<a id="isafter"></a></p><p>Facciamo un altro esempio di tipo personalizzato, creato dal programmatore, e definiamo una classe chiamata <span class="c003">Tempo</span> che permette di rappresentare un’ora del giorno:
+<a id="hevea_default1312"></a>
+<a id="hevea_default1313"></a>
+<a id="hevea_default1314"></a></p><pre class="verbatim">class Tempo:
+    """Rappresenta un'ora del giorno.
+       
+    attributi: ora, minuto, secondo
+    """
+</pre><p>
+Possiamo creare un nuovo oggetto <span class="c003">Tempo</span>, assegnandogli tre attributi per le
+ore, i minuti e i secondi:</p><pre class="verbatim">tempo = Tempo()
+tempo.ora = 11
+tempo.minuto = 59
+tempo.secondo = 30
+</pre><p>
+Il diagramma di stato dell’oggetto <span class="c003">Tempo</span> è riportato in Figura <a href="#fig.time">16.1</a>.
+<a id="hevea_default1315"></a>
+<a id="hevea_default1316"></a></p><p>Provate ora a scrivete una funzione di nome <code>stampa_tempo</code> che accetti un oggetto Tempo come argomento e ne stampi il risultato nel formato <span class="c003">ore:minuti:secondi</span>.
+Suggerimento: la sequenza di formato <code>'%.2d'</code> stampa un intero usando almeno due cifre, compreso uno zero iniziale dove necessario.</p><p>Scrivete poi una funzione booleana <code>viene_dopo</code> che riceva come argomenti due oggetti Tempo, <span class="c003">t1</span> e <span class="c003">t2</span>, e restituisca <span class="c003">True</span> se <span class="c003">t1</span> è temporalmente successivo a <span class="c003">t2</span> e <span class="c003">False</span> in caso contrario. Opzione più difficile: non usate un’istruzione <span class="c003">if</span>.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian023.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 16.1: Diagramma di oggetto.</td></tr>
+</table></div>
+<a id="fig.time"></a>
+<div class="center"><hr class="c019"></div></blockquote>
+<h2 class="section" id="sec192">16.2  Funzioni pure</h2>
+<p>
+<a id="hevea_default1317"></a>
+<a id="hevea_default1318"></a></p><p>Nei prossimi paragrafi scriveremo due funzioni che sommano dei valori, espressi in termini temporali. Illustreremo così due tipi di funzioni: le funzioni pure e i modificatori. Dimostreremo anche una tecnica di sviluppo che chiameremo <span class="c009">prototipo ed evoluzioni</span>, che è un modo di affrontare un problema complesso partendo da un prototipo semplice e trattando poi in maniera incrementale gli aspetti di maggior complessità.</p><p>Ecco un semplice prototipo della funzione <code>somma_tempo</code>:</p><pre class="verbatim">def somma_tempo(t1, t2):
+    somma = Tempo()
+    somma.ora = t1.ora + t2.ora
+    somma.minuto = t1.minuto + t2.minuto
+    somma.secondo = t1.secondo + t2.secondo
+    return somma
+</pre><p>
+La funzione crea un nuovo oggetto <span class="c003">Tempo</span>, ne inizializza gli attributi, e restituisce un riferimento al nuovo oggetto. Questa è detta <span class="c009">funzione pura</span>, perché non modifica alcuno degli oggetti che le vengono passati come argomento e, oltre a restituire un valore, non ha effetti visibili come visualizzare valori o chiedere input all’utente.
+<a id="hevea_default1319"></a></p><p>Per provare questa funzione, creiamo due oggetti Tempo: <span class="c003">inizio</span>
+che contiene l’ora di inizio di un film, come <em>I Monty Python e il Sacro Graal</em>, e <span class="c003">durata</span> che contiene la durata del film, che è un’ora e 35 minuti.
+<a id="hevea_default1320"></a></p><p><code>somma_tempo</code> ci dirà a che ora finisce il film.</p><pre class="verbatim">&gt;&gt;&gt; inizio = Tempo()
+&gt;&gt;&gt; inizio.ora = 9
+&gt;&gt;&gt; inizio.minuto = 45
+&gt;&gt;&gt; inizio.secondo =  0
+
+&gt;&gt;&gt; durata = Tempo()
+&gt;&gt;&gt; durata.ora = 1
+&gt;&gt;&gt; durata.minuto = 35
+&gt;&gt;&gt; durata.secondo = 0
+
+&gt;&gt;&gt; fine = somma_tempo(inizio, durata)
+&gt;&gt;&gt; stampa_tempo(fine)
+10:80:00
+</pre><p>
+Il risultato, <span class="c003">10:80:00</span> non è soddisfacente. Il problema è che questa funzione non gestisce correttamente i casi in cui la somma dei minuti e dei secondi equivale o supera sessanta. Quando questo accade, dobbiamo “riportare” i 60 secondi come minuto ulteriore, o i 60 minuti come ora ulteriore.
+<a id="hevea_default1321"></a></p><p>Ecco allora una versione migliorata della funzione:</p><pre class="verbatim">def somma_tempo(t1, t2):
+    somma = Tempo()
+    somma.ora = t1.ora + t2.ora
+    somma.minuto = t1.minuto + t2.minuto
+    somma.secondo = t1.secondo + t2.secondo
+
+    if somma.secondo &gt;= 60:
+        somma.secondo -= 60
+        somma.minuto += 1
+
+    if somma.minuto &gt;= 60:
+        somma.minuto -= 60
+        somma.ora += 1
+
+    return somma
+</pre><p>
+Sebbene questa funzione sia corretta, comincia ad essere lunga. Tra poco vedremo un’alternativa più concisa.</p>
+<h2 class="section" id="sec193">16.3  Modificatori</h2>
+<p>
+<a id="increment"></a>
+<a id="hevea_default1322"></a>
+<a id="hevea_default1323"></a></p><p>Ci sono casi in cui è utile che una funzione possa modificare gli oggetti che assume come parametri. I cambiamenti risulteranno visibili anche al chiamante. Funzioni che si comportano in questo modo sono dette <span class="c009">modificatori</span>.
+<a id="hevea_default1324"></a></p><p><span class="c003">incremento</span>, che aggiunge un dato numero di secondi ad un oggetto <span class="c003">Tempo</span>, può essere scritta intuitivamente come modificatore. Ecco un primo abbozzo della funzione:</p><pre class="verbatim">def incremento(tempo, secondi):
+    tempo.secondo += secondi
+
+    if tempo.secondo &gt;= 60:
+        tempo.secondo -= 60
+        tempo.minuto += 1
+
+    if tempo.minuto &gt;= 60:
+        tempo.minuto -= 60
+        tempo.ora += 1
+</pre><p>
+La prima riga esegue l’operazione di addizione fondamentale, mentre le successive controllano i casi particolari che abbiamo già visto prima.
+<a id="hevea_default1325"></a></p><p>Questa funzione è corretta? Cosa succede se <span class="c003">secondi</span>
+è molto più grande di 60? </p><p>In questo caso non è più sufficiente un unico riporto tra secondi e minuti: dobbiamo fare in modo di ripetere il controllo più volte, finché <span class="c003">tempo.secondo</span> diventa minore di 60. Allora, una possibile soluzione è quella di sostituire le istruzioni <span class="c003">if</span> con delle istruzioni <span class="c003">while</span>.
+Questo renderebbe la funzione corretta, ma non molto efficiente.</p><p>Come esercizio, scrivete una versione corretta di <span class="c003">incremento</span> che non contenga alcun ciclo.</p><p>Tutto quello che può essere fatto con i modificatori può anche essere fatto con le funzioni pure. Tanto è vero che alcuni linguaggi di programmazione prevedono unicamente l’uso di funzioni pure. Si può affermare che i programmi che utilizzano funzioni pure sono più veloci da sviluppare e meno soggetti ad errori rispetto a quelli che fanno uso dei modificatori. Ma in qualche caso i modificatori convengono, perché i programmi funzionali risultano meno efficienti.</p><p>In linea generale, raccomando di usare funzioni pure quando possibile e usare i modificatori solo se c’è un evidente vantaggio nel farlo. Questo tipo di approccio può essere definito <span class="c009">stile di programmazione funzionale</span>.
+<a id="hevea_default1326"></a></p><p>Per esercizio, scrivete una versione “pura” di <span class="c003">incremento</span> che crei e restituisca un nuovo oggetto Tempo anziché modificare il parametro.</p>
+<h2 class="section" id="sec194">16.4  Sviluppo prototipale e Sviluppo pianificato</h2>
+<p>
+<a id="prototype"></a>
+<a id="hevea_default1327"></a>
+<a id="hevea_default1328"></a>
+<a id="hevea_default1329"></a>
+<a id="hevea_default1330"></a></p><p>La tecnica di sviluppo del programma che sto illustrando in questo Capitolo è detta “prototipo ed evoluzioni”: per ogni funzione, si inizia scrivendo una versione grezza (prototipo) che effettui solo i calcoli fondamentali, provandola e via via migliorandola e correggendo gli errori.</p><p>Sebbene questo approccio possa essere abbastanza efficace, specie se non avete una adeguata conoscenza del problema, può condurre a scrivere del codice inutilmente complesso (perché deve affrontare molti casi particolari) e poco affidabile (dato che è difficile essere certi che tutti gli errori siano stati rimossi).</p><p>Un’alternativa è lo <span class="c009">sviluppo pianificato</span>, nel quale una conoscenza approfondita degli aspetti del problema da affrontare rende la programmazione molto più semplice. Nel nostro caso, questa conoscenza sta nel fatto che l’oggetto Tempo è rappresentabile da un numero a tre cifre in base numerica 60! (vedere <a href="http://it.wikipedia.org/wiki/Sistema_sessagesimale"><span class="c003">http://it.wikipedia.org/wiki/Sistema_sessagesimale</span></a>.) L’attributo
+<span class="c003">secondo</span> è la “colonna delle unità”, l’attributo <span class="c003">minuto</span>
+è la “colonna delle sessantine”, e l’attributo <span class="c003">ora</span> quella della “trecentosessantine”.
+<a id="hevea_default1331"></a></p><p>Quando abbiamo scritto <code>somma_tempo</code> e <span class="c003">incremento</span>, stavamo a tutti gli effetti calcolando una addizione in base 60, e questo è il motivo per cui dovevamo gestire i riporti tra secondi e minuti e tra minuti e ore.
+<a id="hevea_default1332"></a></p><p>Questa osservazione ci suggerisce un altro tipo di approccio al problema: possiamo convertire l’oggetto Tempo in un numero intero e approfittare della capacità del computer di effettuare operazioni sui numeri interi.</p><p>Questa funzione converte Tempo in un intero:</p><pre class="verbatim">def tempo_in_int(tempo):
+    minuti = tempo.ora * 60 + tempo.minuto
+    secondi = minuti * 60 + tempo.secondo
+    return secondi
+</pre><p>
+E questa è la funzione inversa, che converte un intero in un Tempo (ricordate che <span class="c003">divmod</span> divide il primo argomento per il secondo e restituisce una tupla che contiene il quoziente e il resto).
+<a id="hevea_default1333"></a></p><pre class="verbatim">def int_in_tempo(secondi):
+    tempo = Tempo()
+    minuti, tempo.secondo = divmod(secondi, 60)
+    tempo.ora, tempo.minuto = divmod(minuti, 60)
+    return tempo
+</pre><p>
+Per convincervi della esattezza di queste funzioni, pensateci un po’ su e fate qualche prova. Una maniera di collaudarle è controllare che <code>tempo_in_int(int_in_tempo(x)) == x</code> per vari valori di <span class="c003">x</span>. Questo è un esempio di controllo di coerenza.
+<a id="hevea_default1334"></a></p><p>Quando vi siete convinti, potete usarle per riscrivere <code>somma_tempo</code>:</p><pre class="verbatim">def somma_tempo(t1, t2):
+    secondi = tempo_in_int(t1) + tempo_in_int(t2)
+    return int_in_tempo(secondi)
+</pre><p>
+Questa versione è più concisa dell’originale e più facile da verificare.</p><p>Come esercizio, riscrivete <span class="c003">incremento</span> usando <code>tempo_in_int</code> e <code>int_in_tempo</code>.</p><p>Sicuramente, la conversione numerica da base 60 a base 10 e viceversa è più astratta e meno immediata rispetto al lavoro diretto con i tempi, che è istintivamente migliore.</p><p>Ma avendo l’intuizione di trattare i tempi come numeri in base 60, e investendo il tempo necessario per scrivere le funzioni di conversione (<code>tempo_in_int</code> e <code>int_in_tempo</code>), abbiamo ottenuto un programma molto più corto, facile da leggere e correggere, e più affidabile.</p><p>Risulta anche più semplice aggiungere nuove caratteristiche, in un secondo tempo. Ad esempio, immaginate di dover sottrarre due Tempi per determinare l’intervallo trascorso. L’approccio iniziale avrebbe reso necessaria l’implementazione di una sottrazione con il prestito. Invece, con le funzioni di conversione, è molto più facile e rapido avere un programma corretto.
+<a id="hevea_default1335"></a>
+<a id="hevea_default1336"></a></p><p>Paradossalmente, qualche volta rendere un problema più difficile (o più generale) lo rende più semplice, perché ci sono meno casi particolari da gestire e minori possibilità di errore.</p>
+<h2 class="section" id="sec195">16.5  Debug</h2>
+<p>
+<a id="hevea_default1337"></a></p><p>Un oggetto Tempo è ben impostato se i valori di <span class="c003">minuto</span> e <span class="c003">secondo</span> sono compresi tra 0 e 60 (zero incluso ma 60 escluso) e se 
+<span class="c003">ora</span> è positiva. <span class="c003">ora</span> e <span class="c003">minuto</span> devono essere interi, ma potremmo anche permettere a <span class="c003">secondo</span> di avere una parte decimale.
+<a id="hevea_default1338"></a></p><p>Requisiti come questi sono detti <span class="c009">invarianti</span> perché devono essere sempre soddisfatti. In altre parole, se non sono soddisfatti significa che qualcosa non è andato per il verso giusto.</p><p>Scrivere del codice per controllare le invarianti può servire a trovare errori e a identificarne le cause. Per esempio, potete scrivere una funzione
+<code>tempo_valido</code> che prende un oggetto Tempo e restituisce
+<span class="c003">False</span> se viola un’invariante:</p><pre class="verbatim">def tempo_valido(tempo):
+    if tempo.ora &lt; 0 or tempo.minuto &lt; 0 or tempo.secondo &lt; 0:
+        return False
+    if tempo.minuto &gt;= 60 or tempo.secondo &gt;= 60:
+        return False
+    return True
+</pre><p>
+All’inizio di ogni funzione, potete controllare l’argomento per assicurarvi della sua validità:
+<a id="hevea_default1339"></a>
+<a id="hevea_default1340"></a></p><pre class="verbatim">def somma_tempo(t1, t2):
+    if not tempo_valido(t1) or not tempo_valido(t2):
+        raise ValueError, 'oggetto Tempo non valido in somma_tempo'
+    secondi = tempo_in_int(t1) + tempo_in_int(t2)
+    return int_in_tempo(secondi)
+</pre><p>
+Oppure potete usare un’istruzione <span class="c003">assert</span>, che controlla una data invariante e solleva un’eccezione in caso di difetti:
+<a id="hevea_default1341"></a>
+<a id="hevea_default1342"></a></p><pre class="verbatim">def somma_tempo(t1, t2):
+    assert tempo_valido(t1) and tempo_valido(t2)
+    secondi = tempo_in_int(t1) + tempo_in_int(t2)
+    return int_in_tempo(secondi)
+</pre><p>
+Le istruzioni <span class="c003">assert</span> sono utili perché permettono di distinguere il codice che tratta le condizioni normali da quello che controlla gli errori.</p>
+<h2 class="section" id="sec196">16.6  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">prototipo ed evoluzioni:</span></dt><dd class="dd-description"> Tecnica di sviluppo del programma a partire da un prototipo che viene gradualmente provato, esteso e migliorato.
+<a id="hevea_default1343"></a></dd><dt class="dt-description"><span class="c009">sviluppo pianificato:</span></dt><dd class="dd-description"> Tecnica di sviluppo che comporta profonde conoscenze del problema e maggiore pianificazione rispetto allo sviluppo incrementale o per prototipo.
+<a id="hevea_default1344"></a></dd><dt class="dt-description"><span class="c009">funzione pura:</span></dt><dd class="dd-description"> Funzione che non modifica gli oggetti ricevuti come argomenti. La maggior parte delle funzioni pure sono produttive.
+<a id="hevea_default1345"></a></dd><dt class="dt-description"><span class="c009">modificatore:</span></dt><dd class="dd-description"> Funzione che cambia uno o più oggetti ricevuti come argomenti. La maggior parte dei modificatori sono vuoti, ovvero restituiscono <span class="c003">None</span>.
+<a id="hevea_default1346"></a></dd><dt class="dt-description"><span class="c009">stile di programmazione funzionale:</span></dt><dd class="dd-description"> Stile di programmazione in cui la maggior parte delle funzioni è pura.
+<a id="hevea_default1347"></a></dd><dt class="dt-description"><span class="c009">invariante:</span></dt><dd class="dd-description"> Condizione che deve sempre essere vera durante l’esecuzione del programma.
+<a id="hevea_default1348"></a></dd><dt class="dt-description"><span class="c009">istruzione assert:</span></dt><dd class="dd-description"> Istruzione che controlla una condizione e solleva un’eccezione se fallisce.
+<a id="hevea_default1349"></a>
+<a id="hevea_default1350"></a></dd></dl>
+<h2 class="section" id="sec197">16.7  Esercizi</h2>
+<p>Il codice degli esempi di questo capitolo è scaricabile dal sito
+<a href="http://thinkpython2.com/code/Time1.py"><span class="c003">http://thinkpython2.com/code/Time1.py</span></a>; le soluzioni degli esercizi si trovano in <a href="http://thinkpython2.com/code/Time1_soln.py"><span class="c003">http://thinkpython2.com/code/Time1_soln.py</span></a>.</p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete una funzione di nome <code>moltiplica_tempo</code> che accetti un oggetto Tempo e un numero, e restituisca un nuovo oggetto Tempo che contiene il prodotto del Tempo iniziale per il numero.</em></p><p><em>Usate poi <code>moltiplica_tempo</code> per scrivere una funzione che prenda un oggetto Tempo che rappresenta il tempo finale di una gara, e un numero che rappresenta la distanza percorsa, e restituisca un oggetto Tempo che rappresenta la media di gara (tempo al chilometro).
+</em><a id="hevea_default1351"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default1352"></a>
+<a id="hevea_default1353"></a><p><em>Il modulo <span class="c003">datetime</span> fornisce l’oggetto <span class="c003">time</span>, simile all’oggetto Tempo di questo capitolo, ma che contiene un ricco insieme di metodi e operatori. Leggetene la documentazione sul sito </em><a href="http://docs.python.org/3/library/datetime.html"><span class="c003"><em>http://docs.python.org/3/library/datetime.html</em></span></a><em>.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Usate il modulo <span class="c003">datetime</span> per scrivere un programma che ricavi la data odierna e visualizzi il giorno della settimana.</em></li><li class="li-enumerate"><em>Scrivete un programma che riceva una data di nascita come input e visualizzi l’età dell’utente e il numero di giorni, ore, minuti e secondi che mancano al prossimo compleanno.
+</em><a id="hevea_default1354"></a></li><li class="li-enumerate"><em>Date due persone nate in giorni diversi, esiste un giorno in cui uno ha un’età doppia dell’altro. Questo è il loro “Giorno del Doppio”. Scrivete un programma che prenda due date di nascita e calcoli quando si verifica il “Giorno del Doppio”.</em></li><li class="li-enumerate"><em>Un po’ più difficile: scrivetene una versione più generale che calcoli il giorno in cui una persona ha </em><span class="c008">n</span><em> volte l’età di un’altra.
+</em><a id="hevea_default1355"></a></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/double.py"><em><span class="c003">http://thinkpython2.com/code/double.py</span></em></a></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian016.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian018.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

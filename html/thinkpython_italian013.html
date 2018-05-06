@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Tuple</title>
+</head>
+<body>
+<a href="thinkpython_italian012.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian014.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec143">Chapter 12  Tuple</h1>
+<p>
+<a id="tuplechap"></a></p><p>Questo capitolo illustra un altro tipo di dati predefinito, le tuple, per poi mostrare come liste, tuple e dizionari possono lavorare insieme. Viene inoltre presentata una utile caratteristica per le liste di argomenti a lunghezza variabile: gli operatori di raccolta e spacchettamento.</p>
+<h2 class="section" id="sec144">12.1  Le tuple sono immutabili</h2>
+<p>
+<a id="hevea_default937"></a>
+<a id="hevea_default938"></a>
+<a id="hevea_default939"></a></p><p>Una tupla è una sequenza di valori. I valori possono essere di qualsiasi tipo, sono indicizzati tramite numeri interi, e in questo somigliano moltissimo alle liste. La differenza fondamentale è che le tuple sono immutabili.
+<a id="hevea_default940"></a>
+<a id="hevea_default941"></a></p><p>Sintatticamente, la tupla è un elenco di valori separati da virgole:</p><pre class="verbatim">&gt;&gt;&gt; t = 'a', 'b', 'c', 'd', 'e'
+</pre><p>
+Sebbene non sia necessario, è convenzione racchiudere le tuple tra
+parentesi tonde:
+<a id="hevea_default942"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ('a', 'b', 'c', 'd', 'e')
+</pre><p>
+Per creare una tupla con un singolo elemento, occorre aggiungere una
+virgola dopo l’elemento:
+<a id="hevea_default943"></a>
+<a id="hevea_default944"></a></p><pre class="verbatim">&gt;&gt;&gt; t1 = 'a',
+&gt;&gt;&gt; type(t1)
+&lt;class 'tuple'&gt;
+</pre><p>
+Senza la virgola, infatti, un unico valore tra parentesi non è una tupla ma una stringa:</p><pre class="verbatim">&gt;&gt;&gt; t2 = ('a')
+&gt;&gt;&gt; type(t2)
+&lt;class 'str'&gt;
+</pre><p>
+Un altro modo di creare una tupla è usare la funzione predefinita <span class="c003">tuple</span>.
+Se priva di argomento, crea una tupla vuota:
+<a id="hevea_default945"></a>
+<a id="hevea_default946"></a></p><pre class="verbatim">&gt;&gt;&gt; t = tuple()
+&gt;&gt;&gt; t
+()
+</pre><p>
+Se l’argomento è una sequenza (stringa, lista o tupla), il risultato è una tupla con gli elementi della sequenza:</p><pre class="verbatim">&gt;&gt;&gt; t = tuple('lupini')
+&gt;&gt;&gt; t
+('l', 'u', 'p', 'i', 'n', 'i')
+</pre><p>
+Siccome <span class="c003">tuple</span> è il nome di una funzione predefinita, bisogna evitare di usarlo come nome di variabile.</p><p>La maggior parte degli operatori delle liste funzionano anche con le tuple. L’operatore parentesi quadre indicizza un elemento della tupla:
+<a id="hevea_default947"></a>
+<a id="hevea_default948"></a></p><pre class="verbatim">&gt;&gt;&gt; t = ('a', 'b', 'c', 'd', 'e')
+&gt;&gt;&gt; t[0]
+'a'
+</pre><p>
+E l’operatore di slicing seleziona una serie di elementi consecutivi:
+<a id="hevea_default949"></a>
+<a id="hevea_default950"></a>
+<a id="hevea_default951"></a>
+<a id="hevea_default952"></a></p><pre class="verbatim">&gt;&gt;&gt; t[1:3]
+('b', 'c')
+</pre><p>
+Ma a differenza delle liste, se cercate di modificare gli elementi di una tupla ottenete un messaggio d’errore:
+<a id="hevea_default953"></a>
+<a id="hevea_default954"></a>
+<a id="hevea_default955"></a>
+<a id="hevea_default956"></a></p><pre class="verbatim">&gt;&gt;&gt; t[0] = 'A'
+TypeError: object doesn't support item assignment
+</pre><p>
+Dato che le tuple sono immutabili, non si può modificarne gli elementi. Ma potete sostituire una tupla con un’altra:</p><pre class="verbatim">&gt;&gt;&gt; t = ('A',) + t[1:]
+&gt;&gt;&gt; t
+('A', 'b', 'c', 'd', 'e')
+</pre><p>Questa istruzione crea una nuova tupla e poi fa in modo che <span class="c003">t</span> si riferisca ad essa.</p><p>Gli operatori di confronto funzionano con le tuple e le altre sequenze; Python inizia a confrontare il primo elemento di ciascuna sequenza. Se sono uguali, passa all’elemento successivo e così via, finché non trova due elementi diversi. Gli eventuali elementi che seguono vengono trascurati (anche se sono molto grandi).</p><pre class="verbatim">&gt;&gt;&gt; (0, 1, 2) &lt; (0, 3, 4)
+True
+&gt;&gt;&gt; (0, 1, 2000000) &lt; (0, 3, 4)
+True
+</pre>
+<h2 class="section" id="sec145">12.2  Assegnazione di tupla</h2>
+<p>
+<a id="tuple.assignment"></a>
+<a id="hevea_default957"></a>
+<a id="hevea_default958"></a>
+<a id="hevea_default959"></a>
+<a id="hevea_default960"></a></p><p>Spesso è utile scambiare i valori di due variabili tra loro. Con le istruzioni di assegnazione convenzionali, dobbiamo usare una variabile temporanea. Per esempio per scambiare <span class="c003">a</span> e <span class="c003">b</span>:</p><pre class="verbatim">&gt;&gt;&gt; temp = a
+&gt;&gt;&gt; a = b
+&gt;&gt;&gt; b = temp
+</pre><p>
+Questo metodo è farraginoso; l’utilizzo dell’<span class="c009">assegnazione di tupla</span> è più elegante:</p><pre class="verbatim">&gt;&gt;&gt; a, b = b, a
+</pre><p>
+Sul lato sinistro abbiamo una tupla di variabili; su quello destro, una tupla di espressioni. Ciascun valore viene assegnato alla rispettiva variabile. Tutte le espressioni sul lato destro vengono valutate prima di ogni assegnazione.</p><p>Il numero di variabili sulla sinistra deve essere uguale al numero di valori sulla destra:
+<a id="hevea_default961"></a>
+<a id="hevea_default962"></a></p><pre class="verbatim">&gt;&gt;&gt; a, b = 1, 2, 3
+ValueError: too many values to unpack
+</pre><p>
+Più in generale, sul lato destro può esserci qualsiasi tipo di sequenza (stringhe, liste o tuple). Per esempio, per separare un indirizzo email tra nome utente e dominio, potete scrivere:
+<a id="hevea_default963"></a>
+<a id="hevea_default964"></a>
+<a id="hevea_default965"></a></p><pre class="verbatim">&gt;&gt;&gt; indirizzo = 'monty@python.org'
+&gt;&gt;&gt; nome, dominio = indirizzo.split('@')
+</pre><p>
+Il valore di ritorno del metodo <span class="c003">split</span> è una lista con due elementi; il primo è assegnato alla variabile <span class="c003">nome</span>, il secondo a <span class="c003">dominio</span>.</p><pre class="verbatim">&gt;&gt;&gt; nome
+'monty'
+&gt;&gt;&gt; dominio
+'python.org'
+</pre>
+<h2 class="section" id="sec146">12.3  Tuple come valori di ritorno</h2>
+<p>
+<a id="hevea_default966"></a>
+<a id="hevea_default967"></a>
+<a id="hevea_default968"></a>
+<a id="hevea_default969"></a></p><p>In senso stretto, una funzione può restituire un solo valore di ritorno, ma se il valore è una tupla, l’effetto pratico è quello di restituire valori molteplici. Per esempio, se volete dividere due interi e calcolare quoziente e resto, è poco efficiente calcolare <span class="c003">x/y</span> e poi <span class="c003">x%y</span>. Meglio calcolarli entrambi in una volta sola.
+<a id="hevea_default970"></a></p><p>La funzione predefinita <span class="c003">divmod</span> riceve due argomenti e restituisce una tupla di due valori, il quoziente e il resto. E potete memorizzare il risultato con una tupla:</p><pre class="verbatim">&gt;&gt;&gt; t = divmod(7, 3)
+&gt;&gt;&gt; t
+(2, 1)
+</pre><p>
+Oppure, usate l’assegnazione di tupla per conservare gli elementi separatamente:
+<a id="hevea_default971"></a>
+<a id="hevea_default972"></a></p><pre class="verbatim">&gt;&gt;&gt; quoziente, resto = divmod(7, 3)
+&gt;&gt;&gt; quoziente
+2
+&gt;&gt;&gt; resto
+1
+</pre><p>
+Ecco un esempio di funzione che restituisce una tupla:</p><pre class="verbatim">def min_max(t):
+    return min(t), max(t)
+</pre><p>
+<span class="c003">max</span> e <span class="c003">min</span> sono funzioni predefinite che estraggono da una sequenza il valore massimo e quello minimo. <code>min_max</code> li estrae entrambi e restituisce una tupla di due valori.
+<a id="hevea_default973"></a>
+<a id="hevea_default974"></a>
+<a id="hevea_default975"></a>
+<a id="hevea_default976"></a></p>
+<h2 class="section" id="sec147">12.4  Tuple di argomenti a lunghezza variabile</h2>
+<p>
+<a id="gather"></a>
+<a id="hevea_default977"></a>
+<a id="hevea_default978"></a>
+<a id="hevea_default979"></a>
+<a id="hevea_default980"></a>
+<a id="hevea_default981"></a></p><p>Le funzioni possono ricevere un numero variabile di argomenti. Un nome di parametro che comincia con <span class="c003">*</span>, <span class="c009">raccoglie</span> gli argomenti in una tupla. Per esempio, <span class="c003">stampatutti</span> riceve un qualsiasi numero di argomenti e li visualizza:</p><pre class="verbatim">def stampatutti(*args):
+    print(args)
+</pre><p>
+Il parametro di raccolta può avere qualunque nome, ma per convenzione si usa <span class="c003">args</span>. Ecco come funziona:</p><pre class="verbatim">&gt;&gt;&gt; stampatutti(1, 2.0, '3')
+(1, 2.0, '3')
+</pre><p>
+Il contrario della raccolta è lo <span class="c009">spacchettamento</span>. Se avete una sequenza di valori e volete passarla a una funzione come argomenti multipli, usate ancora
+l’operatore <span class="c003">*</span>. Per esempio, <span class="c003">divmod</span> richiede esattamente due argomenti; passare una tupla non funziona:
+<a id="hevea_default982"></a>
+<a id="hevea_default983"></a>
+<a id="hevea_default984"></a>
+<a id="hevea_default985"></a></p><pre class="verbatim">&gt;&gt;&gt; t = (7, 3)
+&gt;&gt;&gt; divmod(t)
+TypeError: divmod expected 2 arguments, got 1
+</pre><p>
+Ma se spacchettate la tupla, funziona:</p><pre class="verbatim">&gt;&gt;&gt; divmod(*t)
+(2, 1)
+</pre><p>Molte funzioni predefinite possono usare le tuple di argomenti a lunghezza variabile. Ad esempio, <span class="c003">max</span> e <span class="c003">min</span> ricevono un numero qualunque di argomenti:
+<a id="hevea_default986"></a>
+<a id="hevea_default987"></a>
+<a id="hevea_default988"></a>
+<a id="hevea_default989"></a></p><pre class="verbatim">&gt;&gt;&gt; max(1,2,3)
+3
+</pre><p>
+Ma con <span class="c003">sum</span> non funziona.
+<a id="hevea_default990"></a>
+<a id="hevea_default991"></a></p><pre class="verbatim">&gt;&gt;&gt; sum(1,2,3)
+TypeError: sum expected at most 2 arguments, got 3
+</pre><p>
+Per esercizio, scrivete una funzione di nome <span class="c003">sommatutto</span> che riceva un numero di argomenti a piacere e ne restituisca la somma.</p>
+<h2 class="section" id="sec148">12.5  Liste e tuple</h2>
+<p>
+<a id="hevea_default992"></a>
+<a id="hevea_default993"></a></p><p><span class="c003">zip</span> è una funzione predefinita che riceve due o più sequenze e restituisce una lista di tuple, dove ciascuna tupla contiene un elemento di ciascuna sequenza. Il nome si riferisce alla cerniera-lampo (<em>zipper</em>), che unisce due file di dentelli, alternandoli.</p><p>Questo esempio abbina una stringa e una lista:</p><pre class="verbatim">&gt;&gt;&gt; s = 'abc'
+&gt;&gt;&gt; t = [0, 1, 2]
+&gt;&gt;&gt; zip(s, t)
+&lt;zip object at 0x7f7d0a9e7c48&gt;
+</pre><p>Il risultato è un <span class="c009">oggetto zip</span> capace di iterare attraverso le coppie. L’uso più frequente di <span class="c003">zip</span> è in un ciclo <span class="c003">for</span>:</p><pre class="verbatim">&gt;&gt;&gt; for coppia in zip(s, t):
+...     print(coppia)
+...
+('a', 0)
+('b', 1)
+('c', 2)
+</pre><p>
+Un oggetto zip è un tipo di <span class="c009">iteratore</span>, che è un qualsiasi oggetto in grado di iterare attraverso una sequenza. Gli iteratori sono per certi versi simili alle liste, ma a differenza di queste ultime, non si può usare un indice per scegliere un elemento da un iteratore.
+<a id="hevea_default994"></a></p><p>Se desiderate usare operatori e metodi delle liste, potete crearne una utilizzando un oggetto zip:</p><pre class="verbatim">&gt;&gt;&gt; list(zip(s, t))
+[('a', 0), ('b', 1), ('c', 2)]
+</pre><p>
+Il risultato è una lista di tuple, e in questo esempio ciascuna tupla contiene un carattere della stringa e il corrispondente elemento della lista.
+<a id="hevea_default995"></a></p><p>Se le sequenze non sono della stessa lunghezza, il risultato ha la lunghezza di quella più corta:</p><pre class="verbatim">&gt;&gt;&gt; list(zip('Anna', 'Edo'))
+[('A', 'E'), ('n', 'd'), ('n', 'o')]
+</pre><p>
+Potete usare l’assegnazione di tupla in un ciclo <span class="c003">for</span> per attraversare una lista di tuple:
+<a id="hevea_default996"></a>
+<a id="hevea_default997"></a>
+<a id="hevea_default998"></a></p><pre class="verbatim">t = [('a', 0), ('b', 1), ('c', 2)]
+for lettera, numero in t:
+    print(numero, lettera)
+</pre><p>
+Ad ogni ciclo, Python seleziona la tupla successiva all’interno della lista e ne assegna gli elementi a <span class="c003">lettera</span> e <span class="c003">numero</span>, quindi li stampa. Il risultato di questo ciclo è:
+<a id="hevea_default999"></a></p><pre class="verbatim">0 a
+1 b
+2 c
+</pre><p>
+Se combinate <span class="c003">zip</span>, <span class="c003">for</span> e assegnazione di tupla, ottenete un utile costrutto per attraversare due o più sequenze contemporaneamente. Per esempio, <code>corrispondenza</code> prende due sequenze, <span class="c003">t1</span> e
+<span class="c003">t2</span>, e restituisce <span class="c003">True</span> se esiste almeno un indice <span class="c003">i</span>
+tale che <span class="c003">t1[i] == t2[i]</span>:
+<a id="hevea_default1000"></a></p><pre class="verbatim">def corrispondenza(t1, t2):
+    for x, y in zip(t1, t2):
+        if x == y:
+            return True
+    return False
+</pre><p>
+Se volete attraversare gli elementi di una sequenza e i loro indici, potete usare la funzione predefinita <span class="c003">enumerate</span>:
+<a id="hevea_default1001"></a>
+<a id="hevea_default1002"></a>
+<a id="hevea_default1003"></a></p><pre class="verbatim">for indice, elemento in enumerate('abc'):
+    print(indice, elemento)
+</pre><p>
+Il risultato di <span class="c003">enumerate</span> è un oggetto enumerate, che itera una sequenza di coppie; ogni coppia contiene un indice (a partire da 0) e un elemento della sequenza data.
+In questo esempio l’output è di nuovo:</p><pre class="verbatim">0 a
+1 b
+2 c
+</pre><p>
+<a id="hevea_default1004"></a>
+<a id="hevea_default1005"></a>
+<a id="hevea_default1006"></a>
+</p>
+<h2 class="section" id="sec149">12.6  Dizionari e tuple</h2>
+<p>
+<a id="dictuple"></a>
+<a id="hevea_default1007"></a>
+<a id="hevea_default1008"></a>
+<a id="hevea_default1009"></a>
+<a id="hevea_default1010"></a></p><p>I dizionari supportano un metodo di nome <span class="c003">items</span> che restituisce una sequenza di tuple, dove ogni tupla è una delle coppie chiave-valore.</p><pre class="verbatim">&gt;&gt;&gt; d = {'a':0, 'b':1, 'c':2}
+&gt;&gt;&gt; t = d.items()
+&gt;&gt;&gt; t
+dict_items([('c', 2), ('a', 0), ('b', 1)])
+</pre><p>
+Il risultato è un oggetto <code>dict_items</code>, un iteratore che itera le coppie chiave-valore. Si può usare in un ciclo <span class="c003">for</span> in questo modo:
+<a id="hevea_default1011"></a></p><pre class="verbatim">&gt;&gt;&gt; for chiave, valore in d.items():
+...     print(chiave, valore)
+...
+c 2
+a 0
+b 1
+</pre><p>Come di consueto per i dizionari, gli elementi non sono in un ordine particolare.
+Per altro verso, potete usare una lista di tuple per inizializzare un nuovo dizionario: <a id="hevea_default1012"></a></p><pre class="verbatim">&gt;&gt;&gt; t = [('a', 0), ('c', 2), ('b', 1)]
+&gt;&gt;&gt; d = dict(t)
+&gt;&gt;&gt; d
+{'a': 0, 'c': 2, 'b': 1}
+</pre><p>La combinazione di <span class="c003">dict</span> e <span class="c003">zip</span> produce un modo conciso di creare un dizionario:
+<a id="hevea_default1013"></a></p><pre class="verbatim">&gt;&gt;&gt; d = dict(zip('abc', range(3)))
+&gt;&gt;&gt; d
+{'a': 0, 'c': 2, 'b': 1}
+</pre><p>
+Anche il metodo dei dizionari <span class="c003">update</span> prende una lista di tuple e le aggiunge, come coppie chiave-valore, a un dizionario esistente.
+<a id="hevea_default1014"></a>
+<a id="hevea_default1015"></a>
+<a id="hevea_default1016"></a>
+<a id="hevea_default1017"></a></p><p>L’uso delle tuple come chiavi di un dizionario è frequente (soprattutto perché le liste non si possono usare in quanto mutabili). Per esempio, un elenco telefonico può mappare da coppie di nomi e cognomi nei numeri di telefono. Supponendo di aver definito <span class="c003">cognome</span>, <span class="c003">nome</span> e <span class="c003">numero</span>, possiamo scrivere:
+<a id="hevea_default1018"></a>
+<a id="hevea_default1019"></a></p><pre class="verbatim">elenco[cognome,nome] = numero
+</pre><p>
+L’espressione tra parentesi quadre è una tupla. Possiamo usare l’assegnazione di tupla per attraversare questo dizionario.
+<a id="hevea_default1020"></a></p><pre class="verbatim">for cognome, nome in elenco:
+    print(nome, cognome, elenco[cognome,nome])
+</pre><p>
+Questo ciclo attraversa le chiavi in <span class="c003">elenco</span>, che sono tuple. Assegna gli elementi di ogni tupla a <span class="c003">cognome</span> e <span class="c003">nome</span>, quindi stampa il nome completo e il numero di telefono corrispondente.</p><p>Ci sono due modi per rappresentare le tuple in un diagramma di stato. La versione più dettagliata mostra gli indici e gli elementi così come compaiono in una lista. Per esempio la tupla <code>('Cleese', 'John')</code> comparirebbe come in Figura <a href="#fig.tuple1">12.1</a>.
+<a id="hevea_default1021"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian018.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 12.1: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.tuple1"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Ma in un diagramma più ampio è meglio tralasciare i dettagli. Per esempio, quello dell’elenco telefonico può essere come in Figura <a href="#fig.dict2">12.2</a>.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian019.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 12.2: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.dict2"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Qui le tuple sono mostrate usando la sintassi di Python come abbreviazione grafica. Il numero di telefono nel diagramma è quello dei reclami della BBC, per cui vi prego, non chiamatelo.</p>
+<h2 class="section" id="sec150">12.7  Sequenze di sequenze</h2>
+<p>
+<a id="hevea_default1022"></a></p><p>Ci siamo concentrati finora sulle liste di tuple, ma quasi tutti gli esempi di questo capitolo funzionano anche con liste di liste, tuple di tuple, e tuple di liste. Per evitare di elencare tutte le possibili combinazioni, è più semplice usare il termine sequenze di sequenze.</p><p>In molti casi, i diversi tipi di sequenze (strighe, liste, tuple) possono essere intercambiabili. E allora, con che criterio usarne una piuttosto di un’altra?
+<a id="hevea_default1023"></a>
+<a id="hevea_default1024"></a>
+<a id="hevea_default1025"></a>
+<a id="hevea_default1026"></a>
+<a id="hevea_default1027"></a></p><p>Le stringhe sono ovviamente le più limitate, perché gli elementi devono essere dei caratteri. E sono anche immutabili. Se dovete cambiare i caratteri in una stringa, anziché crearne una nuova, utilizzare una lista di caratteri può essere una scelta migliore.</p><p>Le liste sono usate più di frequente delle tuple, soprattutto perché sono mutabili. Ma ci sono alcuni casi in cui le tuple sono preferibili:</p><ol class="enumerate" type=1><li class="li-enumerate">In certi contesti, come un’istruzione <span class="c003">return</span>, è sintatticamente più semplice creare una tupla anziché una lista.</li><li class="li-enumerate">Se vi serve una sequenza da usare come chiave di un dizionario, dovete per forza usare un tipo immutabile come una tupla o una stringa.</li><li class="li-enumerate">Se state passando una sequenza come argomento a una funzione, usare le tuple riduce le possibilità di comportamenti imprevisti dovuti agli alias.</li></ol><p>Siccome le tuple sono immutabili, non possiedono metodi come <span class="c003">sort</span> e <span class="c003">reverse</span>, che modificano delle liste esistenti.
+Però Python contiene la funzione <span class="c003">sorted</span>, che richiede una sequenza e restituisce una nuova lista con gli stessi elementi della sequenza, ordinati, e <span class="c003">reversed</span>, che prende una sequenza e restituisce un iteratore che attraversa la lista in ordine inverso.
+<a id="hevea_default1028"></a>
+<a id="hevea_default1029"></a>
+<a id="hevea_default1030"></a>
+<a id="hevea_default1031"></a>
+<a id="hevea_default1032"></a></p>
+<h2 class="section" id="sec151">12.8  Debug</h2>
+<p>
+<a id="hevea_default1033"></a>
+<a id="hevea_default1034"></a>
+<a id="hevea_default1035"></a>
+<a id="hevea_default1036"></a></p><p>Liste, dizionari e tuple sono esempi di <span class="c009">strutture di dati</span>; in questo capitolo abbiamo iniziato a vedere strutture di dati composte, come liste di tuple, o dizionari che contengono tuple come chiavi e liste come valori. Si tratta di elementi utili, ma soggetti a quelli che io chiamo <span class="c003">errori di formato</span>; cioè errori causati dal fatto che una struttura di dati è di tipo, dimensione o struttura sbagliati. Ad esempio, se un programma si aspetta una lista che contiene un numero intero e invece gli passate un intero puro e semplice (non incluso in una lista), non funzionerà.
+<a id="hevea_default1037"></a>
+<a id="hevea_default1038"></a></p><p>Per facilitare il debug di questo genere di errori, ho scritto un modulo di nome <span class="c003">structshape</span> che contiene una funzione, anch’essa di nome
+<span class="c003">structshape</span>, che riceve come argomento una qualunque struttura di dati e restituisce una stringa che ne riassume il formato. Potete scaricarlo dal sito <a href="http://thinkpython2.com/code/structshape.py"><span class="c003">http://thinkpython2.com/code/structshape.py</span></a></p><p>Questo è il risultato per una lista semplice:</p><pre class="verbatim">&gt;&gt;&gt; from structshape import structshape
+&gt;&gt;&gt; t = [1,2,3]
+&gt;&gt;&gt; structshape(t)
+'list of 3 int'
+</pre><p>
+Un programma più aggraziato avrebbe scritto “list of 3 int<em>s</em>”, ma è più semplice non avere a che fare con i plurali. Ecco una lista di liste:</p><pre class="verbatim">&gt;&gt;&gt; t2 = [[1,2], [3,4], [5,6]]
+&gt;&gt;&gt; structshape(t2)
+'list of 3 list of 2 int'
+</pre><p>
+Se gli elementi della lista non sono dello stesso tipo,
+<span class="c003">structshape</span> li raggruppa, in ordine, per tipo:</p><pre class="verbatim">&gt;&gt;&gt; t3 = [1, 2, 3, 4.0, '5', '6', [7], [8], 9]
+&gt;&gt;&gt; structshape(t3)
+'list of (3 int, float, 2 str, 2 list of int, int)'
+</pre><p>
+Ecco una lista di tuple:</p><pre class="verbatim">&gt;&gt;&gt; s = 'abc'
+&gt;&gt;&gt; lt = zip(list(t, s))
+&gt;&gt;&gt; structshape(lt)
+'list of 3 tuple of (int, str)'
+</pre><p>
+Ed ecco un dizionario di 3 elementi in cui corrispondono interi a stringhe</p><pre class="verbatim">&gt;&gt;&gt; d = dict(lt) 
+&gt;&gt;&gt; structshape(d)
+'dict of 3 int-&gt;str'
+</pre><p>
+Se fate fatica a tenere sotto controllo le vostre strutture di dati,
+<span class="c003">structshape</span> può esservi di aiuto.</p>
+<h2 class="section" id="sec152">12.9  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">tupla:</span></dt><dd class="dd-description"> Una sequenza di elementi immutabile.
+<a id="hevea_default1039"></a></dd><dt class="dt-description"><span class="c009">assegnazione di tupla:</span></dt><dd class="dd-description"> Assegnazione costituita da una sequenza sul lato destro e una tupla di variabili su quello sinistro. Il lato destro viene valutato, quindi gli elementi vengono assegnati alle variabili sulla sinistra.
+<a id="hevea_default1040"></a>
+<a id="hevea_default1041"></a></dd><dt class="dt-description"><span class="c009">raccolta:</span></dt><dd class="dd-description"> L’operazione di assemblare una tupla di argomenti a lunghezza variabile.
+<a id="hevea_default1042"></a></dd><dt class="dt-description"><span class="c009">spacchettamento:</span></dt><dd class="dd-description"> L’operazione di trattare una sequenza come una lista di argomenti.
+<a id="hevea_default1043"></a></dd><dt class="dt-description"><span class="c009">oggetto zip:</span></dt><dd class="dd-description"> Il risultato della chiamata della funzione predefinita <span class="c003">zip</span>; un oggetto che itera attraverso una sequenza di tuple.
+<a id="hevea_default1044"></a>
+<a id="hevea_default1045"></a></dd><dt class="dt-description"><span class="c009">iteratore:</span></dt><dd class="dd-description"> Un oggetto in grado di iterare attraverso una sequenza, ma che non fornisce operatori e metodi delle liste.
+<a id="hevea_default1046"></a></dd><dt class="dt-description"><span class="c009">struttura di dati:</span></dt><dd class="dd-description"> Una raccolta di valori correlati, spesso organizzati in liste, dizionari, tuple, ecc.
+<a id="hevea_default1047"></a></dd><dt class="dt-description"><span class="c009">errore di formato:</span></dt><dd class="dd-description"> Errore dovuto ad un valore che ha un formato sbagliato, ovvero tipo o dimensioni errati.
+<a id="hevea_default1048"></a></dd></dl>
+<h2 class="section" id="sec153">12.10  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete una funzione di nome <code>piu_frequente</code> che riceva una stringa e stampi le lettere in ordine di frequenza decrescente. Trovate delle frasi di esempio in diverse lingue e osservate come varia la frequenza delle lettere. Confrontate i vostri risultati con le tabelle del sito
+</em><a href="http://en.wikipedia.org/wiki/Letter_frequencies"><span class="c003"><em>http://en.wikipedia.org/wiki/Letter_frequencies</em></span></a><em>. Soluzione:
+</em><a href="http://thinkpython2.com/code/most_frequent.py"><span class="c003"><em>http://thinkpython2.com/code/most_frequent.py</em></span></a><em>. 
+</em><a id="hevea_default1049"></a> 
+<a id="hevea_default1050"></a></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="anagrams"></a>
+<a id="hevea_default1051"></a>
+<a id="hevea_default1052"></a><p><em>Ancora anagrammi!</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete un programma che legga un elenco di parole da un file (vedi Paragrafo </em><a href="thinkpython_italian010.html#wordlist"><em>9.1</em></a><em>) e stampi tutti gli insiemi di parole che sono tra loro anagrammabili.</em><p><em>Un esempio di come si può presentare il risultato:</em></p><pre class="verbatim"><em>['deltas', 'desalt', 'lasted', 'salted', 'slated', 'staled']
+['retainers', 'ternaries']
+['generating', 'greatening']
+['resmelts', 'smelters', 'termless']
+</em></pre><p><em>
+Suggerimento: potete costruire un dizionario che faccia corrispondere un gruppo di lettere con una lista di parole che si possono scrivere con quelle lettere. Il problema è: come rappresentare il gruppo di lettere in modo che possano essere usate come chiave?</em></p></li><li class="li-enumerate"><em>Modificate il programma in modo che stampi la lista di anagrammi più lunga per prima, seguita dalla seconda più lunga, e così via.
+</em><a id="hevea_default1053"></a></li><li class="li-enumerate"><em>Nel gioco da tavolo </em>Scarabeo<em>, fate un “en-plein” quando giocate tutte le sette lettere sul vostro leggio formando, insieme a una lettera sul tavolo, una parola di otto lettere. Con quale gruppo di 8 lettere si può fare un “en-plein” con maggior probabilità?
+Suggerimento: il gruppo dà sette combinazioni.</em><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/anagram_sets.py"><span class="c003"><em>http://thinkpython2.com/code/anagram_sets.py</em></span></a><em>.</em></p></li></ol></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="hevea_default1054"></a><p><em>Si ha una metatesi quando una parola si può ottenere scambiando due lettere di un’altra parola, per esempio: “conversa” e “conserva”. Scrivete un programma che trovi tutte le coppie con metatesi nel dizionario. Suggerimento: non provate tutte le possibili coppie di parole e non provate tutti i possibili scambi. Soluzione: </em><a href="http://thinkpython2.com/code/metathesis.py"><em><span class="c003">http://thinkpython2.com/code/metathesis.py</span></em></a><em>.
+Fonte: Esercizio suggerito da un esempio nel sito </em><a href="http://puzzlers.org"><em><span class="c003">http://puzzlers.org</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  
+<a id="hevea_default1055"></a>
+<a id="hevea_default1056"></a><p><em>Ed ecco un altro quesito di Car Talk:
+(</em><a href="http://www.cartalk.com/content/puzzlers"><em><span class="c003">http://www.cartalk.com/content/puzzlers</span></em></a><em>):</em></p><blockquote class="quote"><em>
+Qual è la più lunga parola inglese che rimane una parola valida se le togliete una lettera alla volta? 
+Le lettere possono essere rimosse sia agli estremi o in mezzo, ma senza spostare le lettere rimanenti. Ogni volta che togliete una lettera, ottenete un’altra parola inglese. Se andate avanti, ottenete un’altra parola. Ora, voglio sapere qual è la parola più lunga possibile e quante lettere ha.</em><p><em>Vi faccio un piccolo esempio: Sprite. Partite da sprite, togliete una lettera, una interna, come la r e resta la parola spite, poi togliete la e finale e avete spit, togliamo la s e resta pit, poi it, infine I.
+</em></p></blockquote><p>
+<a id="hevea_default1057"></a></p><p><em>Scrivete un programma che trovi tutte le parole che sono riducibili in questa maniera, quindi trovate la più lunga.</em></p><p><em>Questo esercizio è un po’ più impegnativo degli altri, quindi eccovi alcuni suggerimenti:</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Potete scrivere una funzione che prenda una parola e calcoli una lista di tutte le parole che si possono formare togliendo una lettera. Queste sono le “figlie” della parola.
+</em><a id="hevea_default1058"></a></li><li class="li-enumerate"><em>Ricorsivamente, una parola è riducibile se qualcuna delle sue figlie è a sua volta riducibile. Come caso base, potete considerare riducibile la stringa vuota.</em></li><li class="li-enumerate"><em>L’elenco di parole che ho fornito, <span class="c003">words.txt</span>, non contiene parole di una lettera. Potete quindi aggiungere “I”, “a”, e la stringa vuota.</em></li><li class="li-enumerate"><em>Per migliorare le prestazioni del programma, potete memoizzare le parole che sono risultate riducibili.</em></li></ol><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/reducible.py"><em><span class="c003">http://thinkpython2.com/code/reducible.py</span></em></a><em>.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian012.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian014.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

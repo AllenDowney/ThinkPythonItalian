@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Iterazione</title>
+</head>
+<body>
+<a href="thinkpython_italian007.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian009.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec84">Chapter 7  Iterazione</h1>
+<p>In questo capitolo parleremo dell’iterazione, che è la capacità di eseguire ripetutamente uno stesso blocco di istruzioni. Abbiamo visto una sorta di iterazione nel Paragrafo <a href="thinkpython_italian006.html#recursion">5.8</a>, usando la ricorsione. Ne abbiamo visto un tipo nel Paragrafo <a href="thinkpython_italian005.html#repetition">4.2</a>, dove abbiamo utilizzato un ciclo <span class="c003">for</span>. Qui ne vedremo un tipo ulteriore, che usa l’istruzione <span class="c003">while</span>. Ma prima, qualche altro dettaglio sull’assegnazione delle variabili.</p>
+<h2 class="section" id="sec85">7.1  Riassegnazione</h2>
+<p>
+<a id="hevea_default459"></a>
+<a id="hevea_default460"></a>
+<a id="hevea_default461"></a></p><p>Vi sarete forse già accorti che è possibile effettuare più assegnazioni ad una stessa variabile. Una nuova assegnazione fa sì che la variabile faccia riferimento ad un nuovo valore, cessando di riferirsi a quello vecchio.</p><pre class="verbatim">&gt;&gt;&gt; x = 5
+&gt;&gt;&gt; x
+5
+&gt;&gt;&gt; x = 7
+&gt;&gt;&gt; x
+7
+</pre><p>
+La prima volta che visualizziamo <span class="c003">x</span>, il suo valore è 5; la seconda volta è 7.</p><p>La Figura <a href="#fig.assign2">7.1</a> illustra il diagramma di stato per questa <span class="c009">riassegnazione</span>. 
+<a id="hevea_default462"></a></p><p>Ora, è bene chiarire un punto che è frequente motivo di confusione.
+Dato che Python usa (<span class="c003">=</span>) per le assegnazioni, potreste interpretare l’istruzione <span class="c003">a = b</span> come un’espressione matematica di uguaglianza, cioè una proposizione per cui <span class="c003">a</span> e <span class="c003">b</span> sono uguali. Questo non è corretto.
+<a id="hevea_default463"></a></p><p>In primo luogo, l’equivalenza è una relazione simmetrica, cioè vale in entrambi i sensi, mentre l’assegnazione non lo è: in matematica se <span class="c008">a</span>=7 allora è anche 7=<span class="c008">a</span>. Ma in Python l’istruzione <span class="c003">a = 7</span> è valida mentre <span class="c003">7 = a</span> non lo è.</p><p>Inoltre, in matematica un’uguaglianza è o vera o falsa, e rimane tale: se ora <span class="c008">a</span>=<span class="c008">b</span> allora <span class="c008">a</span> sarà sempre uguale a <span class="c008">b</span>.
+In Python, un’assegnazione può rendere due variabili temporaneamente uguali, ma non è affatto detto che l’uguaglianza permanga:</p><pre class="verbatim">&gt;&gt;&gt; a = 5
+&gt;&gt;&gt; b = a    # a e b ora sono uguali
+&gt;&gt;&gt; a = 3    # a e b non sono più uguali
+&gt;&gt;&gt; b
+5
+</pre><p>
+La terza riga modifica il valore di <span class="c003">a</span> ma non quello di <span class="c003">b</span>, quindi <span class="c003">a</span> e <span class="c003">b</span> non sono più uguali.</p><p>Anche se le riassegnazioni di variabile sono spesso utili, vanno usate con cautela. Se il valore di una variabile cambia di frequente, può rendere il codice difficile da leggere e correggere.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian008.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 7.1: Diagramma di stato.</td></tr>
+</table></div>
+<a id="fig.assign2"></a>
+<div class="center"><hr class="c019"></div></blockquote>
+<h2 class="section" id="sec86">7.2  Aggiornare le variabili</h2>
+<p>
+<a id="update"></a></p><p><a id="hevea_default464"></a>
+<a id="hevea_default465"></a></p><p>Una delle forme più comuni di riassegnazione è l’<span class="c009">aggiornamento</span>,
+dove il nuovo valore della variabile dipende da quello precedente.</p><pre class="verbatim">&gt;&gt;&gt; x = x + 1
+</pre><p>
+Questo significa: “prendi il valore attuale di <span class="c003">x</span>, aggiungi uno, e aggiorna <span class="c003">x</span> al nuovo valore.”</p><p>Se tentate di aggiornare una variabile inesistente, si verifica un errore perché Python valuta il lato destro prima di assegnare un valore a <span class="c003">x</span>:</p><pre class="verbatim">&gt;&gt;&gt; x = x + 1
+NameError: name 'x' is not defined
+</pre><p>
+Prima di aggiornare una variabile occorre quindi <span class="c009">inizializzarla</span>,
+di solito con una comune assegnazione:
+<a id="hevea_default466"></a></p><pre class="verbatim">&gt;&gt;&gt; x = 0
+&gt;&gt;&gt; x = x + 1
+</pre><p>
+L’aggiornamento di una variabile aggiungendo 1 è detto <span class="c009">incremento</span>;
+sottrarre 1 è detto invece <span class="c009">decremento</span>.
+<a id="hevea_default467"></a>
+<a id="hevea_default468"></a></p>
+<h2 class="section" id="sec87">7.3  L’istruzione <span class="c003">while</span></h2>
+<p>
+<a id="hevea_default469"></a>
+<a id="hevea_default470"></a>
+<a id="hevea_default471"></a></p><p>Spesso i computer sono usati per automatizzare dei compiti ripetitivi: ripetere operazioni identiche o simili senza fare errori, è qualcosa che i computer fanno molto bene e le persone piuttosto male. Nella programmazione, la ripetizione è chiamata anche <span class="c009">iterazione</span>.</p><p>Abbiamo già visto due funzioni, <span class="c003">contoallarovescia</span> e <code>stampa_n</code>, che iterano usando la ricorsione. Dato che l’iterazione è un’operazione molto frequente, Python fornisce varie caratteristiche del linguaggio per renderla più semplice da implementare. Una è l’istruzione <span class="c003">for</span>, che abbiamo già visto nel Paragrafo <a href="thinkpython_italian005.html#repetition">4.2</a> e sulla quale torneremo.</p><p>Un’altra istruzione è <span class="c003">while</span>. Ecco una variante di <span class="c003">contoallarovescia</span> che usa l’istruzione <span class="c003">while</span>:</p><pre class="verbatim">def contoallarovescia(n):
+    while n &gt; 0:
+        print(n)
+        n = n-1
+    print('Via!')
+</pre><p>
+Si può quasi leggere il programma con l’istruzione <span class="c003">while</span> come fosse scritto in inglese: significa “Finché (while) <span class="c003">n</span> è maggiore di 0, stampa il valore di <span class="c003">n</span> e poi decrementa <span class="c003">n</span> di 1. Quando arrivi a 0, stampa la stringa <span class="c003">Via!</span>”
+<a id="hevea_default472"></a></p><p>In modo più formale, questo è il flusso di esecuzione di un’istruzione <span class="c003">while</span>:</p><ol class="enumerate" type=1><li class="li-enumerate">Determina se la condizione è vera (<span class="c003">True</span>) o falsa (<span class="c003">False</span>).</li><li class="li-enumerate">Se la condizione è falsa, esce dal ciclo <span class="c003">while</span> e continua l’esecuzione dalla prima istruzione successiva.</li><li class="li-enumerate">Se la condizione è vera, esegue il blocco di istruzioni nel corpo del ciclo while e vi rimane, ritornando al punto 1.</li></ol><p>Questo tipo di flusso è chiamato ciclo, (in inglese <em>loop</em>), perché il terzo punto ritorna ciclicamente da capo. 
+<a id="hevea_default473"></a>
+<a id="hevea_default474"></a>
+<a id="hevea_default475"></a></p><p>Il corpo del ciclo deve cambiare il valore di una o più variabili in modo che la condizione prima o poi diventi falsa e il ciclo abbia termine. Altrimenti, il ciclo verrebbe ripetuto continuamente, dando luogo ad un <span class="c009">ciclo infinito</span>. Una fonte inesauribile di divertimento per gli informatici, è osservare che le istruzioni dello shampoo:
+“lava, risciacqua, ripeti” sono un ciclo infinito.</p><p><a id="hevea_default476"></a></p><p>Nel caso di <span class="c003">contoallarovescia</span>, è evidente che il ciclo terminerà: se <span class="c003">n</span> è zero o negativo, il ciclo non viene mai eseguito. Altrimenti, <span class="c003">n</span> diventa via via più piccolo ad ogni ripetizione del ciclo stesso, fino a diventare, prima o poi, zero. </p><p>In altri cicli, può non essere così evidente. Per esempio:</p><pre class="verbatim">def sequenza(n):
+    while n != 1:
+        print(n)
+        if n % 2 == 0:        # n è pari
+            n = n / 2
+        else:               # n è dispari
+            n = n*3+1
+</pre><p>
+La condizione di questo ciclo è <span class="c003">n != 1</span>, per cui il ciclo si ripeterà
+fino a quando <span class="c003">n</span> non sarà uguale a <span class="c003">1</span>, cosa che rende falsa la condizione.</p><p>Ad ogni ripetizione del ciclo, il programma stampa il valore di <span class="c003">n</span> e poi controlla se è pari o dispari. Se è pari, <span class="c003">n</span> viene diviso per 2. Se è dispari, <span class="c003">n</span> è moltiplicato per 3 e al risultato viene aggiunto 1. Se per esempio il valore passato a <span class="c003">sequenza</span> è 3, i valori risultanti di <span class="c003">n</span> saranno nell’ordine 3, 10, 5, 16, 8, 4, 2, 1.</p><p>Dato che <span class="c003">n</span> a volte sale e a volte scende, non c’è modo di stabilire che <span class="c003">n</span> raggiungerà 1 in modo da terminare il ciclo. Solo per qualche particolare valore di <span class="c003">n</span>, possiamo dimostrarlo: ad esempio, se il valore di partenza è una potenza di 2, <span class="c003">n</span> sarà per forza un numero pari ad ogni ciclo, fino a raggiungere 1. L’esempio precedente finisce proprio con una sequenza simile, a partire dal numero 16.
+<a id="hevea_default477"></a></p><p>La domanda difficile è se il programma giunga a termine per <em>qualsiasi</em> valore positivo di <span class="c003">n</span>. Sinora, nessuno è riuscito a dimostrarlo <em>né</em> a smentirlo! (Vedere <a href="http://it.wikipedia.org/wiki/Congettura_di_Collatz"><span class="c003">http://it.wikipedia.org/wiki/Congettura_di_Collatz</span></a>.)</p><p>Come esercizio, riscrivete la funzione <code>stampa_n</code> del Paragrafo <a href="thinkpython_italian006.html#recursion">5.8</a> usando l’iterazione al posto della ricorsione.</p>
+<h2 class="section" id="sec88">7.4  <span class="c003">break</span></h2>
+<p>
+<a id="hevea_default478"></a>
+<a id="hevea_default479"></a></p><p>Vi può capitare di poter stabilire il momento in cui è necessario terminare un ciclo solo mentre il flusso di esecuzione si trova nel bel mezzo del corpo. In questi casi potete usare l’istruzione <span class="c003">break</span> per interrompere il ciclo e saltarne fuori.</p><p>Per esempio, supponiamo che vogliate ricevere delle risposte dall’utente, fino a quando non viene digitata la parola <span class="c003">fine</span>. Potete scrivere:</p><pre class="verbatim">while True:
+    riga = input('&gt; ')
+    if riga == 'fine':
+        break
+    print(riga)
+
+print('Finito!')
+</pre><p>
+La condizione del ciclo è <span class="c003">True</span>, che è sempre vera per definizione, quindi il ciclo è destinato a continuare, a meno che non incontri l’istruzione <span class="c003">break</span>.</p><p>Ad ogni ripetizione, il programma mostra come prompt il simbolo <span class="c003">&gt;</span>.
+Se l’utente scrive <span class="c003">fine</span>, l’istruzione <span class="c003">break</span> interrompe il ciclo, altrimenti il programma ripete quello che l’utente ha scritto e ritorna da capo. Ecco un esempio di esecuzione:</p><pre class="verbatim">&gt; non ho finito
+non ho finito
+&gt; fine
+Finito!
+</pre><p>
+Questo modo di scrivere i cicli <span class="c003">while</span> è frequente, perché vi permette di controllare la condizione ovunque all’interno del ciclo (e non solo all’inizio) e di esprimere la condizione di stop in modo affermativo (“fermati quando succede questo”) piuttosto che negativo (“continua fino a quando non succede questo”).</p>
+<h2 class="section" id="sec89">7.5  Radici quadrate</h2>
+<p>
+<a id="squareroot"></a>
+<a id="hevea_default480"></a></p><p>I cicli si usano spesso per calcolare risultati numerici, partendo da un valore approssimativo che viene migliorato iterativamente con approssimazioni successive.
+<a id="hevea_default481"></a></p><p>Per esempio, un modo di calcolare le radici quadrate è il metodo di Newton. Supponiamo di voler calcolare la radice quadrata di <span class="c008">a</span>. A partire da una qualunque stima, <span class="c008">x</span>, possiamo calcolare una stima migliore con la formula seguente:</p><table class="display dcenter"><tr class="c016"><td class="dcell"><span class="c008">y</span> = </td><td class="dcell"><table class="display"><tr><td class="dcell c010"><span class="c008">x</span> + <span class="c008">a</span>/<span class="c008">x</span></td></tr>
+<tr><td class="hbar"></td></tr>
+<tr><td class="dcell c010">2</td></tr>
+</table></td><td class="dcell"> </td></tr>
+</table><p>
+Supponiamo per esempio che <span class="c008">a</span> sia 4 e <span class="c008">x</span> sia 3:</p><pre class="verbatim">&gt;&gt;&gt; a = 4
+&gt;&gt;&gt; x = 3
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; y
+2.16666666667
+</pre><p>
+Il risultato è più vicino al valore vero (√<span class="c015">4</span> = 2). Se ripetiamo il procedimento usando la nuova stima, ci avviciniamo ulteriormente:</p><pre class="verbatim">&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; y
+2.00641025641
+</pre><p>
+Dopo qualche ulteriore passaggio, la stima diventa quasi esatta:
+<a id="hevea_default482"></a></p><pre class="verbatim">&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; y
+2.00001024003
+&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; y
+2.00000000003
+</pre><p>
+In generale, non possiamo sapere <em>a priori</em> quanti passaggi ci vorranno per ottenere la risposta esatta, ma sapremo che ci saremo arrivati quando la stima non cambierà più:</p><pre class="verbatim">&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; y
+2.0
+&gt;&gt;&gt; x = y
+&gt;&gt;&gt; y = (x + a/x) / 2
+&gt;&gt;&gt; y
+2.0
+</pre><p>
+Possiamo fermarci quando <span class="c003">y == x</span>. Ecco quindi un ciclo che parte da una stima iniziale, <span class="c003">x</span>, e la migliora fino a quando non cambia più:</p><pre class="verbatim">while True:
+    print(x)
+    y = (x + a/x) / 2
+    if y == x:
+        break
+    x = y
+</pre><p>
+Per la maggior parte dei valori di <span class="c003">a</span>, questo codice funziona bene, ma in genere è pericoloso testare l’uguaglianza su valori decimali di tipo <span class="c003">float</span>,
+perché sono solo approssimativamente esatti: la maggior parte dei numeri razionali come 1/3, e irrazionali, come √<span class="c015">2</span>, non possono essere rappresentati in modo preciso con un <span class="c003">float</span>.
+<a id="hevea_default483"></a>
+<a id="hevea_default484"></a></p><p>Piuttosto di controllare se <span class="c003">x</span> e <span class="c003">y</span> sono identici, è meglio usare la funzione predefinita <span class="c003">abs</span> per calcolare il valore assoluto della loro differenza:</p><pre class="verbatim">    if abs(y-x) &lt; epsilon:
+        break
+</pre><p>
+Dove <code>epsilon</code> è un valore molto piccolo, come <span class="c003">0.0000001</span>, che determina quando i due numeri confrontati sono abbastanza vicini da poter essere considerati praticamente uguali.</p>
+<h2 class="section" id="sec90">7.6  Algoritmi</h2>
+<p>
+<a id="hevea_default485"></a></p><p>Il metodo di Newton è un esempio di <span class="c009">algoritmo</span>: è un’operazione meccanica per risolvere un tipo di problema (in questo caso, calcolare la radice quadrata).</p><p>Per capire cosa sia un algoritmo, può essere utile iniziare a vedere cosa non è un algoritmo. Quando a scuola vi insegnarono a fare le moltiplicazioni dei numeri a una cifra, probabilmente avevate imparato a memoria le tabelline, che significa ricordare 100 specifiche soluzioni. Una conoscenza di questo tipo non è algoritmica.</p><p>Ma se eravate dei bambini un po’ pigri, probabilmente avevate imparato qualche trucchetto. Per esempio, per trovare il prodotto tra <span class="c008">n</span> e 9, si scrive <span class="c008">n</span>−1 come prima cifra e 10−<span class="c008">n</span> come seconda cifra. Questo trucco è una soluzione generica per moltiplicare per nove qualunque numero a una cifra. Questo è un algoritmo!
+<a id="hevea_default486"></a>
+<a id="hevea_default487"></a></p><p>Similmente, le tecniche che avete imparato per l’addizione con riporto, la sottrazione con prestito e le divisioni lunghe sono tutte algoritmi. Una caratteristica degli algoritmi è che non richiedono intelligenza per essere eseguiti. Sono procedimenti meccanici in cui ad ogni passo ne segue un altro, secondo delle semplici regole.</p><p>L’esecuzione di un algoritmo, in sé, è una cosa noiosa e ripetitiva. D’altra parte, la procedura di realizzazione di un algoritmo è interessante, intellettualmente stimolante, e una parte cruciale di quella che chiamiamo programmazione.</p><p>Alcune delle cose che le persone fanno in modo naturale senza difficoltà o senza nemmeno pensarci, sono le più difficili da esprimere con algoritmi. Capire il linguaggio naturale è un esempio calzante. Lo facciamo tutti, ma finora nessuno è stato in grado di spiegare <em>come</em> lo facciamo, almeno non sotto forma di un algoritmo.</p>
+<h2 class="section" id="sec91">7.7  Debug</h2>
+<p>
+<a id="bisectbug"></a></p><p>Quando inizierete a scrivere programmi di grandi dimensioni, impiegherete più tempo per il debug: più codice significa più probabilità di commettere un errore e più posti in cui gli errori possono annidarsi.
+<a id="hevea_default488"></a></p><p>Un metodo per ridurre il tempo di debug è il “debug binario”.
+Se nel vostro programma ci sono 100 righe e le controllate una ad una, ci vorranno 100 passaggi.</p><p>Provate invece a dividere il problema in due. Cercate verso la metà del programma un valore intermedio che potete controllare. Aggiungete un’istruzione di stampa (o qualcos’altro di controllabile) ed eseguite il programma.</p><p>Se il controllo nel punto mediano non è corretto, deve esserci un problema nella prima metà del programma. Se invece è corretto, l’errore sarà nella seconda metà.</p><p>Per ogni controllo eseguito in questa maniera, dimezzate le righe da controllare. Dopo 6 passaggi (che sono meno di 100), dovreste teoricamente arrivare a una o due righe di codice.</p><p>In pratica, non è sempre chiaro quale sia la “metà del programma” e non è sempre possibile controllare. Non ha neanche molto senso contare le righe e trovare la metà esatta. Meglio considerare i punti del programma dove è più probabile che vi siano errori e quelli dove è facile posizionare dei controlli. Poi, scegliere un punto dove stimate che le probabilità che l’errore sia prima o dopo quel punto siano circa le stesse.</p>
+<h2 class="section" id="sec92">7.8  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">riassegnazione:</span></dt><dd class="dd-description"> Assegnazione di un nuovo valore ad una variabile che esiste già.
+<a id="hevea_default489"></a></dd><dt class="dt-description"><span class="c009">aggiornamento:</span></dt><dd class="dd-description"> Riassegnazione in cui il nuovo valore della variabile dipende da quello precedente.
+<a id="hevea_default490"></a></dd><dt class="dt-description"><span class="c009">inizializzazione:</span></dt><dd class="dd-description"> Assegnazione che fornisce un valore iniziale ad una variabile da aggiornare successivamente.
+<a id="hevea_default491"></a></dd><dt class="dt-description"><span class="c009">incremento:</span></dt><dd class="dd-description"> Aggiornamento che aumenta il valore di una variabile (spesso di una unità).
+<a id="hevea_default492"></a></dd><dt class="dt-description"><span class="c009">decremento:</span></dt><dd class="dd-description"> Aggiornamento che riduce il valore di una variabile.
+<a id="hevea_default493"></a></dd><dt class="dt-description"><span class="c009">iterazione:</span></dt><dd class="dd-description"> Ripetizione di una serie di istruzioni utilizzando una funzione ricorsiva oppure un ciclo.
+<a id="hevea_default494"></a></dd><dt class="dt-description"><span class="c009">ciclo infinito:</span></dt><dd class="dd-description"> Ciclo in cui la condizione che ne determina la fine non è mai soddisfatta.
+<a id="hevea_default495"></a></dd><dt class="dt-description"><span class="c009">algoritmo:</span></dt><dd class="dd-description"> Una procedura generica per risolvere una categoria di problemi.
+<a id="hevea_default496"></a></dd></dl>
+<h2 class="section" id="sec93">7.9  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  
+<a id="hevea_default497"></a><p><em>Copiate il ciclo del Paragrafo </em><a href="#squareroot"><em>7.5</em></a><em> e incapsulatelo in una funzione
+di nome <code>mia_radq</code> che prenda <span class="c003">a</span> come parametro, scelga un valore appropriato di <span class="c003">x</span>, e restituisca una stima del valore della radice quadrata di <span class="c003">a</span>. </em><a id="hevea_default498"></a></p><p><em>Quale verifica, scrivete una funzione di nome <code>test_radq</code> che stampi una tabella come questa:</em></p><pre class="verbatim"><em>a   mia_radq(a)   math.sqrt(a)  diff
+-   ----------    ------------  ----
+1.0 1.0           1.0           0.0
+2.0 1.41421356237 1.41421356237 2.22044604925e-16
+3.0 1.73205080757 1.73205080757 0.0
+4.0 2.0           2.0           0.0
+5.0 2.2360679775  2.2360679775  0.0
+6.0 2.44948974278 2.44948974278 0.0
+7.0 2.64575131106 2.64575131106 0.0
+8.0 2.82842712475 2.82842712475 4.4408920985e-16
+9.0 3.0           3.0           0.0
+</em></pre><p><em>
+La prima colonna è un numero, </em><span class="c008">a</span><em>; la seconda è la radice quadrata di </em><span class="c008">a</span><em> calcolata con <code>mia_radq</code>; la terza è la radice quadrata calcolata con <span class="c003">math.sqrt</span>; la quarta è il valore assoluto della differenza tra le due stime.
+</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default499"></a>
+<a id="hevea_default500"></a><p><em>La funzione predefinita <span class="c003">eval</span> valuta un’espressione sotto forma di stringa, usando l’interprete Python. Ad esempio:</em></p><pre class="verbatim"><em>&gt;&gt;&gt; eval('1 + 2 * 3')
+7
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; eval('math.sqrt(5)')
+2.2360679774997898
+&gt;&gt;&gt; eval('type(math.pi)')
+&lt;class 'float'&gt;
+</em></pre><p><em>
+Scrivete una funzione di nome <code>eval_ciclo</code> che chieda iterativamente all’utente di inserire un dato, prenda il dato inserito e lo valuti con <span class="c003">eval</span>, infine visualizzi il risultato.</em></p><p><em>Deve continuare fino a quando l’utente non scrive <code>'fatto'</code>, e poi restituire il valore dell’ultima espressione che ha valutato.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="hevea_default501"></a><p><em>Il matematico Srinivasa Ramanujan scoprì una serie infinita che può essere usata per generare un’approssimazione di </em>1 / π<em>:
+</em><a id="hevea_default502"></a></p><table class="display dcenter"><tr class="c016"><td class="dcell"><table class="display"><tr><td class="dcell c010">1</td></tr>
+<tr><td class="hbar"></td></tr>
+<tr><td class="dcell c010">π</td></tr>
+</table></td><td class="dcell"> = </td><td class="dcell"><table class="display"><tr><td class="dcell c010"><table class="display"><tr class="c016"><td class="dcell">2</td><td class="dcell"><span class="c007">√</span></td><td class="dcell"><table class="c002 cellpadding0"><tr><td class="hbar"></td></tr>
+<tr><td class="c011">2</td></tr>
+</table></td></tr>
+</table></td></tr>
+<tr><td class="hbar"></td></tr>
+<tr><td class="dcell c010">9801</td></tr>
+</table></td><td class="dcell"> 
+</td><td class="dcell"><table class="display"><tr><td class="dcell c010">∞</td></tr>
+<tr><td class="dcell c010"><span style="font-size:xx-large">∑</span></td></tr>
+<tr><td class="dcell c010"><span class="c008">k</span>=0</td></tr>
+</table></td><td class="dcell"> </td><td class="dcell"><table class="display"><tr><td class="dcell c010">(4<span class="c008">k</span>)!(1103+26390<span class="c008">k</span>)</td></tr>
+<tr><td class="hbar"></td></tr>
+<tr><td class="dcell c010">(<span class="c008">k</span>!)<sup>4</sup> 396<sup>4<span class="c008">k</span></sup></td></tr>
+</table></td><td class="dcell"> </td></tr>
+</table><p><em>Scrivete una funzione di nome <code>stima_pi</code> che utilizzi questa formula per calcolare e restituire una stima di </em>π<em>. Deve usare un ciclo <span class="c003">while</span>
+per calcolare gli elementi della sommatoria, fino a quando l’ultimo termine è più piccolo di <span class="c003">1e-15</span> (che è la notazione di Python per </em>10<sup>−15</sup><em>).
+Controllate il risultato confrontandolo con <span class="c003">math.pi</span>.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/pi.py"><em><span class="c003">http://thinkpython2.com/code/pi.py</span></em></a><em>.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian007.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian009.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

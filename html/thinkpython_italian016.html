@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Classi e oggetti</title>
+</head>
+<body>
+<a href="thinkpython_italian015.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian017.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec180">Chapter 15  Classi e oggetti</h1>
+<p>
+<a id="clobjects"></a></p><p>A questo punto, sapete come usare le funzioni per organizzare il codice, e i tipi predefiniti per organizzare i dati. Il passo successivo è imparare la programmazione orientata agli oggetti, che usa tipi personalizzati in modo da organizzare sia il codice che i dati. La programmazione orientata agli oggetti è un argomento vasto, per addentrarsi nel quale occorrono alcuni capitoli.
+<a id="hevea_default1239"></a></p><p>Il codice degli esempi di questo capitolo è scaricabile dal sito
+<a href="http://thinkpython2.com/code/Point1.py"><span class="c003">http://thinkpython2.com/code/Point1.py</span></a>; le soluzioni degli esercizi da
+<a href="http://thinkpython2.com/code/Point1_soln.py"><span class="c003">http://thinkpython2.com/code/Point1_soln.py</span></a>.</p>
+<h2 class="section" id="sec181">15.1  Tipi personalizzati</h2>
+<p>
+<a id="point"></a>
+<a id="hevea_default1240"></a></p><p>Abbiamo usato molti dei tipi predefiniti in Python, e ora siamo pronti
+per crearne uno nuovo: come esempio, creeremo un tipo che chiameremo <span class="c003">Punto</span>, che rappresenta un punto in un piano cartesiano bidimensionale.
+<a id="hevea_default1241"></a></p><p>Nella notazione matematica, il punto è denotato da una coppia ordinata di numeri, dette coordinate; le coordinate dei punti sono spesso scritte tra parentesi con una virgola che separa i due valori. Per esempio, (0,0) rappresenta l’origine e (<span class="c008">x</span>,<span class="c008">y</span>) il punto che si trova a <span class="c008">x</span> unità a destra e <span class="c008">y</span> unità in alto rispetto all’origine.</p><p>Ci sono alcuni modi per rappresentare i punti in Python:</p><ul class="itemize"><li class="li-itemize">Memorizzare le coordinate in due variabili separate, <span class="c003">x</span> e <span class="c003">y</span>.</li><li class="li-itemize">Memorizzare le coordinate come elementi di una lista o di una tupla.</li><li class="li-itemize">Creare un nuovo tipo che rappresenti i punti come degli oggetti.</li></ul><p>
+<a id="hevea_default1242"></a></p><p>L’ultima opzione è più complessa delle altre, ma ha dei vantaggi che saranno presto chiariti.</p><p>Un tipo personalizzato, definito dal programmatore, è chiamato anche <span class="c009">classe</span>.
+Una definizione di classe ha questa sintassi:
+<a id="hevea_default1243"></a>
+<a id="hevea_default1244"></a>
+<a id="hevea_default1245"></a>
+<a id="hevea_default1246"></a></p><pre class="verbatim">class Punto:
+    """Rappresenta un punto in un piano."""
+</pre><p>
+L’intestazione indica che la nuova classe si chiama <span class="c003">Punto</span>.
+Il corpo è una stringa di documentazione che spiega cosa fa la classe. Al suo interno si possono poi definire metodi e variabili, ma ci arriveremo tra poco.
+<a id="hevea_default1247"></a>
+<a id="hevea_default1248"></a>
+<a id="hevea_default1249"></a></p><p>La definizione di una classe di nome <span class="c003">Punto</span> crea un <span class="c009">oggetto classe</span>.</p><pre class="verbatim">&gt;&gt;&gt; Punto
+&lt;class '__main__.Punto'&gt;
+</pre><p>
+Poiché la classe <span class="c003">Punto</span> è stata definita al livello principale, il suo “cognome e nome” è <code>__main__.Punto</code>.
+<a id="hevea_default1250"></a></p><p>L’oggetto classe è simile ad uno stampo che ci permette di fabbricare degli oggetti. Per creare un nuovo oggetto Punto, basta chiamare <span class="c003">Punto</span> come se fosse una funzione.</p><pre class="verbatim">&gt;&gt;&gt; nuovo = Punto()
+&gt;&gt;&gt; nuovo
+&lt;__main__.Punto object at 0xb7e9d3ac&gt;
+</pre><p>
+Il valore di ritorno è un riferimento ad un oggetto Punto, che qui abbiamo assegnato alla variabile <span class="c003">nuovo</span>. 
+La creazione di un nuovo oggetto è detta
+<span class="c009">istanziazione</span>, e l’oggetto è un’<span class="c009">istanza</span> della classe.
+<a id="hevea_default1251"></a>
+<a id="hevea_default1252"></a></p><p>Quando stampate un’istanza, Python informa a quale classe appartiene e in quale posizione di memoria è collocata (il prefisso <span class="c003">0x</span> significa che il numero che segue è in formato esadecimale).
+<a id="hevea_default1253"></a></p><p>Ogni oggetto è un’istanza di una qualche classe, per cui i termini “oggetto” ed
+“istanza” sono equivalenti. In questa sede, utilizzerò “istanza” per indicare che sto parlando di un tipo personalizzato.</p>
+<h2 class="section" id="sec182">15.2  Attributi</h2>
+<p>
+<a id="attributes"></a>
+<a id="hevea_default1254"></a>
+<a id="hevea_default1255"></a>
+<a id="hevea_default1256"></a></p><p>Potete assegnare dei valori ad un’istanza usando la notazione a punto:</p><pre class="verbatim">&gt;&gt;&gt; nuovo.x = 3.0
+&gt;&gt;&gt; nuovo.y = 4.0
+</pre><p>
+Questa sintassi è simile a quella usata per la selezione di una variabile appartenente ad un modulo, tipo <span class="c003">math.pi</span> o <span class="c003">string.whitespace</span>. In questo caso però, stiamo assegnando dei valori a degli elementi di un oggetto, ai quali è stato attribuito un nome (x e y). Questi elementi sono detti <span class="c009">attributi</span>.</p><p>Il diagramma di stato in Figura <a href="#fig.point">15.1</a> mostra il risultato delle assegnazioni. Un diagramma di stato che illustra un oggetto e i suoi attributi è detto <span class="c009">diagramma di oggetto</span> .
+<a id="hevea_default1257"></a>
+<a id="hevea_default1258"></a></p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian020.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 15.1: Diagramma di oggetto</td></tr>
+</table></div>
+<a id="fig.point"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>La variabile <span class="c003">nuovo</span> fa riferimento ad un oggetto Punto che contiene due
+attributi, ed ogni attributo fa riferimento ad un numero in virgola mobile.</p><p>Potete leggere il valore di un attributo usando la stessa sintassi:</p><pre class="verbatim">&gt;&gt;&gt; nuovo.y
+4.0
+&gt;&gt;&gt; x = nuovo.x
+&gt;&gt;&gt; x
+3.0
+</pre><p>
+L’espressione <span class="c003">nuovo.x</span> significa: “Vai all’oggetto a cui <span class="c003">nuovo</span>
+fa riferimento e prendi il valore di <span class="c003">x</span>”. In questo esempio, assegniamo il valore ad una variabile di nome <span class="c003">x</span>. Non c’è conflitto tra la variabile locale <span class="c003">x</span> e l’attributo <span class="c003">x</span>.</p><p>Potete usare la notazione a punto all’interno di qualunque espressione, per esempio:</p><pre class="verbatim">&gt;&gt;&gt; print('(%g, %g)' % (nuovo.x, nuovo.y))
+(3.0, 4.0)
+&gt;&gt;&gt; distanza = math.sqrt(nuovo.x**2 + nuovo.y**2)
+&gt;&gt;&gt; distanza
+5.0
+</pre><p>
+Potete anche passare un’istanza come argomento, nel modo consueto:
+<a id="hevea_default1259"></a></p><pre class="verbatim">def stampa_punto(p):
+    print('(%g, %g)' % (p.x, p.y))
+</pre><p>
+La funzione <code>stampa_punto</code> riceve come argomento un Punto e lo visualizza in notazione matematica. Per invocarla, passate <span class="c003">nuovo</span> come argomento:</p><pre class="verbatim">&gt;&gt;&gt; stampa_punto(nuovo)
+(3.0, 4.0)
+</pre><p>
+Dentro alla funzione, il parametro <span class="c003">p</span> è un alias di <span class="c003">nuovo</span>, quindi se la funzione modifica <span class="c003">p</span>, anche <span class="c003">nuovo</span> viene modificato di conseguenza.
+<a id="hevea_default1260"></a></p><p>Per esercizio, scrivete una funzione di nome <code>distanza_tra_punti</code> che riceva due Punti come argomenti e ne restituisca la distanza.</p>
+<h2 class="section" id="sec183">15.3  Rettangoli</h2>
+<p>
+<a id="rectangles"></a></p><p>A volte è abbastanza ovvio stabilire gli attributi necessari ad un oggetto, ma in altre occasioni occorre fare delle scelte. Immaginate di progettare una classe che rappresenti un rettangolo: quali attributi dovete usare per specificarne le dimensioni e la collocazione nel piano? Per semplicità, ignorate l’inclinazione e supponete che il rettangolo sia allineato in orizzontale o verticale.
+<a id="hevea_default1261"></a></p><p>Ci sono almeno due possibili scelte: </p><ul class="itemize"><li class="li-itemize">Definire il centro del rettangolo oppure un angolo, e le sue dimensioni (altezza e larghezza);</li><li class="li-itemize">Definire due angoli opposti.</li></ul><p>È difficile stabilire quale delle due opzioni sia la migliore, ma giusto per fare un esempio implementeremo la prima.
+<a id="hevea_default1262"></a>
+<a id="hevea_default1263"></a></p><p>Definiamo la nuova classe:</p><pre class="verbatim">class Rettangolo:
+    """Rappresenta un rettangolo. 
+
+    attributi: larghezza, altezza, angolo.
+    """
+</pre><p>
+La docstring elenca gli attributi: <span class="c003">larghezza</span> e
+<span class="c003">altezza</span> sono numeri; <span class="c003">angolo</span> è un oggetto Punto che identifica l’angolo in basso a sinistra.</p><p>Per ottenere una rappresentazione di un rettangolo, dovete istanziare un oggetto Rettangolo e assegnare dei valori ai suoi attributi:</p><pre class="verbatim">box = Rettangolo()
+box.larghezza = 100.0
+box.altezza = 200.0
+box.angolo = Punto()
+box.angolo.x = 0.0
+box.angolo.y = 0.0
+</pre><p>
+L’espressione <span class="c003">box.angolo.x</span> significa:
+“Vai all’oggetto a cui <span class="c003">box</span> fa riferimento e seleziona l’attributo chiamato
+<span class="c003">angolo</span>; poi vai a quell’oggetto e seleziona l’attributo chiamato <span class="c003">x</span>.”</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian021.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 15.2: Diagramma di oggetto.</td></tr>
+</table></div>
+<a id="fig.rectangle"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>La Figura <a href="#fig.rectangle">15.2</a> mostra lo stato di questo oggetto.
+Un oggetto che è un attributo di un altro oggetto è detto <span class="c009">oggetto contenuto</span> (embedded).
+<a id="hevea_default1264"></a>
+<a id="hevea_default1265"></a>
+<a id="hevea_default1266"></a></p>
+<h2 class="section" id="sec184">15.4  Istanze come valori di ritorno</h2>
+<p>
+<a id="hevea_default1267"></a>
+<a id="hevea_default1268"></a></p><p>Le funzioni possono restituire istanze. Per esempio, <code>trova_centro</code>
+prende un oggetto <span class="c003">Rettangolo</span> come argomento e restituisce un oggetto <span class="c003">Punto</span> che contiene le coordinate del centro di <span class="c003">Rettangolo</span>:</p><pre class="verbatim">def trova_centro(rett):
+    p = Punto()
+    p.x = rett.angolo.x + rett.larghezza/2
+    p.y = rett.angolo.y + rett.altezza/2
+    return p
+</pre><p>
+Ecco un esempio che passa <span class="c003">box</span> come argomento e assegna il Punto risultante a <span class="c003">centro</span>:</p><pre class="verbatim">&gt;&gt;&gt; centro = trova_centro(box)
+&gt;&gt;&gt; stampa_punto(centro)
+(50, 100)
+</pre>
+<h2 class="section" id="sec185">15.5  Gli oggetti sono mutabili</h2>
+<p>
+<a id="hevea_default1269"></a>
+<a id="hevea_default1270"></a></p><p>Potete cambiare lo stato di un oggetto con un’assegnazione ad uno dei suoi attributi. Per esempio, per cambiare le dimensioni di un rettangolo senza cambiarne la posizione, potete modificare i valori di <span class="c003">larghezza</span> e <span class="c003">altezza</span>:</p><pre class="verbatim">box.larghezza = box.larghezza + 50
+box.altezza = box.altezza + 100
+</pre><p>
+Potete anche scrivere delle funzioni che modificano oggetti. Per esempio,
+<code>accresci_rettangolo</code> prende un oggetto Rettangolo e due numeri,
+<span class="c003">dlargh</span> e <span class="c003">dalt</span>, e li aggiunge alla larghezza e all’altezza del rettangolo:</p><pre class="verbatim">def accresci_rettangolo(rett, dlargh, dalt):
+    rett.larghezza += dlargh
+    rett.altezza += dalt
+</pre><p>
+Ecco un esempio dell’effetto della funzione:</p><pre class="verbatim">&gt;&gt;&gt; box.larghezza, box.altezza
+(150.0, 300.0)
+&gt;&gt;&gt; accresci_rettangolo(box, 50, 100)
+&gt;&gt;&gt; box.larghezza, box.altezza
+(200.0, 400.0)
+</pre><p>
+Dentro la funzione, <span class="c003">rett</span> è un alias di <span class="c003">box</span>, pertanto quando la funzione modifica <span class="c003">rett</span>, anche <span class="c003">box</span> cambia.</p><p>Come esercizio, scrivete una funzione di nome <code>sposta_rettangolo</code> che prenda come parametri un Rettangolo e due valori <span class="c003">dx</span> e <span class="c003">dy</span>. La funzione deve spostare il rettangolo nel piano, aggiungendo <span class="c003">dx</span> alla coordinata <span class="c003">x</span> di <span class="c003">angolo</span>, e aggiungendo <span class="c003">dy</span> alla coordinata <span class="c003">y</span> di <span class="c003">angolo</span>.</p>
+<h2 class="section" id="sec186">15.6  Copia</h2>
+<p>
+<a id="copying"></a>
+<a id="hevea_default1271"></a></p><p>Abbiamo già visto che gli alias possono rendere il programma difficile
+da leggere, perché una modifica in un punto del programma può dare degli effetti inattesi in un altro punto. Non è semplice tenere traccia di tutte le variabili che potrebbero fare riferimento ad un dato oggetto.
+<a id="hevea_default1272"></a>
+<a id="hevea_default1273"></a>
+<a id="hevea_default1274"></a>
+<a id="hevea_default1275"></a></p><p>La copia di un oggetto è spesso una comoda alternativa all’alias.
+Il modulo <span class="c003">copy</span> contiene una funzione, anch’essa di nome <span class="c003">copy</span>, che permette di duplicare qualsiasi oggetto:</p><pre class="verbatim">&gt;&gt;&gt; p1 = Punto()
+&gt;&gt;&gt; p1.x = 3.0
+&gt;&gt;&gt; p1.y = 4.0
+
+&gt;&gt;&gt; import copy
+&gt;&gt;&gt; p2 = copy.copy(p1)
+</pre><p>
+<span class="c003">p1</span> e <span class="c003">p2</span> contengono gli stessi dati, ma non sono lo stesso Punto.</p><pre class="verbatim">&gt;&gt;&gt; stampa_punto(p1)
+(3, 4)
+&gt;&gt;&gt; stampa_punto(p2)
+(3, 4)
+&gt;&gt;&gt; p1 is p2
+False
+&gt;&gt;&gt; p1 == p2
+False
+</pre><p>
+L’operatore <span class="c003">is</span> indica che <span class="c003">p1</span> e <span class="c003">p2</span> non sono lo stesso oggetto, come volevasi dimostrare. Ma forse vi aspettavate che l’operatore <span class="c003">==</span> desse <span class="c003">True</span>, perché i due punti contengono gli stessi dati. Invece, dovete sapere che, nel caso di istanze, il comportamento predefinito dell’operatore <span class="c003">==</span> è lo stesso dell’operatore <span class="c003">is</span>: controlla l’identità dell’oggetto e non l’equivalenza. Questo perché, per i tipi personalizzati, Python non sa cosa debba essere considerato equivalente. O almeno, non lo sa ancora.
+<a id="hevea_default1276"></a>
+<a id="hevea_default1277"></a>
+<a id="hevea_default1278"></a>
+<a id="hevea_default1279"></a></p><p>Nell’usare <span class="c003">copy.copy</span> per duplicare un Rettangolo, noterete che copia l’oggetto Rettangolo ma non l’oggetto Punto contenuto.
+<a id="hevea_default1280"></a></p><pre class="verbatim">&gt;&gt;&gt; box2 = copy.copy(box)
+&gt;&gt;&gt; box2 is box
+False
+&gt;&gt;&gt; box2.angolo is box.angolo
+True
+</pre><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian022.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 15.3: Diagramma di oggetto.</td></tr>
+</table></div>
+<a id="fig.rectangle2"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>La Figura <a href="#fig.rectangle2">15.3</a> mostra la situazione del diagramma di oggetto.
+<a id="hevea_default1281"></a>
+<a id="hevea_default1282"></a></p><p>Questa operazione è chiamata <span class="c009">copia shallow</span> (o copia superficiale) perché copia l’oggetto ed ogni riferimento che contiene, ma non gli oggetti contenuti.
+<a id="hevea_default1283"></a>
+<a id="hevea_default1284"></a></p><p>Nella maggior parte dei casi, questo non è il comportamento ideale. Nel nostro esempio, invocare <code>accresci_rettangolo</code> su uno dei Rettangoli non influenzerebbe l’altro, ma invocare <code>sposta_rettangolo</code> su uno dei due, influenzerebbe entrambi! Tutto ciò genera confusione ed è foriero di errori.
+<a id="hevea_default1285"></a>
+<a id="hevea_default1286"></a></p><p>Fortunatamente, il modulo <span class="c003">copy</span> è dotato anche di un altro metodo chiamato <span class="c003">deepcopy</span> che non solo copia l’oggetto, ma anche gli oggetti a cui si riferisce, e gli oggetti a cui questi ultimi a loro volta si riferiscono, e così via. Non vi sorprenderà che questa si chiami <span class="c009">copia profonda</span>.
+<a id="hevea_default1287"></a>
+<a id="hevea_default1288"></a></p><pre class="verbatim">&gt;&gt;&gt; box3 = copy.deepcopy(box)
+&gt;&gt;&gt; box3 is box
+False
+&gt;&gt;&gt; box3.angolo is box.angolo
+False
+</pre><p>
+<span class="c003">box3</span> e <span class="c003">box</span> sono oggetti completamente diversi.</p><p>Come esercizio, scrivete una versione di <code>sposta_rettangolo</code> che crei e restituisca un nuovo Rettangolo anziché modificare quello di origine.</p>
+<h2 class="section" id="sec187">15.7  Debug</h2>
+<p>
+<a id="hasattr"></a>
+<a id="hevea_default1289"></a></p><p>Iniziando a lavorare con gli oggetti, è facile imbattersi in alcuni nuovi tipi di eccezioni. Se cercate di accedere ad un attributo che non esiste, si verifica un <span class="c003">AttributeError</span>:
+<a id="hevea_default1290"></a>
+<a id="hevea_default1291"></a></p><pre class="verbatim">&gt;&gt;&gt; p = Punto()
+&gt;&gt;&gt; p.x = 3
+&gt;&gt;&gt; p.y = 4
+&gt;&gt;&gt; p.z
+AttributeError: Punto instance has no attribute 'z'
+</pre><p>
+Se non siete sicuri di che tipo sia un oggetto, potete chiederlo:
+<a id="hevea_default1292"></a>
+<a id="hevea_default1293"></a></p><pre class="verbatim">&gt;&gt;&gt; type(p)
+&lt;class '__main__.Punto'&gt;
+</pre><p>
+Si può usare anche <span class="c003">isinstance</span> per controllare se un oggetto è un’istanza di una classe:
+<a id="hevea_default1294"></a>
+<a id="hevea_default1295"></a></p><pre class="verbatim">&gt;&gt;&gt; isinstance(p, Punto)
+True
+</pre><p>
+Se volete sapere se un oggetto ha un certo attributo, usate la funzione predefinita <span class="c003">hasattr</span>:
+<a id="hevea_default1296"></a>
+<a id="hevea_default1297"></a></p><pre class="verbatim">&gt;&gt;&gt; hasattr(p, 'x')
+True
+&gt;&gt;&gt; hasattr(p, 'z')
+False
+</pre><p>
+Il primo argomento può essere un qualunque oggetto, il secondo è una <em>stringa</em> che contiene il nome dell’attributo.
+<a id="hevea_default1298"></a></p><p>Si può anche usare un’istruzione <span class="c003">try</span> per controllare che l’oggetto contenga gli attributi che servono:
+<a id="hevea_default1299"></a>
+<a id="hevea_default1300"></a></p><pre class="verbatim">try:
+    x = p.x
+except AttributeError:
+    x = 0
+</pre><p>Questa tecnica può facilitare la scrittura di funzioni che trattano tipi di dati differenti; vedremo altro su questo tema nel Paragrafo <a href="thinkpython_italian018.html#polymorphism">17.9</a>.</p>
+<h2 class="section" id="sec188">15.8  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">classe:</span></dt><dd class="dd-description"> Tipo di dato personalizzato definito dal programmatore. Una definizione di classe crea un nuovo oggetto classe.
+<a id="hevea_default1301"></a>
+<a id="hevea_default1302"></a></dd><dt class="dt-description"><span class="c009">oggetto classe:</span></dt><dd class="dd-description"> Oggetto che contiene le informazioni su un tipo personalizzato e che può essere usato per creare istanze del tipo.
+<a id="hevea_default1303"></a></dd><dt class="dt-description"><span class="c009">istanza:</span></dt><dd class="dd-description"> Oggetto che appartiene ad una classe.
+<a id="hevea_default1304"></a></dd><dt class="dt-description"><span class="c009">istanziare:</span></dt><dd class="dd-description"> Creare un nuovo oggetto.
+<a id="hevea_default1305"></a></dd><dt class="dt-description"><span class="c009">attributo:</span></dt><dd class="dd-description"> Uno dei valori associati ad un oggetto, dotato di un nome.
+<a id="hevea_default1306"></a>
+<a id="hevea_default1307"></a></dd><dt class="dt-description"><span class="c009">oggetto contenuto (embedded):</span></dt><dd class="dd-description"> Oggetto che è contenuto come attributo di un altro oggetto (detto contenitore).
+<a id="hevea_default1308"></a></dd><dt class="dt-description"><span class="c009">copia shallow:</span></dt><dd class="dd-description"> copia “superficiale” dei contenuti di un oggetto, senza includere alcun riferimento ad eventuali oggetti contenuti; è implementata grazie alla funzione <span class="c003">copy</span> del modulo <span class="c003">copy</span>.
+<a id="hevea_default1309"></a></dd><dt class="dt-description"><span class="c009">copia profonda:</span></dt><dd class="dd-description"> Copia del contenuto di un oggetto e anche degli eventuali
+oggetti interni e degli oggetti a loro volta contenuti in essi; è implementata grazie alla funzione <span class="c003">deepcopy</span> del modulo <span class="c003">copy</span>.
+<a id="hevea_default1310"></a></dd><dt class="dt-description"><span class="c009">diagramma di oggetto:</span></dt><dd class="dd-description"> Diagramma che mostra gli oggetti, i loro attributi e i valori di questi ultimi.
+<a id="hevea_default1311"></a></dd></dl>
+<h2 class="section" id="sec189">15.9  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Scrivete una definizione di classe di nome <span class="c003">Cerchio</span>, avente gli attributi
+<span class="c003">centro</span> e <span class="c003">raggio</span>, dove <span class="c003">centro</span> è un oggetto Punto e <span class="c003">raggio</span> è un numero.</em></p><p><em>Istanziate un oggetto Cerchio che rappresenti un cerchio con il centro nel punto </em>(150, 100)<em> e di raggio 75.</em></p><p><em>Scrivete una funzione di nome <code>punto_nel_cerchio</code>, che prenda un Cerchio e un Punto e restituisca True se il punto giace dentro il cerchio, circonferenza compresa.</em></p><p><em>Scrivete una funzione di nome <code>rett_nel_cerchio</code>, che prenda un Cerchio e un Rettangolo e restituisca True se il rettangolo giace interamente all’interno del cerchio, circonferenza compresa.</em></p><p><em>Scrivete una funzione di nome <code>rett_cerchio_sovrapp</code>, che prenda un Cerchio e un Rettangolo e restituisca True se almeno uno degli angoli del Rettangolo ricade all’interno del cerchio. Oppure, più difficile, se una qualunque porzione del Rettangolo ricade all’interno del cerchio.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/Circle.py"><em><span class="c003">http://thinkpython2.com/code/Circle.py</span></em></a><em>.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  <p><em>Scrivete una funzione di nome <code>disegna_rett</code> che prenda un oggetto Turtle e
+un Rettangolo e usi la Tartaruga per disegnare il Rettangolo. Vedere il
+Capitolo </em><a href="thinkpython_italian005.html#turtlechap"><em>4</em></a><em> per esempi di uso degli oggetti Turtle.</em></p><p><em>Scrivete una funzione di nome <code>disegna_cerchio</code> che prenda un oggetto Turtle e un Cerchio, e disegni il Cerchio.</em></p><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/draw.py"><em><span class="c003">http://thinkpython2.com/code/draw.py</span></em></a><em>.</em></p></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian015.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian017.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>

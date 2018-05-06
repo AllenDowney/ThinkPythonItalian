@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.30">
+<link rel="stylesheet" type="text/css" href="thinkpython_italian.css">
+<title>Istruzioni condizionali e ricorsione</title>
+</head>
+<body>
+<a href="thinkpython_italian005.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian007.html"><img src="next.png" ALT="Next"></a>
+<hr>
+<table cellpadding=10>
+
+<tr>
+
+<td valign="top" width=100 bgcolor="#b6459a">
+</td>
+
+<td valign="top" width=600>
+
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+<h1 class="chapter" id="sec57">Chapter 5  Istruzioni condizionali e ricorsione</h1>
+<p>L’argomento principale di questo capitolo è l’istruzione <span class="c003">if</span>, che permette di eseguire codice diverso a seconda dello stato del programma. Prima di tutto, vediamo però due nuovi operatori: divisione intera e modulo.</p>
+<h2 class="section" id="sec58">5.1  Divisione intera e modulo</h2>
+<p>L’operatore di <span class="c009">divisione intera</span>, <code>//</code>, divide due numeri e arrotonda il risultato all’intero inferiore. Ad esempio, supponiamo che la durata di un film sia di 105 minuti, e di volerla esprimere in ore. La normale divisione restituisce un numero decimale:</p><pre class="verbatim">&gt;&gt;&gt; minuti = 105
+&gt;&gt;&gt; minuti / 60
+1.75
+</pre><p>Ma di solito non si esprimono le ore con un numero decimale. La divisione intera dà invece come risultato il numero di ore, arrotondando per difetto:</p><pre class="verbatim">&gt;&gt;&gt; minuti = 105
+&gt;&gt;&gt; ore = minuti // 60
+&gt;&gt;&gt; ore
+1
+</pre><p>Per ottenere il resto, potete sottrarre dai minuti l’equivalente delle ore:</p><pre class="verbatim">&gt;&gt;&gt; resto = minuti - ore * 60
+&gt;&gt;&gt; resto
+45
+</pre><p><a id="hevea_default299"></a>
+<a id="hevea_default300"></a>
+<a id="hevea_default301"></a>
+<a id="hevea_default302"></a></p><p>Come alternativa si può utilizzare l’<span class="c009">operatore modulo</span>, <code>%</code>, che 
+restituisce il resto dell’operazione di divisione tra due numeri interi.</p><pre class="verbatim">&gt;&gt;&gt; resto = minuti % 60
+&gt;&gt;&gt; resto
+45
+</pre><p>L’operatore modulo è più utile di quel che sembra. Per esempio, vi permette di controllare se un numero intero è divisibile per un altro: se
+<span class="c003">x % y</span> è zero, significa che <span class="c003">x</span> è divisibile per <span class="c003">y</span>.
+<a id="hevea_default303"></a></p><p>Potete inoltre estrarre la cifra più a destra o più cifre di un numero. Ad esempio <span class="c003">x % 10</span> restituisce la cifra più a destra di <span class="c003">x</span> (in base 10). E analogamente, <span class="c003">x % 100</span> restituisce le ultime due cifre.</p><p>Per chi usa Python 2, la divisione funziona in modo diverso. L’operatore di divisione intera non esiste, e quello di divisione, <code>/</code>, esegue una divisione intera se entrambi gli operandi sono interi, mentre il risultato è un decimale a virgola mobile se almeno uno degli operandi è un decimale.
+<a id="hevea_default304"></a></p>
+<h2 class="section" id="sec59">5.2  Espressioni booleane</h2>
+<p>
+<a id="hevea_default305"></a>
+<a id="hevea_default306"></a></p><p>Un’<span class="c009">espressione booleana</span> è un’espressione che può essere o vera o falsa. Gli esempi che seguono usano l’operatore <span class="c003">==</span>, confrontano due valori e restituiscono <span class="c003">True</span> (vero) se sono uguali, <span class="c003">False</span> (falso) altrimenti:</p><pre class="verbatim">&gt;&gt;&gt; 5 == 5
+True
+&gt;&gt;&gt; 5 == 6
+False
+</pre><p>
+<span class="c003">True</span> e <span class="c003">False</span> sono valori speciali che sono di tipo <span class="c003">bool</span>; non sono delle stringhe:
+<a id="hevea_default307"></a>
+<a id="hevea_default308"></a>
+<a id="hevea_default309"></a>
+<a id="hevea_default310"></a>
+<a id="hevea_default311"></a>
+<a id="hevea_default312"></a></p><pre class="verbatim">&gt;&gt;&gt; type(True)
+&lt;class 'bool'&gt;
+&gt;&gt;&gt; type(False)
+&lt;class 'bool'&gt;
+</pre><p>
+L’operatore <span class="c003">==</span> è uno degli <span class="c009">operatori di confronto</span> (chiamati anche operatori relazionali); gli altri sono:</p><pre class="verbatim">      x != y               # x è diverso da y
+      x &gt; y                # x è maggiore di y
+      x &lt; y                # x è minore di y
+      x &gt;= y               # x è maggiore o uguale a y
+      x &lt;= y               # x è minore o uguale a y
+</pre><p>
+Queste operazioni vi saranno familiari, tuttavia i simboli usati in Python non sono del tutto uguali a quelli matematici. Un errore frequente è usare il simbolo di uguale(<span class="c003">=</span>) anziché il doppio uguale (<span class="c003">==</span>). Ricordatevi la differenza: <span class="c003">=</span> è un operatore di assegnazione, mentre <span class="c003">==</span> è un operatore di confronto. Inoltre in Python non esistono simboli come <span class="c003">=&lt;</span> o <span class="c003">=&gt;</span>.
+<a id="hevea_default313"></a>
+<a id="hevea_default314"></a></p>
+<h2 class="section" id="sec60">5.3  Operatori logici</h2>
+<p>
+<a id="hevea_default315"></a>
+<a id="hevea_default316"></a></p><p>Ci sono tre <span class="c009">operatori logici</span>: <span class="c003">and</span>, <span class="c003">or</span>, e <span class="c003">not</span>. Il significato di questi operatori è simile a quello comune (e, o, non): per esempio, l’espressione <span class="c003">x &gt; 0 and x &lt; 10</span> è vera solo se sono vere <em>entrambe</em> le condizioni, cioè <span class="c003">x</span> è più grande di 0 <em>e</em> più piccolo di 10.
+<a id="hevea_default317"></a>
+<a id="hevea_default318"></a>
+<a id="hevea_default319"></a>
+<a id="hevea_default320"></a>
+<a id="hevea_default321"></a>
+<a id="hevea_default322"></a></p><p>L’espressione <span class="c003">n % 2 == 0 or n % 3 == 0</span> invece è vera se è verificata <em>almeno una</em> delle due condizioni, cioè se il numero è divisibile per 2 <em>o</em> per 3 (o per entrambi).</p><p>Infine, l’operatore <span class="c003">not</span> nega il valore di un’espressione booleana, per cui <span class="c003">not (x &gt; y)</span> è vera se <span class="c003">x &gt; y</span> è falsa, cioè se <span class="c003">x</span> è minore o uguale a <span class="c003">y</span>.</p><p>In senso stretto, gli operandi degli operatori logici dovrebbero essere delle espressioni booleane, ma qui Python non è rigido: ogni numero diverso da zero viene accettato ed interpretato come <span class="c003">True</span>.</p><pre class="verbatim">&gt;&gt;&gt; 42 and True
+True
+</pre><p>
+Questa flessibilità può essere utile, ma ci sono alcune sottigliezze che potrebbero confondere. È preferibile evitarla (a meno che non sappiate esattamente quello che state facendo).</p>
+<h2 class="section" id="sec61">5.4  Esecuzione condizionale</h2>
+<p>
+<a id="conditional.execution"></a></p><p><a id="hevea_default323"></a>
+<a id="hevea_default324"></a>
+<a id="hevea_default325"></a>
+<a id="hevea_default326"></a>
+Se volete scrivere programmi utili, vi capiterà spesso di dover controllare se si verificano determinate condizioni, e di variare di conseguenza il comportamento del programma. Le <span class="c009">istruzioni condizionali</span> servono proprio a questo. La forma più semplice di istruzione condizionale è l’istruzione <span class="c003">if</span> (“se” in inglese):</p><pre class="verbatim">if x &gt; 0:
+    print('x è positivo')
+</pre><p>
+L’espressione booleana dopo l’istruzione <span class="c003">if</span> è chiamata <span class="c009">condizione</span>. Se risulta vera, viene eseguita l’istruzione indentata che segue sulla riga successiva. Altrimenti, non succede nulla.
+<a id="hevea_default327"></a>
+<a id="hevea_default328"></a></p><p>L’istruzione <span class="c003">if</span> ha la stessa struttura che abbiamo già visto nel caso delle definizioni di funzione: un’intestazione seguita da un corpo indentato. Le istruzioni come questa vengono chiamate <span class="c009">istruzioni composte</span>.</p><p>Non c’è limite al numero di istruzioni che possono essere scritte nel corpo, ma deve sempre essercene almeno una. Talvolta può servire che il corpo sia privo di istruzioni (di solito quando c’è del codice ancora da scrivere); in questo caso potete usare l’istruzione <span class="c003">pass</span>, che serve solo da segnaposto temporaneo e nulla più:
+<a id="hevea_default329"></a>
+<a id="hevea_default330"></a></p><pre class="verbatim">if x &lt; 0:
+    pass          # scrivere cosa fare con i valori negativi!
+</pre>
+<h2 class="section" id="sec62">5.5  Esecuzione alternativa</h2>
+<p>
+<a id="alternative.execution"></a>
+<a id="hevea_default331"></a>
+<a id="hevea_default332"></a>
+<a id="hevea_default333"></a></p><p>Una seconda forma di istruzione <span class="c003">if</span> è l’<span class="c009">esecuzione alternativa</span>,
+dove esistono due possibili azioni, e il valore della condizione determina quale delle due azioni debba essere eseguita e quale no. La sintassi è:</p><pre class="verbatim">if x % 2 == 0:
+    print('x è pari')
+else:
+    print('x è dispari')
+</pre><p>
+Se il resto della divisione di <span class="c003">x</span> per 2 è zero, significa che <span class="c003">x</span> è un numero pari, e il programma mostra il messaggio appropriato. Altrimenti (<code>else</code>), se la condizione è falsa, viene eseguito il secondo blocco di istruzioni. Dato che la condizione deve essere necessariamente o vera o falsa, sarà sempre eseguita una sola delle due alternative. Queste sono dette <span class="c009">ramificazioni</span>, perché rappresentano dei bivi nel flusso di esecuzione del programma.
+<a id="hevea_default334"></a></p>
+<h2 class="section" id="sec63">5.6  Condizioni in serie</h2>
+<p>
+<a id="hevea_default335"></a>
+<a id="hevea_default336"></a></p><p>A volte è necessario considerare più di due possibili sviluppi, e occorre che nel programma ci siano più di due ramificazioni. Un modo per esprimere questo tipo di calcolo sono le <span class="c009">condizioni in serie</span>:</p><pre class="verbatim">if x &lt; y:
+    print('x è minore di y')
+elif x &gt; y:
+    print('x è maggiore di y')
+else:
+    print('x e y sono uguali')
+</pre><p>
+<span class="c003">elif</span> è l’abbreviazione di <em>else if</em>, che in inglese significa “altrimenti se”. Anche stavolta verrà eseguito solo uno dei tre rami, a seconda dell’esito del confronto tra <span class="c003">x</span> e <span class="c003">y</span>. Non c’è alcun limite al numero di istruzioni <span class="c003">elif</span>. Se esiste una clausola <span class="c003">else</span>, deve essere scritta per ultima, ma non è obbligatoria; il ramo corrispondente viene eseguito solo quando tutte le condizioni precedenti sono false.
+<a id="hevea_default337"></a>
+<a id="hevea_default338"></a></p><pre class="verbatim">if scelta == 'a':
+    disegna_a()
+elif scelta == 'b':
+    disegna_b()
+elif scelta == 'c':
+    disegna_c()
+</pre><p>
+Le condizioni vengono controllate nell’ordine dall’alto al basso: se la prima è falsa, viene controllata la seconda e così via. Non appena una condizione risulta vera, viene eseguito il ramo corrispondente e l’istruzione termina. Anche se risultassero vere altre condizioni successive, viene eseguita sempre e soltanto la prima che risulta vera. </p>
+<h2 class="section" id="sec64">5.7  Condizioni nidificate</h2>
+<p>
+<a id="hevea_default339"></a></p><p>Si può anche inserire un’istruzione condizionale nel corpo di un’altra istruzione condizionale. Possiamo dunque scrivere l’esempio del paragrafo precedente anche in questo modo:</p><pre class="verbatim">if x == y:
+    print('x e y sono uguali')
+else:
+    if x &lt; y:
+        print('x è minore di y')
+    else:
+        print('x è maggiore di y')
+</pre><p>
+La condizione più esterna contiene due rami: il primo contiene un’istruzione semplice, il secondo un’altra istruzione <span class="c003">if</span> che a sua volta ha due ramificazioni. Entrambi i rami del secondo <span class="c003">if</span> sono istruzioni di stampa, ma potrebbero anche contenere a loro volta ulteriori istruzioni condizionali.</p><p>Anche se l’indentazione delle istruzioni aiuta ad evidenziare la struttura, le <span class="c009">condizioni nidificate</span> diventano rapidamente difficili da leggere, quindi è meglio usarle con moderazione.</p><p>Gli operatori logici permettono spesso di semplificare le istruzioni condizionali nidificate. Il codice seguente può essere riscritto usando un’unica condizione:</p><pre class="verbatim">if 0 &lt; x:
+    if x &lt; 10:
+        print('x è un numero positivo a una cifra.')
+</pre><p>
+Infatti, dato che l’istruzione di stampa è eseguita solo se si verificano entrambe le condizioni, possiamo ottenere lo stesso risultato usando l’operatore <span class="c003">and</span>:</p><pre class="verbatim">if 0 &lt; x and x &lt; 10:
+    print('x è un numero positivo a una cifra.')
+</pre><p>Per una condizione di questo tipo, Python consente anche un’opzione sintattica più concisa:</p><pre class="verbatim">if 0 &lt; x &lt; 10:
+    print('x è un numero positivo a una cifra.')
+</pre>
+<h2 class="section" id="sec65">5.8  Ricorsione</h2>
+<p>
+<a id="recursion"></a>
+<a id="hevea_default340"></a></p><p>Abbiamo visto che è del tutto normale che una funzione ne chiami un’altra, ma è anche consentito ad una funzione di chiamare se stessa. L’utilità può non essere immediatamente comprensibile, ma questa è una delle cose più magiche che un programma possa fare. Per fare un esempio, diamo un’occhiata a questa funzione:</p><pre class="verbatim">def contoallarovescia(n):
+    if n &lt;= 0:
+        print('Via!')
+    else:
+        print(n)
+        contoallarovescia(n-1)
+</pre><p>
+Se <span class="c003">n</span> vale 0 o è negativo, la funzione scrive la parola “Via!”.
+Altrimenti scrive il numero <span class="c003">n</span> e poi chiama la funzione <span class="c003">contoallarovescia</span> (cioè se stessa) passando un argomento che vale <span class="c003">n-1</span>.</p><p>Cosa succede quando chiamiamo la funzione in questo modo?</p><pre class="verbatim">&gt;&gt;&gt; contoallarovescia(3)
+</pre><p>
+L’esecuzione di <span class="c003">contoallarovescia</span> inizia da <span class="c003">n=3</span>, e dato che
+<span class="c003">n</span> è maggiore di 0, stampa il valore 3, poi chiama se stessa...</p><blockquote class="quote">
+L’esecuzione di <span class="c003">contoallarovescia</span> inizia da <span class="c003">n=2</span>, e dato che
+<span class="c003">n</span> è maggiore di 0, stampa il valore 2, poi chiama se stessa...<blockquote class="quote">
+L’esecuzione di <span class="c003">contoallarovescia</span> inizia da <span class="c003">n=1</span>, e dato che
+<span class="c003">n</span> è maggiore di 0, stampa il valore 1, poi chiama se stessa...<blockquote class="quote">
+L’esecuzione di <span class="c003">contoallarovescia</span> inizia da <span class="c003">n=0</span>, e dato che <span class="c003">n</span> è uguale a 0, stampa la parola “Via!” e poi ritorna.
+</blockquote><p>La funzione <span class="c003">contoallarovescia</span> che aveva dato <span class="c003">n=1</span> ritorna.
+</p></blockquote><p>La funzione <span class="c003">contoallarovescia</span> che aveva dato <span class="c003">n=2</span> ritorna.
+</p></blockquote><p>La funzione <span class="c003">contoallarovescia</span> che aveva dato <span class="c003">n=3</span> ritorna.</p><p>E infine ritorniamo in <code>__main__</code>. Il risultato finale è questo:
+<a id="hevea_default341"></a></p><pre class="verbatim">3
+2
+1
+Via!
+</pre><p>
+Una funzione che chiama se stessa si dice <span class="c009">ricorsiva</span> e la procedura che la esegue è detta <span class="c009">ricorsione</span>.
+<a id="hevea_default342"></a>
+<a id="hevea_default343"></a></p><p>Come secondo esempio, scriviamo una funzione che stampi una data stringa per <span class="c003">n</span> volte.</p><pre class="verbatim">def stampa_n(s, n):
+    if n &lt;= 0:
+        return
+    print(s)
+    stampa_n(s, n-1)
+</pre><p>
+Se <span class="c003">n &lt;= 0</span> l’<span class="c009">istruzione di ritorno</span> <span class="c003">return</span> provoca l’uscita dalla funzione. Il flusso dell’esecuzione torna immediatamente al chiamante, e le righe rimanenti della funzione non vengono eseguite.
+<a id="hevea_default344"></a>
+<a id="hevea_default345"></a></p><p>Il resto della funzione è simile a <span class="c003">contoallarovescia</span>: visualizza la stringa <span class="c003">s</span> e chiama se stessa per <span class="c008">n</span>−1 altre volte. Il numero di righe risultanti sarà <span class="c003">1 + (n - 1)</span>, che corrisponde a
+<span class="c003">n</span>.</p><p>Per esempi semplici come questi, è forse più facile usare un ciclo <span class="c003">for</span>. Vedremo però più avanti degli esempi difficili da scrivere con un ciclo <span class="c003">for</span> ma facili con la ricorsione; meglio quindi cominciare subito a prendere mano.
+<a id="hevea_default346"></a>
+<a id="hevea_default347"></a></p>
+<h2 class="section" id="sec66">5.9  Diagrammi di stack delle funzioni ricorsive</h2>
+<p>
+<a id="recursive.stack"></a>
+<a id="hevea_default348"></a>
+<a id="hevea_default349"></a>
+<a id="hevea_default350"></a></p><p>Nel Paragrafo <a href="thinkpython_italian004.html#stackdiagram">3.9</a>, abbiamo usato un diagramma di stack per raffigurare lo stato di un programma nel corso di una chiamata di funzione. Lo stesso tipo di diagramma può servire a capire come lavora una funzione ricorsiva.</p><p>Ad ogni chiamata di funzione, Python crea un frame che contiene le variabili locali interne alla funzione ed i suoi parametri. Nel caso di una funzione ricorsiva, possono esserci contemporaneamente più frame della stessa funzione nello stack.</p><p>La Figura <a href="#fig.stack2">5.1</a> mostra il diagramma di stack della funzione <span class="c003">contoallarovescia</span> chiamata con <span class="c003">n = 3</span>.</p><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian005.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 5.1: Diagramma di stack.</td></tr>
+</table></div>
+<a id="fig.stack2"></a>
+<div class="center"><hr class="c019"></div></blockquote><p>Come al solito, il livello superiore dello stack è il frame di <code>__main__</code>, che
+è vuoto, perché non vi abbiamo creato alcuna variabile né gli abbiamo passato alcun argomento.
+<a id="hevea_default351"></a>
+<a id="hevea_default352"></a></p><p>Nei quattro frame di <span class="c003">contoallarovescia</span>, il parametro <span class="c003">n</span> ha valori differenti. Il livello inferiore dello stack, dove <span class="c003">n=0</span>, è chiamato <span class="c009">caso base</span>. Quest’ultimo non effettua ulteriori chiamate ricorsive, quindi non produce ulteriori frame.</p><p>Come esercizio, disegnate il diagramma di stack della funzione <code>stampa_n</code> chiamata con <code>s='Ciao'</code> e <span class="c003">n=2</span>. Poi, scrivete una funzione di nome <code>fai_n</code> che accetti come argomenti un oggetto funzione e un numero <span class="c003">n</span>, e che chiami per <span class="c003">n</span> volte la funzione data.</p>
+<h2 class="section" id="sec67">5.10  Ricorsione infinita</h2>
+<p>
+<a id="hevea_default353"></a>
+<a id="hevea_default354"></a></p><p><a id="hevea_default355"></a></p><p>Se una ricorsione non raggiunge mai un caso base, continua ad effettuare chiamate ricorsive all’infinito e il programma non può terminare. Questa situazione è nota come <span class="c009">ricorsione infinita</span>, e di solito non è considerata un fatto positivo.
+Ecco un programma minimale che genera una ricorsione infinita:</p><pre class="verbatim">def ricorsiva():
+    ricorsiva()
+</pre><p>
+Nella maggior parte degli ambienti di programmazione, un programma con una ricorsione infinita non viene eseguito davvero all’infinito. Python mostra un messaggio di errore quando viene raggiunto il massimo livello di ricorsione consentito:
+<a id="hevea_default356"></a>
+<a id="hevea_default357"></a></p><pre class="verbatim">  File "&lt;stdin&gt;", line 2, in ricorsiva
+  File "&lt;stdin&gt;", line 2, in ricorsiva
+  File "&lt;stdin&gt;", line 2, in ricorsiva
+                  .   
+                  .
+                  .
+  File "&lt;stdin&gt;", line 2, in ricorsiva
+RuntimeError: Maximum recursion depth exceeded
+</pre><p>
+Questo traceback è un po’ più grande di quello che abbiamo visto nel capitolo precedente. Quando si verifica l’errore, nello stack ci sono oltre 1000 frame di <span class="c003">ricorsiva</span>!</p><p>Se vi imbattete accidentalmente in una ricorsione infinita, rivedete la vostra funzione per accertare che esista un caso base che non genera una ulteriore chiamata ricorsiva. E se c’è un caso base, controllate che venga sicuramente raggiunto.</p>
+<h2 class="section" id="sec68">5.11  Input da tastiera</h2>
+<p>
+<a id="hevea_default358"></a></p><p>I programmi che abbiamo scritto finora non accettano dati in ingresso da parte dell’utente, ed eseguono sempre le stesse operazioni.</p><p>In Python esiste una funzione predefinita chiamata <code>input</code> che sospende il programma ed attende che l’utente scriva qualcosa. Quando l’utente preme il tasto <span class="c005">Invio</span> oppure <span class="c005">Enter</span>, il programma riprende e <code>input</code> restituisce quello che l’utente ha inserito, come stringa. In Python 2, la funzione si chiama invece <code>raw_input</code> .
+<a id="hevea_default359"></a>
+<a id="hevea_default360"></a>
+<a id="hevea_default361"></a></p><pre class="verbatim">&gt;&gt;&gt; testo = input()
+Cosa stai aspettando?
+&gt;&gt;&gt; testo
+'Cosa stai aspettando?'
+</pre><p>
+Prima dell’inserimento dei dati, è buona norma visualizzare un messaggio, chiamato prompt, che informa l’utente di ciò che deve inserire. A questo scopo, <code>input</code> accetta un prompt come argomento:
+<a id="hevea_default362"></a></p><pre class="verbatim">&gt;&gt;&gt; nome = input('Come...ti chiami?\n')
+Come...ti chiami?
+Artù, Re dei Bretoni!
+&gt;&gt;&gt; nome
+'Artù, Re dei Bretoni!'
+</pre><p>
+La sequenza <code>\n</code> alla fine del prompt rappresenta un <span class="c009">ritorno a capo</span>,
+un carattere speciale che provoca un’interruzione di riga. Ecco perché l’input dell’utente compare sulla riga successiva sotto al prompt.
+<a id="hevea_default363"></a></p><p>Se l’input atteso deve essere un numero intero, si può provare a convertire il valore inserito in <span class="c003">int</span>:</p><pre class="verbatim">&gt;&gt;&gt; prompt = 'Qual è la velocità in volo di una rondine?\n'
+&gt;&gt;&gt; velocita = input(prompt)
+Qual è la velocità in volo di una rondine?
+42
+&gt;&gt;&gt; int(velocita)
+42
+</pre><p>
+Ma se la stringa inserita contiene qualcosa di diverso da dei valori numerici, si verifica un errore:</p><pre class="verbatim">&gt;&gt;&gt; velocita = input(prompt)
+Qual è la velocità in volo di una rondine?
+Cosa intendi, una rondine europea o africana?
+&gt;&gt;&gt; int(velocita)
+ValueError: invalid literal for int() with base 10
+</pre><p>
+Vedremo più avanti come trattare questo tipo di errori.
+<a id="hevea_default364"></a>
+<a id="hevea_default365"></a></p>
+<h2 class="section" id="sec69">5.12  Debug</h2>
+<p>
+<a id="whitespace"></a>
+<a id="hevea_default366"></a>
+<a id="hevea_default367"></a></p><p>Quando si verifica un errore di sintassi o di runtime, il messaggio d’errore contiene molte informazioni, ma può essere sovrabbondante. Di solito le parti più utili sono:</p><ul class="itemize"><li class="li-itemize">Che tipo di errore era, e</li><li class="li-itemize">Dove si è verificato.</li></ul><p>Gli errori di sintassi di solito sono facili da trovare, con qualche eccezione. Gli spaziatori possono essere insidiosi, perché spazi e tabulazioni non sono visibili e non siamo abituati a tenerne conto.
+<a id="hevea_default368"></a></p><pre class="verbatim">&gt;&gt;&gt; x = 5
+&gt;&gt;&gt;  y = 6
+  File "&lt;stdin&gt;", line 1
+    y = 6
+    ^
+IndentationError: unexpected indent
+</pre><p>
+In questo esempio, il problema è che la seconda riga è erroneamente indentata di uno spazio, mentre dovrebbe stare al margine sinistro. Ma il messaggio di errore punta su <span class="c003">y</span>, portando fuori strada. In genere, i messaggi di errore indicano dove il problema è venuto a galla, ma il vero errore potrebbe essere in un punto precedente del codice, a volte anche nella riga precedente.</p><p><a id="hevea_default369"></a></p><p>Lo stesso vale per gli errori di runtime. </p><p>Supponiamo di voler calcolare un rapporto segnale/rumore in decibel. La formula è
+<span class="c008">SNR</span><sub><span class="c008">db</span></sub> = 10 log<sub>10</sub> (<span class="c008">P</span><sub><span class="c008">segnale</span></sub> / <span class="c008">P</span><sub><span class="c008">rumore</span></sub>). In Python si può scrivere:</p><pre class="verbatim">import math
+potenza_segnale = 9
+potenza_rumore = 10
+rapporto = potenza_segnale // potenza_rumore
+decibel = 10 * math.log10(rapporto)
+print(decibel)
+</pre><p>
+Se avviate questo programma, compare un messaggio di errore.
+<a id="hevea_default370"></a>
+<a id="hevea_default371"></a></p><pre class="verbatim">Traceback (most recent call last):
+  File "snr.py", line 5, in ?
+    decibel = 10 * math.log10(rapporto)
+ValueError: math domain error
+</pre><p>
+Il messaggio punta alla riga 5, ma lì non c’è niente di sbagliato. Per trovare il vero errore, può essere utile stampare il valore di <span class="c003">rapporto</span>, che risulta essere 0. Il problema sta nella riga 4, perché calcola una divisione intera anziché una normale divisione.
+<a id="hevea_default372"></a></p><p>Prendetevi la briga di leggere attentamente i messaggi di errore, ma non date per scontato che tutto quello che dicono sia esatto.</p>
+<h2 class="section" id="sec70">5.13  Glossario</h2>
+<dl class="description"><dt class="dt-description"><span class="c009">divisione intera:</span></dt><dd class="dd-description"> Operatore, che ha per simbolo <span class="c003">//</span>, che divide due numeri e arrotonda il risultato all’intero inferiore (ovvero, verso l’infinito negativo).
+<a id="hevea_default373"></a></dd><dt class="dt-description"><span class="c009">operatore modulo:</span></dt><dd class="dd-description"> Operatore matematico, che ha per simbolo (<span class="c003">%</span>), che restituisce il resto della divisione tra due operandi interi.
+<a id="hevea_default374"></a>
+<a id="hevea_default375"></a></dd><dt class="dt-description"><span class="c009">espressione booleana:</span></dt><dd class="dd-description"> Espressione il cui valore è o vero 
+(<span class="c003">True</span>) o falso (<span class="c003">False</span>).
+<a id="hevea_default376"></a></dd><dt class="dt-description"><span class="c009">operatore di confronto:</span></dt><dd class="dd-description"> Operatore che confronta due valori detti operandi: <span class="c003">==</span>, <span class="c003">!=</span>, <span class="c003">&gt;</span>, <span class="c003">&lt;</span>, <span class="c003">&gt;=</span>, e <span class="c003">&lt;=</span>.</dd><dt class="dt-description"><span class="c009">operatore logico:</span></dt><dd class="dd-description"> Operatore che unisce delle espressioni booleane: <span class="c003">and</span>, <span class="c003">or</span>, e <span class="c003">not</span>.</dd><dt class="dt-description"><span class="c009">istruzione condizionale:</span></dt><dd class="dd-description"> Istruzione che controlla il flusso di esecuzione del programma, variandolo a seconda di determinate condizioni.
+<a id="hevea_default377"></a></dd><dt class="dt-description"><span class="c009">condizione:</span></dt><dd class="dd-description"> Espressione booleana in un’istruzione condizionale che determina quale ramificazione sarà eseguita.
+<a id="hevea_default378"></a></dd><dt class="dt-description"><span class="c009">istruzione composta:</span></dt><dd class="dd-description"> Istruzione che consiste di un’intestazione e di un corpo. L’intestazione deve terminare con i due punti (:) e il corpo deve essere indentato rispetto ad essa.
+<a id="hevea_default379"></a></dd><dt class="dt-description"><span class="c009">ramificazione:</span></dt><dd class="dd-description"> Uno dei blocchi di istruzioni alternative presenti in un’istruzione condizionale.
+<a id="hevea_default380"></a></dd><dt class="dt-description"><span class="c009">condizioni in serie:</span></dt><dd class="dd-description"> Istruzione condizionale con una serie di ramificazioni alternative.
+<a id="hevea_default381"></a></dd><dt class="dt-description"><span class="c009">condizione nidificata (o annidata):</span></dt><dd class="dd-description"> Un’istruzione condizionale inserita in una ramificazione di un’altra istruzione condizionale.
+<a id="hevea_default382"></a></dd><dt class="dt-description"><span class="c009">istruzione di ritorno:</span></dt><dd class="dd-description"> Un’istruzione che fa terminare immediatamente una funzione e ritorna al chiamante.</dd><dt class="dt-description"><span class="c009">ricorsione:</span></dt><dd class="dd-description"> Procedura che chiama la stessa funzione attualmente in esecuzione.
+<a id="hevea_default383"></a></dd><dt class="dt-description"><span class="c009">caso base:</span></dt><dd class="dd-description"> Ramificazione di un’istruzione condizionale, posta in una funzione ricorsiva, che non esegue a sua volta una chiamata ricorsiva.
+<a id="hevea_default384"></a></dd><dt class="dt-description"><span class="c009">ricorsione infinita:</span></dt><dd class="dd-description"> Una ricorsione priva di un caso base, oppure che non lo raggiunge mai. Nell’evenienza, causa un errore in esecuzione.
+<a id="hevea_default385"></a></dd></dl>
+<h2 class="section" id="sec71">5.14  Esercizi</h2>
+<div class="theorem"><span class="c009">Esercizio 1</span>  <p><em>Il modulo <span class="c003">time</span> contiene una funzione, anch’essa di nome <span class="c003">time</span>, che restituisce l’attuale GMT (Tempo Medio di Greenwich) riferito ad un “tempo zero”, che è un momento arbitrario usato come punto di riferimento. Nei sistemi UNIX, questo “tempo zero” è il 1 gennaio 1970.</em></p><pre class="verbatim"><em>&gt;&gt;&gt; import time
+&gt;&gt;&gt; time.time()
+1437746094.5735958
+</em></pre><p><em>Realizzate uno script che acquisisca il tempo attuale e lo converta in un tempo in ore, minuti e secondi, più i giorni trascorsi dal “tempo zero”.</em></p></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 2</span>  
+<a id="hevea_default386"></a><p><em>L’ultimo teorema di Fermat afferma che non esistono interi positivi
+</em><span class="c008">a</span><em>, </em><span class="c008">b</span><em>, e </em><span class="c008">c</span><em> tali che</em></p><table class="display dcenter"><tr class="c016"><td class="dcell"><span class="c008">a</span><sup><span class="c008">n</span></sup> + <span class="c008">b</span><sup><span class="c008">n</span></sup> = <span class="c008">c</span><sup><span class="c008">n</span></sup> </td></tr>
+</table><p><em>
+per qualsiasi valore di </em><span class="c008">n</span><em> maggiore di 2.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete una funzione di nome <code>verifica_fermat</code> che richieda quattro parametri—<span class="c003">a</span>, <span class="c003">b</span>, <span class="c003">c</span> e <span class="c003">n</span>—e controlli se il teorema regge. Se </em><span class="c008">n</span><em> è maggiore di 2 e fosse</em><table class="display dcenter"><tr class="c016"><td class="dcell"><span class="c008"><em>a</em></span><sup><span class="c008"><em>n</em></span></sup><em> + <span class="c008">b</span></em><sup><span class="c008"><em>n</em></span></sup><em> = <span class="c008">c</span></em><sup><span class="c008"><em>n</em></span></sup><em> </em></td></tr>
+</table><p><em>
+il programma dovrebbe visualizzare: “Santi Numi, Fermat si è sbagliato!”,
+altrimenti: “No, questo non è vero.”</em></p></li><li class="li-enumerate"><em>Scrivete una funzione che chieda all’utente di inserire valori di <span class="c003">a</span>, <span class="c003">b</span>, <span class="c003">c</span> e <span class="c003">n</span>, li converta in interi e usi <code>verifica_fermat</code> per controllare se violano il teorema di Fermat.</em></li></ol></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 3</span>  
+<a id="hevea_default387"></a><p><em>Dati tre bastoncini, può essere possibile o meno riuscire a sistemarli in modo da formare un triangolo. Per esempio, se uno dei bastoncini misura 12 centimetri e gli altri due 1 centimetro, non riuscirete a far toccare le estremità di tutti e tre i bastoncini. Date tre lunghezze, c’è una semplice regola per controllare se è possibile formare un triangolo:</em></p><blockquote class="quotation"><em>
+Se una qualsiasi delle tre lunghezze è maggiore della somma delle altre due, non potete formare un triangolo. (Se la somma di due lunghezze è uguale alla terza, si ha un triangolo “degenere”.)
+</em></blockquote><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete una funzione di nome <code>triangolo</code> che riceva tre interi come argomenti e che mostri “Si”’ o “No”, a seconda che si possa o meno formare un triangolo con dei bastoncini delle tre lunghezze date.</em></li><li class="li-enumerate"><em>Scrivete una funzione che chieda all’utente di inserire tre lunghezze, le converta in interi, e le passi a <code>triangolo</code> per verificare se si possa o meno formare un triangolo.</em></li></ol></div><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 4</span>  <p><em>Qual è l’output del seguente programma?
+Disegnate un diagramma di stack che illustri lo stato del programma nel momento in cui stampa il risultato.</em></p><pre class="verbatim"><em>def ricorsione(n, s):
+    if n == 0:
+        print(s)
+    else:
+        ricorsione(n-1, n+s)
+
+ricorsione(3, 0)
+</em></pre><ol class="enumerate" type=1><li class="li-enumerate"><em>Cosa succede se chiamate la funzione in questo modo: <span class="c003">ricorsione(-1, 0)</span>?</em></li><li class="li-enumerate"><em>Scrivete una stringa di documentazione che spieghi tutto quello che serve per usare questa funzione (e niente di più).</em></li></ol></div><p>Gli esercizi seguenti utilizzano il modulo turtle, descritto nel Capitolo <a href="thinkpython_italian005.html#turtlechap">4</a>:
+<a id="hevea_default388"></a></p><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 5</span>  <p><em>Leggete la seguente funzione e cercate di capire cosa fa (vedere gli esempi nel Capitolo </em><a href="thinkpython_italian005.html#turtlechap"><em>4</em></a><em>). Quindi eseguitela per controllare se avevate indovinato.</em></p><pre class="verbatim"><em>def disegna(t, lunghezza, n):
+    if n == 0:
+        return
+    angolo = 50
+    t.fd(lunghezza*n)
+    t.lt(angolo)
+    disegna(t, lunghezza, n-1)
+    t.rt(2*angolo)
+    disegna(t, lunghezza, n-1)
+    t.lt(angolo)
+    t.bk(lunghezza*n)
+</em></pre></div><blockquote class="figure"><div class="center"><hr class="c019"></div>
+<div class="center"><img src="thinkpython_italian006.png"></div>
+<div class="caption"><table class="c001 cellpading0"><tr><td class="c017">Figure 5.2: Una curva di Koch.</td></tr>
+</table></div>
+<a id="fig.koch"></a>
+<div class="center"><hr class="c019"></div></blockquote><p><br>
+
+</p><div class="theorem"><span class="c009">Esercizio 6</span>  
+<a id="hevea_default389"></a><p><em>La curva di Koch è un frattale che somiglia a quello in Figura </em><a href="#fig.koch"><em>5.2</em></a><em>. Per disegnare una curva di Koch di lunghezza </em><span class="c008">x</span><em>, dovete:</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Disegnare una curva di Koch di lunghezza </em><span class="c008">x</span>/3<em>.</em></li><li class="li-enumerate"><em>Girare a sinistra di 60 gradi.</em></li><li class="li-enumerate"><em>Disegnare una curva di Koch di lunghezza </em><span class="c008">x</span>/3<em>.</em></li><li class="li-enumerate"><em>Girare a destra di 120 gradi.</em></li><li class="li-enumerate"><em>Disegnare una curva di Koch di lunghezza </em><span class="c008">x</span>/3<em>.</em></li><li class="li-enumerate"><em>Girare a sinistra di 60 gradi.</em></li><li class="li-enumerate"><em>Disegnare una curva di Koch di lunghezza </em><span class="c008">x</span>/3<em>.</em></li></ol><p><em>Ad eccezione di quando </em><span class="c008">x</span><em> è minore di 3: in questo caso si disegna una linea dritta lunga </em><span class="c008">x</span><em>.</em></p><ol class="enumerate" type=1><li class="li-enumerate"><em>Scrivete una funzione di nome <span class="c003">koch</span> che preveda una tartaruga e una lunghezza come parametri, e che usi la tartaruga per disegnare una curva di Koch della data lunghezza.</em></li><li class="li-enumerate"><em>Scrivete una funzione chiamata <span class="c003">fioccodineve</span> che disegni tre curve di Koch per ottenere il contorno di un fiocco di neve.</em><p><em>Soluzione: </em><a href="http://thinkpython2.com/code/koch.py"><em><span class="c003">http://thinkpython2.com/code/koch.py</span></em></a><em>.</em></p></li><li class="li-enumerate"><em>La curva di Koch può essere generalizzata in alcuni modi. Consultate 
+</em><a href="http://it.wikipedia.org/wiki/Curva_di_Koch"><em><span class="c003">http://it.wikipedia.org/wiki/Curva_di_Koch</span></em></a><em> per degli esempi e implementate quello che preferite.</em></li></ol></div>
+<p>
+<a href="http://amzn.to/Owtmjy">Buy this book at Amazon.com</a>
+
+</td>
+
+<td width=130 valign="top">
+
+<h4>Contribute</h4>
+If you would like to make a contribution to support my books,
+you can use the button below.  Thank you!
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="RAAYAZ7Y48S2A">
+<table>
+<tr><td><input type="hidden" name="on0" value="Pay what you want!">Pay what you want:</td></tr><tr><td><select name="os0">
+	<option value="Small">Small $1.00 USD</option>
+	<option value="Medium">Medium $5.00 USD</option>
+	<option value="Large">Large $10.00 USD</option>
+	<option value="X-Large">X-Large $20.00 USD</option>
+	<option value="XX-Large">XX-Large $50.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<p>
+<h4>Are you using one of our books in a class?</h4>  We'd like to know
+about it.  Please consider filling out <a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA" onClick="javascript: pageTracker._trackPageview('/outbound/survey');">this short survey</a>.
+
+<p>
+<br>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=144933072X&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449307116&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=1449314635&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p>
+<iframe class="c018" src="http://rcm.amazon.com/e/cm?t=greenteapre01-20&o=1&p=8&l=as1&asins=0521725968&ref=qf_sp_asin_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&npa=1&f=ifr" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+</td>
+</tr>
+</table>
+<hr>
+<a href="thinkpython_italian005.html"><img src="back.png" ALT="Previous"></a>
+<a href="index.html"><img src="up.png" ALT="Up"></a>
+<a href="thinkpython_italian007.html"><img src="next.png" ALT="Next"></a>
+</body>
+</html>
