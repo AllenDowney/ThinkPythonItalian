@@ -597,7 +597,7 @@ oscura una funzione predefinita.
 % ENDCONTRIB
 
 Hanno inoltre segnalato errori di stampa o indicato correzioni:
-Czeslaw Czapla, Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz, Viet Le, Victor Simeone, Lars O.D. Christensen, Swarup Sahoo, Alix Etienne, Kuang He, Wei Huang, Karen Barber, e Eric Ransom.
+Czeslaw Czapla, Dale Wilson, Francesco Carlo Cimini, Richard Fursa, Brian McGhie, Lokesh Kumar Makani, Matthew Shultz, Viet Le, Victor Simeone, Lars O.D. Christensen, Swarup Sahoo, Alix Etienne, Kuang He, Wei Huang, Karen Barber, e Eric Ransom.
 
 \end{itemize}
 
@@ -2319,7 +2319,7 @@ lunghezza}.
 \index{poligono, funzione}
 \index{funzione!poligono}
 
-\item Scrivete una funzione di nome {\tt cerchio} che prenda come parametri una tartaruga, {\tt t}, e un raggio, {\tt r}, e che disegni un cerchio approssimato chiamando {\tt poligono} con una appropriata lunghezza e numero di lati. Provate la funzione con diversi valori di {\tt r}.
+\item Scrivete una funzione di nome {\tt cerchio} che prenda come parametri una tartaruga, {\tt t}, e un raggio, {\tt r}, e che disegni un cerchio approssimato chiamando {\tt poligono} con un'appropriata lunghezza e numero di lati. Provate la funzione con diversi valori di {\tt r}.
 \index{cerchio, funzione}
 \index{funzione!cerchio}
 
@@ -3720,7 +3720,7 @@ Per darvi un'idea di ciò che potete fare con gli strumenti imparati finora, ana
 \end{description}
 
 Sarebbe fastidioso trovare una definizione simile in un vocabolario.
-D'altra parte, se andate a vedere la definizione della funzione fattoriale, che è indicata dal simbolo, $!$), trovate qualcosa del genere:
+D'altra parte, se andate a vedere la definizione della funzione fattoriale, che è indicata dal simbolo $!$, trovate qualcosa del genere:
 
 %
 \begin{eqnarray*}
@@ -5958,7 +5958,7 @@ def somma_tutti(t):
 Man mano che il ciclo lavora, {\tt totale} accumula la somma degli elementi; una variabile usata in questo modo è detta anche {\bf accumulatore}.
 \index{accumulatore!somma}
 
-Sommare gli elementi di una lista è un'operazione talmente comune che Python contiene una apposita funzione predefinita, {\tt sum}:
+Sommare gli elementi di una lista è un'operazione talmente comune che Python contiene un'apposita funzione predefinita, {\tt sum}:
 
 \begin{verbatim}
 >>> t = [1, 2, 3]
@@ -7548,7 +7548,7 @@ Il valore di ritorno del metodo {\tt split} è una lista con due elementi; il pr
 \index{valore di ritorno!tupla}
 \index{funzione!tupla come valore di ritorno}
 
-In senso stretto, una funzione può restituire un solo valore di ritorno, ma se il valore è una tupla, l'effetto pratico è quello di restituire valori molteplici. Per esempio, se volete dividere due interi e calcolare quoziente e resto, è poco efficiente calcolare {\tt x/y} e poi {\tt x\%y}.  Meglio calcolarli entrambi in una volta sola.
+In senso stretto, una funzione può restituire un solo valore di ritorno, ma se il valore è una tupla, l'effetto pratico è quello di restituire valori molteplici. Per esempio, se volete dividere due interi e calcolare quoziente e resto, è poco efficiente calcolare {\tt x//y} e poi {\tt x\%y}.  Meglio calcolarli entrambi in una volta sola.
 \index{divmod}
 
 La funzione predefinita {\tt divmod} riceve due argomenti e restituisce una tupla di due valori, il quoziente e il resto. E potete memorizzare il risultato con una tupla:
@@ -10022,14 +10022,14 @@ Per esercizio, scrivete una versione ``pura'' di {\tt incremento} che crei e res
 
 La tecnica di sviluppo del programma che sto illustrando in questo Capitolo è detta ``prototipo ed evoluzioni'': per ogni funzione, si inizia scrivendo una versione grezza (prototipo) che effettui solo i calcoli fondamentali, provandola e via via migliorandola e correggendo gli errori.
 
-Sebbene questo approccio possa essere abbastanza efficace, specie se non avete una adeguata conoscenza del problema, può condurre a scrivere del codice inutilmente complesso (perché deve affrontare molti casi particolari) e poco affidabile (dato che è difficile essere certi che tutti gli errori siano stati rimossi).
+Sebbene questo approccio possa essere abbastanza efficace, specie se non avete un'adeguata conoscenza del problema, può condurre a scrivere del codice inutilmente complesso (perché deve affrontare molti casi particolari) e poco affidabile (dato che è difficile essere certi che tutti gli errori siano stati rimossi).
 
 Un'alternativa è lo {\bf sviluppo pianificato}, nel quale una conoscenza approfondita degli aspetti del problema da affrontare rende la programmazione molto più semplice. Nel nostro caso, questa conoscenza sta nel fatto che l'oggetto Tempo è rappresentabile da un numero a tre cifre in base numerica 60! (vedere \url{http://it.wikipedia.org/wiki/Sistema_sessagesimale}.)  L'attributo
 {\tt secondo} è la ``colonna delle unità'', l'attributo {\tt minuto}
 è la ``colonna delle sessantine'', e l'attributo {\tt ora} quella della ``trecentosessantine''.
 \index{sessagesimale}
 
-Quando abbiamo scritto \verb"somma_tempo" e {\tt incremento}, stavamo a tutti gli effetti calcolando una addizione in base 60, e questo è il motivo per cui dovevamo gestire i riporti tra secondi e minuti e tra minuti e ore.
+Quando abbiamo scritto \verb"somma_tempo" e {\tt incremento}, stavamo a tutti gli effetti calcolando un'addizione in base 60, e questo è il motivo per cui dovevamo gestire i riporti tra secondi e minuti e tra minuti e ore.
 \index{addizione!con riporto}
 
 Questa osservazione ci suggerisce un altro tipo di approccio al problema: possiamo convertire l'oggetto Tempo in un numero intero e approfittare della capacità del computer di effettuare operazioni sui numeri interi.
@@ -10566,7 +10566,7 @@ che controlla il tipo di {\tt other} e, a seconda dei casi, invoca o
         return int_in_tempo(secondi)
 \end{verbatim}
 %
-La funzione predefinita {\tt isinstance} prende un valore e un oggetto classe, e restiutisce {\tt True} se il valore è un'istanza della classe.
+La funzione predefinita {\tt isinstance} prende un valore e un oggetto classe, e restituisce {\tt True} se il valore è un'istanza della classe.
 \index{isinstance, funzione}
 \index{funzione!isinstance}
 
@@ -11296,7 +11296,7 @@ Ecco un esempio:
 <class 'Carta.Mazzo'>
 \end{verbatim}
 %
-Quindi il metodo {\tt mescola} di questa Mano è quello definito in{\tt Mazzo}.
+Quindi il metodo {\tt mescola} di questa Mano è quello definito in {\tt Mazzo}.
 \index{mro, metodo}
 \index{metodo!mro}
 \index{ordine di risoluzione dei metodi}

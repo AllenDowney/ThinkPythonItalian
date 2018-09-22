@@ -1,5 +1,5 @@
 # ThinkPythonItalian
-Sorgenti LaTeX della traduzione italiana di Think Python.
+Sorgenti LaTeX di Pensare in Python, traduzione italiana di Think Python.
 
 [Download della versione PDF della traduzione.](https://github.com/AllenDowney/ThinkPythonItalian/blob/master/thinkpython_italian.pdf)
 
