@@ -5,7 +5,7 @@ Sorgenti LaTeX di Pensare in Python, traduzione italiana di Think Python.
 
 Traduzione di Andrea Zanella.
 
-La versione originale in inglese di Allen B. Downey si trova sul sito [thinkpython2.com](http://thinkpython2.com)
+La versione originale in inglese di Allen B. Downey si trova sul sito [Green Tea Press](https://greenteapress.com/wp/think-python-2e/)
 
 
 
